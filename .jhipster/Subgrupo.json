@@ -1,0 +1,38 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "nm_sub_grupo",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "vl_custo",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "vl_valor",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "dt_operacao",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "fl_envio",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "nn_novo",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20151119180555",
+    "dto": "no",
+    "pagination": "pagination"
+}

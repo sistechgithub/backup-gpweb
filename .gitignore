@@ -32,6 +32,7 @@ local.properties
 .settings/**
 .loadpath
 /src/main/resources/rebel.xml
+.factorypath
 
 # External tool builders
 .externalToolBuilders/**
@@ -126,3 +127,4 @@ Desktop.ini
 # Maven Wrapper
 ######################
 !.mvn/wrapper/maven-wrapper.jar
+/.apt_generated/

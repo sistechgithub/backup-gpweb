@@ -1,19 +1,19 @@
 <div>
-    <h2>Grupos</h2>
+    <h2>Subgrupos</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button class="btn btn-primary" ui-sref="grupo.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Criar um novo Grupo</span>
+                <button class="btn btn-primary" ui-sref="subgrupo.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Inserir</span>
                 </button>
             </div>
             <div class="col-md-8">
                 <form name="searchForm" class="form-inline">
                     <div class="form-group">
-                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="query">
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="buscar">
                     </div>
-                    <button class="btn btn-info" ng-click="search()"><span class="glyphicon glyphicon-search"></span> <span>Procurar um Grupo</span>
+                    <button class="btn btn-info" ng-click="search()"><span class="glyphicon glyphicon-search"></span> <span>Localizar</span>
                     </button>
                 </form>
             </div>
@@ -26,42 +26,36 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th>Comissão(%)</th>
-                    <th>Sem desconto</th>
-                    <th>Em promoção</th>
-                    <th>Data promoção</th>
-                    <th>Data operação</th>
-                    <th>Sem contagem</th>
-                    <th>Envio</th>
-                    <th>Novo</th>
+                    <th>Custo(%)</th>
+<!--                     <th>Vl_valor</th> -->
+<!--                     <th>Dt_operacao</th> -->
+<!--                     <th>Fl_envio</th> -->
+<!--                     <th>Nn_novo</th> -->
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="grupo in grupos track by grupo.id">
-                    <td><a ui-sref="grupo.detail({id:grupo.id})">{{grupo.id}}</a></td>
-                    <td>{{grupo.nm_grupo}}</td>
-                    <td>{{grupo.vl_comissao}}</td>
-                    <td>{{grupo.fl_desconto}}</td>
-                    <td>{{grupo.fl_promo}}</td>
-                        <td>{{grupo.dt_promo | date:'mediumDate'}}</td>
-                        <td>{{grupo.dt_operacao | date:'mediumDate'}}</td>
-                    <td>{{grupo.fl_semcontagem}}</td>
-                    <td>{{grupo.fl_envio}}</td>
-                    <td>{{grupo.nn_novo}}</td>
+                <tr ng-repeat="subgrupo in subgrupos track by subgrupo.id">
+                    <td><a ui-sref="subgrupo.detail({id:subgrupo.id})">{{subgrupo.id}}</a></td>
+                    <td>{{subgrupo.nm_sub_grupo}}</td>
+                    <td>{{subgrupo.vl_custo}}</td>
+<!--                     <td>{{subgrupo.vl_valor}}</td> -->
+<!--                         <td>{{subgrupo.dt_operacao | date:'mediumDate'}}</td> -->
+<!--                     <td>{{subgrupo.fl_envio}}</td> -->
+<!--                     <td>{{subgrupo.nn_novo}}</td> -->
                     <td>
                         <button type="submit"
-                                ui-sref="grupo.detail({id:grupo.id})"
+                                ui-sref="subgrupo.detail({id:subgrupo.id})"
                                 class="btn btn-info btn-sm">
                             <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> Ver</span>
                         </button>
                         <button type="submit"
-                                ui-sref="grupo.edit({id:grupo.id})"
+                                ui-sref="subgrupo.edit({id:subgrupo.id})"
                                 class="btn btn-primary btn-sm">
                             <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Editar</span>
                         </button>
                         <button type="submit"
-                                ui-sref="grupo.delete({id:grupo.id})"
+                                ui-sref="subgrupo.delete({id:subgrupo.id})"
                                 class="btn btn-danger btn-sm">
                             <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Deletar</span>
                         </button>
