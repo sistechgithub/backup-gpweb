@@ -1,0 +1,62 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="mySubgrupoLabel">Criar ou editar a Grupo</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="subgrupo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label for="field_nm_sub_grupo">Nome</label>
+            <input type="text" class="form-control" name="nm_sub_grupo" id="field_nm_sub_grupo"
+                    ng-model="subgrupo.nm_sub_grupo"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_vl_custo">Custo(%)</label>
+            <input type="number" class="form-control" name="vl_custo" id="field_vl_custo"
+                    ng-model="subgrupo.vl_custo"
+                     />
+        </div>
+<!--         <div class="form-group"> -->
+<!--             <label for="field_vl_valor">Vl_valor</label> -->
+<!--             <input type="number" class="form-control" name="vl_valor" id="field_vl_valor" -->
+<!--                     ng-model="subgrupo.vl_valor" -->
+<!--                      /> -->
+<!--         </div> -->
+<!--         <div class="form-group"> -->
+<!--             <label for="field_dt_operacao">Dt_operacao</label> -->
+<!--             <input type="date" class="form-control" name="dt_operacao" id="field_dt_operacao" -->
+<!--                     ng-model="subgrupo.dt_operacao" -->
+<!--                      /> -->
+<!--         </div> -->
+<!--         <div class="form-group"> -->
+<!--             <label for="field_fl_envio">Fl_envio</label> -->
+<!--             <input type="checkbox" class="form-control" name="fl_envio" id="field_fl_envio" -->
+<!--                     ng-model="subgrupo.fl_envio" -->
+<!--                      /> -->
+<!--         </div> -->
+<!--         <div class="form-group"> -->
+<!--             <label for="field_nn_novo">Nn_novo</label> -->
+<!--             <input type="number" class="form-control" name="nn_novo" id="field_nn_novo" -->
+<!--                     ng-model="subgrupo.nn_novo" -->
+<!--                      /> -->
+<!--         </div> -->
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salvar</span>
+        </button>
+    </div>
+</form>
