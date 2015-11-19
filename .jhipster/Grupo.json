@@ -1,0 +1,53 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "nm_grupo",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "vl_comissao",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "fl_desconto",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "fl_promo",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "dt_promo",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "dt_operacao",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "fl_semcontagem",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "fl_envio",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "nn_novo",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20151119134012",
+    "dto": "no",
+    "pagination": "pagination"
+}

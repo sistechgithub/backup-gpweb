@@ -1,0 +1,22 @@
+{
+  "generator-jhipster": {
+    "baseName": "gp",
+    "packageName": "com.sth.gp",
+    "packageFolder": "com/sth/gp",
+    "authenticationType": "session",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "elasticsearch",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": false,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "8c4d3192097c2d9d7896292cf4fb6d0dfc7e5637",
+    "testFrameworks": []
+  }
+}

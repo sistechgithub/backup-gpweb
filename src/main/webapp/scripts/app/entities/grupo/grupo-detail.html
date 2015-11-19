@@ -1,0 +1,94 @@
+
+<div>
+    <h2><span>Grupo</span> {{grupo.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Nm_grupo</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{grupo.nm_grupo}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Vl_comissao</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{grupo.vl_comissao}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Fl_desconto</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{grupo.fl_desconto}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Fl_promo</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{grupo.fl_promo}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Dt_promo</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{grupo.dt_promo | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Dt_operacao</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{grupo.dt_operacao | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Fl_semcontagem</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{grupo.fl_semcontagem}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Fl_envio</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{grupo.fl_envio}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Nn_novo</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{grupo.nn_novo}}</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>
