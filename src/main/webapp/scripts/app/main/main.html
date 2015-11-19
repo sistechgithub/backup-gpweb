@@ -1,41 +1,74 @@
-<div ng-cloak>
-    <div class="row">
-        <div class="col-md-4">
-            <span class="hipster img-responsive img-rounded"></span>
-        </div>
-        <div class="col-md-8">
-            <h1>Welcome, Java Hipster!</h1>
-            <p class="lead">This is your homepage</p>
 
-            <div ng-switch="isAuthenticated()">
-                <div class="alert alert-success" ng-switch-when="true">
-                    You are logged in as user "{{account.login}}".
-                </div>
-
-                <div class="alert alert-warning" ng-switch-when="false">
-                    If you want to <a class="alert-link" href="#/login">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
-                </div>
-
-                <div class="alert alert-warning" ng-switch-when="false">
-                    You don't have an account yet? <a class="alert-link" href="#/register">Register a new account</a>
-                </div>
-            </div>
-
-            <p>
-                If you have any question on JHipster:
-            </p>
-
-            <ul>
-                <li><a href="http://jhipster.github.io/" target="_blank">JHipster homepage</a></li>
-                <li><a href="http://stackoverflow.com/tags/jhipster/info" target="_blank">JHipster on Stack Overflow</a></li>
-                <li><a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank">JHipster bug tracker</a></li>
-                <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank">JHipster public chat room</a></li>
-                <li><a href="https://twitter.com/java_hipster" target="_blank" >contact @java_hipster on Twitter</a></li>
-            </ul>
-
-            <p>
-             <span>If you like JHipster, don't forget to give us a star on </span>&nbsp;<a href="https://github.com/jhipster/generator-jhipster" target="_blank">Github</a>!
-            </p>
-        </div>
+<section class="row wrapper-page white-bg page-heading mgtop">
+    <div class="col-lg-10">
+        <h3 class="mtb">Inicio</h3>
+        <ol class="breadcrumb">
+                         
+        </ol>
     </div>
-</div>
+    <div class="col-lg-2">
+    </div>
+</section>
+
+<!-- Main content -->
+<section ng-cloak class="content">  
+<div class="row">
+	<ul class="ca-menu">		
+        <li class="mg-right col-xs-12 col-sm-12 col-md-4 col-lg-4 bgm-red">
+            <a href="#produtos">
+                <span class="ca-icon txt-red"><i class="mdi mdi-cart"></i></span>
+                <div class="ca-content">
+                    <h2 class="ca-main txt-red">Vendas</h2>
+                    <h3 class="ca-sub">Realiza venda com possibilidade de emitir nota fiscal.</h3>
+                </div>
+            </a>
+        </li>
+        <li class="col-xs-12 col-sm-12 col-md-4 col-lg-4 bgm-blue">
+            <a href="#produtos">
+                <span class="ca-icon txt-blue"><i class="mdi mdi-file-document"></i></span>
+                <div class="ca-content">
+                    <h2 class="ca-main txt-blue">Orçamentos</h2>
+                    <h3 class="ca-sub">Realiza uma pré-venda para o seu cliente.</h3>
+                </div>
+            </a>
+        </li>
+        <li class="mg-left col-xs-12 col-sm-12 col-md-4 col-lg-4 bgm-amber">
+            <a href="#produtos">
+                <span class="ca-icon txt-amber"><i class="mdi mdi-package-down"></i></span>
+                <div class="ca-content">
+                    <h2 class="ca-main txt-amber">Compras</h2>
+                    <h3 class="ca-sub ">Adicione itens ao estoque.</h3>
+                </div>
+            </a>
+        </li>
+        <li class="mg-right col-xs-12 col-sm-12 col-md-4 col-lg-4 bgm-teal">
+            <a href="#produtos">
+                <span class="ca-icon txt-teal"><i class="mdi mdi-file-xml"></i></span>
+                <div class="ca-content">
+                    <h2 class="ca-main txt-teal">NFe</h2>
+                    <h3 class="ca-sub ">Emita nota fiscal a partir de uma venda ou devolução gerada.</h3>
+                </div>
+            </a>
+        </li>
+        <li class="col-xs-12 col-sm-12 col-md-4 col-lg-4 bgm-green">
+            <a href="#produtos">
+                <span class="ca-icon txt-green"><i class="mdi mdi-worker"></i></span>
+                <div class="ca-content">
+                    <h2 class="ca-main txt-green">Serviços</h2>
+                    <h3 class="ca-sub ">Controle os serviços gerados na sua empresa.</h3>
+                </div>
+            </a>
+        </li>  
+        <li class="mg-left col-xs-12 col-sm-12 col-md-4 col-lg-4 bgm-pink">
+            <a href="#produtos">
+                <span class="ca-icon txt-pink"><i class="mdi mdi-cash-usd"></i></span>
+                <div class="ca-content">
+                    <h2 class="ca-main txt-pink">Financeiro</h2>
+                    <h3 class="ca-sub ">Contas a pagar e a receber</h3>
+                </div>
+            </a>
+        </li>        
+    </ul> 
+  
+</div>  
+</section><!-- /.content -->

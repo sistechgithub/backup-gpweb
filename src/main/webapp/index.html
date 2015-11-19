@@ -11,25 +11,42 @@
         <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <!-- Icones Awesome -->
+	    <link rel="stylesheet" href="assets/libs/fonts/font-awesome-4.4.0/css/font-awesome.min.css"> 
+	    <!-- Icones Material Design -->
+	    <link rel="stylesheet" href="assets/libs/fonts/mdi-1.3.41/css/materialdesignicons.min.css">    
+	    <!-- Fonte -->
+	    <link rel="stylesheet" href="assets/libs/fonts/open-sans/open-sans.css">
+	    <!-- Tema Principal-->
+	    <link rel="stylesheet" href="assets/css/AdminLTE.css">    
+	    <!-- Ajustes no Tema Principal -->
+	    <link rel="stylesheet" href="assets/css/AdminLTE-STH.css">
+	    <link rel="stylesheet" href="assets/css/skins/sth-skin-blue-light.css">
+	    <!-- Paginas -->
+	    <link rel="stylesheet" href="assets/css/estilo-paginas.css">
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css assets/styles/main.css -->
-        <link rel="stylesheet" href="assets/styles/main.css">
+        <link rel="stylesheet" href="assets/css/main.css">
         <!-- endbuild -->
+      
+
+
     </head>
-    <body ng-app="gpApp">
+    <body ng-app="gpApp" class="hold-transition sth-skin-blue-light sidebar-mini sidebar-collapse fixed">
         <!--[if lt IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
-        <div ui-view="navbar" ng-cloak=""></div>
-        <div class="container">
-            <div class="well" ui-view="content"></div>
-
-            <div class="footer">
-                <p translate="footer">This is your footer</p>
-            </div>
-        </div>
+        <div class="wrapper">
+	        <div ng-show="{{ENV === 'dev'}}" ng-cloak=""></div>
+	        <div ui-view="navbar" ng-cloak=""></div>
+	        <div class="content-wrapper">		        
+		        <div class="content" ui-view="content"></div>
+		    </div>
+		    	<div class="main-footer footer">
+	                <p translate="footer">Sistech | Sistemas Empresariais</p>
+	            </div>
+	    </div>
 
         <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
         <script>
