@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "sub_grupo")
-@Document(indexName = "subgrupo")
+@Document(indexName = "sub_grupo")
 public class Subgrupo implements Serializable {
 
     @Id
