@@ -1,15 +1,15 @@
 <div>
     <h2>Logs</h2>
 
-    <p>There are {{ loggers.length }} loggers.</p>
+    <p>Existem {{ loggers.length }} logs.</p>
 
-    <span>Filter</span> <input type="text" ng-model="filter" class="form-control">
+    <span>Filtrar</span> <input type="text" ng-model="filter" class="form-control">
 
     <table class="table table-condensed table-striped table-bordered table-responsive">
         <thead>
         <tr title="click to order">
-            <th ng-click="predicate = 'name'; reverse=!reverse"><span>Name</span></th>
-            <th ng-click="predicate = 'level'; reverse=!reverse"><span>Level</span></th>
+            <th ng-click="predicate = 'name'; reverse=!reverse"><span>Nome</span></th>
+            <th ng-click="predicate = 'level'; reverse=!reverse"><span>Nível</span></th>
         </tr>
         </thead>
 

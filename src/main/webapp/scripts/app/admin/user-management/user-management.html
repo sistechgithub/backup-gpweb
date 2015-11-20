@@ -12,10 +12,10 @@
                 <th>Email</th>
                 <th></th>
                 
-                <th>Profiles</th>
-                <th>CreatedDate</th>
-                <th>LastModifiedBy</th>
-                <th>LastModifiedDate</th>
+                <th>Perfis</th>
+                <th>Criado Por</th>
+                <th>Última modificação por</th>
+                <th>Última modificação</th>
                 <th></th>
             </tr>
             </thead>
@@ -26,9 +26,9 @@
                 <td>{{user.email}}</td>
                 <td>
                     <span class="label label-danger" ng-click="setActive(user, true)" ng-show="!user.activated"
-                          style="cursor: pointer;">Desactivated</span>
+                          style="cursor: pointer;">Desativado</span>
                     <span class="label label-success" ng-click="setActive(user, false)" ng-show="user.activated"
-                          style="cursor: pointer;">Activated</span>
+                          style="cursor: pointer;">Ativado</span>
                 </td>
                 
                 <td>

@@ -1,122 +1,122 @@
 <div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <h1>Registration</h1>
+            <h1>Criar conta</h1>
 
             <div class="alert alert-success" ng-show="success">
-                <strong>Registration saved!</strong> Please check your email for confirmation.
+                <strong>Cadastro realizado com sucesso!</strong> Por favor cheuqe seu e-mail para confirmação da criação de sua conta.
             </div>
 
             <div class="alert alert-danger" ng-show="error">
-                <strong>Registration failed!</strong> Please try again later.
+                <strong>Falaha ao criar conta!</strong> Por favor tente novamente mais tarde.
             </div>
 
             <div class="alert alert-danger" ng-show="errorUserExists">
-                <strong>Login name already registered!</strong> Please choose another one.
+                <strong>Nome de usuário já existe!</strong> Por favor escolha outro.
             </div>
 
             <div class="alert alert-danger" ng-show="errorEmailExists">
-                <strong>E-mail is already in use!</strong> Please choose another one.
+                <strong>O e-mail informado já está cadastrado!</strong> Por favor escolha outro.
             </div>
 
             <div class="alert alert-danger" ng-show="doNotMatch">
-                The password and its confirmation do not match!
+                A senha e a confirma de senha não conferem!
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
             <form ng-show="!success" name="form" role="form" novalidate ng-submit="register()" show-validation>
 
                 <div class="form-group">
-                    <label for="login">Username</label>
-                    <input type="text" class="form-control" id="login" name="login" placeholder="Your username"
+                    <label for="login">Usuário</label>
+                    <input type="text" class="form-control" id="login" name="login" placeholder="Usuário"
                            ng-model="registerAccount.login" ng-minlength=1 ng-maxlength=50 ng-pattern="/^[a-z0-9]*$/" required>
                     <div ng-show="form.login.$dirty && form.login.$invalid">
                         <p class="help-block"
                                ng-show="form.login.$error.required">
-                            Your username is required.
+                            Digite um usuário válido.
                         </p>
                         <p class="help-block"
                                ng-show="form.login.$error.minlength">
-                            Your username is required to be at least 1 character.
+                            O usuário deve ter no mínimo um caractere.
                         </p>
                         <p class="help-block"
                                ng-show="form.login.$error.maxlength">
-                            Your username cannot be longer than 50 characters.
+                            O usuário deve ter no máximo 50 caracteres.
                         </p>
                         <p class="help-block"
                                ng-show="form.login.$error.pattern">
-                            Your username can only contain lower-case letters and digits.
+                            Seu usuário deve conter apenas letras minúsculas e números.
                     </p>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Your e-mail"
+                    <input type="email" class="form-control" id="email" name="email" placeholder="E-mail"
                            ng-model="registerAccount.email" ng-minlength=5 ng-maxlength=100 required>
                     <div ng-show="form.email.$dirty && form.email.$invalid">
                         <p class="help-block"
                                ng-show="form.email.$error.required">
-                            Your e-mail is required.
+                            Digite um e-mail válido.
                         </p>
                         <p class="help-block"
                                ng-show="form.email.$error.email">
-                            Your e-mail is invalid.
+                            E-mail válido.
                         </p>
                         <p class="help-block"
                                ng-show="form.email.$error.minlength">
-                            Your e-mail is required to be at least 5 characters.
+                            O e-mail deve conter no mínimo 5 caracteres.
                         </p>
                         <p class="help-block"
                                ng-show="form.email.$error.maxlength">
-                            Your e-mail cannot be longer than 100 characters.
+                            O e-mail deve conter no máximo 100 caracteres.
                         </p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password">New password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="New password"
+                    <label for="password">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Senha"
                            ng-model="registerAccount.password" ng-minlength=5 ng-maxlength=50 required>
                     <div ng-show="form.password.$dirty && form.password.$invalid">
                         <p class="help-block"
                                ng-show="form.password.$error.required">
-                            Your password is required.
+                            Digite sua senha.
                         </p>
                         <p class="help-block"
                                ng-show="form.password.$error.minlength">
-                            Your password is required to be at least 5 characters.
+                            A senha deve conter no mínimo 5 caracteres.
                         </p>
                         <p class="help-block"
                                ng-show="form.password.$error.maxlength">
-                            Your password cannot be longer than 50 characters.
+                            A senha deve conter no máximo 50 caracteres.
                         </p>
                     </div>
                     <password-strength-bar password-to-check="registerAccount.password"></password-strength-bar>
                 </div>
                 <div class="form-group">
-                    <label for="confirmPassword">New password confirmation</label>
-                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm the new password"
+                    <label for="confirmPassword">Confirmação de senha</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirme a senha"
                            ng-model="confirmPassword" ng-minlength=5 ng-maxlength=50 required>
                     <div ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid">
                         <p class="help-block"
                                ng-show="form.confirmPassword.$error.required">
-                            Your confirmation password is required.
+                            Digite a confirmação da senha.
                         </p>
                         <p class="help-block"
                                ng-show="form.confirmPassword.$error.minlength">
-                            Your confirmation password is required to be at least 5 characters.
+                            A confirmação de senha precisa ter no mínimo 5 caracteres.
                         </p>
                         <p class="help-block"
                                ng-show="form.confirmPassword.$error.maxlength">
-                            Your confirmation password cannot be longer than 50 characters.
+                            A confirmação de senha deve ter no máximo 50 caracteres.
                         </p>
                     </div>
                 </div>
 
-                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Register</button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Registrar</button>
             </form>
             <p></p>
             <div class="alert alert-warning">
-                If you want to <a class="alert-link" href="#/login">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
+                Se você quiser fazer o <a class="alert-link" href="#/login">login</a>, você pode tentar usar as contas:<br/>- Administrador (usuário="admin" e senha="admin") <br/>- usuário (usuário="user" e senha="user").
             </div>
         </div>
     </div>
