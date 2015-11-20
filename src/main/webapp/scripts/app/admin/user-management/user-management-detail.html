@@ -1,12 +1,12 @@
 <div>
-    <h2><span>User</span> "{{user.login}}"</h2>
+    <h2><span>Usuário</span> "{{user.login}}"</h2>
 
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Field</th>
-                    <th>Value</th>
+                    <th>Campo</th>
+                    <th>Valor</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>FirstName</span>
+                    <span>Nome</span>
                 </td>
                 <td>
                     <input type="text" class="input-sm form-control" value="{{user.firstName}}" readonly>
@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>LastName</span>
+                    <span>Sobrenome</span>
                 </td>
                 <td>
                     <input type="text" class="input-sm form-control" value="{{user.lastName}}" readonly>
@@ -44,7 +44,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Activated</span>
+                    <span>Ativado</span>
                 </td>
                 <td>
                     <input type="text" class="input-sm form-control" value="{{user.activated}}" readonly>
@@ -53,7 +53,7 @@
             
             <tr>
                 <td>
-                    <span>CreatedBy</span>
+                    <span>Criado por</span>
                 </td>
                 <td>
                     <input type="text" class="input-sm form-control" value="{{user.createdBy}}" readonly>
@@ -61,7 +61,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>CreatedDate</span>
+                    <span>Criado</span>
                 </td>
                 <td>
                     <input type="text" class="input-sm form-control"
@@ -70,7 +70,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>LastModifiedBy</span>
+                    <span>Última modificação por</span>
                 </td>
                 <td>
                     <input type="text" class="input-sm form-control" value="{{user.lastModifiedBy}}" readonly>
@@ -78,7 +78,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>LastCreatedDate</span>
+                    <span>Última modificação</span>
                 </td>
                 <td>
                     <input type="text" class="input-sm form-control"
@@ -87,7 +87,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Profiles</span>
+                    <span>Perfis</span>
                 </td>
                 <td>
                     <ul class="list-unstyled">
@@ -102,6 +102,6 @@
     <button type="submit"
             ui-sref="user-management"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Voltar</span>
     </button>
 </div>
