@@ -2,7 +2,7 @@
 <nav class="navbar navbar-static-top" role="navigation"> 
     <!-- Sidebar toggle button-->
     <a class="sidebar-toggle btn-group" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Mudar Navegação</span>
+        <span class="sr-only">Toggle navigation</span>
     </a>    
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
@@ -23,15 +23,15 @@
                     <span>
                         <span class="glyphicon glyphicon-th-list"></span>
                         <span class="hidden-sm">
-                            Entidades
+                            Entities
                         </span>
                         <b class="caret"></b>
                     </span>
                 </a>
                <ul class="dropdown-menu">
-                        <li ui-sref-active="active" ><a ui-sref="grupo" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        <li ui-sref-active="active" ><a ui-sref="grupo" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-archive fa-fw"></i>
                         &#xA0;<span >Grupo</span></a></li>
-                        <li ui-sref-active="active" ><a ui-sref="subgrupo" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        <li ui-sref-active="active" ><a ui-sref="subgrupo" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-archive fa-fw"></i>
                         &#xA0;<span >Subgrupo</span></a></li>
                         <!-- JHipster will add entities to the menu here -->
                 </ul>
@@ -41,45 +41,45 @@
                     <span>
                         <span class="glyphicon glyphicon-user"></span>
                         <span class="hidden-sm">
-                            Conta
+                            Account
                         </span>
                         <b class="caret"></b>
                     </span>
                 </a>
                 <ul class="dropdown-menu">
                     <li ui-sref-active="active" ng-switch-when="true"><a ui-sref="settings" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-wrench"></span>
-                        &#xA0;<span>Configurações</span></a></li>
+                        &#xA0;<span>Settings</span></a></li>
                     <li ui-sref-active="active" ng-switch-when="true"><a ui-sref="password" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-lock"></span>
-                        &#xA0;<span>Senha</span></a></li>
+                        &#xA0;<span>Password</span></a></li>
                     <li ui-sref-active="active" ng-switch-when="true"><a ui-sref="sessions" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-cloud"></span>
-                        &#xA0;<span>Sessões</span></a></li>
+                        &#xA0;<span>Sessions</span></a></li>
                     <li ui-sref-active="active" ng-switch-when="true"><a href="" ng-click="logout()" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-log-out"></span>
-                        &#xA0;<span>Sairt</span></a></li>
+                        &#xA0;<span>Sign out</span></a></li>
                     <li ui-sref-active="active" ng-switch-when="false"><a ui-sref="login" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-log-in"></span>
-                        &#xA0;<span>Entrar</span></a></li>
+                        &#xA0;<span>Sign in</span></a></li>
                     <li ui-sref-active="active" ng-switch-when="false"><a ui-sref="register" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-plus-sign"></span>
-                        &#xA0;<span>Criar Conta</span></a></li>
+                        &#xA0;<span>Register</span></a></li>
                 </ul>
             </li>
             <li ng-class="{active: $state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN" class="dropdown pointer">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="">
                     <span>
                         <span class="glyphicon glyphicon-tower"></span>
-                        <span class="hidden-sm">Administração</span>
+                        <span class="hidden-sm">Administration</span>
                         <b class="caret"></b>
                     </span>
                 </a>
                 <ul class="dropdown-menu">
                     <li ui-sref-active="active"><a ui-sref="user-management" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-user"></span>
-                        &#xA0;<span>Manutenção de Usuário</span></a></li>
+                        &#xA0;<span>User management</span></a></li>
                     <li ui-sref-active="active"><a ui-sref="metrics" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-dashboard"></span>
-                        &#xA0;<span>Metricas</span></a></li>
+                        &#xA0;<span>Metrics</span></a></li>
                     <li ui-sref-active="active"><a ui-sref="health" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-heart"></span>
-                        &#xA0;<span>Monitoração</span></a></li>
+                        &#xA0;<span>Health</span></a></li>
                     <li ui-sref-active="active"><a ui-sref="configuration" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-list-alt"></span>
-                        &#xA0;<span>Configurações</span></a></li>
+                        &#xA0;<span>Configuration</span></a></li>
                     <li ui-sref-active="active"><a ui-sref="audits" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-bell"></span>
-                        &#xA0;<span>Auditoria</span></a></li>
+                        &#xA0;<span>Audits</span></a></li>
                     <li ui-sref-active="active"><a ui-sref="logs" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-tasks"></span>
                         &#xA0;<span>Logs</span></a></li>
                     <li ng-hide="inProduction" ui-sref-active="active"><a ui-sref="docs" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-book"></span>
@@ -134,35 +134,15 @@
             <li class="treeview">
               <a href=""><i class="mdi mdi-file-document" style="font-size:18px;"></i><span> Cadastros </span><i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="#produtos"><i class="fa fa-archive fa-fw"></i> Produtos</a></li>
-                <li><a href="#produtos"><i class="fa fa-archive fa-fw"></i> Grupo</a></li>
-                <li><a href="#produtos"><i class="fa fa-archive fa-fw"></i> Subgrupo</a></li>
-                <li><a href="#produtos"><i class="fa fa-archive fa-fw"></i> Marca</a></li>
-                <li><a href="#produtos"><i class="fa fa-archive fa-fw"></i> Grade</a></li>                
+              	<li ui-sref-active="active" ><a ui-sref="grupo"><i class="mdi mdi-file-document" style="font-size:18px;"></i>
+                <span >Grupo</span></a></li>
+                <li ui-sref-active="active" ><a ui-sref="subgrupo"><i class="mdi mdi-file-document" style="font-size:18px;"></i>
+                <span >Subgrupo</span></a></li>
               </ul>              
-            </li>
+            </li>           
 
-            <li class="treeview">
-              <a href=""><i class="fa fa-file-word-o fa-fw"></i><span> Relatórios</span> <i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href=""><i class="fa fa-archive fa-fw"></i> Notas<i class="fa fa-angle--left pull-right"></i></a>
-                  <!--
-                  <ul class="treeview-menu">
-                    <li><a href="#produtos"><span class="treeview-menu-ml30"><i class="fa fa-archive fa-fw"></i> Produtos</span></a></li>
-                    <li><a href="#produtos"><span class="treeview-menu-ml30"><i class="fa fa-archive fa-fw"></i> Grupo</span></a></li>
-                    <li><a href="#produtos"><span class="treeview-menu-ml30"><i class="fa fa-archive fa-fw"></i> Subgrupo</span></a></li>
-                    <li><a href="#produtos"><span class="treeview-menu-ml30"><i class="fa fa-archive fa-fw"></i> Marca</span></a></li>
-                    <li><a href="#produtos"><span class="treeview-menu-ml30"><i class="fa fa-archive fa-fw"></i> Grade</span></a></li>
-                  </ul>
-                  -->
-                </li>
-                <li><a href="#produtos"><i class="fa fa-archive fa-fw"></i> Financeiro</a></li>
-                <li><a href="#produtos"><i class="fa fa-archive fa-fw"></i> Estoque</a></li>
-                <li><a href="#produtos"><i class="fa fa-archive fa-fw"></i> Venda de Produtos</a></li>                
-              </ul>              
-            </li>
-            
-            <li><a href="#"><i class="fa fa-cog fa-fw"></i> <span>Configurações</span></a></li>
+            <li ui-sref-active="active"><a ui-sref="configuration"><i class="mdi mdi-settings" style="font-size:18px;"></i>
+            <span>Configurações</span></a></li>            
             
           </ul><!-- /.sidebar-menu -->
         </section>
