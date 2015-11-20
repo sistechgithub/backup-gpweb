@@ -1,7 +1,7 @@
 {
-  "name": "gp",
+  "name": "GP",
   "version": "0.0.0",
-  "description": "Description for gp",
+  "description": "GP - Sistema de Gerenciamento de Estoque",
   "private": true,
   "dependencies": {
   },
