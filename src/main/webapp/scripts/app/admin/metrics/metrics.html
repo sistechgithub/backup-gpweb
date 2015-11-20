@@ -28,7 +28,7 @@
         <progressbar min="0" value="metrics.gauges['jvm.threads.runnable.count'].value" max="metrics.gauges['jvm.threads.count'].value" class="progress-striped active" type="success">
             <span>{{metrics.gauges['jvm.threads.runnable.count'].value * 100 / metrics.gauges['jvm.threads.count'].value  | number:0}}%</span>
         </progressbar>
-        <p><span>Tempo Esperando</span> ({{metrics.gauges['jvm.threads.timed_waiting.count'].value}})</p>
+        <p><span>Tempo Ocioso</span> ({{metrics.gauges['jvm.threads.timed_waiting.count'].value}})</p>
         <progressbar min="0" value="metrics.gauges['jvm.threads.timed_waiting.count'].value" max="metrics.gauges['jvm.threads.count'].value" class="progress-striped active" type="warning">
             <span>{{metrics.gauges['jvm.threads.timed_waiting.count'].value * 100 / metrics.gauges['jvm.threads.count'].value  | number:0}}%</span>
         </progressbar>
@@ -48,11 +48,11 @@
             <div class="col-md-3 text-right">{{metrics.gauges['jvm.garbage.PS-MarkSweep.count'].value}}</div>
         </div>
         <div class="row">
-            <div class="col-md-9">Tempo de varreduras</div>
+            <div class="col-md-9">Tempo das varreduras</div>
             <div class="col-md-3 text-right">{{metrics.gauges['jvm.garbage.PS-MarkSweep.time'].value}}ms</div>
         </div>
         <div class="row">
-            <div class="col-md-9">Contagem de limpesas</div>
+            <div class="col-md-9">Contagem de limpezas</div>
             <div class="col-md-3 text-right">{{metrics.gauges['jvm.garbage.PS-Scavenge.count'].value}}</div>
         </div>
         <div class="row">
