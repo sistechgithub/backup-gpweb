@@ -41,6 +41,10 @@
     background: #f9fafc;
     color: #444;
   }
+  .skin-blue-light .main-header .navbar .dropdown-menu li.active > a {
+    background: #f9fafc;
+    color: #444;
+  }
 }
 @media (max-width: 767px) {
   .skin-blue-light .main-header .navbar .dropdown-menu li.divider {
