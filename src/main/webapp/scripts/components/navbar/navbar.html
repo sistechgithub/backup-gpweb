@@ -1,149 +1,203 @@
-<header class="main-header"> 
+<!-- Menu Topo -->
+<header class="main-header">
+<!-- Logo -->
+<a href="index.html" class="logo">
+  	<!-- mini logo for sidebar mini 50x50 pixels -->
+  	<span class="logo-mini"><b>S</b>TH</span>
+  	<!-- logo for regular state and mobile devices -->
+  	<span class="logo-lg"><b class="text-aqua">STH</b>WEB</span>
+</a>
+<!-- Header Navbar: style can be found in header.less --> 
 <nav class="navbar navbar-static-top" role="navigation"> 
     <!-- Sidebar toggle button-->
-    <a class="sidebar-toggle btn-group" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Mudar Navegação</span>
-    </a>    
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-            <i class="mdi mdi-menu"> Menu</i>            
-        </button>
-        <a class="navbar-brand" href="#/"><span>SthWeb</span> <span class="navbar-version">v{{VERSION}}</span></a>
-    </div>
-    <div class="collapse navbar-collapse" id="navbar-collapse" ng-switch="isAuthenticated()">
-        <ul class="nav navbar-nav navbar-right mgleft">
+	<a class="btn btn-menu-topo btn-flat mdi-icon" data-toggle="offcanvas" role="button">
+		<i class="mdi mdi-menu mdi-icon"></i>
+		<span class="mdi-icon-text"> Menu</span>
+	</a>
+	<!-- Navbar--> 	
+    <div class="navbar-custom-menu" ng-switch="isAuthenticated()">        
+        <ul class="nav navbar-nav">
             <li ui-sref-active="active">
-                <a ui-sref="home" data-toggle="collapse" data-target=".navbar-collapse.in">
-                    <span class="glyphicon glyphicon-home"></span>
-                    <span> Início</span>
+                <a ui-sref="home">
+                    <i class="mdi mdi-home mdi-icon"></i>
+                    <span class="mdi-icon-text hidden-xs"> Início</span>
                 </a>
             </li>
             <!-- Fullscreen --> 
-            <li class="btn-group notifications-menu">                
+            <li>                
                 <a href="" class="toggle-fullscreen" id="javascript:void(0);">
-                    <i class="fa fa-expand fa-fw"></i>
-                    <span class="hidden-sm-down"> Expandir</span>
+                    <i class="mdi mdi-fullscreen mdi-icon"></i>
+                    <span class="mdi-icon-text hidden-xs"> Tela Cheia</span>
                 </a>
             </li>
             <li ng-class="{active: $state.includes('account')}" class="dropdown pointer">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="">
                     <span>
-                        <span class="glyphicon glyphicon-user"></span>
-                        <span class="hidden-sm">
+                        <i class="mdi mdi-account-box mdi-icon"></i>
+                        <span class="mdi-icon-text hidden-xs">
                             Conta
                         </span>
-                        <b class="caret"></b>
+                        <span class="mdi-icon" style="margin-left: 4px"><b class="caret"></b></span>
                     </span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li ui-sref-active="active" ng-switch-when="true"><a ui-sref="settings" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-wrench"></span>
-                        &#xA0;<span>Configurações</span></a></li>
-                    <li ui-sref-active="active" ng-switch-when="true"><a ui-sref="password" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-lock"></span>
-                        &#xA0;<span>Senha</span></a></li>
-                    <li ui-sref-active="active" ng-switch-when="true"><a ui-sref="sessions" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-cloud"></span>
-                        &#xA0;<span>Sessões</span></a></li>
-                    <li ui-sref-active="active" ng-switch-when="true"><a href="" ng-click="logout()" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-log-out"></span>
-                        &#xA0;<span>Sair</span></a></li>
-                    <li ui-sref-active="active" ng-switch-when="false"><a ui-sref="login" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-log-in"></span>
-                        &#xA0;<span>Entrar</span></a></li>
-                    <li ui-sref-active="active" ng-switch-when="false"><a ui-sref="register" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-plus-sign"></span>
-                        &#xA0;<span>Criar Conta</span></a></li>
+                    <li ui-sref-active="active" ng-switch-when="true">
+                    	<a ui-sref="settings">
+                    		<i class="mdi mdi-wrench mdi-icon"></i>
+                        	<span class="mdi-icon-text">Configurações</span>
+                        </a>
+                    </li>
+                    <li ui-sref-active="active" ng-switch-when="true">
+                    	<a ui-sref="password">
+                    		<i class="mdi mdi-lock mdi-icon"></i>
+                        	<span class="mdi-icon-text">Senha</span>
+                        </a>
+                    </li>
+                    <li ui-sref-active="active" ng-switch-when="true">
+                    	<a ui-sref="sessions">
+                    		<i class="mdi mdi-weather-cloudy mdi-icon"></i>
+                        	<span class="mdi-icon-text">Sessões</span>
+                        </a>
+                    </li>
+                    <li ui-sref-active="active" ng-switch-when="true">
+                    	<a href="" ng-click="logout()">
+                    		<span class="mdi mdi-logout mdi-icon"></span>
+                        	<span class="mdi-icon-text">Sair</span>
+                        </a>
+                    </li>
+                    <li ui-sref-active="active" ng-switch-when="false">
+                    	<a ui-sref="login">
+                    		<i class="mdi mdi-login mdi-icon"></i>
+                        	<span class="mdi-icon-text">Entrar</span>
+                        </a>
+                    </li>
+                    <li ui-sref-active="active" ng-switch-when="false">
+                    	<a ui-sref="register">
+                    		<i class="mdi mdi-account-plus mdi-icon"></i>
+                        	<span class="mdi-icon-text">Criar Conta</span>
+                        </a>
+                    </li>
                 </ul>
-            </li>            
-            
+            </li>           
         </ul>
     </div>
     
 </nav>
 </header>
 
+<!-- Menu Lateral -->
 <!-- Left side column. contains the logo and sidebar -->
-      <aside class="main-sidebar sidebar-left-shadow">
+<aside class="main-sidebar sidebar-left-shadow">
+	<!-- sidebar: style can be found in sidebar.less -->
+	<section class="sidebar" id="sidenav01">
+	  	<!-- search form (Optional) -->
+	  	<form action="#" method="get" class="sidebar-form">
+			<div class="input-group">
+		  		<input type="text" name="q" class="form-control" placeholder="Pesquisar...">
+		  		<span class="input-group-btn">
+					<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+		  		</span>
+			</div>
+	  	</form>
+	  	<!-- /.search form -->
 
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
+	  	<!-- Sidebar Menu -->
+		<ul class="sidebar-menu" ng-switch="isAuthenticated()">
 
-          <!-- Sidebar user panel (optional) -->
-          <div class="user-panel main-header"> 
-            <a href="#/" class="logo">
-              <!-- mini logo for sidebar mini 50x50 pixels -->
-              <span class="logo-mini"><img src="assets/images/logo-sth-mini.png" class="img-responsive" alt="Logo"></span>
-              <!-- logo for regular state and mobile devices -->
-              <span class="logo-lg"><img src="assets/images/logo-sth.png" class="img-responsive" alt="Logo"></span>
-            </a>
-            <div class="pull-left info"></div>
-          </div><!-- ./Sidebar user panel -->
+			<li ui-sref-active="active">
+				<a ui-sref="home">
+					<i class="mdi mdi-home mdi-icon"></i>
+					<span class="mdi-icon-text"> Início</span>
+				</a>
+			</li>
 
-          <!-- search form (Optional) -->
-          <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-          </form>
-          <!-- /.search form -->
+			<li ui-sref-active="active" ng-switch-when="true">
+	          	<a href="" data-toggle="collapse" data-target="#toggle" data-parent="#sidenav01" class="collapsed">
+	          		<i class="mdi mdi-file-document-box mdi-icon"></i>                        
+					<span class="mdi-icon-text"> Cadastros</span>
+					<i class="fa fa-angle-left pull-right"></i>
+	          	</a>
+	          	<!-- submenu -->
+	          	<div class="collapse" id="toggle">
+	            	<ul class="nav nav-list">
+	              		<li ui-sref-active="active" >
+							<a ui-sref="grupo">
+								<i class="mdi mdi-package mdi-icon"></i>
+								<span class="mdi-icon-text"> Grupo</span>
+							</a>
+						</li>
+						<li ui-sref-active="active" >
+							<a ui-sref="subgrupo">
+								<i class="mdi mdi-package mdi-icon"></i>
+								<span class="mdi-icon-text">Subgrupo</span>
+							</a>
+						</li>
+	            	</ul>
+	          	</div>
+	        </li>
 
-          <!-- Sidebar Menu -->
-          <ul class="sidebar-menu" ng-switch="isAuthenticated()">                     
+			<li ng-class="{active: $state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN">
+				<a href="" data-toggle="collapse" data-target="#toggle2" data-parent="#sidenav01" class="collapsed">         
+					<i class="mdi mdi-desktop-tower mdi-icon"></i>                        
+					<span class="mdi-icon-text"> Administração</span>
+					<i class="fa fa-angle-left pull-right"></i>                    
+				</a>
+				<!-- submenu -->
+				<div class="collapse submenu" id="toggle2">	            	
+					<ul class="nav nav-list">
+						<li ui-sref-active="active">
+							<a ui-sref="user-management">
+								<i class="mdi mdi-account mdi-icon"></i>
+								<span class="mdi-icon-text">Gerenciar Usuários</span>
+							</a>
+						</li>
+						<li ui-sref-active="active">
+							<a ui-sref="metrics">
+								<i class="mdi mdi-timer mdi-icon"></i>
+								<span class="mdi-icon-text">Métricas</span>
+							</a>
+						</li>
+						<li ui-sref-active="active">
+							<a ui-sref="health">
+								<i class="mdi mdi-heart mdi-icon"></i>
+								<span class="mdi-icon-text">Monitoração</span>
+							</a>
+						</li>
+						<li ui-sref-active="active">
+							<a ui-sref="configuration">
+								<span class="mdi mdi-settings mdi-icon"></span>
+								<span class="mdi-icon-text">Configurações</span>
+							</a>
+						</li>
+						<li ui-sref-active="active">
+							<a ui-sref="audits">
+								<i class="mdi mdi-bell mdi-icon"></i>
+								<span class="mdi-icon-text">Auditoria</span>
+							</a>
+						</li>
+						<li ui-sref-active="active">
+							<a ui-sref="logs">
+								<i class="mdi mdi-server mdi-icon"></i>
+								<span class="mdi-icon-text">Logs</span>
+							</a>
+						</li>
+						<li ng-hide="inProduction" ui-sref-active="active">
+							<a ui-sref="docs">
+								<i class="mdi mdi-book mdi-icon"></i>
+								<span class="mdi-icon-text">API</span>
+							</a>
+						</li>
+					</ul> 
+				</div>               
+			</li>
+		  	<!-- /.sidebar-menu -->
+	</section>
+	<!-- /.sidebar -->
+</aside>
+<!-- /.aside -->
 
-            <li ui-sref-active="active">
-                <a ui-sref="home">
-                    <i class="glyphicon glyphicon-home" style="font-size:18px;"></i>
-                    <span> Início</span>
-                </a>
-            </li>
-
-            <li ui-sref-active="active" ng-switch-when="true" class="treeview">
-                <a href="">
-                    <i class="glyphicon glyphicon-th-list" style="font-size:18px;"></i>                        
-                    <span> Cadastros</span>
-                    <i class="fa fa-angle-left pull-right"></i>                    
-                </a>
-               <ul class="treeview-menu">
-                        <li ui-sref-active="active" ><a ui-sref="grupo"><span class="glyphicon glyphicon-asterisk"></span>
-                        &#xA0;<span >Grupo</span></a></li>
-                        <li ui-sref-active="active" ><a ui-sref="subgrupo"><span class="glyphicon glyphicon-asterisk"></span>
-                        &#xA0;<span >Subgrupo</span></a></li>
-                        <!-- JHipster will add entities to the menu here -->
-                </ul>
-            </li>
-
-            <li ng-class="{active: $state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN" class="treeview">
-                <a href="">                    
-                    <i class="glyphicon glyphicon-tower" style="font-size:18px;"></i>                        
-                    <span> Administração</span>
-                    <i class="fa fa-angle-left pull-right"></i>                    
-                </a>
-                <ul class="treeview-menu">
-                    <li ui-sref-active="active"><a ui-sref="user-management"><span class="glyphicon glyphicon-user"></span>
-                        &#xA0;<span>Manutenção de Usuário</span></a></li>
-                    <li ui-sref-active="active"><a ui-sref="metrics"><span class="glyphicon glyphicon-dashboard"></span>
-                        &#xA0;<span>Métricas</span></a></li>
-                    <li ui-sref-active="active"><a ui-sref="health"><span class="glyphicon glyphicon-heart"></span>
-                        &#xA0;<span>Monitoração</span></a></li>
-                    <li ui-sref-active="active"><a ui-sref="configuration"><span class="glyphicon glyphicon-list-alt"></span>
-                        &#xA0;<span>Configurações</span></a></li>
-                    <li ui-sref-active="active"><a ui-sref="audits"><span class="glyphicon glyphicon-bell"></span>
-                        &#xA0;<span>Auditoria</span></a></li>
-                    <li ui-sref-active="active"><a ui-sref="logs"><span class="glyphicon glyphicon-tasks"></span>
-                        &#xA0;<span>Logs</span></a></li>
-                    <li ng-hide="inProduction" ui-sref-active="active"><a ui-sref="docs"><span class="glyphicon glyphicon-book"></span>
-                        &#xA0;<span>API</span></a></li>
-                </ul>                
-            </li>          
-            
-          </ul><!-- /.sidebar-menu -->
-        </section>
-        <!-- /.sidebar -->
-      </aside>
-
-      <!-- AdminSTH App -->
+<!-- AdminSTH App -->
 <script src="assets/js/AdminLTE.js"></script>    
 <!-- Tela Cheia -->
 <script src="assets/js/fullscreen.js"></script>
-<!-- PLUGINS -->    
-<!-- SlimScroll 1.3.0 -->
-<script src="assets/libs/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- endbuild -->
+

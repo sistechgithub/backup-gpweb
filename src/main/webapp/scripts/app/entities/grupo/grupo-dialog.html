@@ -1,75 +1,87 @@
 
-<form name="editForm" role="form" novalidate ng-submit="save()">
+<form name="editForm" role="form" novalidate ng-submit="save()">	  	
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true" ng-click="clear()">&times;</button>
+			<h4 class="modal-title" id="myGrupoLabel">Criar ou editar Grupo</h4>
+		</div>	
+		<div class="modal-body">
+			<jh-alert-error></jh-alert-error>		
+			<div class="form-group">
+				<label for="field_nm_grupo">Nome</label> 
+				<input class="form-control" type="text" name="nm_grupo" id="field_nm_grupo" ng-model="grupo.nm_grupo" />
+			</div>
+			<div class="form-group">
+				<label for="field_vl_comissao">Comissão(%)</label> 
+				<input class="form-control" type="number" name="vl_comissao" id="field_vl_comissao" ng-model="grupo.vl_comissao" />
+			</div>
+			<div class="form-group">
+				<div class="checkbox">
+					<label for="field_fl_desconto">				
+						<input type="checkbox" name="fl_desconto" id="field_fl_desconto" ng-model="grupo.fl_desconto" /> Desconto (%) 
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="checkbox">
+					<label for="field_fl_promo">
+						<input type="checkbox" name="fl_promo" id="field_fl_promo" ng-model="grupo.fl_promo" /> Promoção
+					</label>			 
+				</div>
+			</div>		
 
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal"
-			aria-hidden="true" ng-click="clear()">&times;</button>
-		<h4 class="modal-title" id="myGrupoLabel">Criar ou editar a Grupo</h4>
-	</div>
-	<div class="modal-body">
-		<jh-alert-error></jh-alert-error>
-		<div class="form-group">
-			<label for="id">ID</label> <input type="text" class="form-control"
-				id="id" name="id" ng-model="grupo.id" readonly />
-		</div>
-		<div class="form-group">
-			<label for="field_nm_grupo">Nome</label> <input type="text"
-				class="form-control" name="nm_grupo" id="field_nm_grupo"
-				ng-model="grupo.nm_grupo" />
-		</div>
-		<div class="form-group">
-			<label for="field_vl_comissao">Comissão(%)</label> <input type="number"
-				class="form-control" name="vl_comissao" id="field_vl_comissao"
-				ng-model="grupo.vl_comissao" />
-		</div>
-		<div class="form-group">
-			<label for="field_fl_desconto">Desconto(%)</label> <input
-				type="checkbox" class="form-control" name="fl_desconto"
-				id="field_fl_desconto" ng-model="grupo.fl_desconto" />
-		</div>
-		<div class="form-group">
-			<label for="field_fl_promo">Promocão</label> <input type="checkbox"
-				class="form-control" name="fl_promo" id="field_fl_promo"
-				ng-model="grupo.fl_promo" />
-		</div>
+			<!-- Só mostra caso tenha selecionado promoção -->
+			<div ng-show="grupo.fl_promo">
+				<div class="form-group">
+					<label for="field_dt_promo">Data Promoção</label>
+					<div class="input-group">
+						<div class="input-group-addon">
+                        	<i class="mdi mdi-calendar mdi-2x"></i>
+                      	</div> 
+						<input class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" type="date" name="dt_promo" id="field_dt_promo"	ng-model="grupo.dt_promo" />
+					</div><!-- /.input group -->
+				</div>
 
-		<!-- Só mostra caso tenha selecionado promoção -->
-		<div ng-show="grupo.fl_promo">
-			<div class="form-group">
-				<label for="field_dt_promo">Data Promoção</label> <input type="date"
-					class="form-control" name="dt_promo" id="field_dt_promo"
-					ng-model="grupo.dt_promo" />
+				<div class="form-group">
+					<label for="field_dt_operacao">Data Operação</label>
+					<div class="input-group">
+						<div class="input-group-addon">
+                        	<i class="mdi mdi-calendar mdi-2x"></i>
+                      	</div> 
+						<input class="form-control" type="date" name="dt_operacao" id="field_dt_operacao" ng-model="grupo.dt_operacao" />
+					</div><!-- /.input group -->
+				</div>
+				<div class="form-group">
+					<div class="checkbox">
+						<label for="field_fl_semcontagem">
+							<input type="checkbox" name="fl_semcontagem" id="field_fl_semcontagem" ng-model="grupo.fl_semcontagem" />Sem Contagem
+						</label>					 					
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="checkbox">
+						<label for="field_fl_envio">
+							<input type="checkbox" name="fl_envio" id="field_fl_envio" ng-model="grupo.fl_envio" />
+							Envio
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="field_nn_novo">Novo</label>
+					<input class="form-control" type="number" name="nn_novo" id="field_nn_novo" ng-model="grupo.nn_novo" />
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="field_dt_operacao">Data Operação</label> <input
-					type="date" class="form-control" name="dt_operacao"
-					id="field_dt_operacao" ng-model="grupo.dt_operacao" />
-			</div>
-			<div class="form-group">
-				<label for="field_fl_semcontagem">Sem Contagem</label> <input
-					type="checkbox" class="form-control" name="fl_semcontagem"
-					id="field_fl_semcontagem" ng-model="grupo.fl_semcontagem" />
-			</div>
-			<div class="form-group">
-				<label for="field_fl_envio">Envio</label> <input type="checkbox"
-					class="form-control" name="fl_envio" id="field_fl_envio"
-					ng-model="grupo.fl_envio" />
-			</div>
-			<div class="form-group">
-				<label for="field_nn_novo">Novo</label> <input type="number"
-					class="form-control" name="nn_novo" id="field_nn_novo"
-					ng-model="grupo.nn_novo" />
-			</div>
+		</div>	
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal"
+				ng-click="clear()">
+				<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
+			</button>
+			<button type="submit" ng-disabled="editForm.$invalid || isSaving"
+				class="btn btn-primary">
+				<span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salvar</span>
+			</button>
 		</div>
-	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal"
-			ng-click="clear()">
-			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
-		</button>
-		<button type="submit" ng-disabled="editForm.$invalid || isSaving"
-			class="btn btn-primary">
-			<span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salvar</span>
-		</button>
-	</div>
+	</div>		
 </form>
