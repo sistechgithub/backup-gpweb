@@ -1,38 +1,38 @@
-<div>
+<div class="box">
+    <div class="box-body">
+        <h2>Sessão ativa para [<b>{{account.login}}</b>]</h2>
 
-    <h2>Sessão ativa para [<b>{{account.login}}</b>]</h2>
-
-    <div class="alert alert-success" ng-show="success">
-        <strong>Sessão inválida!</strong>
-    </div>
-    <div class="alert alert-danger" ng-show="error">
-        <strong>Ocorreu um erro!</strong> A sessão não pode ser invalidada.
-    </div>
-
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Endereço IP</th>
-                    <th>Meio de acesso</th>
-                    <th>Data</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="session in sessions">
-                    <td>{{session.ipAddress}}</td>
-                    <td>{{session.userAgent}}</td>
-                    <td>{{session.formattedTokenDate}}</td>
-                    <td>
-                        <button type="submit"
-                                class="btn btn-primary"
-                                ng-click="invalidate(session.series)">
-                                 Invalidar
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="alert alert-success" ng-show="success">
+            <strong>Sessão inválida!</strong>
+        </div>
+        <div class="alert alert-danger" ng-show="error">
+            <strong>Ocorreu um erro!</strong> A sessão não pode ser invalidada.
+        </div>    
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Endereço IP</th>
+                            <th>Meio de acesso</th>
+                            <th>Data</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="session in sessions">
+                            <td>{{session.ipAddress}}</td>
+                            <td>{{session.userAgent}}</td>
+                            <td>{{session.formattedTokenDate}}</td>
+                            <td>
+                                <button type="submit"
+                                        class="btn btn-primary"
+                                        ng-click="invalidate(session.series)">
+                                         Invalidar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
     </div>
 </div>
