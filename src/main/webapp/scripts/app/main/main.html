@@ -1,7 +1,7 @@
 <!-- Main content -->
 <section ng-cloak class="content">  
-<div class="row">
-	<ul class="ca-menu">		
+<div class="row" ng-switch="isAuthenticated()">
+	<ul class="ca-menu"  ng-switch-when="true">		
         <li class="mg-right col-xs-12 col-sm-12 col-md-4 col-lg-4 bgm-red">
             <a href="#produtos">
                 <span class="ca-icon txt-red"><i class="mdi mdi-cart"></i></span>
