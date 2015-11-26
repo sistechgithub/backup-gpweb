@@ -1,37 +1,41 @@
-<div>
-    <h2>Auditoria</h2>
-
-    <div class="row">
-        <div class="col-md-5">
-            <h4>Filtrar por data</h4>
-            <p class="input-group">
-                <span class="input-group-addon">de</span>
-                <input type="date" class="input-sm form-control" name="start" ng-model="fromDate" ng-change="onChangeDate()" required/>
-                <span class="input-group-addon">até</span>
-                <input type="date" class="input-sm form-control" name="end" ng-model="toDate" ng-change="onChangeDate()" required/>
-            </p>
-        </div>
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title" style="font-size:25px">Auditoria</h3>            
     </div>
 
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-5">
+                <h4>Filtrar por data</h4>
+                <p class="input-group">
+                    <span class="input-group-addon">de</span>
+                    <input type="date" class="input-sm form-control" name="start" ng-model="fromDate" ng-change="onChangeDate()" required/>
+                    <span class="input-group-addon">até</span>
+                    <input type="date" class="input-sm form-control" name="end" ng-model="toDate" ng-change="onChangeDate()" required/>
+                </p>
+            </div>
+        </div>
 
-    <table class="table table-condensed table-striped table-bordered table-responsive">
-        <thead>
-        <tr>
-            <th ng-click="predicate = 'timestamp'; reverse=!reverse"><span>Data</span></th>
-            <th ng-click="predicate = 'principal'; reverse=!reverse"><span>Usuário</span></th>
-            <th ng-click="predicate = 'type'; reverse=!reverse"><span>Status</span></th>
-            <th ng-click="predicate = 'data.message'; reverse=!reverse"><span>Dados adicionais</span></th>
-        </tr>
-        </thead>
 
-        <tr ng-repeat="audit in audits | filter:filter | orderBy:predicate:reverse" ng-hide="audit.filtered">
-            <td><span>{{audit.timestamp| date:'small'}}</span></td>
-            <td><small>{{audit.principal}}</small></td>
-            <td>{{audit.type}}</td>
-            <td>
-                <span ng-show="audit.data.message">{{audit.data.message}}</span>
-                <span ng-show="audit.data.remoteAddress"><span>Endereço remoto</span> {{audit.data.remoteAddress}}</span>
-            </td>
-        </tr>
-    </table>
+        <table class="table table-condensed table-striped table-bordered table-responsive">
+            <thead>
+            <tr>
+                <th ng-click="predicate = 'timestamp'; reverse=!reverse"><span>Data</span></th>
+                <th ng-click="predicate = 'principal'; reverse=!reverse"><span>Usuário</span></th>
+                <th ng-click="predicate = 'type'; reverse=!reverse"><span>Status</span></th>
+                <th ng-click="predicate = 'data.message'; reverse=!reverse"><span>Dados adicionais</span></th>
+            </tr>
+            </thead>
+
+            <tr ng-repeat="audit in audits | filter:filter | orderBy:predicate:reverse" ng-hide="audit.filtered">
+                <td><span>{{audit.timestamp| date:'small'}}</span></td>
+                <td><small>{{audit.principal}}</small></td>
+                <td>{{audit.type}}</td>
+                <td>
+                    <span ng-show="audit.data.message">{{audit.data.message}}</span>
+                    <span ng-show="audit.data.remoteAddress"><span>Endereço remoto</span> {{audit.data.remoteAddress}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>

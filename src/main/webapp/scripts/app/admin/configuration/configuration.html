@@ -1,24 +1,28 @@
-<div>
-    <h2>Configurações</h2>
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title" style="font-size:25px">Configurações</h3>            
+    </div>   
 
-    <span>Filtrar (por prefixo)</span> <input type="text" ng-model="filter" class="form-control">
-
-    <table class="table table-condensed table-striped table-bordered table-responsive" style="table-layout:fixed">
-        <thead>
-        <tr>
-            <th ng-click="predicate = 'prefix'; reverse=!reverse" class="col-sm-4"><span>Prefixo</span></th>
-            <th class="col-sm-8">Propriedades</th>
-        </tr>
-        </thead>
-        
-        <tr ng-repeat="entry in configuration | filter:filter | orderBy:predicate:reverse">
-            <td><span>{{entry.prefix}}</span></td>
-            <td>
-                <div class="row" ng-repeat="(key, value) in entry.properties">
-                    <div class="col-md-4">{{key}}</div>
-                    <div class="col-md-8"><span class="pull-right label label-info" style="white-space: normal;word-break:break-all">{{value}}</span></div>
-                </div>
-            </td>
-        </tr>
-    </table>
+    <div class="box-body">
+        <span>Filtrar (por prefixo)</span> <input type="text" ng-model="filter" class="form-control">
+        <br>
+        <table class="table table-condensed table-striped table-bordered table-responsive" style="table-layout:fixed">
+            <thead>
+            <tr>
+                <th ng-click="predicate = 'prefix'; reverse=!reverse" class="col-sm-4"><span>Prefixo</span></th>
+                <th class="col-sm-8">Propriedades</th>
+            </tr>
+            </thead>
+            
+            <tr ng-repeat="entry in configuration | filter:filter | orderBy:predicate:reverse">
+                <td><span>{{entry.prefix}}</span></td>
+                <td>
+                    <div class="row" ng-repeat="(key, value) in entry.properties">
+                        <div class="col-md-4">{{key}}</div>
+                        <div class="col-md-8"><span class="pull-right label label-info" style="white-space: normal;word-break:break-all">{{value}}</span></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
