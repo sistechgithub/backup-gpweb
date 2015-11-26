@@ -17,7 +17,7 @@ import java.util.Objects;
 public class Grupo implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "nm_grupo")

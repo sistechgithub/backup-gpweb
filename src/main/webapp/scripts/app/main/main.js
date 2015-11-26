@@ -7,7 +7,8 @@ angular.module('gpApp')
                 parent: 'site',
                 url: '/',
                 data: {
-                    authorities: []
+                    authorities: ['ROLE_USER'], 
+					pageTitle: 'STHMOB'
                 },
                 views: {
                     'content@': {
