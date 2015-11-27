@@ -1,107 +1,111 @@
-<div>
-    <h2><span>Usuário</span> "{{user.login}}"</h2>
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title" style="font-size:25px"><span>Usuário</span> "{{user.login}}"</h3>            
+    </div>   
 
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
+    <div class="box-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
                 <tr>
-                    <th>Campo</th>
-                    <th>Valor</th>
+                    <td>
+                        <span>Login</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{user.login}}" readonly>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    <span>Login</span>
-                </td>
-                <td>
-                    <input type="text" class="input-sm form-control" value="{{user.login}}" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Nome</span>
-                </td>
-                <td>
-                    <input type="text" class="input-sm form-control" value="{{user.firstName}}" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Sobrenome</span>
-                </td>
-                <td>
-                    <input type="text" class="input-sm form-control" value="{{user.lastName}}" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Email</span>
-                </td>
-                <td>
-                    <input type="text" class="input-sm form-control" value="{{user.email}}" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Ativado</span>
-                </td>
-                <td>
-                    <input type="text" class="input-sm form-control" value="{{user.activated}}" readonly>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                    <span>Criado por</span>
-                </td>
-                <td>
-                    <input type="text" class="input-sm form-control" value="{{user.createdBy}}" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Criado</span>
-                </td>
-                <td>
-                    <input type="text" class="input-sm form-control"
-                           value="{{user.createdDate | date:'dd/MM/yy HH:mm' }}" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Última modificação por</span>
-                </td>
-                <td>
-                    <input type="text" class="input-sm form-control" value="{{user.lastModifiedBy}}" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Última modificação</span>
-                </td>
-                <td>
-                    <input type="text" class="input-sm form-control"
-                           value="{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}" readonly>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Perfis</span>
-                </td>
-                <td>
-                    <ul class="list-unstyled">
-                        <li ng-repeat="authority in user.authorities"><span>{{authority}}</span></li>
-                    </ul>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+                <tr>
+                    <td>
+                        <span>Nome</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{user.firstName}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Sobrenome</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{user.lastName}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Email</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{user.email}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Ativado</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{user.activated}}" readonly>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <span>Criado por</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{user.createdBy}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Criado</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control"
+                               value="{{user.createdDate | date:'dd/MM/yy HH:mm' }}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Última modificação por</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{user.lastModifiedBy}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Última modificação</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control"
+                               value="{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Perfis</span>
+                    </td>
+                    <td>
+                        <ul class="list-unstyled">
+                            <li ng-repeat="authority in user.authorities"><span>{{authority}}</span></li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <button type="submit"
-            ui-sref="user-management"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Voltar</span>
-    </button>
+        <button type="submit"
+                ui-sref="user-management"
+                class="btn btn-info">
+            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Voltar</span>
+        </button>
+    </div>
 </div>

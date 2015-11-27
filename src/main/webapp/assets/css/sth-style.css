@@ -209,7 +209,6 @@ ul#strengthBar {
  * --------------------------------------------------------------------------
  */
 
-
 /*
  * Configurações da Sistech
  * --------------------------------------------------------------------------
@@ -352,14 +351,13 @@ Menu da Dashboard
 }
 .ca-icon{    
     font-size: 75px;
-    color: #fff;
-    text-shadow: 0px 0px 1px #333;
+    color: #fff;    
     line-height: 125px;
     position: absolute;
     width: 90px;
     left: 0px;
     text-align: center;
-    -webkit-transition: all 300ms linear;
+  -webkit-transition: all 300ms linear;
   -moz-transition: all 300ms linear;
   -o-transition: all 300ms linear;
   -ms-transition: all 300ms linear;
@@ -381,7 +379,7 @@ Menu da Dashboard
   transition: all 300ms linear; 
 }
 .ca-sub{
-    font-size: 14px;
+    font-size: 16px;
     color: #fff;
 }
 .ca-menu li:hover{
@@ -425,13 +423,33 @@ Menu da Dashboard
   }
 }
 
+/* Cor de fundo no menu */
+.bgm-red{
+  background: #b71c1c !important;  
+}
+.bgm-blue{
+  background: #283593 !important;  
+}
+.bgm-amber{
+  background: #ff8f00 !important;  
+}
+.bgm-teal{
+  background: #00695c !important;  
+}
+.bgm-green{
+  background: #2E7D32 !important;  
+}
+.bgm-pink{
+  background: #880e4f !important;  
+}
+
 /* Cor do texto no menu */
 .ca-menu li:hover .txt-red{
-   color: #c62828 !important;
+   color: #b71c1c !important;
 }
 
 .ca-menu li:hover .txt-blue{
-   color: #0d47a1 !important;
+   color: #283593 !important;
 }
 
 .ca-menu li:hover .txt-amber{
@@ -447,26 +465,6 @@ Menu da Dashboard
 }
 .ca-menu li:hover .txt-pink{
    color: #880e4f !important;
-}
-
-/* Cor de fundo no menu */
-.bgm-red{
-  background: #c62828 !important;  
-}
-.bgm-blue{
-  background: #0d47a1 !important;  
-}
-.bgm-amber{
-  background: #ff8f00 !important;  
-}
-.bgm-teal{
-  background: #00695c !important;  
-}
-.bgm-green{
-  background: #2E7D32 !important;  
-}
-.bgm-pink{
-  background: #880e4f !important;  
 }
 
 /* Efeito hover */

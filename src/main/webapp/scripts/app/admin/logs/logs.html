@@ -1,27 +1,31 @@
-<div>
-    <h2>Logs</h2>
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title" style="font-size:25px">Logs</h3>            
+    </div>
 
-    <p>Existem {{ loggers.length }} logs.</p>
+    <div class="box-body">
+        <p>Existem {{ loggers.length }} logs.</p>
 
-    <span>Filtrar</span> <input type="text" ng-model="filter" class="form-control">
+        <span>Filtrar</span> <input type="text" ng-model="filter" class="form-control">
+        <br>
+        <table class="table table-condensed table-striped table-bordered table-responsive">
+            <thead>
+            <tr title="click to order">
+                <th ng-click="predicate = 'name'; reverse=!reverse"><span>Nome</span></th>
+                <th ng-click="predicate = 'level'; reverse=!reverse"><span>Nível</span></th>
+            </tr>
+            </thead>
 
-    <table class="table table-condensed table-striped table-bordered table-responsive">
-        <thead>
-        <tr title="click to order">
-            <th ng-click="predicate = 'name'; reverse=!reverse"><span>Nome</span></th>
-            <th ng-click="predicate = 'level'; reverse=!reverse"><span>Nível</span></th>
-        </tr>
-        </thead>
-
-        <tr ng-repeat="logger in loggers | filter:filter | orderBy:predicate:reverse">
-            <td><small>{{logger.name | characters:140}}</small></td>
-            <td>
-                <button ng-click="changeLevel(logger.name, 'TRACE')" ng-class="(logger.level=='TRACE') ? 'btn-danger' : 'btn-default'" class="btn btn-default btn-xs">TRACE</button>
-                <button ng-click="changeLevel(logger.name, 'DEBUG')" ng-class="(logger.level=='DEBUG') ? 'btn-warning' : 'btn-default'" class="btn btn-default btn-xs">DEBUG</button>
-                <button ng-click="changeLevel(logger.name, 'INFO')" ng-class="(logger.level=='INFO') ? 'btn-info' : 'btn-default'" class="btn btn-default btn-xs">INFO</button>
-                <button ng-click="changeLevel(logger.name, 'WARN')" ng-class="(logger.level=='WARN') ? 'btn-success' : 'btn-default'" class="btn btn-default btn-xs">WARN</button>
-                <button ng-click="changeLevel(logger.name, 'ERROR')" ng-class="(logger.level=='ERROR') ? 'btn-primary' : 'btn-default'" class="btn btn-default btn-xs">ERROR</button>
-            </td>
-        </tr>
-    </table>
+            <tr ng-repeat="logger in loggers | filter:filter | orderBy:predicate:reverse">
+                <td><small>{{logger.name | characters:135}}</small></td>
+                <td>
+                    <button ng-click="changeLevel(logger.name, 'TRACE')" ng-class="(logger.level=='TRACE') ? 'btn-danger' : 'btn-default'" class="btn btn-default btn-xs">TRACE</button>
+                    <button ng-click="changeLevel(logger.name, 'DEBUG')" ng-class="(logger.level=='DEBUG') ? 'btn-warning' : 'btn-default'" class="btn btn-default btn-xs">DEBUG</button>
+                    <button ng-click="changeLevel(logger.name, 'INFO')" ng-class="(logger.level=='INFO') ? 'btn-info' : 'btn-default'" class="btn btn-default btn-xs">INFO</button>
+                    <button ng-click="changeLevel(logger.name, 'WARN')" ng-class="(logger.level=='WARN') ? 'btn-success' : 'btn-default'" class="btn btn-default btn-xs">WARN</button>
+                    <button ng-click="changeLevel(logger.name, 'ERROR')" ng-class="(logger.level=='ERROR') ? 'btn-primary' : 'btn-default'" class="btn btn-default btn-xs">ERROR</button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>

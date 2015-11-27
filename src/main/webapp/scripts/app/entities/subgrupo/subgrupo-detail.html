@@ -1,70 +1,74 @@
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title" style="font-size:25px"><span>Subgrupo</span> {{subgrupo.id}}</h3>            
+    </div>  
 
-<div>
-    <h2><span>Subgrupo</span> {{subgrupo.id}}</h2>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Campo</th>
-                <th>Valor</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    <span>Nome</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{subgrupo.nm_sub_grupo}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Custo(%)</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{subgrupo.vl_custo}}</span>
-                </td>
-            </tr>
-<!--             <tr> -->
-<!--                 <td> -->
-<!--                     <span>Vl_valor</span> -->
-<!--                 </td> -->
-<!--                 <td> -->
-<!--                     <span class="form-control-static">{{subgrupo.vl_valor}}</span> -->
-<!--                 </td> -->
-<!--             </tr> -->
-<!--             <tr> -->
-<!--                 <td> -->
-<!--                     <span>Dt_operacao</span> -->
-<!--                 </td> -->
-<!--                 <td> -->
-<!--                     <span class="form-control-static">{{subgrupo.dt_operacao | date:'mediumDate'}}</span> -->
-<!--                 </td> -->
-<!--             </tr> -->
-<!--             <tr> -->
-<!--                 <td> -->
-<!--                     <span>Fl_envio</span> -->
-<!--                 </td> -->
-<!--                 <td> -->
-<!--                     <span class="form-control-static">{{subgrupo.fl_envio}}</span> -->
-<!--                 </td> -->
-<!--             </tr> -->
-<!--             <tr> -->
-<!--                 <td> -->
-<!--                     <span>Nn_novo</span> -->
-<!--                 </td> -->
-<!--                 <td> -->
-<!--                     <span class="form-control-static">{{subgrupo.nn_novo}}</span> -->
-<!--                 </td> -->
-<!--             </tr> -->
-            </tbody>
-        </table>
+    <div class="box-body"> 
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Campo</th>
+                    <th>Valor</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <span>Nome</span>
+                    </td>
+                    <td>
+                        <span class="form-control-static">{{subgrupo.nm_sub_grupo}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Custo(%)</span>
+                    </td>
+                    <td>
+                        <span class="form-control-static">{{subgrupo.vl_custo}}</span>
+                    </td>
+                </tr>
+    <!--             <tr> -->
+    <!--                 <td> -->
+    <!--                     <span>Vl_valor</span> -->
+    <!--                 </td> -->
+    <!--                 <td> -->
+    <!--                     <span class="form-control-static">{{subgrupo.vl_valor}}</span> -->
+    <!--                 </td> -->
+    <!--             </tr> -->
+    <!--             <tr> -->
+    <!--                 <td> -->
+    <!--                     <span>Dt_operacao</span> -->
+    <!--                 </td> -->
+    <!--                 <td> -->
+    <!--                     <span class="form-control-static">{{subgrupo.dt_operacao | date:'mediumDate'}}</span> -->
+    <!--                 </td> -->
+    <!--             </tr> -->
+    <!--             <tr> -->
+    <!--                 <td> -->
+    <!--                     <span>Fl_envio</span> -->
+    <!--                 </td> -->
+    <!--                 <td> -->
+    <!--                     <span class="form-control-static">{{subgrupo.fl_envio}}</span> -->
+    <!--                 </td> -->
+    <!--             </tr> -->
+    <!--             <tr> -->
+    <!--                 <td> -->
+    <!--                     <span>Nn_novo</span> -->
+    <!--                 </td> -->
+    <!--                 <td> -->
+    <!--                     <span class="form-control-static">{{subgrupo.nn_novo}}</span> -->
+    <!--                 </td> -->
+    <!--             </tr> -->
+                </tbody>
+            </table>
+        </div>
+
+        <button type="submit"
+                onclick="window.history.back()"
+                class="btn btn-info">
+            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Voltar</span>
+        </button>
     </div>
-
-    <button type="submit"
-            onclick="window.history.back()"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Voltar</span>
-    </button>
 </div>
