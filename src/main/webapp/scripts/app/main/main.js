@@ -8,7 +8,7 @@ angular.module('gpApp')
                 url: '/',
                 data: {
                     authorities: ['ROLE_USER'], 
-					pageTitle: 'STHMOB'
+					pageTitle: 'STHWEB'
                 },
                 views: {
                     'content@': {

@@ -1,0 +1,94 @@
+
+<div>
+    <h2><span>Marca</span> {{fabricante.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Campo</th>
+                <th>Valor</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Código</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{fabricante.id}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Nome</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{fabricante.nm_fabricante}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>CNPJ</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{fabricante.cd_cgc}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>I.E.</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{fabricante.cd_cgf}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Número</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{fabricante.nn_numero}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Complemento</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{fabricante.cs_complemento}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Telefone</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{fabricante.cd_tel}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Fax</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{fabricante.cd_fax}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Inativo</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{fabricante.fl_inativo}}</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>
