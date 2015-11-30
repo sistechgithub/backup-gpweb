@@ -473,7 +473,27 @@ Menu da Dashboard
 }
 
 
+.checkbox-size{
+  width: 18px;
+  height: 18px;
+}
 
+.checkbox-label{
+  padding-top: 3px;
+  margin-left: -10px;
+}
+
+.checkbox-position{
+  margin-left: 20px;
+}
+
+/* ==========================================================================
+Correções no Formulário
+========================================================================== */
+
+.mg-bottom-grupo{
+  margin-bottom: 0px;
+}
 
 
 

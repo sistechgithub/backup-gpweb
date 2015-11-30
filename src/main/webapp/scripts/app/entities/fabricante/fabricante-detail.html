@@ -1,10 +1,10 @@
 <div class="box">
 
     <div class="box-header with-border">
-        <h3 class="box-title" style="font-size:25px"><span>Grupo</span> {{grupo.id}}</h3>            
+        <h3 class="box-title" style="font-size:25px"><span>Marca</span> {{fabricante.id}}</h3>            
     </div>  
 
-    <div class="box-body">    
+    <div class="box-body"> 
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -16,74 +16,74 @@
                 <tbody>
                 <tr>
                     <td>
+                        <span>Código</span>
+                    </td>
+                    <td>
+                        <span class="form-control-static">{{fabricante.id}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <span>Nome</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{grupo.nm_grupo}}</span>
+                        <span class="form-control-static">{{fabricante.nm_fabricante}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span>Comissão(%)</span>
+                        <span>CNPJ</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{grupo.vl_comissao}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Desconto(%)</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{grupo.fl_desconto}}</span>
+                        <span class="form-control-static">{{fabricante.cd_cgc}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span>Promoção</span>
+                        <span>I.E.</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{grupo.fl_promo}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Data Promoção</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{grupo.dt_promo | date:'mediumDate'}}</span>
+                        <span class="form-control-static">{{fabricante.cd_cgf}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span>Data Operação</span>
+                        <span>Número</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{grupo.dt_operacao | date:'mediumDate'}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Sem Contagem</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{grupo.fl_semcontagem}}</span>
+                        <span class="form-control-static">{{fabricante.nn_numero}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span>Envio</span>
+                        <span>Complemento</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{grupo.fl_envio}}</span>
+                        <span class="form-control-static">{{fabricante.cs_complemento}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span>Novo</span>
+                        <span>Telefone</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{grupo.nn_novo}}</span>
+                        <span class="form-control-static">{{fabricante.cd_tel}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Fax</span>
+                    </td>
+                    <td>
+                        <span class="form-control-static">{{fabricante.cd_fax}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Inativo</span>
+                    </td>
+                    <td>
+                        <span class="form-control-static">{{fabricante.fl_inativo ? 'Sim': 'Não'}}</span>
                     </td>
                 </tr>
                 </tbody>

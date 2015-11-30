@@ -1,0 +1,82 @@
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title" style="font-size:25px">Marcas</h3>
+        <jh-alert></jh-alert>     
+    </div>
+    <br>
+    <div class="box-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <button class="btn btn-primary btn-flat pull-left" ui-sref="fabricante.new">
+                        <span class="mdi mdi-plus mdi-x"></span> <span>Adicionar</span>
+                    </button>
+                </div>
+                <div class="col-sm-6">
+                    <form name="searchForm" class="form-inline pull-right">                        
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">
+                       
+                        <button class="btn btn-info btn-flat hidden-xs" ng-click="search()"><span class="mdi mdi-magnify mdi-x"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th class="col-sm-5">Nome</th>
+                        <th>Telefone</th>
+                        <th>FAX</th>
+                        <th>Inativo</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="fabricante in fabricantes track by fabricante.id">
+                        <td>{{fabricante.id}}</td>
+                        <td class="col-sm-5">{{fabricante.nm_fabricante}}</td>
+                        <td>{{fabricante.cd_tel}}</td>
+                        <td>{{fabricante.cd_fax}}</td>
+                        <td>{{fabricante.fl_inativo ? 'Sim': 'Não'}}</td>
+                        <td>
+                            <button type="submit"
+                                    ui-sref="fabricante.detail({id:fabricante.id})"
+                                    class="btn btn-info btn-flat">
+                                <span class="mdi mdi-eye mdi-x"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="fabricante.edit({id:fabricante.id})"
+                                    class="btn btn-primary btn-flat">
+                                <span class="mdi mdi-pencil mdi-x"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="fabricante.delete({id:fabricante.id})"
+                                    class="btn btn-danger btn-flat">
+                                <span class="mdi mdi-close mdi-x"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav>
+                <div class="col-sm-12">
+                    <ul class="pagination pull-right">
+                        <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
+                        <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
+                        <li ng-show="page > 1" ng-click="loadPage(page - 2)"><a>{{page - 1}}</a></li>
+                        <li ng-show="page > 0" ng-click="loadPage(page - 1)"><a>{{page}}</a></li>
+                        <li class="active"><a>{{page + 1}}</a></li>
+                        <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 2}}</a></li>
+                        <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 3}}</a></li>
+                        <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
+                        <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "nm_fabricante",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "10",
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "cd_cgc",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "18",
+            "fieldValidateRulesMaxlength": "18"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "cd_cgf",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "18",
+            "fieldValidateRulesMaxlength": "18"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "nn_numero",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "cs_complemento",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "cd_tel",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "13"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "cd_fax",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "13"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "fl_inativo",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20151130115748",
+    "dto": "no",
+    "pagination": "pagination"
+}
