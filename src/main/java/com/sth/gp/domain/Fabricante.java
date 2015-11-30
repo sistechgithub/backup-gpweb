@@ -17,7 +17,6 @@ public class Fabricante implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id_fabricante")
     private Long id;
 
     @NotNull
