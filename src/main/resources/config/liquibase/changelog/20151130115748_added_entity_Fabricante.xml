@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity Fabricante.
+    -->
+    <changeSet id="20151130115748" author="jhipster">
+        <createTable tableName="fabricante">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nm_fabricante" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="cd_cgc" type="varchar(18)"/>
+            <column name="cd_cgf" type="varchar(18)"/>
+            <column name="nn_numero" type="varchar(255)"/>
+            <column name="cs_complemento" type="varchar(20)"/>
+            <column name="cd_tel" type="varchar(13)"/>
+            <column name="cd_fax" type="varchar(13)"/>
+            <column name="fl_inativo" type="bit"/>
+        </createTable>
+        
+    </changeSet>
+</databaseChangeLog>
