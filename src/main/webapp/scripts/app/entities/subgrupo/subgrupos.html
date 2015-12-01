@@ -1,21 +1,21 @@
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title" style="font-size:25px">Subgrupos</h3>
-        <jh-alert></jh-alert>     
+        <h3 class="box-title" style="font-size:25px">Subgrupos</h3>             
     </div>
     <br>
     <div class="box-body">
+        <jh-alert></jh-alert>
         <div class="row">
             <div class="col-sm-6">
                 <button class="btn btn-primary btn-flat pull-left" ui-sref="subgrupo.new">
-                    <span class="mdi mdi-plus"></span> <span>Adicionar</span>
+                    <span class="mdi mdi-plus mdi-x"></span> <span>Adicionar</span>
                 </button>
             </div>
             <div class="col-sm-6">
                 <form class="form-inline pull-right" name="searchForm">                    
                     <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">
                     
-                    <button class="btn btn-info btn-flat hidden-xs" ng-click="search()"><span class="mdi mdi-magnify"></span>
+                    <button class="btn btn-info btn-flat hidden-xs" ng-click="search()"><span class="mdi mdi-magnify mdi-x"></span>
                     </button>
                 </form>
             </div>
