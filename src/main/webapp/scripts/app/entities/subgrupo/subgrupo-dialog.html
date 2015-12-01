@@ -15,17 +15,24 @@
                     ng-model="subgrupo.id" readonly />
         </div>
         -->
-        <div class="form-group">
-            <label for="field_nm_sub_grupo">Nome</label>
-            <input type="text" class="form-control" name="nm_sub_grupo" id="field_nm_sub_grupo"
-                    ng-model="subgrupo.nm_sub_grupo"
-                     />
-        </div>
-        <div class="form-group">
-            <label for="field_vl_custo">Custo(%)</label>
-            <input type="number" class="form-control" name="vl_custo" id="field_vl_custo"
-                    ng-model="subgrupo.vl_custo"
-                     />
+        <div class="row">
+            <div class="col-xs-12 col-sm-10">
+                <div class="form-group">
+                    <label for="field_nm_sub_grupo">Nome</label>
+                    <input type="text" class="form-control" name="nm_sub_grupo" id="field_nm_sub_grupo"
+                            ng-model="subgrupo.nm_sub_grupo"
+                             />
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-2">
+                <div class="form-group">
+                    <label for="field_vl_custo">Custo(%)</label>
+                    <input type="number" class="form-control" name="vl_custo" id="field_vl_custo"
+                            ng-model="subgrupo.vl_custo"
+                             />
+                </div>
+            </div>
         </div>
 <!--         <div class="form-group"> -->
 <!--             <label for="field_vl_valor">Vl_valor</label> -->
@@ -53,12 +60,16 @@
 <!--         </div> -->
 
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
-        </button>
-        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salvar</span>
-        </button>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                    <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
+                </button>
+                <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salvar</span>
+                </button>
+            </div>
+        </div>
     </div>
 </form>
