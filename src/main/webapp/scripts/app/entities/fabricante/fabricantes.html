@@ -1,27 +1,25 @@
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title" style="font-size:25px">Marcas</h3>
-        <jh-alert></jh-alert>     
+        <h3 class="box-title" style="font-size:25px">Marcas</h3>            
     </div>
     <br>
     <div class="box-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5">
-                    <button class="btn btn-primary btn-flat pull-left" ui-sref="fabricante.new">
-                        <span class="mdi mdi-plus mdi-x"></span> <span>Adicionar</span>
+        <jh-alert></jh-alert>        
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="btn btn-primary btn-flat pull-left" ui-sref="fabricante.new">
+                    <span class="mdi mdi-plus mdi-x"></span> <span>Adicionar</span>
+                </button>
+            </div>            
+            <div class="col-sm-6">
+                <form name="searchForm" class="form-inline pull-right">                        
+                    <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">
+                   
+                    <button class="btn btn-info btn-flat hidden-xs" ng-click="search()"><span class="mdi mdi-magnify mdi-x"></span>
                     </button>
-                </div>
-                <div class="col-sm-6">
-                    <form name="searchForm" class="form-inline pull-right">                        
-                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">
-                       
-                        <button class="btn btn-info btn-flat hidden-xs" ng-click="search()"><span class="mdi mdi-magnify mdi-x"></span>
-                        </button>
-                    </form>
-                </div>
+                </form>
             </div>
-        </div>
+        </div>        
         <br>
         <div class="table-responsive">
             <table class="table table-striped">
