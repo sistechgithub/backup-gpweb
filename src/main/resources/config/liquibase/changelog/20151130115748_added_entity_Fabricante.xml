@@ -31,7 +31,12 @@
             <column name="cd_tel" type="varchar(13)"/>
             <column name="cd_fax" type="varchar(13)"/>
             <column name="fl_inativo" type="bit"/>
+            <column name="id_logradouro" type="bigint"/>
         </createTable>
+        
+        <addForeignKeyConstraint baseColumnNames="id_logradouro"
+			baseTableName="fabricante" constraintName="fk_fabricante_id_logradouro"
+			referencedColumnNames="id" referencedTableName="logradouro" />
         
     </changeSet>
 </databaseChangeLog>

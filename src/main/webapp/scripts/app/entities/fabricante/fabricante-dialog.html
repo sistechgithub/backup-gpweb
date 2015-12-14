@@ -48,7 +48,7 @@
 					<label class="control-label" for="field_cd_cgc">CNPJ</label> <input
 						type="text" class="form-control" name="cd_cgc" id="field_cd_cgc"
 						ng-model="fabricante.cd_cgc" ng-minlength="14" ng-maxlength="14"
-						ui-mask="99.999.999/9999-99" ng-pattern="/^[0-9]{1,7}[-\.\/]?+$/" />
+ 						ui-mask="99.999.999/9999-99" ng-pattern="/^[0-9]{1,7}[-\.\/]?+$/"  />
 					<div ng-show="editForm.cd_cgc.$invalid">
 						<p class="help-block" ng-show="editForm.cd_cgc.$error.minlength"
 							translate-value-min="14">Este campo deve conter no mínimo 14

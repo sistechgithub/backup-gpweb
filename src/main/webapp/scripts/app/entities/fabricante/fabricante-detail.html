@@ -78,6 +78,46 @@
                         <span class="form-control-static">{{fabricante.cd_fax}}</span>
                     </td>
                 </tr>
+                  <tr>
+                    <td>
+                        <span>Logradouro</span>
+                    </td>
+                    <td>
+                        <span class="form-control-static">{{fabricante.id_logradouro.nm_logradouro}}</span>
+                    </td>
+                  </tr>
+                  <tr>  
+                     <td>
+                        <span>Bairro</span>
+                    </td>
+                    <td>
+                        <span class="form-control-static">{{fabricante.id_logradouro.id_bairro.nm_bairro}}</span>
+                    </td>
+                  </tr>
+                  <tr>  
+                     <td>
+                        <span>Cidade</span>
+                    </td>
+                    <td>
+                        <span class="form-control-static">{{fabricante.id_logradouro.id_bairro.id_cidade.nm_cidade}}</span>
+                    </td>
+                  </tr>
+                  <tr>  
+                     <td>
+                        <span>Estado</span>
+                    </td>
+                    <td>
+                        <span class="form-control-static">{{fabricante.id_logradouro.id_bairro.id_cidade.id_estado.nm_estado}}</span>
+                    </td>
+                 </tr>   
+                 <tr>
+                     <td>
+                        <span>CEP</span>
+                    </td>
+                    <td>
+                        <span class="form-control-static">{{fabricante.id_logradouro.cd_dep}}</span>
+                    </td>                    
+                </tr>
                 <tr>
                     <td>
                         <span>Inativo</span>
