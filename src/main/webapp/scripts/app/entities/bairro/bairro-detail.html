@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span>Bairro</span> {{bairro.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Nm_bairro</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{bairro.nm_bairro}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>id_cidade</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="cidade.detail({id:bairro.id_cidade.id})">{{bairro.id_cidade.y}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

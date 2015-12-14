@@ -2,7 +2,9 @@ package com.sth.gp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.sth.gp.domain.Fabricante;
+import com.sth.gp.domain.Logradouro;
 import com.sth.gp.repository.FabricanteRepository;
+import com.sth.gp.repository.LogradouroRepository;
 import com.sth.gp.repository.search.FabricanteSearchRepository;
 import com.sth.gp.web.rest.util.HeaderUtil;
 import com.sth.gp.web.rest.util.PaginationUtil;
@@ -41,6 +43,10 @@ public class FabricanteResource {
 
     @Inject
     private FabricanteSearchRepository fabricanteSearchRepository;
+
+    @Inject
+    private LogradouroRepository logradouroRepository;
+    
 
     /**
      * POST  /fabricantes -> Create a new fabricante.
@@ -92,6 +98,22 @@ public class FabricanteResource {
         Page<Fabricante> page = fabricanteRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/fabricantes");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+    
+    /**
+     * GET  /fabricantes/cep/:cep -> get the "cep" logradouro.
+     */
+    @RequestMapping(value = "/fabricantes/cep/{cep}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Logradouro> getLogradouroByCep(@PathVariable String cep) {
+        log.debug("REST request to get Logradouro : {}", cep);
+        return Optional.ofNullable(logradouroRepository.findByCdCep(cep))
+            .map(logradouro -> new ResponseEntity<>(
+                logradouro,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     /**

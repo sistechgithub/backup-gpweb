@@ -1,5 +1,6 @@
 package com.sth.gp.domain;
 
+import org.hibernate.annotations.ManyToAny;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
@@ -49,6 +50,10 @@ public class Fabricante implements Serializable {
 
     @Column(name = "fl_inativo")
     private Boolean fl_inativo;
+    
+    @ManyToOne
+    @JoinColumn(name="id_logradouro", referencedColumnName="id")
+    private Logradouro id_logradouro;
 
     public Long getId() {
         return id;
@@ -122,7 +127,15 @@ public class Fabricante implements Serializable {
         this.fl_inativo = fl_inativo;
     }
 
-    @Override
+    public Logradouro getId_logradouro() {
+		return id_logradouro;
+	}
+
+	public void setId_logradouro(Logradouro id_logradouro) {
+		this.id_logradouro = id_logradouro;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
