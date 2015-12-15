@@ -17,8 +17,8 @@
 				</div>
 				<div class="col-xs-12 col-sm-2">
 					<div class="form-group">
-						<label for="field_valorcomissao">Comissão(%)</label> 
-						<input class="form-control" type="number" name="vl_comissao" id="field_valorcomissao" ng-model="grupo.valorcomissao" />
+						<label for="field_valorComissao">Comissão(%)</label> 
+						<input class="form-control" type="number" name="valorComissao" id="field_valorComissao" ng-model="grupo.valorComissao" />
 					</div>
 				</div>
 			</div>
@@ -26,33 +26,33 @@
 				<div class="col-xs-12 col-sm-12">
 					<div class="form-group">
 						<div class="checkbox checkbox-position">
-							<input class="checkbox-size" type="checkbox" name="comdesconto" id="field_comdesconto" ng-model="grupo.comdesconto" />
-							<label class="checkbox-label" for="field_comdesconto">Desconto (%)</label>				
+							<input class="checkbox-size" type="checkbox" name="comDesconto" id="field_comDesconto" ng-model="grupo.comDesconto" />
+							<label class="checkbox-label" for="field_comDesconto">Desconto (%)</label>				
 						</div>
 					</div>
 				
 					<div class="form-group">
 						<div class="checkbox checkbox-position">					
-							<input class="checkbox-size" type="checkbox" name="empromo" id="field_empromo" ng-model="grupo.empromo" /> 	
-							<label class="checkbox-label" for="field_empromo">Promoção</label>		 
+							<input class="checkbox-size" type="checkbox" name="emPromo" id="field_emPromo" ng-model="grupo.emPromo" /> 	
+							<label class="checkbox-label" for="field_emPromo">Promoção</label>		 
 						</div>
 					</div>	
 				</div>
 			</div>				
 
 			<!-- Só mostra caso tenha selecionado promoção -->
-			<div ng-show="grupo.fl_promo">
+			<div ng-show="grupo.emPromo">
 				<div class="row">
 		            <div class="col-xs-12 col-sm-6">
 						<div class="form-group">
-							<label for="field_datapromo">Data Promoção</label>
+							<label for="field_dataPromo">Data Promoção</label>
 							<div class="input-group">
 								<div class="input-group-addon">
 		                        	<i class="mdi mdi-calendar mdi-2x"></i>
 		                      	</div> 
-								<input class="form-control" type="date" name="datapromo" id="field_datapromo"	
-								ng-model="grupo.datapromo"
-								ui-mask="99/99/9999" placeholder="DD/MM/YYYY"/>
+								<input class="form-control" type="text" name="dataPromo" id="field_dataPromo"	
+								ng-model="grupo.dataPromo"
+								ui-date-mask placeholder="DD/MM/YYYY"/>
 							</div><!-- /.input group -->
 						</div>
 					</div>
@@ -61,8 +61,8 @@
 					<div class="col-xs-12 col-sm-12">
 						<div class="form-group">
 							<div class="checkbox checkbox-position">						
-								<input class="checkbox-size" type="checkbox" name="semsaldo" id="field_semsaldo" ng-model="grupo.semsaldo" />
-								<label class="checkbox-label" for="field_semsaldo">Sem Contagem</label>
+								<input class="checkbox-size" type="checkbox" name="semSaldo" id="field_semSaldo" ng-model="grupo.semSaldo" />
+								<label class="checkbox-label" for="field_semSaldo">Sem Contagem</label>
 							</div>
 						</div>
 

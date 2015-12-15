@@ -22,7 +22,7 @@ angular.module('gpApp').controller('GrupoDialogController',
         };
 
         $scope.save = function () {
-            $scope.isSaving = true;
+            $scope.isSaving = true; 
             if ($scope.grupo.id != null) {
                 Grupo.update($scope.grupo, onSaveSuccess, onSaveError);
             } else {
