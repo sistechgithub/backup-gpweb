@@ -24,11 +24,11 @@ public class Fabricante implements Serializable {
     @Column(name = "nm_fabricante", length = 50, nullable = false)
     private String nome;
 
-    @Size(min = 18, max = 18)
+    @Size(min = 14, max = 18)
     @Column(name = "cd_cgc", length = 18)
     private String cnpj;
 
-    @Size(min = 18, max = 18)
+    @Size(min = 4, max = 18)
     @Column(name = "cd_cgf", length = 18)
     private String ie;
 
