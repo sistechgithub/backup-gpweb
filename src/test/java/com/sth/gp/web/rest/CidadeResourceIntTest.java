@@ -75,7 +75,7 @@ public class CidadeResourceIntTest {
     @Before
     public void initTest() {
         cidade = new Cidade();
-        cidade.setNm_cidade(DEFAULT_NM_CIDADE);
+        cidade.setNome(DEFAULT_NM_CIDADE);
     }
 
     @Test
@@ -94,7 +94,7 @@ public class CidadeResourceIntTest {
         List<Cidade> cidades = cidadeRepository.findAll();
         assertThat(cidades).hasSize(databaseSizeBeforeCreate + 1);
         Cidade testCidade = cidades.get(cidades.size() - 1);
-        assertThat(testCidade.getNm_cidade()).isEqualTo(DEFAULT_NM_CIDADE);
+        assertThat(testCidade.getNome()).isEqualTo(DEFAULT_NM_CIDADE);
     }
 
     @Test
@@ -102,7 +102,7 @@ public class CidadeResourceIntTest {
     public void checkNm_cidadeIsRequired() throws Exception {
         int databaseSizeBeforeTest = cidadeRepository.findAll().size();
         // set the field null
-        cidade.setNm_cidade(null);
+        cidade.setNome(null);
 
         // Create the Cidade, which fails.
 
@@ -160,7 +160,7 @@ public class CidadeResourceIntTest {
 		int databaseSizeBeforeUpdate = cidadeRepository.findAll().size();
 
         // Update the cidade
-        cidade.setNm_cidade(UPDATED_NM_CIDADE);
+        cidade.setNome(UPDATED_NM_CIDADE);
 
         restCidadeMockMvc.perform(put("/api/cidades")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -171,7 +171,7 @@ public class CidadeResourceIntTest {
         List<Cidade> cidades = cidadeRepository.findAll();
         assertThat(cidades).hasSize(databaseSizeBeforeUpdate);
         Cidade testCidade = cidades.get(cidades.size() - 1);
-        assertThat(testCidade.getNm_cidade()).isEqualTo(UPDATED_NM_CIDADE);
+        assertThat(testCidade.getNome()).isEqualTo(UPDATED_NM_CIDADE);
     }
 
     @Test

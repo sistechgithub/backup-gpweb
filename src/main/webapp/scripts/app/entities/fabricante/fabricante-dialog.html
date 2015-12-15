@@ -21,9 +21,9 @@
 
 			<div class="col-xs-12 col-sm-10">
 				<div class="form-group mg-bottom-grupo">
-					<label class="control-label" for="field_nm_fabricante">Nome</label>
-					<input type="text" class="form-control" name="nm_fabricante"
-						id="field_nm_fabricante" ng-model="fabricante.nm_fabricante"
+					<label class="control-label" for="field_nome">Nome</label>
+					<input type="text" class="form-control" name="nome"
+						id="field_nome" ng-model="fabricante.nome"
 						required ng-minlength="10" ng-maxlength="50" />
 					<div ng-show="editForm.nm_fabricante.$invalid">
 						<p class="help-block"
@@ -45,9 +45,9 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-6">
 				<div class="form-group">
-					<label class="control-label" for="field_cd_cgc">CNPJ</label> <input
-						type="text" class="form-control" name="cd_cgc" id="field_cd_cgc"
-						ng-model="fabricante.cd_cgc" ng-minlength="14" ng-maxlength="14"
+					<label class="control-label" for="field_cnpj">CNPJ</label> <input
+						type="text" class="form-control" name="cd_cgc" id="field_cnpj"
+						ng-model="fabricante.cnpj" ng-minlength="14" ng-maxlength="14"
  						ui-mask="99.999.999/9999-99" ng-pattern="/^[0-9]{1,7}[-\.\/]?+$/"  />
 					<div ng-show="editForm.cd_cgc.$invalid">
 						<p class="help-block" ng-show="editForm.cd_cgc.$error.minlength"
@@ -61,9 +61,9 @@
 			</div>
 			<div class="col-xs-12 col-md-6">
 				<div class="form-group">
-					<label class="control-label" for="field_cd_cgf">Inscrição
-						Estadual</label> <input type="text" class="form-control" name="cd_cgf"
-						id="field_cd_cgf" ng-model="fabricante.cd_cgf" ng-minlength="18"
+					<label class="control-label" for="field_ie">Inscrição
+						Estadual</label> <input type="text" class="form-control" name="ie"
+						id="field_ie" ng-model="fabricante.ie" ng-minlength="18"
 						ng-maxlength="18" />
 					<div ng-show="editForm.cd_cgf.$invalid">
 						<p class="help-block" ng-show="editForm.cd_cgf.$error.minlength"
@@ -79,16 +79,16 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-2">
 				<div class="form-group">
-					<label class="control-label" for="field_nn_numero">Número</label> <input
-						type="text" class="form-control" name="nn_numero"
-						id="field_nn_numero" ng-model="fabricante.nn_numero" />
+					<label class="control-label" for="field_numero">Número</label> <input
+						type="text" class="form-control" name="numero"
+						id="field_numero" ng-model="fabricante.numero" />
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-10">
 				<div class="form-group">
-					<label class="control-label" for="field_cs_complemento">Complemento</label>
-					<input type="text" class="form-control" name="cs_complemento"
-						id="field_cs_complemento" ng-model="fabricante.cs_complemento"
+					<label class="control-label" for="field_complemento">Complemento</label>
+					<input type="text" class="form-control" name="complemento"
+						id="field_complemento" ng-model="fabricante.complemento"
 						ng-maxlength="20" />
 					<div ng-show="editForm.cs_complemento.$invalid">
 						<p class="help-block"
@@ -102,9 +102,9 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-6">
 				<div class="form-group">
-					<label class="control-label" for="field_cd_tel">Telefone</label> <input
-						type="text" class="form-control" name="cd_tel" id="field_cd_tel"
-						ng-model="fabricante.cd_tel" ng-maxlength="11" />
+					<label class="control-label" for="field_telefone">Telefone</label> <input
+						type="text" class="form-control" name="telefone" id="field_telefone"
+						ng-model="fabricante.telefone" ng-maxlength="11" />
 
 					<div ng-show="editForm.cd_tel.$invalid">
 						<p class="help-block" ng-show="editForm.cd_tel.$error.maxlength"
@@ -115,9 +115,9 @@
 			</div>
 			<div class="col-xs-12 col-sm-6">
 				<div class="form-group">
-					<label class="control-label" for="field_cd_fax">FAX</label> <input
-						type="text" class="form-control" name="cd_fax" id="field_cd_fax"
-						ng-model="fabricante.cd_fax" ng-maxlength="13" />
+					<label class="control-label" for="field_fax">FAX</label> <input
+						type="text" class="form-control" name="fax" id="field_fax"
+						ng-model="fabricante.fax" ng-maxlength="13" />
 					<div ng-show="editForm.cd_fax.$invalid">
 						<p class="help-block" ng-show="editForm.cd_fax.$error.maxlength"
 							translate-value-max="13">Este campo deve conter no máximo 13
@@ -127,39 +127,39 @@
 			</div>
 			<div class="col-xs-12 col-sm-6">
 				<div class="form-group">
-					<label class="control-label" for="field_cd_fax">CEP</label>
-					<input type="text" class="form-control" name="cd_dep" ng-change="findcep(fabricante.id_logradouro.cd_dep)"
-						id="field_cd_dep"
-						ng-model="fabricante.id_logradouro.cd_dep" />
+					<label class="control-label" for="field_cep">CEP</label>
+					<input type="text" class="form-control" name="cep" ng-change="findcep(fabricante.logradouro.cep)"
+						id="field_cep"
+						ng-model="fabricante.logradouro.cep" />
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6">
 				<div class="form-group">
-					<label class="control-label" for="field_cd_fax">Logradouro</label>
-					<input type="text" class="form-control" name="nm_logradouro"
-						id="field_nm_logradouro"
-						ng-model="fabricante.id_logradouro.nm_logradouro" />
+					<label class="control-label" for="field_logradouro_nome">Logradouro</label>
+					<input type="text" class="form-control" name="logradouro_nome"
+						id="field_logradouro_nome"
+						ng-model="fabricante.logradouro.nome" />
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6">
 				<div class="form-group">
-					<label class="control-label" for="field_nm_bairro">Bairro</label> <input
-						type="text" class="form-control" name="cd_fax" id="field_nm_bairro"
-						ng-model="fabricante.id_logradouro.id_bairro.nm_bairro" />
+					<label class="control-label" for="field_bairro_nome">Bairro</label> <input
+						type="text" class="form-control" name="bairro_nome" id="field_bairro_nome"
+						ng-model="fabricante.logradouro.bairro.nome" />
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6">
 				<div class="form-group">
-					<label class="control-label" for="field_cd_fax">Cidade</label> <input
-						type="text" class="form-control" name="nm_cidade" id="field_nm_cidade"
-						ng-model="fabricante.id_logradouro.id_bairro.id_cidade.nm_cidade" />
+					<label class="control-label" for="field_cidade_nome">Cidade</label> <input
+						type="text" class="form-control" name="cidade_nome" id="field_cidade_nome"
+						ng-model="fabricante.logradouro.bairro.cidade.nome" />
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6">
 				<div class="form-group">
-					<label class="control-label" for="field_cd_fax">Estado</label> <input
-						type="text" class="form-control" name="cd_fax" id="field_nm_estado"
-						ng-model="fabricante.id_logradouro.id_bairro.id_cidade.id_estado.nm_estado" />
+					<label class="control-label" for="field_estado_nome">Estado</label> <input
+						type="text" class="form-control" name="cd_fax" id="field_estado_nome"
+						ng-model="fabricante.logradouro.bairro.cidade.estado.nome" />
 				</div>
 			</div>
 		</div>
@@ -168,10 +168,10 @@
 				<div class="form-group">
 					<div class="checkbox checkbox-position">
 						<input class="checkbox-size" type="checkbox" class="form-control"
-							name="fl_inativo" id="field_fl_inativo"
-							ng-model="fabricante.fl_inativo" /> <label
+							name="fl_inativo" id="field_inativo"
+							ng-model="fabricante.inativo" /> <label
 							class="checkbox-label" class="control-label"
-							for="field_fl_inativo">Inativo</label>
+							for="field_inativo">Inativo</label>
 					</div>
 				</div>
 			</div>

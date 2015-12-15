@@ -79,9 +79,9 @@ public class EstadoResourceIntTest {
     @Before
     public void initTest() {
         estado = new Estado();
-        estado.setNm_estado(DEFAULT_NM_ESTADO);
-        estado.setSg_estado(DEFAULT_SG_ESTADO);
-        estado.setDs_pais(DEFAULT_DS_PAIS);
+        estado.setNome(DEFAULT_NM_ESTADO);
+        estado.setSigla(DEFAULT_SG_ESTADO);
+        estado.setPais(DEFAULT_DS_PAIS);
     }
 
     @Test
@@ -100,9 +100,9 @@ public class EstadoResourceIntTest {
         List<Estado> estados = estadoRepository.findAll();
         assertThat(estados).hasSize(databaseSizeBeforeCreate + 1);
         Estado testEstado = estados.get(estados.size() - 1);
-        assertThat(testEstado.getNm_estado()).isEqualTo(DEFAULT_NM_ESTADO);
-        assertThat(testEstado.getSg_estado()).isEqualTo(DEFAULT_SG_ESTADO);
-        assertThat(testEstado.getDs_pais()).isEqualTo(DEFAULT_DS_PAIS);
+        assertThat(testEstado.getNome()).isEqualTo(DEFAULT_NM_ESTADO);
+        assertThat(testEstado.getSigla()).isEqualTo(DEFAULT_SG_ESTADO);
+        assertThat(testEstado.getPais()).isEqualTo(DEFAULT_DS_PAIS);
     }
 
     @Test
@@ -110,7 +110,7 @@ public class EstadoResourceIntTest {
     public void checkNm_estadoIsRequired() throws Exception {
         int databaseSizeBeforeTest = estadoRepository.findAll().size();
         // set the field null
-        estado.setNm_estado(null);
+        estado.setNome(null);
 
         // Create the Estado, which fails.
 
@@ -128,7 +128,7 @@ public class EstadoResourceIntTest {
     public void checkSg_estadoIsRequired() throws Exception {
         int databaseSizeBeforeTest = estadoRepository.findAll().size();
         // set the field null
-        estado.setSg_estado(null);
+        estado.setSigla(null);
 
         // Create the Estado, which fails.
 
@@ -190,9 +190,9 @@ public class EstadoResourceIntTest {
 		int databaseSizeBeforeUpdate = estadoRepository.findAll().size();
 
         // Update the estado
-        estado.setNm_estado(UPDATED_NM_ESTADO);
-        estado.setSg_estado(UPDATED_SG_ESTADO);
-        estado.setDs_pais(UPDATED_DS_PAIS);
+        estado.setNome(UPDATED_NM_ESTADO);
+        estado.setSigla(UPDATED_SG_ESTADO);
+        estado.setPais(UPDATED_DS_PAIS);
 
         restEstadoMockMvc.perform(put("/api/estados")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -203,9 +203,9 @@ public class EstadoResourceIntTest {
         List<Estado> estados = estadoRepository.findAll();
         assertThat(estados).hasSize(databaseSizeBeforeUpdate);
         Estado testEstado = estados.get(estados.size() - 1);
-        assertThat(testEstado.getNm_estado()).isEqualTo(UPDATED_NM_ESTADO);
-        assertThat(testEstado.getSg_estado()).isEqualTo(UPDATED_SG_ESTADO);
-        assertThat(testEstado.getDs_pais()).isEqualTo(UPDATED_DS_PAIS);
+        assertThat(testEstado.getNome()).isEqualTo(UPDATED_NM_ESTADO);
+        assertThat(testEstado.getSigla()).isEqualTo(UPDATED_SG_ESTADO);
+        assertThat(testEstado.getPais()).isEqualTo(UPDATED_DS_PAIS);
     }
 
     @Test
