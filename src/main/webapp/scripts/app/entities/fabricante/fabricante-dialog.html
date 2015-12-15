@@ -1,12 +1,12 @@
 
-<form name="editForm" role="form" novalidate ng-submit="save()"
-	show-validation>
-
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal"
-			aria-hidden="true" ng-click="clear()">&times;</button>
-		<h4 class="modal-title" id="myFabricanteLabel">Criar ou editar
-			uma Marca</h4>
+			aria-hidden="true" ng-click="clear()">&times;
+		</button>
+		<h4 class="modal-title" id="myFabricanteLabel">
+			<strong>Criar ou editar	uma Marca</strong>
+		</h4>
 	</div>
 	<div class="modal-body">
 		<jh-alert-error></jh-alert-error>
@@ -22,9 +22,11 @@
 			<div class="col-xs-12 col-sm-10">
 				<div class="form-group mg-bottom-grupo">
 					<label class="control-label" for="field_nm_fabricante">Nome</label>
-					<input type="text" class="form-control" name="nm_fabricante"
+					<input 
+						type="text" class="form-control" name="nm_fabricante"
 						id="field_nm_fabricante" ng-model="fabricante.nm_fabricante"
-						required ng-minlength="10" ng-maxlength="50" />
+						required ng-minlength="10" ng-maxlength="50" autofocus 
+					/>
 					<div ng-show="editForm.nm_fabricante.$invalid">
 						<p class="help-block"
 							ng-show="editForm.nm_fabricante.$error.required">Este campo é
@@ -45,10 +47,13 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-6">
 				<div class="form-group">
-					<label class="control-label" for="field_cd_cgc">CNPJ</label> <input
+					<label class="control-label" for="field_cd_cgc">CNPJ</label> 
+					<input
 						type="text" class="form-control" name="cd_cgc" id="field_cd_cgc"
-						ng-model="fabricante.cd_cgc" ng-minlength="14" ng-maxlength="14"
- 						ui-mask="99.999.999/9999-99" ng-pattern="/^[0-9]{1,7}[-\.\/]?+$/"  />
+						ng-model="fabricante.cd_cgc" ng-model="cnpj" 
+						ng-minlength="14" ng-maxlength="18" ui-br-cnpj-mask
+						placeholder="00.000.000/0000-00"  
+					/>
 					<div ng-show="editForm.cd_cgc.$invalid">
 						<p class="help-block" ng-show="editForm.cd_cgc.$error.minlength"
 							translate-value-min="14">Este campo deve conter no mínimo 14
@@ -77,6 +82,26 @@
 			</div>
 		</div>
 		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<div class="form-group">
+					<label class="control-label" for="field_cd_fax">CEP</label>
+					<input 
+						type="text" class="form-control" name="cd_dep" ng-change="findcep(fabricante.id_logradouro.cd_dep)"
+						id="field_cd_dep" ng-model="fabricante.id_logradouro.cd_dep" ui-br-cep-mask 
+						placeholder="00000-000"
+					/>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<div class="form-group">
+					<label class="control-label" for="field_cd_fax">Logradouro</label>
+					<input type="text" class="form-control" name="nm_logradouro"
+						id="field_nm_logradouro"
+						ng-model="fabricante.id_logradouro.nm_logradouro" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-xs-12 col-sm-2">
 				<div class="form-group">
 					<label class="control-label" for="field_nn_numero">Número</label> <input
@@ -100,11 +125,37 @@
 			</div>
 		</div>
 		<div class="row">
+			<div class="col-xs-12 col-sm-5">
+				<div class="form-group">
+					<label class="control-label" for="field_nm_bairro">Bairro</label> <input
+						type="text" class="form-control" name="cd_fax" id="field_nm_bairro"
+						ng-model="fabricante.id_logradouro.id_bairro.nm_bairro" />
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-5">
+				<div class="form-group">
+					<label class="control-label" for="field_cd_fax">Cidade</label> <input
+						type="text" class="form-control" name="nm_cidade" id="field_nm_cidade"
+						ng-model="fabricante.id_logradouro.id_bairro.id_cidade.nm_cidade" />
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-2">
+				<div class="form-group">
+					<label class="control-label" for="field_cd_fax">Estado</label> <input
+						type="text" class="form-control" name="cd_fax" id="field_nm_estado"
+						ng-model="fabricante.id_logradouro.id_bairro.id_cidade.id_estado.nm_estado" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-xs-12 col-sm-6">
 				<div class="form-group">
-					<label class="control-label" for="field_cd_tel">Telefone</label> <input
+					<label class="control-label" for="field_cd_tel">Telefone</label> 
+					<input
 						type="text" class="form-control" name="cd_tel" id="field_cd_tel"
-						ng-model="fabricante.cd_tel" ng-maxlength="11" />
+						ng-model="fabricante.cd_tel" ui-br-phone-number
+						placeholder="(00) 00000-0000" 
+					/>
 
 					<div ng-show="editForm.cd_tel.$invalid">
 						<p class="help-block" ng-show="editForm.cd_tel.$error.maxlength"
@@ -115,54 +166,20 @@
 			</div>
 			<div class="col-xs-12 col-sm-6">
 				<div class="form-group">
-					<label class="control-label" for="field_cd_fax">FAX</label> <input
+					<label class="control-label" for="field_cd_fax">FAX</label> 
+					<input
 						type="text" class="form-control" name="cd_fax" id="field_cd_fax"
-						ng-model="fabricante.cd_fax" ng-maxlength="13" />
+						ng-model="fabricante.cd_fax" ui-br-phone-number 
+						placeholder="(00) 0000-0000"
+					/>
 					<div ng-show="editForm.cd_fax.$invalid">
 						<p class="help-block" ng-show="editForm.cd_fax.$error.maxlength"
 							translate-value-max="13">Este campo deve conter no máximo 13
 							caracteres.</p>
 					</div>
 				</div>
-			</div>
-			<div class="col-xs-12 col-sm-6">
-				<div class="form-group">
-					<label class="control-label" for="field_cd_fax">CEP</label>
-					<input type="text" class="form-control" name="cd_dep" ng-change="findcep(fabricante.id_logradouro.cd_dep)"
-						id="field_cd_dep"
-						ng-model="fabricante.id_logradouro.cd_dep" />
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-6">
-				<div class="form-group">
-					<label class="control-label" for="field_cd_fax">Logradouro</label>
-					<input type="text" class="form-control" name="nm_logradouro"
-						id="field_nm_logradouro"
-						ng-model="fabricante.id_logradouro.nm_logradouro" />
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-6">
-				<div class="form-group">
-					<label class="control-label" for="field_nm_bairro">Bairro</label> <input
-						type="text" class="form-control" name="cd_fax" id="field_nm_bairro"
-						ng-model="fabricante.id_logradouro.id_bairro.nm_bairro" />
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-6">
-				<div class="form-group">
-					<label class="control-label" for="field_cd_fax">Cidade</label> <input
-						type="text" class="form-control" name="nm_cidade" id="field_nm_cidade"
-						ng-model="fabricante.id_logradouro.id_bairro.id_cidade.nm_cidade" />
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-6">
-				<div class="form-group">
-					<label class="control-label" for="field_cd_fax">Estado</label> <input
-						type="text" class="form-control" name="cd_fax" id="field_nm_estado"
-						ng-model="fabricante.id_logradouro.id_bairro.id_cidade.id_estado.nm_estado" />
-				</div>
-			</div>
-		</div>
+			</div>			
+		</div>	
 		<div class="row">
 			<div class="col-xs-12 col-md-12">
 				<div class="form-group">

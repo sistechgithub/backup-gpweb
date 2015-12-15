@@ -2,7 +2,18 @@
 
 angular.module('gpApp', ['LocalStorageModule', 
                'ui.bootstrap', // for modal dialogs
-    'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', 'infinite-scroll', 'angular-loading-bar', 'ui.mask'])
+                'ngResource', 
+                'ui.router', 
+                'ngCookies', 
+                'ngAria', 
+                'ngCacheBuster', 
+                'ngFileUpload', 
+                'infinite-scroll', 
+                'angular-loading-bar', 
+                'ui.mask', 
+                'ui.utils.masks', 
+                'idf.br-filters'
+            ])
 
     .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION) {
         
