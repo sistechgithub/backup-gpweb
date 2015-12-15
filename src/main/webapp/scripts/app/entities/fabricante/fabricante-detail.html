@@ -27,7 +27,7 @@
                         <span>Nome</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.nm_fabricante}}</span>
+                        <span class="form-control-static">{{fabricante.nome}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -35,7 +35,7 @@
                         <span>CNPJ</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.cd_cgc}}</span>
+                        <span class="form-control-static">{{fabricante.cnpj}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -43,7 +43,7 @@
                         <span>I.E.</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.cd_cgf}}</span>
+                        <span class="form-control-static">{{fabricante.ie}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -51,7 +51,7 @@
                         <span>Número</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.nn_numero}}</span>
+                        <span class="form-control-static">{{fabricante.numero}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -59,7 +59,7 @@
                         <span>Complemento</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.cs_complemento}}</span>
+                        <span class="form-control-static">{{fabricante.complemento}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -67,7 +67,7 @@
                         <span>Telefone</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.cd_tel}}</span>
+                        <span class="form-control-static">{{fabricante.telefone}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -75,7 +75,7 @@
                         <span>Fax</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.cd_fax}}</span>
+                        <span class="form-control-static">{{fabricante.fax}}</span>
                     </td>
                 </tr>
                   <tr>
@@ -83,7 +83,7 @@
                         <span>Logradouro</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.id_logradouro.nm_logradouro}}</span>
+                        <span class="form-control-static">{{fabricante.logradouro.nome}}</span>
                     </td>
                   </tr>
                   <tr>  
@@ -91,7 +91,7 @@
                         <span>Bairro</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.id_logradouro.id_bairro.nm_bairro}}</span>
+                        <span class="form-control-static">{{fabricante.logradouro.bairro.nome}}</span>
                     </td>
                   </tr>
                   <tr>  
@@ -99,7 +99,7 @@
                         <span>Cidade</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.id_logradouro.id_bairro.id_cidade.nm_cidade}}</span>
+                        <span class="form-control-static">{{fabricante.logradouro.bairro.cidade.nome}}</span>
                     </td>
                   </tr>
                   <tr>  
@@ -107,7 +107,7 @@
                         <span>Estado</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.id_logradouro.id_bairro.id_cidade.id_estado.nm_estado}}</span>
+                        <span class="form-control-static">{{fabricante.logradouro.bairro.cidade.estado.nome}}</span>
                     </td>
                  </tr>   
                  <tr>
@@ -115,7 +115,7 @@
                         <span>CEP</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.id_logradouro.cd_dep}}</span>
+                        <span class="form-control-static">{{fabricante.logradouro.cep}}</span>
                     </td>                    
                 </tr>
                 <tr>
@@ -123,7 +123,7 @@
                         <span>Inativo</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.fl_inativo ? 'Sim': 'Não'}}</span>
+                        <span class="form-control-static">{{fabricante.inativo ? 'Sim': 'Não'}}</span>
                     </td>
                 </tr>
                 </tbody>

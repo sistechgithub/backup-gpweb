@@ -21,110 +21,143 @@ public class Subgrupo implements Serializable {
     private Long id;
 
     @Column(name = "nm_sub_grupo")
-    private String nm_sub_grupo;
+    private String nome;
 
     @Column(name = "vl_custo", precision=10, scale=2)
-    private BigDecimal vl_custo;
+    private BigDecimal custo;
 
     @Column(name = "vl_valor", precision=10, scale=2)
-    private BigDecimal vl_valor;
+    private BigDecimal valor;
 
     @Column(name = "dt_operacao")
-    private LocalDate dt_operacao;
+    private LocalDate dataOperacao;
 
     @Column(name = "fl_envio")
-    private Boolean fl_envio;
+    private Boolean enviado;
 
     @Column(name = "nn_novo")
-    private Integer nn_novo;
+    private Integer novo;
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public String getNm_sub_grupo() {
-        return nm_sub_grupo;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setNm_sub_grupo(String nm_sub_grupo) {
-        this.nm_sub_grupo = nm_sub_grupo;
-    }
+	public BigDecimal getCusto() {
+		return custo;
+	}
 
-    public BigDecimal getVl_custo() {
-        return vl_custo;
-    }
+	public void setCusto(BigDecimal custo) {
+		this.custo = custo;
+	}
 
-    public void setVl_custo(BigDecimal vl_custo) {
-        this.vl_custo = vl_custo;
-    }
+	public BigDecimal getValor() {
+		return valor;
+	}
 
-    public BigDecimal getVl_valor() {
-        return vl_valor;
-    }
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
 
-    public void setVl_valor(BigDecimal vl_valor) {
-        this.vl_valor = vl_valor;
-    }
+	public LocalDate getDataOperacao() {
+		return dataOperacao;
+	}
 
-    public LocalDate getDt_operacao() {
-        return dt_operacao;
-    }
+	public void setDataOperacao(LocalDate dataOperacao) {
+		this.dataOperacao = dataOperacao;
+	}
 
-    public void setDt_operacao(LocalDate dt_operacao) {
-        this.dt_operacao = dt_operacao;
-    }
+	public Boolean getEnviado() {
+		return enviado;
+	}
 
-    public Boolean getFl_envio() {
-        return fl_envio;
-    }
+	public void setEnviado(Boolean enviado) {
+		this.enviado = enviado;
+	}
 
-    public void setFl_envio(Boolean fl_envio) {
-        this.fl_envio = fl_envio;
-    }
+	public Integer getNovo() {
+		return novo;
+	}
 
-    public Integer getNn_novo() {
-        return nn_novo;
-    }
+	public void setNovo(Integer novo) {
+		this.novo = novo;
+	}
 
-    public void setNn_novo(Integer nn_novo) {
-        this.nn_novo = nn_novo;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((custo == null) ? 0 : custo.hashCode());
+		result = prime * result + ((dataOperacao == null) ? 0 : dataOperacao.hashCode());
+		result = prime * result + ((enviado == null) ? 0 : enviado.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((novo == null) ? 0 : novo.hashCode());
+		result = prime * result + ((valor == null) ? 0 : valor.hashCode());
+		return result;
+	}
 
-        Subgrupo subgrupo = (Subgrupo) o;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Subgrupo other = (Subgrupo) obj;
+		if (custo == null) {
+			if (other.custo != null)
+				return false;
+		} else if (!custo.equals(other.custo))
+			return false;
+		if (dataOperacao == null) {
+			if (other.dataOperacao != null)
+				return false;
+		} else if (!dataOperacao.equals(other.dataOperacao))
+			return false;
+		if (enviado == null) {
+			if (other.enviado != null)
+				return false;
+		} else if (!enviado.equals(other.enviado))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (novo == null) {
+			if (other.novo != null)
+				return false;
+		} else if (!novo.equals(other.novo))
+			return false;
+		if (valor == null) {
+			if (other.valor != null)
+				return false;
+		} else if (!valor.equals(other.valor))
+			return false;
+		return true;
+	}
 
-        if ( ! Objects.equals(id, subgrupo.id)) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
-
-    @Override
-    public String toString() {
-        return "Subgrupo{" +
-            "id=" + id +
-            ", nm_sub_grupo='" + nm_sub_grupo + "'" +
-            ", vl_custo='" + vl_custo + "'" +
-            ", vl_valor='" + vl_valor + "'" +
-            ", dt_operacao='" + dt_operacao + "'" +
-            ", fl_envio='" + fl_envio + "'" +
-            ", nn_novo='" + nn_novo + "'" +
-            '}';
-    }
+	@Override
+	public String toString() {
+		return "Subgrupo [id=" + id + ", nome=" + nome + ", custo=" + custo + ", valor=" + valor + ", dataOperacao="
+				+ dataOperacao + ", enviado=" + enviado + ", novo=" + novo + "]";
+	}
 }

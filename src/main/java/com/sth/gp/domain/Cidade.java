@@ -23,58 +23,76 @@ public class Cidade implements Serializable {
     @NotNull
     @Size(max = 60)
     @Column(name = "nm_cidade", length = 60, nullable = false)
-    private String nm_cidade;
+    private String nome;
 
     @ManyToOne
     @JoinColumn(name = "id_estado", referencedColumnName="id")
-    private Estado id_estado;
+    private Estado estado;
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNm_cidade() {
-        return nm_cidade;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNm_cidade(String nm_cidade) {
-        this.nm_cidade = nm_cidade;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public Estado getId_estado() {
-        return id_estado;
-    }
+	public Estado getEstado() {
+		return estado;
+	}
 
-    public void setId_estado(Estado estado) {
-        this.id_estado = estado;
-    }
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Cidade cidade = (Cidade) o;
-        return Objects.equals(id, cidade.id);
-    }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		return result;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cidade other = (Cidade) obj;
+		if (estado == null) {
+			if (other.estado != null)
+				return false;
+		} else if (!estado.equals(other.estado))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		return true;
+	}
 
-    @Override
-    public String toString() {
-        return "Cidade{" +
-            "id=" + id +
-            ", nm_cidade='" + nm_cidade + "'" +
-            '}';
-    }
+	@Override
+	public String toString() {
+		return "Cidade [id=" + id + ", nome=" + nome + ", estado=" + estado + "]";
+	}
+
 }

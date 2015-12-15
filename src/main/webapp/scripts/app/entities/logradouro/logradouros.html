@@ -36,16 +36,16 @@
             <tbody>
                 <tr ng-repeat="logradouro in logradouros track by logradouro.id">
                     <td><a ui-sref="logradouro.detail({id:logradouro.id})">{{logradouro.id}}</a></td>
-                    <td>{{logradouro.nm_logradouro}}</td>
-                    <td>{{logradouro.cd_dep}}</td>
+                    <td>{{logradouro.nome}}</td>
+                    <td>{{logradouro.cep}}</td>
                     <td>
-                        <a ui-sref="bairro.detail({id:logradouro.id_bairro.id})">{{logradouro.id_bairro.nm_bairro}}</a>
+                        <a ui-sref="bairro.detail({id:logradouro.bairro.id})">{{logradouro.bairro.nome}}</a>
                     </td> 
                     <td>
-                        <a ui-sref="cidade.detail({id:logradouro.id_bairro.id_cidade.id})">{{logradouro.id_bairro.id_cidade.nm_cidade}}</a>
+                        <a ui-sref="cidade.detail({id:logradouro.bairro.cidade.id})">{{logradouro.bairro.cidade.nome}}</a>
                     </td> 
                     <td>
-                        <a ui-sref="estado.detail({id:logradouro.id_bairro.id_cidade.id_estado.id})">{{logradouro.id_bairro.id_cidade.id_estado.nm_estado}}</a>
+                        <a ui-sref="estado.detail({id:logradouro.bairro.cidade.estado.id})">{{logradouro.bairro.cidade.estado.nome}}</a>
                     </td>
                     <td>
                         <button type="submit"

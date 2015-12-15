@@ -35,16 +35,16 @@ angular.module('gpApp')
 
         $scope.clear = function () {
             $scope.grupo = {
-                nm_grupo: null,
-                vl_comissao: null,
-                fl_desconto: null,
-                fl_promo: null,
-                dt_promo: null,
-                dt_operacao: null,
-                fl_semcontagem: null,
-                fl_envio: null,
-                nn_novo: null,
-                id: null
+            		nome: null,
+                    valorcomissao: null,
+                    comdesconto: null,
+                    empromo: null,
+                    datapromo: null,
+                    dataoperacao: null,
+                    semsaldo: null,
+                    enviado: null,
+                    novo: null,
+                    id: null
             };
         };
     });

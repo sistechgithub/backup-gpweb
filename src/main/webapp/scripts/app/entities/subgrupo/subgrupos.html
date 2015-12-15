@@ -40,8 +40,8 @@
                         <tbody>
                             <tr ng-repeat="subgrupo in subgrupos track by subgrupo.id">
                                 <td><a ui-sref="subgrupo.detail({id:subgrupo.id})">{{subgrupo.id}}</a></td>
-                                <td class="col-sm-6">{{subgrupo.nm_sub_grupo}}</td>
-                                <td>{{subgrupo.vl_custo}}</td>
+                                <td class="col-sm-6">{{subgrupo.nome}}</td>
+                                <td>{{subgrupo.custo}}</td>
             <!--                     <td>{{subgrupo.vl_valor}}</td> -->
             <!--                         <td>{{subgrupo.dt_operacao | date:'mediumDate'}}</td> -->
             <!--                     <td>{{subgrupo.fl_envio}}</td> -->
