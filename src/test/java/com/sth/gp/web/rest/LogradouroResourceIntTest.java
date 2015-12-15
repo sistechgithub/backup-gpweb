@@ -77,8 +77,8 @@ public class LogradouroResourceIntTest {
     @Before
     public void initTest() {
         logradouro = new Logradouro();
-        logradouro.setNm_logradouro(DEFAULT_NM_LOGRADOURO);
-        logradouro.setCd_dep(DEFAULT_CD_DEP);
+        logradouro.setNome(DEFAULT_NM_LOGRADOURO);
+        logradouro.setCep(DEFAULT_CD_DEP);
     }
 
     @Test
@@ -97,8 +97,8 @@ public class LogradouroResourceIntTest {
         List<Logradouro> logradouros = logradouroRepository.findAll();
         assertThat(logradouros).hasSize(databaseSizeBeforeCreate + 1);
         Logradouro testLogradouro = logradouros.get(logradouros.size() - 1);
-        assertThat(testLogradouro.getNm_logradouro()).isEqualTo(DEFAULT_NM_LOGRADOURO);
-        assertThat(testLogradouro.getCd_dep()).isEqualTo(DEFAULT_CD_DEP);
+        assertThat(testLogradouro.getNome()).isEqualTo(DEFAULT_NM_LOGRADOURO);
+        assertThat(testLogradouro.getCep()).isEqualTo(DEFAULT_CD_DEP);
     }
 
     @Test
@@ -106,7 +106,7 @@ public class LogradouroResourceIntTest {
     public void checkNm_logradouroIsRequired() throws Exception {
         int databaseSizeBeforeTest = logradouroRepository.findAll().size();
         // set the field null
-        logradouro.setNm_logradouro(null);
+        logradouro.setNome(null);
 
         // Create the Logradouro, which fails.
 
@@ -166,8 +166,8 @@ public class LogradouroResourceIntTest {
 		int databaseSizeBeforeUpdate = logradouroRepository.findAll().size();
 
         // Update the logradouro
-        logradouro.setNm_logradouro(UPDATED_NM_LOGRADOURO);
-        logradouro.setCd_dep(UPDATED_CD_DEP);
+        logradouro.setNome(UPDATED_NM_LOGRADOURO);
+        logradouro.setCep(UPDATED_CD_DEP);
 
         restLogradouroMockMvc.perform(put("/api/logradouros")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -178,8 +178,8 @@ public class LogradouroResourceIntTest {
         List<Logradouro> logradouros = logradouroRepository.findAll();
         assertThat(logradouros).hasSize(databaseSizeBeforeUpdate);
         Logradouro testLogradouro = logradouros.get(logradouros.size() - 1);
-        assertThat(testLogradouro.getNm_logradouro()).isEqualTo(UPDATED_NM_LOGRADOURO);
-        assertThat(testLogradouro.getCd_dep()).isEqualTo(UPDATED_CD_DEP);
+        assertThat(testLogradouro.getNome()).isEqualTo(UPDATED_NM_LOGRADOURO);
+        assertThat(testLogradouro.getCep()).isEqualTo(UPDATED_CD_DEP);
     }
 
     @Test

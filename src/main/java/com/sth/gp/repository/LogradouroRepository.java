@@ -12,6 +12,6 @@ import java.lang.String;
  */
 public interface LogradouroRepository extends JpaRepository<Logradouro,Long> {
 
-	Logradouro findByCdCep(String cd_cep);
+	Logradouro findByCep(String ccep);
 	
 }

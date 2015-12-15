@@ -75,7 +75,7 @@ public class BairroResourceIntTest {
     @Before
     public void initTest() {
         bairro = new Bairro();
-        bairro.setNm_bairro(DEFAULT_NM_BAIRRO);
+        bairro.setNome(DEFAULT_NM_BAIRRO);
     }
 
     @Test
@@ -94,7 +94,7 @@ public class BairroResourceIntTest {
         List<Bairro> bairros = bairroRepository.findAll();
         assertThat(bairros).hasSize(databaseSizeBeforeCreate + 1);
         Bairro testBairro = bairros.get(bairros.size() - 1);
-        assertThat(testBairro.getNm_bairro()).isEqualTo(DEFAULT_NM_BAIRRO);
+        assertThat(testBairro.getNome()).isEqualTo(DEFAULT_NM_BAIRRO);
     }
 
     @Test
@@ -102,7 +102,7 @@ public class BairroResourceIntTest {
     public void checkNm_bairroIsRequired() throws Exception {
         int databaseSizeBeforeTest = bairroRepository.findAll().size();
         // set the field null
-        bairro.setNm_bairro(null);
+        bairro.setNome(null);
 
         // Create the Bairro, which fails.
 
@@ -160,7 +160,7 @@ public class BairroResourceIntTest {
 		int databaseSizeBeforeUpdate = bairroRepository.findAll().size();
 
         // Update the bairro
-        bairro.setNm_bairro(UPDATED_NM_BAIRRO);
+        bairro.setNome(UPDATED_NM_BAIRRO);
 
         restBairroMockMvc.perform(put("/api/bairros")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -171,7 +171,7 @@ public class BairroResourceIntTest {
         List<Bairro> bairros = bairroRepository.findAll();
         assertThat(bairros).hasSize(databaseSizeBeforeUpdate);
         Bairro testBairro = bairros.get(bairros.size() - 1);
-        assertThat(testBairro.getNm_bairro()).isEqualTo(UPDATED_NM_BAIRRO);
+        assertThat(testBairro.getNome()).isEqualTo(UPDATED_NM_BAIRRO);
     }
 
     @Test

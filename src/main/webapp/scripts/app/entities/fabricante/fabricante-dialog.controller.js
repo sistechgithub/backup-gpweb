@@ -48,7 +48,7 @@ angular.module('gpApp').controller(
 								cep : cep
 							}, function(result) {
 								if (result)
-									$scope.fabricante.id_logradouro = result;
+									$scope.fabricante.logradouro = result;
 							});
 						}
 					};

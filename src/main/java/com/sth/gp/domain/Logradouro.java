@@ -23,71 +23,93 @@ public class Logradouro implements Serializable {
 
     @NotNull
     @Column(name = "nm_logradouro", nullable = false)
-    private String nmLogradouro;
+    private String nome;
 
     @Size(max = 9)
     @Column(name = "cd_cep", length = 9)
-    private String cdCep;
+    private String cep;
 
     @ManyToOne
     @JoinColumn(name = "id_bairro", referencedColumnName="id")
-    private Bairro idBairro;
+    private Bairro bairro;
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNm_logradouro() {
-        return nmLogradouro;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNm_logradouro(String nm_logradouro) {
-        this.nmLogradouro = nm_logradouro;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public String getCd_dep() {
-        return cdCep;
-    }
+	public String getCep() {
+		return cep;
+	}
 
-    public void setCd_dep(String cd_dep) {
-        this.cdCep = cd_dep;
-    }
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
 
-    public Bairro getId_bairro() {
-        return idBairro;
-    }
+	public Bairro getBairro() {
+		return bairro;
+	}
 
-    public void setId_bairro(Bairro bairro) {
-        this.idBairro = bairro;
-    }
+	public void setBairro(Bairro bairro) {
+		this.bairro = bairro;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Logradouro logradouro = (Logradouro) o;
-        return Objects.equals(id, logradouro.id);
-    }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((bairro == null) ? 0 : bairro.hashCode());
+		result = prime * result + ((cep == null) ? 0 : cep.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		return result;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Logradouro other = (Logradouro) obj;
+		if (bairro == null) {
+			if (other.bairro != null)
+				return false;
+		} else if (!bairro.equals(other.bairro))
+			return false;
+		if (cep == null) {
+			if (other.cep != null)
+				return false;
+		} else if (!cep.equals(other.cep))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		return true;
+	}
 
-    @Override
-    public String toString() {
-        return "Logradouro{" +
-            "id=" + id +
-            ", nm_logradouro='" + nmLogradouro + "'" +
-            ", cd_dep='" + cdCep + "'" +
-            '}';
-    }
+	@Override
+	public String toString() {
+		return "Logradouro [id=" + id + ", nome=" + nome + ", cep=" + cep + ", bairro=" + bairro + "]";
+	}
 }

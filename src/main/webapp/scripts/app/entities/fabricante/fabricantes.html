@@ -36,10 +36,10 @@
                 <tbody>
                     <tr ng-repeat="fabricante in fabricantes track by fabricante.id">
                         <td>{{fabricante.id}}</td>
-                        <td class="col-sm-5">{{fabricante.nm_fabricante}}</td>
-                        <td>{{fabricante.cd_tel}}</td>
-                        <td>{{fabricante.cd_fax}}</td>
-                        <td>{{fabricante.fl_inativo ? 'Sim': 'Não'}}</td>
+                        <td class="col-sm-5">{{fabricante.nome}}</td>
+                        <td>{{fabricante.telefone}}</td>
+                        <td>{{fabricante.fax}}</td>
+                        <td>{{fabricante.inativo ? 'Sim': 'Não'}}</td>
                         <td>
                             <button type="submit"
                                     ui-sref="fabricante.detail({id:fabricante.id})"

@@ -11,14 +11,14 @@
 			<div class="row">
 	            <div class="col-xs-12 col-sm-10">		
 					<div class="form-group">
-						<label for="field_nm_grupo">Nome</label> 
-						<input class="form-control" type="text" name="nm_grupo" id="field_nm_grupo" ng-model="grupo.nm_grupo" />
+						<label for="field_nome">Nome</label> 
+						<input class="form-control" type="text" name="nome" id="field_nome" ng-model="grupo.nome" />
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-2">
 					<div class="form-group">
-						<label for="field_vl_comissao">Comissão(%)</label> 
-						<input class="form-control" type="number" name="vl_comissao" id="field_vl_comissao" ng-model="grupo.vl_comissao" />
+						<label for="field_valorcomissao">Comissão(%)</label> 
+						<input class="form-control" type="number" name="vl_comissao" id="field_valorcomissao" ng-model="grupo.valorcomissao" />
 					</div>
 				</div>
 			</div>
@@ -26,15 +26,15 @@
 				<div class="col-xs-12 col-sm-12">
 					<div class="form-group">
 						<div class="checkbox checkbox-position">
-							<input class="checkbox-size" type="checkbox" name="fl_desconto" id="field_fl_desconto" ng-model="grupo.fl_desconto" />
-							<label class="checkbox-label" for="field_fl_desconto">Desconto (%)</label>				
+							<input class="checkbox-size" type="checkbox" name="comdesconto" id="field_comdesconto" ng-model="grupo.comdesconto" />
+							<label class="checkbox-label" for="field_comdesconto">Desconto (%)</label>				
 						</div>
 					</div>
 				
 					<div class="form-group">
 						<div class="checkbox checkbox-position">					
-							<input class="checkbox-size" type="checkbox" name="fl_promo" id="field_fl_promo" ng-model="grupo.fl_promo" /> 	
-							<label class="checkbox-label" for="field_fl_promo">Promoção</label>		 
+							<input class="checkbox-size" type="checkbox" name="empromo" id="field_empromo" ng-model="grupo.empromo" /> 	
+							<label class="checkbox-label" for="field_empromo">Promoção</label>		 
 						</div>
 					</div>	
 				</div>
@@ -45,26 +45,13 @@
 				<div class="row">
 		            <div class="col-xs-12 col-sm-6">
 						<div class="form-group">
-							<label for="field_dt_promo">Data Promoção</label>
+							<label for="field_datapromo">Data Promoção</label>
 							<div class="input-group">
 								<div class="input-group-addon">
 		                        	<i class="mdi mdi-calendar mdi-2x"></i>
 		                      	</div> 
-								<input class="form-control" type="date" name="dt_promo" id="field_dt_promo"	
-								ng-model="grupo.dt_promo"
-								ui-mask="99/99/9999" placeholder="DD/MM/YYYY"/>
-							</div><!-- /.input group -->
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-6">
-						<div class="form-group">
-							<label for="field_dt_operacao">Data Operação</label>
-							<div class="input-group">
-								<div class="input-group-addon">
-		                        	<i class="mdi mdi-calendar mdi-2x"></i>
-		                      	</div> 
-								<input class="form-control" type="date" name="dt_operacao" id="field_dt_operacao" 
-								ng-model="grupo.dt_operacao"
+								<input class="form-control" type="date" name="datapromo" id="field_datapromo"	
+								ng-model="grupo.datapromo"
 								ui-mask="99/99/9999" placeholder="DD/MM/YYYY"/>
 							</div><!-- /.input group -->
 						</div>
@@ -74,15 +61,15 @@
 					<div class="col-xs-12 col-sm-12">
 						<div class="form-group">
 							<div class="checkbox checkbox-position">						
-								<input class="checkbox-size" type="checkbox" name="fl_semcontagem" id="field_fl_semcontagem" ng-model="grupo.fl_semcontagem" />
-								<label class="checkbox-label" for="field_fl_semcontagem">Sem Contagem</label>
+								<input class="checkbox-size" type="checkbox" name="semsaldo" id="field_semsaldo" ng-model="grupo.semsaldo" />
+								<label class="checkbox-label" for="field_semsaldo">Sem Contagem</label>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<div class="checkbox checkbox-position">
-								<input class="checkbox-size" type="checkbox" name="fl_envio" id="field_fl_envio" ng-model="grupo.fl_envio" />	
-								<label class="checkbox-label" for="field_fl_envio">Envio</label>						
+								<input class="checkbox-size" type="checkbox" name="enviado" id="field_enviado" ng-model="grupo.enviado" />	
+								<label class="checkbox-label" for="field_enviado">Envio</label>						
 							</div>
 						</div>
 					</div>
@@ -90,8 +77,8 @@
 				<div class="row">
 	        		<div class="col-xs-12 col-sm-2">
 						<div class="form-group">
-							<label for="field_nn_novo">Novo</label>
-							<input class="form-control" type="number" name="nn_novo" id="field_nn_novo" ng-model="grupo.nn_novo" />
+							<label for="field_novo">Novo</label>
+							<input class="form-control" type="number" name="novo" id="field_novo" ng-model="grupo.novo" />
 						</div>
 					</div>
 				</div>

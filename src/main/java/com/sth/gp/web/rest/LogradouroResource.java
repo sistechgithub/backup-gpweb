@@ -119,7 +119,7 @@ public class LogradouroResource {
     @Timed
     public ResponseEntity<Logradouro> getLogradouroByCep(@PathVariable String cep) {
         log.debug("REST request to get Logradouro : {}", cep);
-        return Optional.ofNullable(logradouroRepository.findByCdCep(cep))
+        return Optional.ofNullable(logradouroRepository.findByCep(cep))
             .map(logradouro -> new ResponseEntity<>(
                 logradouro,
                 HttpStatus.OK))

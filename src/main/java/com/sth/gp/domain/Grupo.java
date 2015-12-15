@@ -21,146 +21,195 @@ public class Grupo implements Serializable {
     private Long id;
 
     @Column(name = "nm_grupo")
-    private String nm_grupo;
+    private String nome;
 
     @Column(name = "vl_comissao", precision=10, scale=2)
-    private BigDecimal vl_comissao;
+    private BigDecimal valorComissao;
 
     @Column(name = "fl_desconto")
-    private Boolean fl_desconto;
+    private Boolean comDesconto;
 
     @Column(name = "fl_promo")
-    private Boolean fl_promo;
+    private Boolean emPromo;
 
     @Column(name = "dt_promo")
-    private LocalDate dt_promo;
+    private LocalDate dataPromo;
 
     @Column(name = "dt_operacao")
-    private LocalDate dt_operacao;
+    private LocalDate dataOperacao;
 
     @Column(name = "fl_semcontagem")
-    private Boolean fl_semcontagem;
+    private Boolean semSaldo;
 
     @Column(name = "fl_envio")
-    private Boolean fl_envio;
+    private Boolean enviado;
 
     @Column(name = "nn_novo")
-    private Integer nn_novo;
+    private Integer novo;
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNm_grupo() {
-        return nm_grupo;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNm_grupo(String nm_grupo) {
-        this.nm_grupo = nm_grupo;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public BigDecimal getVl_comissao() {
-        return vl_comissao;
-    }
+	public BigDecimal getValorComissao() {
+		return valorComissao;
+	}
 
-    public void setVl_comissao(BigDecimal vl_comissao) {
-        this.vl_comissao = vl_comissao;
-    }
+	public void setValorComissao(BigDecimal valorComissao) {
+		this.valorComissao = valorComissao;
+	}
 
-    public Boolean getFl_desconto() {
-        return fl_desconto;
-    }
+	public Boolean getComDesconto() {
+		return comDesconto;
+	}
 
-    public void setFl_desconto(Boolean fl_desconto) {
-        this.fl_desconto = fl_desconto;
-    }
+	public void setComDesconto(Boolean comDesconto) {
+		this.comDesconto = comDesconto;
+	}
 
-    public Boolean getFl_promo() {
-        return fl_promo;
-    }
+	public Boolean getEmPromo() {
+		return emPromo;
+	}
 
-    public void setFl_promo(Boolean fl_promo) {
-        this.fl_promo = fl_promo;
-    }
+	public void setEmPromo(Boolean emPromo) {
+		this.emPromo = emPromo;
+	}
 
-    public LocalDate getDt_promo() {
-        return dt_promo;
-    }
+	public LocalDate getDataPromo() {
+		return dataPromo;
+	}
 
-    public void setDt_promo(LocalDate dt_promo) {
-        this.dt_promo = dt_promo;
-    }
+	public void setDataPromo(LocalDate dataPromo) {
+		this.dataPromo = dataPromo;
+	}
 
-    public LocalDate getDt_operacao() {
-        return dt_operacao;
-    }
+	public LocalDate getDataOperacao() {
+		return dataOperacao;
+	}
 
-    public void setDt_operacao(LocalDate dt_operacao) {
-        this.dt_operacao = dt_operacao;
-    }
+	public void setDataOperacao(LocalDate dataOperacao) {
+		this.dataOperacao = dataOperacao;
+	}
 
-    public Boolean getFl_semcontagem() {
-        return fl_semcontagem;
-    }
+	public Boolean getSemSaldo() {
+		return semSaldo;
+	}
 
-    public void setFl_semcontagem(Boolean fl_semcontagem) {
-        this.fl_semcontagem = fl_semcontagem;
-    }
+	public void setSemSaldo(Boolean semSaldo) {
+		this.semSaldo = semSaldo;
+	}
 
-    public Boolean getFl_envio() {
-        return fl_envio;
-    }
+	public Boolean getEnviado() {
+		return enviado;
+	}
 
-    public void setFl_envio(Boolean fl_envio) {
-        this.fl_envio = fl_envio;
-    }
+	public void setEnviado(Boolean enviado) {
+		this.enviado = enviado;
+	}
 
-    public Integer getNn_novo() {
-        return nn_novo;
-    }
+	public Integer getNovo() {
+		return novo;
+	}
 
-    public void setNn_novo(Integer nn_novo) {
-        this.nn_novo = nn_novo;
-    }
+	public void setNovo(Integer novo) {
+		this.novo = novo;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((comDesconto == null) ? 0 : comDesconto.hashCode());
+		result = prime * result + ((dataOperacao == null) ? 0 : dataOperacao.hashCode());
+		result = prime * result + ((dataPromo == null) ? 0 : dataPromo.hashCode());
+		result = prime * result + ((emPromo == null) ? 0 : emPromo.hashCode());
+		result = prime * result + ((enviado == null) ? 0 : enviado.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((novo == null) ? 0 : novo.hashCode());
+		result = prime * result + ((semSaldo == null) ? 0 : semSaldo.hashCode());
+		result = prime * result + ((valorComissao == null) ? 0 : valorComissao.hashCode());
+		return result;
+	}
 
-        Grupo grupo = (Grupo) o;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Grupo other = (Grupo) obj;
+		if (comDesconto == null) {
+			if (other.comDesconto != null)
+				return false;
+		} else if (!comDesconto.equals(other.comDesconto))
+			return false;
+		if (dataOperacao == null) {
+			if (other.dataOperacao != null)
+				return false;
+		} else if (!dataOperacao.equals(other.dataOperacao))
+			return false;
+		if (dataPromo == null) {
+			if (other.dataPromo != null)
+				return false;
+		} else if (!dataPromo.equals(other.dataPromo))
+			return false;
+		if (emPromo == null) {
+			if (other.emPromo != null)
+				return false;
+		} else if (!emPromo.equals(other.emPromo))
+			return false;
+		if (enviado == null) {
+			if (other.enviado != null)
+				return false;
+		} else if (!enviado.equals(other.enviado))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (novo == null) {
+			if (other.novo != null)
+				return false;
+		} else if (!novo.equals(other.novo))
+			return false;
+		if (semSaldo == null) {
+			if (other.semSaldo != null)
+				return false;
+		} else if (!semSaldo.equals(other.semSaldo))
+			return false;
+		if (valorComissao == null) {
+			if (other.valorComissao != null)
+				return false;
+		} else if (!valorComissao.equals(other.valorComissao))
+			return false;
+		return true;
+	}
 
-        if ( ! Objects.equals(id, grupo.id)) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
-
-    @Override
-    public String toString() {
-        return "Grupo{" +
-            "id=" + id +
-            ", nm_grupo='" + nm_grupo + "'" +
-            ", vl_comissao='" + vl_comissao + "'" +
-            ", fl_desconto='" + fl_desconto + "'" +
-            ", fl_promo='" + fl_promo + "'" +
-            ", dt_promo='" + dt_promo + "'" +
-            ", dt_operacao='" + dt_operacao + "'" +
-            ", fl_semcontagem='" + fl_semcontagem + "'" +
-            ", fl_envio='" + fl_envio + "'" +
-            ", nn_novo='" + nn_novo + "'" +
-            '}';
-    }
+	@Override
+	public String toString() {
+		return "Grupo [id=" + id + ", nome=" + nome + ", valorComissao=" + valorComissao + ", comDesconto="
+				+ comDesconto + ", emPromo=" + emPromo + ", dataPromo=" + dataPromo + ", dataOperacao=" + dataOperacao
+				+ ", semSaldo=" + semSaldo + ", enviado=" + enviado + ", novo=" + novo + "]";
+	}
 }
