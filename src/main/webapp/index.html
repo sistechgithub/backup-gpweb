@@ -6,12 +6,10 @@
         <title>STHWEB</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css assets/styles/vendor.css -->
-        <!-- bower:css -->
+        <!-- Loading-bar-->
         <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+        <!-- Bootstrap v3.3.6-->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-        <!-- endbower -->
         <!-- Icones Material Design -->
         <link rel="stylesheet" href="assets/libs/fonts/mdi-1.3.41/css/materialdesignicons.min.css">
         <!-- Tema Principal-->
@@ -19,9 +17,6 @@
         <!-- Ajustes no Tema Principal -->
         <link rel="stylesheet" href="assets/css/skins/skin-blue-light.css">
         <link rel="stylesheet" href="assets/css/sth-style.css">
-        <!-- Icones Awesome -->
-	    <link rel="stylesheet" href="assets/libs/fonts/font-awesome-4.4.0/css/font-awesome.min.css">
-        <!-- endbuild -->
     </head>
     
     <body ng-app="gpApp" class="hold-transition skin-blue-light fixed sidebar-mini">
@@ -30,66 +25,61 @@
         <![endif]-->        
 		<div class="wrapper">  
             <div ui-view="navbar"></div>   
-	        <!-- Content Wrapper. Contains page content -->
+	        <!-- Content Wrapper. Contém o conteúdo da página  -->
 			<div class="content-wrapper">			
-				<!-- Main content -->
+				<!-- Conteúdo principal -->
 				<section class="content">							        
 				    <div ui-view="content"></div>						
 				</section>
 			</div>
-			<!-- Main Footer -->
+			<!-- Rodapé -->
 			<footer class="main-footer">
-				<!-- To the right -->
+				<!-- Versão do sistema alinhado a direita -->
 				<div class="pull-right">
 					Versão: {{VERSION}}
 				</div>
-				<!-- Default to the left -->
+				<!-- Informações da empresa alinhado a esquerda -->
 				<strong>Copyright &copy; 2015 <a href="#">Sistech</a></strong><span class="hidden-xs hidden-sm">. Todos os direitos reservados.</span>
 		  </footer>
 	    </div>
 
-        <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>-->
+    <!-- Plugins angular -->
+    <!-- bower:js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="bower_components/jquery/dist/jquery-1.11.3.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>        
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/angular-ui-mask/dist/mask.min.js"></script>
+    <script src="bower_components/angular-locale/angular-locale_pt-br.js"></script>
+    <!-- Máscaras -->
+    <script src="bower_components/mascaras/angular-input-masks/angular-input-masks-standalone.min.js"></script>
+    <script src="bower_components/mascaras/angular-br-filters/release/angular-br-filters.js"></script>   
+    <script src="bower_components/mascaras/string-mask/src/string-mask.js"></script>
+    <script src="bower_components/mascaras/br-validations/releases/br-validations.js"></script>
+    <script src="bower_components/mascaras/br-masks/releases/br-masks-standalone.js"></script>  
+    <!-- fim-máscaras -->
+    <!-- endbower -->
+    <!-- Fim plugins angular -->
 
-        <!-- build:js scripts/vendor.js -->
-        <!-- bower:js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <script src="bower_components/jquery/dist/jquery-1.11.3.min.js"></script>
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-aria/angular-aria.js"></script>
-        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-        <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-        <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>        
-        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="bower_components/json3/lib/json3.js"></script>
-        <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
-        <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
-        <script src="bower_components/angular-ui-mask/dist/mask.min.js"></script>
-        <script src="bower_components/angular-locale/angular-locale_pt-br.js"></script>
+    <!-- Plugins Jquery -->    
+    <!-- SlimScroll 1.3.7 -->
+    <script src="assets/libs/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 
-        <!-- Máscaras -->
-        <script src="bower_components/mascaras/angular-input-masks/angular-input-masks-standalone.min.js"></script>
-        <script src="bower_components/mascaras/angular-br-filters/release/angular-br-filters.js"></script>   
-        <script src="bower_components/mascaras/string-mask/src/string-mask.js"></script>
-        <script src="bower_components/mascaras/br-validations/releases/br-validations.js"></script>
-        <script src="bower_components/mascaras/br-masks/releases/br-masks-standalone.js"></script>  
-        <!-- fim-máscaras -->
-        <!-- endbower -->
-        <!-- endbuild -->
+    <!-- endbuild -->
 
-
+    <!-- Carregamento das páginas pelo sistema -->
     <!-- build:js({.tmp,src/main/webapp}) scripts/app.js -->
     <script src="scripts/app/app.js"></script>
     <script src="scripts/app/app.constants.js"></script>
@@ -215,10 +205,7 @@
     <script src="scripts/components/entities/logradouro/logradouro.search.service.js"></script>
     <script src="scripts/components/entities/logradouro/logradouro.service.cep.js"></script>
     <!-- endbuild -->
-	
-	<!-- PLUGINS -->    
-	<!-- SlimScroll 1.3.7 -->
-	<script src="assets/libs/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- Fim carregamento das páginas pelo sistema -->    	
 
 </body>
 </html>
