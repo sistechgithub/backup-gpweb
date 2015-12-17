@@ -3,8 +3,12 @@
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="mySubgrupoLabel">Criar ou editar um Subgrupo</h4>
+                ng-click="clear()">&times;
+        </button>
+        <h4 class="modal-title" id="mySubgrupoLabel">
+            Criar ou editar um Subgrupo
+            <i class="mdi mdi-package mdi-icon mdi-modal-title"></i>
+        </h4>
     </div>
     <div class="modal-body">
         <jh-alert-error></jh-alert-error>
@@ -63,11 +67,11 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12">
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-                    <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="clear()">
+                    <span class="mdi mdi-close mdi-2x mdi-icon-text-va"></span>&nbsp;<span>Cancelar</span>
                 </button>
-                <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salvar</span>
+                <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-success">
+                    <span class="mdi mdi-content-save mdi-2x mdi-icon-text-va"></span>&nbsp;<span>Salvar</span>
                 </button>
             </div>
         </div>
