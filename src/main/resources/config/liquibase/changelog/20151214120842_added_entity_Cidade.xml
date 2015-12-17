@@ -23,6 +23,7 @@
 				<constraints nullable="false" />
 			</column>
 			<column name="id_estado" type="bigint" />
+			<column name="cod_ibge" type="varchar(8)" />
 		</createTable>
 
 		<addForeignKeyConstraint baseColumnNames="id_estado"
