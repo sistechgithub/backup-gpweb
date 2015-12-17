@@ -2,34 +2,33 @@
     <div class="box-header with-border">
         <h3 class="box-title" style="font-size:25px">Subgrupos</h3>             
     </div>
-    <br>
     <div class="box-body">
         <jh-alert></jh-alert>
-        <div class="row">
+        <div class="row row-pd">
             <div class="col-sm-6">
-                <button class="btn btn-primary btn-flat pull-left" ui-sref="subgrupo.new">
-                    <span class="mdi mdi-plus mdi-x"></span> <span>Adicionar</span>
+                <button class="btn btn-success btn-flat pull-left" ui-sref="subgrupo.new">
+                    <span class="mdi mdi-plus mdi-2x mdi-icon-text-va"></span> 
+                    <span>Adicionar</span>
                 </button>
             </div>
             <div class="col-sm-6">
-                <form class="form-inline pull-right" name="searchForm">                    
-                    <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">
-                    
-                    <button class="btn btn-info btn-flat hidden-xs" ng-click="search()"><span class="mdi mdi-magnify mdi-x"></span>
+                <form class="form-inline pull-right" name="searchForm">                   
+                    <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
+                    <button class="btn btn-info btn-flat hidden-xs" ng-click="search()">
+                        <span class="mdi mdi-magnify mdi-2x mdi-icon-text-va"></span>
                     </button>
                 </form>
             </div>
         </div>    
-        <br>
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th class="col-sm-6">Nome</th>
-                                <th>Custo(%)</th>
+                                <th class="text-center">ID</th>
+                                <th class="col-sm-8">Nome</th>
+                                <th class="text-center">Custo(%)</th>
             <!--                     <th>Vl_valor</th> -->
             <!--                     <th>Dt_operacao</th> -->
             <!--                     <th>Fl_envio</th> -->
@@ -39,28 +38,28 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="subgrupo in subgrupos track by subgrupo.id">
-                                <td><a ui-sref="subgrupo.detail({id:subgrupo.id})">{{subgrupo.id}}</a></td>
-                                <td class="col-sm-6">{{subgrupo.nome}}</td>
-                                <td>{{subgrupo.custo}}</td>
+                                <td class="text-center"><a ui-sref="subgrupo.detail({id:subgrupo.id})">{{subgrupo.id}}</a></td>
+                                <td class="col-sm-8">{{subgrupo.nome}}</td>
+                                <td class="text-center">{{subgrupo.custo}}</td>
             <!--                     <td>{{subgrupo.vl_valor}}</td> -->
             <!--                         <td>{{subgrupo.dt_operacao | date:'mediumDate'}}</td> -->
             <!--                     <td>{{subgrupo.fl_envio}}</td> -->
             <!--                     <td>{{subgrupo.nn_novo}}</td> -->
-                                <td>
+                                <td class="text-center">
                                     <button type="submit"
                                             ui-sref="subgrupo.detail({id:subgrupo.id})"
-                                            class="btn btn-info btn-flat">
-                                        <span class="mdi mdi-eye mdi-x"></span>
+                                            class="btn btn-outlined btn-success">
+                                        <span class="mdi mdi-eye mdi-2x mdi-icon-text-va"></span>
                                     </button>
                                     <button type="submit"
                                             ui-sref="subgrupo.edit({id:subgrupo.id})"
-                                            class="btn btn-primary btn-flat">
-                                        <span class="mdi mdi-pencil mdi-x"></span>
+                                            class="btn btn-outlined btn-primary">
+                                        <span class="mdi mdi-pencil mdi-2x mdi-icon-text-va"></span>
                                     </button>
                                     <button type="submit"
                                             ui-sref="subgrupo.delete({id:subgrupo.id})"
-                                            class="btn btn-danger btn-flat">
-                                         <span class="mdi mdi-close mdi-x"></span>
+                                            class="btn btn-outlined btn-danger">
+                                         <span class="mdi mdi-delete mdi-2x mdi-icon-text-va"></span>
                                     </button>
                                 </td>
                             </tr>

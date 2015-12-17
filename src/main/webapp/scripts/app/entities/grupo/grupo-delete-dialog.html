@@ -1,5 +1,5 @@
 <form name="deleteForm" ng-submit="confirmDelete(grupo.id)">
-    <div class="modal-header">
+    <div class="modal-header bg-danger">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;</button>
         <h4 class="modal-title">Deletar Grupo</h4>
@@ -9,10 +9,10 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
+            <span class="mdi mdi-close mdi-2x mdi-icon-text-va"></span>&nbsp;<span>Cancelar</span>
         </button>
         <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
-            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Deletar</span>
+            <span class="mdi mdi-delete mdi-2x mdi-icon-text-va"></span>&nbsp;<span>Deletar</span>
         </button>
     </div>
 </form>
