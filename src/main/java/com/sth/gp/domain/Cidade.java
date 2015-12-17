@@ -28,6 +28,10 @@ public class Cidade implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_estado", referencedColumnName="id")
     private Estado estado;
+    
+    @Size(max=8)
+    @Column(name="cod_ibge")
+    private String codIbge;
 
 	public Long getId() {
 		return id;
@@ -53,10 +57,19 @@ public class Cidade implements Serializable {
 		this.estado = estado;
 	}
 
+	public String getCodIbge() {
+		return codIbge;
+	}
+
+	public void setCodIbge(String codIbge) {
+		this.codIbge = codIbge;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((codIbge == null) ? 0 : codIbge.hashCode());
 		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
@@ -72,6 +85,11 @@ public class Cidade implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Cidade other = (Cidade) obj;
+		if (codIbge == null) {
+			if (other.codIbge != null)
+				return false;
+		} else if (!codIbge.equals(other.codIbge))
+			return false;
 		if (estado == null) {
 			if (other.estado != null)
 				return false;
@@ -92,7 +110,8 @@ public class Cidade implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Cidade [id=" + id + ", nome=" + nome + ", estado=" + estado + "]";
+		return "Cidade [id=" + id + ", nome=" + nome + ", estado=" + estado + ", codIbge=" + codIbge + "]";
 	}
+
 
 }
