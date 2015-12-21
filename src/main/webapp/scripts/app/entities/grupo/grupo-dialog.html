@@ -16,13 +16,20 @@
             <div class="col-xs-12 col-sm-10">		
 				<div class="form-group">
 					<label for="field_nome">Nome</label> 
-					<input class="form-control" type="text" name="nome" id="field_nome" ng-model="grupo.nome" />
+					<input class="form-control text-uppercase" type="text" name="nome" id="field_nome" ng-model="grupo.nome" />
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-2">
 				<div class="form-group">
 					<label for="field_valorComissao">Comissão(%)</label> 
-					<input class="form-control" type="number" name="valorComissao" id="field_valorComissao" ng-model="grupo.valorComissao" />
+					<input class="form-control" 
+							type="number" 
+							name="valorComissao" 
+							id="field_valorComissao" 
+							ng-model="grupo.valorComissao" 
+							min="0" max="100"
+                            ng-init="grupo.valorComissao = 0"
+					/>
 				</div>
 			</div>
 		</div>
@@ -40,53 +47,55 @@
 						<input class="checkbox-size" type="checkbox" name="emPromo" id="field_emPromo" ng-model="grupo.emPromo" /> 	
 						<label class="checkbox-label" for="field_emPromo">Promoção</label>		 
 					</div>
-				</div>	
-			</div>
-		</div>				
-
-		<!-- Só mostra caso tenha selecionado promoção -->
-		<div ng-show="grupo.emPromo">
-			<div class="row">
-	            <div class="col-xs-12 col-sm-6">
-					<div class="form-group">
-						<label for="field_dataPromo">Data Promoção</label>
-						<div class="input-group">
-							<div class="input-group-addon">
-	                        	<i class="mdi mdi-calendar mdi-2x"></i>
-	                      	</div> 
-							<input class="form-control" type="text" name="dataPromo" id="field_dataPromo"	
-							ng-model="grupo.dataPromo"
-							ui-date-mask placeholder="DD/MM/YYYY"/>
-						</div><!-- /.input group -->
-					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12 col-sm-12">
-					<div class="form-group">
-						<div class="checkbox checkbox-position">						
-							<input class="checkbox-size" type="checkbox" name="semSaldo" id="field_semSaldo" ng-model="grupo.semSaldo" />
-							<label class="checkbox-label" for="field_semSaldo">Sem Contagem</label>
-						</div>
-					</div>
 
-					<div class="form-group">
-						<div class="checkbox checkbox-position">
-							<input class="checkbox-size" type="checkbox" name="enviado" id="field_enviado" ng-model="grupo.enviado" />	
-							<label class="checkbox-label" for="field_enviado">Envio</label>						
+				<!-- Só mostra caso tenha selecionado promoção -->
+				<div ng-show="grupo.emPromo">
+					<div class="row">
+			            <div class="col-xs-12 col-sm-6">
+							<div class="form-group">
+								<label for="field_dataPromo">Data Promoção</label>
+								<div class="input-group">
+									<div class="input-group-addon">
+			                        	<i class="mdi mdi-calendar mdi-2x"></i>
+			                      	</div> 
+									<input class="form-control" type="text" name="dataPromo" id="field_dataPromo"	
+									ng-model="grupo.dataPromo"
+									ui-date-mask placeholder="DD/MM/YYYY"/>
+								</div><!-- /.input group -->
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-        		<div class="col-xs-12 col-sm-2">
-					<div class="form-group">
-						<label for="field_novo">Novo</label>
-						<input class="form-control" type="number" name="novo" id="field_novo" ng-model="grupo.novo" />
+
+				<div class="form-group">
+					<div class="checkbox checkbox-position">						
+						<input class="checkbox-size" type="checkbox" name="semSaldo" id="field_semSaldo" ng-model="grupo.semSaldo" />
+						<label class="checkbox-label" for="field_semSaldo">Sem Contagem</label>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!--
+		<div class="row">
+			<div class="col-xs-12 col-sm-12">
+				<div class="form-group">
+					<div class="checkbox checkbox-position">
+						<input class="checkbox-size" type="checkbox" name="enviado" id="field_enviado" ng-model="grupo.enviado" />	
+						<label class="checkbox-label" for="field_enviado">Envio</label>						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+    		<div class="col-xs-12 col-sm-2">
+				<div class="form-group">
+					<label for="field_novo">Novo</label>
+					<input class="form-control" type="number" name="novo" id="field_novo" ng-model="grupo.novo" />
+				</div>
+			</div>
+		</div>
+		-->		
 	</div>	
 	<div class="row">
     	<div class="col-xs-12 col-sm-12">

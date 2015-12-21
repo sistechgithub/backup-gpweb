@@ -23,18 +23,26 @@
             <div class="col-xs-12 col-sm-10">
                 <div class="form-group">
                     <label for="field_nome">Nome</label>
-                    <input type="text" class="form-control" name="nome" id="field_nome"
+                    <input  type="text" 
+                            class="form-control text-uppercase" 
+                            name="nome" 
+                            id="field_nome" 
                             ng-model="subgrupo.nome"
-                             />
+                    />
                 </div>
             </div>
             
             <div class="col-xs-12 col-sm-2">
                 <div class="form-group">
                     <label for="field_custo">Custo(%)</label>
-                    <input type="number" class="form-control" name="custo" id="field_custo"
+                    <input  type="number" 
+                            class="form-control" 
+                            name="custo" 
+                            id="field_custo"
                             ng-model="subgrupo.custo"
-                             />
+                            min="0" max="100"
+                            ng-init="subgrupo.custo = 0"
+                    />
                 </div>
             </div>
         </div>

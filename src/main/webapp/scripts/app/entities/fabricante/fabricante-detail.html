@@ -16,6 +16,7 @@
                 </thead>
                 -->
                 <tbody>
+                <!--
                 <tr>
                     <td>
                         <span>Código</span>
@@ -24,25 +25,28 @@
                         <span class="form-control-static">{{fabricante.id}}</span>
                     </td>
                 </tr>
+                -->
                 <tr>
-                    <td>
-                        <span>Nome</span>
+                    <td colspan="2">
+                        <label>Nome</label>
                     </td>
-                    <td>
-                        <span class="form-control-static">{{fabricante.nome}}</span>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <span class="form-control-static text-uppercase">{{fabricante.nome}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span>CNPJ</span>
+                        <label>CNPJ</label>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.cnpj}}</span>
-                    </td>
+                        <label>I.E.</label>
+                    </td>                    
                 </tr>
                 <tr>
                     <td>
-                        <span>I.E.</span>
+                        <span class="form-control-static">{{fabricante.cnpj | brCnpj}}</span>
                     </td>
                     <td>
                         <span class="form-control-static">{{fabricante.ie}}</span>
@@ -50,84 +54,84 @@
                 </tr>
                 <tr>
                     <td>
-                        <span>Número</span>
+                        <label>Logradouro</label>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.numero}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Complemento</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{fabricante.complemento}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Telefone</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{fabricante.telefone}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Fax</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{fabricante.fax}}</span>
-                    </td>
-                </tr>
-                  <tr>
-                    <td>
-                        <span>Logradouro</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{fabricante.logradouro.nome}}</span>
-                    </td>
-                  </tr>
-                  <tr>  
-                     <td>
-                        <span>Bairro</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{fabricante.logradouro.bairro.nome}}</span>
-                    </td>
-                  </tr>
-                  <tr>  
-                     <td>
-                        <span>Cidade</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{fabricante.logradouro.bairro.cidade.nome}}</span>
-                    </td>
-                  </tr>
-                  <tr>  
-                     <td>
-                        <span>Estado</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{fabricante.logradouro.bairro.cidade.estado.nome}}</span>
-                    </td>
-                 </tr>   
-                 <tr>
-                     <td>
-                        <span>CEP</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{fabricante.logradouro.cep}}</span>
+                        <label>Número</label>
                     </td>                    
                 </tr>
                 <tr>
                     <td>
-                        <span>Inativo</span>
+                        <span class="form-control-static text-uppercase">{{fabricante.logradouro.nome}}</span>
+                    </td>                    
+                    <td>
+                        <span class="form-control-static">{{fabricante.numero}}</span>
+                    </td>                    
+                </tr>                
+                <tr>
+                    <td>
+                        <label>Complemento</label>
+                    </td>                      
+                    <td>
+                        <label>Bairro</label>
+                    </td>                    
+                  </tr>
+                  <tr>
+                    <td>
+                        <span class="form-control-static text-uppercase">{{fabricante.complemento}}</span>
+                    </td>                    
+                    <td>
+                        <span class="form-control-static text-uppercase">{{fabricante.logradouro.bairro.nome}}</span>
+                    </td>                                        
+                  </tr>
+                  <tr>
+                    <td>
+                        <label>Cidade</label>
+                    </td>                 
+                    <td>
+                        <label>Estado</label>
+                    </td>                                        
+                  </tr>
+                  <tr>
+                    <td>
+                        <span class="form-control-static text-uppercase">{{fabricante.logradouro.bairro.cidade.nome}}</span>
+                    </td>                    
+                    <td>
+                        <span class="form-control-static text-uppercase">{{fabricante.logradouro.bairro.cidade.estado.nome}}</span>
+                    </td>                                       
+                </tr>
+                <tr>
+                    <td>
+                        <label>CEP</label>
+                    </td>                    
+                    <td>
+                        <label>Telefone</label>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>
+                        <span class="form-control-static">{{fabricante.logradouro.cep | brCep}}</span>
+                    </td>                     
+                    <td>
+                        <span class="form-control-static">{{fabricante.telefone | brPhoneNumber}}</span>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td>
+                        <label>Fax</label>
                     </td>
                     <td>
-                        <span class="form-control-static">{{fabricante.inativo ? 'Sim': 'Não'}}</span>
+                        <label>Inativo</label>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <span class="form-control-static">{{fabricante.fax | brPhoneNumber}}</span>
+                    </td> 
+                    <td>
+                        <span class="form-control-static text-uppercase">{{fabricante.inativo ? 'Sim': 'Não'}}</span>
+                    </td>   
+                </tr> 
                 </tbody>
             </table>
         </div>

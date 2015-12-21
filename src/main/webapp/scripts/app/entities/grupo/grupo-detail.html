@@ -22,7 +22,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <span class="form-control-static">{{grupo.nome}}</span>
+                        <span class="form-control-static text-uppercase">{{grupo.nome}}</span>
                     </td>                    
                 </tr>
                 <tr>
@@ -38,7 +38,7 @@
                         <span class="form-control-static">{{grupo.valorComissao}}</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{grupo.comDesconto ? 'Sim': 'Não'}}</span>
+                        <span class="form-control-static text-uppercase">{{grupo.comDesconto ? 'Sim': 'Não'}}</span>
                     </td>                    
                 </tr>
                 <tr>
@@ -51,10 +51,10 @@
                 </tr>                
                 <tr>
                     <td>
-                        <span class="form-control-static">{{grupo.emPromo ? 'Sim': 'Não'}}</span>
+                        <span class="form-control-static text-uppercase">{{grupo.emPromo ? 'Sim': 'Não'}}</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{grupo.dataPromo | date:'mediumDate'}}</span>
+                        <span class="form-control-static text-uppercase">{{grupo.dataPromo | date:'mediumDate'}}</span>
                     </td>                    
                 </tr>               
                 
@@ -71,9 +71,10 @@
                         <span class="form-control-static">{{grupo.dataoPeracao | date:'mediumDate'}}</span>
                     </td>
                     <td>
-                        <span class="form-control-static">{{grupo.semSaldo ? 'Sim': 'Não'}}</span>
+                        <span class="form-control-static text-uppercase">{{grupo.semSaldo ? 'Sim': 'Não'}}</span>
                     </td>                    
                 </tr>
+                <!--
                 <tr>
                     <td>
                         <label>Envio</label>
@@ -89,7 +90,8 @@
                     <td>
                         <span class="form-control-static">{{grupo.novo}}</span>
                     </td>
-                </tr>                
+                </tr> 
+                -->               
                 </tbody>
             </table>
         </div>

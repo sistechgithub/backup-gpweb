@@ -25,7 +25,7 @@
 				<div class="form-group mg-bottom-grupo">
 					<label class="control-label" for="field_nome">Nome</label>
 					<input 
-						type="text" class="form-control" name="nome"
+						type="text" class="form-control text-uppercase" name="nome"
 						id="field_nome" ng-model="fabricante.nome"
 						ng-minlength="10" ng-maxlength="50" required autofocus 
 					/>
@@ -61,7 +61,7 @@
 			<div class="col-xs-12 col-sm-8">
 				<div class="form-group">
 					<label class="control-label" for="field_logradouro_nome">Logradouro</label>
-					<input type="text" class="form-control" name="logradouro_nome"
+					<input type="text" class="form-control text-uppercase" name="logradouro_nome"
 						id="field_logradouro_nome"
 						ng-model="fabricante.logradouro.nome" />
 				</div>
@@ -78,7 +78,7 @@
 			<div class="col-xs-12 col-sm-4">
 				<div class="form-group">
 					<label class="control-label" for="field_complemento">Complemento</label>
-					<input type="text" class="form-control" name="complemento"
+					<input type="text" class="form-control text-uppercase" name="complemento"
 						id="field_complemento" ng-model="fabricante.complemento"
 						ng-maxlength="20" />
 					<div ng-show="editForm.complemento.$invalid">
@@ -92,14 +92,14 @@
 			<div class="col-xs-12 col-sm-4">
 				<div class="form-group">
 					<label class="control-label" for="field_bairro_nome">Bairro</label> <input
-						type="text" class="form-control" name="bairro_nome" id="field_bairro_nome"
+						type="text" class="form-control text-uppercase" name="bairro_nome" id="field_bairro_nome"
 						ng-model="fabricante.logradouro.bairro.nome" />
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-4">
 				<div class="form-group">
 					<label class="control-label" for="field_cidade_nome">Cidade</label> <input
-						type="text" class="form-control" name="cidade_nome" id="field_cidade_nome"
+						type="text" class="form-control text-uppercase" name="cidade_nome" id="field_cidade_nome"
 						ng-model="fabricante.logradouro.bairro.cidade.nome" />
 				</div>
 			</div>
@@ -108,7 +108,7 @@
 			<div class="col-xs-12 col-sm-4">
 				<div class="form-group">
 					<label class="control-label" for="field_estado_nome">Estado</label> <input
-						type="text" class="form-control" name="estado_nome" id="field_estado_nome"
+						type="text" class="form-control text-uppercase" name="estado_nome" id="field_estado_nome"
 						ng-model="fabricante.logradouro.bairro.cidade.estado.nome" />
 				</div>
 			</div>
@@ -134,13 +134,15 @@
 			<div class="col-xs-12 col-sm-4">
 				<div class="form-group">
 					<label class="control-label" for="field_ie">Inscrição
-						Estadual</label> <input type="text" class="form-control" name="ie"
-						id="field_ie" ng-model="fabricante.ie" ng-minlength="18"
+						Estadual</label> 
+					<input type="text" class="form-control text-uppercase" name="ie"
+						id="field_ie" ng-model="fabricante.ie"  ng-minlength="4"
 						ng-maxlength="18" />
-					<div ng-show="editForm.ie.$invalid">
+					<div ng-show="editForm.ie.$invalid">					
 						<p class="help-block" ng-show="editForm.ie.$error.minlength"
-							translate-value-min="18">Este campo deve conter no mínimo 18
+							translate-value-min="4">Este campo deve conter no mínimo 4
 							caracteres.</p>
+					
 						<p class="help-block" ng-show="editForm.ie.$error.maxlength"
 							translate-value-max="18">Este campo deve conter no máximo 18
 							caracteres.</p>
@@ -186,10 +188,10 @@
 				<div class="form-group">
 					<div class="checkbox checkbox-position">
 						<input class="checkbox-size" type="checkbox" class="form-control"
-							name="inativado" id="field_inativado"
-							ng-model="fabricante.inativado" /> <label
+							name="inativado" id="field_inativo"
+							ng-model="fabricante.inativo" /> <label
 							class="checkbox-label" class="control-label"
-							for="field_inativado">Inativo</label>
+							for="field_inativo">Inativo</label>
 					</div>
 				</div>
 			</div>
