@@ -474,10 +474,10 @@ Icones Material Design
 
 /* Configuração padrão dos icones */
 .mdi-icon {
-  margin-left: -7px;  
+  margin-left: -8px;  
   max-height: 50px;
   text-align: left;
-  font-size: 28px;
+  font-size: 26px;
 }
 
 @media (max-width: 767px){
@@ -551,6 +551,10 @@ Correções no Menu do Topo
 	background: #0C4091 !important; 
 }
 
+.navbar-nav > li{
+  margin-top: 2px;
+}
+
 /* ==========================================================================
 Correções no Menu Lateral
 ========================================================================== */
@@ -569,6 +573,15 @@ Correções no Menu Lateral
   border-left: 1px dotted #333;
 }
 
+@media (min-width: 768px) {
+  .sidebar-mini.sidebar-collapse .sidebar-menu > li > a > i {
+    margin-left: -5px;
+  }
+  .sidebar-mini.sidebar-collapse .sidebar-menu .submenu {
+    margin-left: 0px;
+    border-left: 0px dotted #333;
+  }
+}
 
 /* ==========================================================================
 Ajustes no Componente Box
@@ -663,6 +676,7 @@ Menu da Dashboard
 .ca-sub{
     font-size: 16px;
     color: #fff;
+    margin-top: -3px;
 }
 .ca-menu li:hover{
     background-color: #212121;
