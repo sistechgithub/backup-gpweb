@@ -37,10 +37,10 @@
 			            <tbody>
 			                <tr ng-repeat="grupo in grupos track by grupo.id">
 			                    <td class="text-center"><a ui-sref="grupo.detail({id:grupo.id})">{{grupo.id}}</a></td>
-			                    <td class="col-sm-5">{{grupo.nome}}</td>
+			                    <td class="col-sm-5 text-uppercase">{{grupo.nome}}</td>
 			                    <td class="text-center">{{grupo.valorComissao}}</td>
-			                    <td class="text-center">{{grupo.comDesconto ? 'Sim': 'Não'}}</td>
-			                    <td class="text-center">{{grupo.emPromo ? 'Sim': 'Não'}}</td>	                                            
+			                    <td class="text-center text-uppercase">{{grupo.comDesconto ? 'Sim': 'Não'}}</td>
+			                    <td class="text-center text-uppercase">{{grupo.emPromo ? 'Sim': 'Não'}}</td>	                                            
 			                    <td class="text-center">
 			                        <button type="submit"
 			                                ui-sref="grupo.detail({id:grupo.id})"

@@ -101,7 +101,7 @@
 .skin-blue-light .sidebar-menu > li:hover > a,
 .skin-blue-light .sidebar-menu > li.active > a {
   color: #000;
-  background: #f4f4f5;
+  background: #f4f4f5;  
 }
 .skin-blue-light .sidebar-menu > li.active {
   border-left-color: #3c8dbc;
