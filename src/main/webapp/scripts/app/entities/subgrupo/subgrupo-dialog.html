@@ -1,87 +1,143 @@
-
 <form name="editForm" role="form" novalidate ng-submit="save()">
-
+    <!-- cabeçalho -->
     <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                ng-click="clear()">&times;
+        <button type="button" 
+                class="close" 
+                aria-hidden="true"
+                data-dismiss="modal"                
+                ng-click="clear()">
+                &times;
         </button>
+
         <h4 class="modal-title" id="mySubgrupoLabel">
             Criar ou editar um Subgrupo
             <i class="mdi mdi-package mdi-icon mdi-modal-title"></i>
         </h4>
-    </div>
+    </div><!-- fim cabeçalho -->
+    
+    <!-- conteúdo -->
     <div class="modal-body">
+        <!-- mensagem de retorno do jhipster -->
         <jh-alert-error></jh-alert-error>
+
         <!--
         <div class="form-group">
-            <label for="id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="subgrupo.id" readonly />
+            <label for="id">
+                    ID
+            </label>
+            <input  type="text" 
+                    class="form-control" 
+                    id="id" 
+                    name="id"
+                    ng-model="subgrupo.id" 
+                    readonly 
+            />
         </div>
         -->
+
         <div class="row">
             <div class="col-xs-12 col-sm-10">
                 <div class="form-group">
-                    <label for="field_nome">Nome</label>
+                    <label  for="field_nome">
+                            Nome
+                    </label>
                     <input  type="text" 
-                            class="form-control text-uppercase" 
-                            name="nome" 
+                            class="form-control text-uppercase"
                             id="field_nome" 
+                            name="nome"                              
                             ng-model="subgrupo.nome"
                     />
                 </div>
-            </div>
+            </div><!-- fim coluna -->
             
             <div class="col-xs-12 col-sm-2">
                 <div class="form-group">
-                    <label for="field_custo">Custo(%)</label>
+                    <label for="field_custo">
+                            Custo(%)
+                    </label>
                     <input  type="number" 
-                            class="form-control" 
-                            name="custo" 
+                            class="form-control"                             
                             id="field_custo"
-                            ng-model="subgrupo.custo"
-                            min="0" max="100"
+                            name="custo"
+                            ng-model="subgrupo.custo"                            
                             ng-init="subgrupo.custo = 0"
+                            min="0" max="100"
                     />
                 </div>
-            </div>
+            </div><!-- fim coluna -->
+        </div><!-- fim row -->
+        
+        <!--
+        <div class="form-group">
+            <label for="field_vl_valor">
+                    Vl_valor
+            </label>
+            <input  type="number" 
+                    class="form-control" 
+                    id="field_vl_valor" 
+                    name="vl_valor"
+                    ng-model="subgrupo.vl_valor"
+            />
         </div>
-<!--         <div class="form-group"> -->
-<!--             <label for="field_vl_valor">Vl_valor</label> -->
-<!--             <input type="number" class="form-control" name="vl_valor" id="field_vl_valor" -->
-<!--                     ng-model="subgrupo.vl_valor" -->
-<!--                      /> -->
-<!--         </div> -->
-<!--         <div class="form-group"> -->
-<!--             <label for="field_dt_operacao">Dt_operacao</label> -->
-<!--             <input type="date" class="form-control" name="dt_operacao" id="field_dt_operacao" -->
-<!--                     ng-model="subgrupo.dt_operacao" -->
-<!--                      /> -->
-<!--         </div> -->
-<!--         <div class="form-group"> -->
-<!--             <label for="field_fl_envio">Fl_envio</label> -->
-<!--             <input type="checkbox" class="form-control" name="fl_envio" id="field_fl_envio" -->
-<!--                     ng-model="subgrupo.fl_envio" -->
-<!--                      /> -->
-<!--         </div> -->
-<!--         <div class="form-group"> -->
-<!--             <label for="field_nn_novo">Nn_novo</label> -->
-<!--             <input type="number" class="form-control" name="nn_novo" id="field_nn_novo" -->
-<!--                     ng-model="subgrupo.nn_novo" -->
-<!--                      /> -->
-<!--         </div> -->
+        <div class="form-group">
+            <label for="field_dt_operacao">
+                    Dt_operacao
+            </label>
+            <input  type="date" 
+                    class="form-control"                         
+                    id="field_dt_operacao"
+                    name="dt_operacao"
+                    ng-model="subgrupo.dt_operacao"
+            />
+        </div> 
 
-    </div>
+        <div class="form-group">
+            <label for="field_fl_envio">
+                    Fl_envio
+            </label>
+            <input  type="checkbox" 
+                    class="form-control" 
+                    id="field_fl_envio" 
+                    name="fl_envio"
+                    ng-model="subgrupo.fl_envio"
+            />
+        </div>
+        <div class="form-group">
+            <label for="field_nn_novo">
+                    Nn_novo
+            </label>
+            <input  type="number" 
+                    class="form-control" 
+                    id="field_nn_novo" 
+                    name="nn_novo"
+                    ng-model="subgrupo.nn_novo"
+            />
+        </div> 
+        -->
+    </div><!-- fim conteúdo -->
+
+    <!-- rodapé --> 
     <div class="row">
         <div class="col-xs-12 col-sm-12">
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-                    <span class="mdi mdi-close mdi-2x mdi-icon-text-va"></span>&nbsp;<span>Cancelar</span>
+                <!-- botão cancelar -->
+                <button type="button" 
+                        class="btn btn-default" 
+                        data-dismiss="modal" 
+                        ng-click="clear()">
+                    <span class="mdi mdi-close mdi-2x mdi-icon-text-va"></span>
+                        &nbsp;
+                    <span>Cancelar</span>
                 </button>
-                <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-success">
-                    <span class="mdi mdi-content-save mdi-2x mdi-icon-text-va"></span>&nbsp;<span>Salvar</span>
+                <!-- botão salvar -->
+                <button type="submit" 
+                        class="btn btn-success"
+                        ng-disabled="editForm.$invalid || isSaving">
+                    <span class="mdi mdi-content-save mdi-2x mdi-icon-text-va"></span>
+                        &nbsp;
+                    <span>Salvar</span>
                 </button>
-            </div>
-        </div>
-    </div>
-</form>
+            </div><!-- fim modal-footer -->
+        </div><!-- fim coluna -->
+    </div><!-- fim row -->
+</form><!-- fim form -->
