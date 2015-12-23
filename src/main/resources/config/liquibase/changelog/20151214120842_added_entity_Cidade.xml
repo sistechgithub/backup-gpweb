@@ -14,6 +14,8 @@
 	<property name="floatType" value="float" dbms="mysql, oracle" />
 
 	<!-- Added the entity Cidade. -->
+
+	
 	<changeSet id="20151214120842" author="jhipster">
 		<createTable tableName="cidade">
 			<column name="id" type="bigint" autoIncrement="${autoIncrement}">
@@ -30,8 +32,8 @@
 			baseTableName="cidade" constraintName="fk_cidade_id_estado_id"
 			referencedColumnNames="id" referencedTableName="estado" />
 
-		<loadData encoding="UTF-8" file="config/liquibase/CIDADE.csv"
-			separator=";" tableName="cidade" />
+<!-- 		<loadData encoding="UTF-8" file="config/liquibase/CIDADE.csv" -->
+<!-- 			separator=";" tableName="cidade" /> -->
 
 	</changeSet>
 
