@@ -93,6 +93,25 @@ public class CidadeResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/cidades");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
+    
+    /**
+     * GET  /cidades/getbynome/:nome -> get the "nome" cidade.
+     */
+    @RequestMapping(value = "/cidades/getbynome/{nome}/{estado}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Cidade> getCidadebyNome(@PathVariable String nome,@PathVariable String estado) {
+        log.debug("REST request to get Cidade : {} {}", nome, estado);
+        
+        nome = nome.toUpperCase();
+        estado = estado.toUpperCase();
+        return Optional.ofNullable(cidadeRepository.findOneByNomeAndEstadoSigla(nome,estado))
+            .map(cidade -> new ResponseEntity<>(
+                cidade,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 
     /**
      * GET  /cidades/:id -> get the "id" cidade.

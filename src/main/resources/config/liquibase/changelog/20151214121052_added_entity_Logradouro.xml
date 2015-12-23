@@ -14,11 +14,11 @@
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
     <!--
-        Added the entity Logradouro.
-    -->
+        Added the entity Logradouro.    
+    -->   
     <changeSet id="20151214121052" author="jhipster">
-        <createTable tableName="logradouro">
-            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+        <createTable tableName="logradouro" >
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}" >
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="nm_logradouro" type="varchar(255)">
@@ -26,6 +26,7 @@
             </column>
             <column name="cd_cep" type="varchar(9)"/>
             <column name="id_bairro" type="bigint"/>
+            
         </createTable>
         
         <addForeignKeyConstraint baseColumnNames="id_bairro"
@@ -33,12 +34,16 @@
                                  constraintName="fk_logradouro_id_bairro_id"
                                  referencedColumnNames="id"
                                  referencedTableName="bairro"/>
+                              
+       
        
              
-        <loadData encoding="UTF-8"
-                  file="config/liquibase/LOGRADOURO.csv"
-                  separator=";"
-                  tableName="logradouro"/>                                                       
+<!--         <loadData encoding="UTF-8" -->
+<!--                   file="config/liquibase/LOGRADOURO.csv" -->
+<!--                   separator=";" -->
+<!--                   tableName="logradouro"/>      -->
+                  
+                                                                
 
     </changeSet>
 </databaseChangeLog>

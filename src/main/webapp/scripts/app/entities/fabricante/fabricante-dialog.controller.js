@@ -9,9 +9,11 @@ angular.module('gpApp').controller(
 				'entity',
 				'Fabricante',
 				'LogradouroCep',
+				'ConsultaCEPApi',
 				function($scope, $stateParams, $modalInstance, entity,
-						Fabricante,LogradouroCep) {
-
+						Fabricante,LogradouroCep,ConsultaCEPApi) {
+					
+					var cep = '';
 					$scope.fabricante = entity;
 					$scope.load = function(id) {
 						Fabricante.get({
@@ -42,16 +44,48 @@ angular.module('gpApp').controller(
 						}
 					};
 
+					/*Consulta de CEP
+					 * Caso no cadastro de endereço existente no banco não conste o CEP informado
+					 * o sistema irá procura-lo na internet numa consulta de CEP gratuita,
+					 * caso não o encontre, o sistema irá permitir que o cliente entre com
+					 * o endereço manualmente*/
 					$scope.findcep = function(cep) {
 						if (cep.length > 6) {
 							LogradouroCep.get({
 								cep : cep
 							}, function(result) {
-								if (result)
+								if (result){									
 									$scope.fabricante.logradouro = result;
-							});
-						}
+									cep = '';
+								}
+							}, function(errorConsulta){
+								if (errorConsulta.status == 404){
+									ConsultaCEPApi.get({cep : cep}, function(data){
+										console.log(data);
+										$scope.fabricante.logradouro = data;
+										cep = '';
+									});
+								}
+							});							
+						};
 					};
+					
+//					/*Consulta de bairro
+//					 * caso o CEP seja procurado na internet, o bairro que é retornado na consulta
+//					 * é verificado no banco de dados se constatada sua existência o mesmo é retornado
+//					 * para o cadastro de logradouro e salvo normalmente, caso não ele será salvo */
+//					var consulBairro = function(bairroNome, cidadeNome, estadoSigla){
+//						ConsuBairro.get({
+//							bairroNome : bairroNome, 
+//							cidadeNome : cidadeNome,
+//							estadoNome : estadoSigla
+//						}, function(resultBairro){
+//							if(resultBairro){
+//								$scope.fabricante.logradouro.bairro = resultBairro;
+//								console.log(resultBairro);
+//							}
+//						});						
+//					};
 
 					$scope.clear = function() {
 						$modalInstance.dismiss('cancel');

@@ -13,10 +13,14 @@
 	<property name="floatType" value="float4" dbms="postgresql, h2" />
 	<property name="floatType" value="float" dbms="mysql, oracle" />
 
+
 	<!-- Added the entity Bairro. -->
+
+
 	<changeSet id="20151214120940" author="jhipster">
-		<createTable tableName="bairro">
-			<column name="id" type="bigint" autoIncrement="${autoIncrement}">
+
+		<createTable tableName="bairro"  >
+			<column name="id" type="bigint" autoIncrement="${autoIncrement}" >
 				<constraints primaryKey="true" nullable="false" />
 			</column>
 			<column name="nm_bairro" type="varchar(60)">
@@ -24,13 +28,14 @@
 			</column>
 			<column name="id_cidade" type="bigint" />
 		</createTable>
-
+		
+        
 		<addForeignKeyConstraint baseColumnNames="id_cidade"
 			baseTableName="bairro" constraintName="fk_bairro_id_cidade_id"
-			referencedColumnNames="id" referencedTableName="cidade" />
+			referencedColumnNames="id" referencedTableName="cidade" />   		
 
-		<loadData encoding="UTF-8" file="config/liquibase/BAIRRO.csv"
-			separator=";" tableName="bairro" />
+<!-- 		<loadData encoding="UTF-8" file="config/liquibase/BAIRRO.csv" -->
+<!-- 			separator=";" tableName="bairro" /> -->
 
 	</changeSet>
 </databaseChangeLog>

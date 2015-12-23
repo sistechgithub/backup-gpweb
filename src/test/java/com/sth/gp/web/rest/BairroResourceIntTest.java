@@ -191,4 +191,13 @@ public class BairroResourceIntTest {
         List<Bairro> bairros = bairroRepository.findAll();
         assertThat(bairros).hasSize(databaseSizeBeforeDelete - 1);
     }
+    
+    @Test
+    @Transactional
+    public void findBairro() throws Exception{    	
+    	 // Get the bairro
+        restBairroMockMvc.perform(get("/api/bairros/getbycidadeestado/{nome}/{cidade}/{estado}","SOCORRO", "JUAZEIRO DO NORTE","CE")
+                .accept(TestUtil.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk());
+    }
 }

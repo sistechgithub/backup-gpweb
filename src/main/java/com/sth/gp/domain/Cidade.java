@@ -18,6 +18,8 @@ import java.util.Objects;
 public class Cidade implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="cidade_id_seq", sequenceName="cidade_id_seq", initialValue=1)
     private Long id;
 
     @NotNull
@@ -46,7 +48,7 @@ public class Cidade implements Serializable {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = nome.toUpperCase();
 	}
 
 	public Estado getEstado() {

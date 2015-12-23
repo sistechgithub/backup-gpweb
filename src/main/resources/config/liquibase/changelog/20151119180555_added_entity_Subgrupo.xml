@@ -16,6 +16,8 @@
     <!--
         Added the entity Subgrupo.
     -->
+   
+    
     <changeSet id="20151119180555" author="jhipster">
         <createTable tableName="sub_grupo">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
