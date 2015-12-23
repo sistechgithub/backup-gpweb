@@ -54,9 +54,10 @@ public class LogradouroResource {
         if (logradouro.getId() != null) {
             return ResponseEntity.badRequest().header("Failure", "A new logradouro cannot already have an ID").body(null);
         }
+        
         Logradouro result = logradouroRepository.save(logradouro);
         logradouroSearchRepository.save(result);
-        return ResponseEntity.created(new URI("/api/logradouros/" + result.getId()))
+        return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityCreationAlert("logradouro", result.getId().toString()))
             .body(result);
     }

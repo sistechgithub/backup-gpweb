@@ -20,7 +20,7 @@ public class Fabricante implements Serializable {
     private Long id;
 
     @NotNull
-    @Size(min = 10, max = 50)
+    @Size(max = 50)
     @Column(name = "nm_fabricante", length = 50, nullable = false)
     private String nome;
 

@@ -16,6 +16,9 @@
     <!--
         Added the entity Fabricante.
     -->
+    
+  
+    
     <changeSet id="20151130115748" author="jhipster">
         <createTable tableName="fabricante">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">

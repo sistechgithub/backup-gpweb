@@ -16,6 +16,8 @@
     <!--
         Added the entity Estado.
     -->
+  
+    
     <changeSet id="20151214120603" author="jhipster">
         <createTable tableName="estado">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
@@ -30,10 +32,10 @@
             <column name="ds_pais" type="varchar(255)"/>
         </createTable>
         
-         <loadData encoding="UTF-8"
-                  file="config/liquibase/ESTADO.csv"
-                  separator=";"
-                  tableName="estado"/>
+<!--          <loadData encoding="UTF-8" -->
+<!--                   file="config/liquibase/ESTADO.csv" -->
+<!--                   separator=";" -->
+<!--                   tableName="estado"/> -->
         
     </changeSet>
 </databaseChangeLog>

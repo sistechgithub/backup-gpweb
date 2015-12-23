@@ -5,9 +5,6 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Objects;
 
 /**
  * A Bairro.
@@ -18,6 +15,8 @@ import java.util.Objects;
 public class Bairro implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name="bairro_id_sequence",initialValue=1)
     private Long id;
 
     @NotNull
@@ -42,7 +41,7 @@ public class Bairro implements Serializable {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = nome.toUpperCase();
 	}
 
 	public Cidade getCidade() {
