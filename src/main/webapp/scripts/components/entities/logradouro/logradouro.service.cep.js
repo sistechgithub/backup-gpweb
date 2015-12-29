@@ -7,7 +7,9 @@ angular.module('gpApp')
             method: 'GET',
             transformResponse: function (data) {
             	if (data){
-                    data = angular.fromJson(data);
+                    
+            		data = angular.fromJson(data);
+					
                     return data;
             	}
             }
@@ -27,7 +29,7 @@ angular.module('gpApp')
         }
     });
 })
-.factory('LogradouroCep', function ($resource, DateUtils) {
+.factory('LogradouroCep', function ($resource) {
     return $resource('api/logradouros/cep/:cep', {}, {
         'get': {
             method: 'GET',
@@ -40,30 +42,14 @@ angular.module('gpApp')
         }
     });
 })
-.factory('ConsultaCEPApi', function($resource, DateUtils, ConsuBairro, ConsuCidade, Logradouro, Bairro){
+.factory('ConsultaCEPApi', function($resource){
 	 return $resource('https://viacep.com.br/ws/:cep/json/', {}, {
 	        'get': {
 	            method: 'GET',
 	            transformResponse: function(data){
-					var logra = {id : null, nome : '', cep : '', bairro : {}};
-					var nome = '';
-					var cep = '';
-					var bairro = '';
-					var cidade = '';
-					var estado = '';
-					if(!data.erro){
-						data = angular.fromJson(data);
-						
-						nome   = data.logradouro;
-						cep    = data.cep.replace('-','');
-						bairro = data.bairro;
-						cidade = data.localidade;
-						estado = data.uf;						
-
-						logra.id = null;
-						logra.cep = cep;
-						logra.nome = nome;
-						
+	            	if (data){	   
+	            		
+	            		data = angular.fromJson(data);
 						data.bairro = data.bairro.replace(/[á|ã|â|à]/gi, "a");
 						data.bairro = data.bairro.replace(/[é|ê|è]/gi, "e");
 						data.bairro = data.bairro.replace(/[í|ì|î]/gi, "i");
@@ -82,38 +68,8 @@ angular.module('gpApp')
 						data.localidade = data.localidade.replace(/[ñ]/gi, "n");
 						data.localidade = data.localidade.replace(/[á|ã|â]/gi, "a");
 						
-						ConsuBairro.get({
-							bairroNome : data.bairro, 
-							cidadeNome : data.localidade, 
-							estadoNome : data.uf
-							},//se existir o bairo, o cadastro do logradouro já é realizado 
-							function(resultBairro){
-								if(resultBairro){
-									logra.bairro = resultBairro;
-						            Logradouro.save(logra, function(data){
-					                    data = angular.fromJson(data);
-						            	return logra;
-						            });
-								}
-							},//se não ele realizado o cadastro do bairro
-							function(errorBairro){
-								if (errorBairro.status == 404){
-									ConsuCidade.get({
-										cidadeNome : cidade,
-										estadoNome : estado},
-										function(resultCidade){
-											logra.bairro.nome = bairro;
-											logra.bairro.cidade = resultCidade;
-											Bairro.save(logra.bairro);
-											 Logradouro.save(logra, function(data){
-								                    data = angular.fromJson(data);
-									            	logra = data;
-									            });
-										});
-								}
-							});	
-						return logra;
-					}
+	            		return data;
+	            	}
 				}
 	        }
 	    });
