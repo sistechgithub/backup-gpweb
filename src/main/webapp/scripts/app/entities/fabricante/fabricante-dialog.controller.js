@@ -8,15 +8,12 @@ angular.module('gpApp').controller(
 				'$modalInstance',
 				'entity',
 				'Fabricante',
-				'LogradouroCep',
-				'ConsultaCEPApi',
-				'ConsuBairro',
-				'ConsuCidade',
+				'ConsultaCep',
 				'Cidade',
 				'Bairro',
 				'Logradouro',
 				function($scope, $stateParams, $modalInstance, entity,
-						Fabricante,Logradouro,LogradouroCep,ConsultaCEPApi,ConsuBairro,ConsuCidade, Bairro, Cidade) {
+						Fabricante,Logradouro,ConsultaCep, Bairro, Cidade) {
 					
 					var cep = '';
 					$scope.fabricante = entity;
@@ -58,74 +55,9 @@ angular.module('gpApp').controller(
 						var cep = cepDom;
 						var cepApi = '';
 						if (cep.length > 6) {
-							LogradouroCep.get({cep : cep}, 
-									function(data){
-										$scope.fabricante.logradouro = data;
-									},
-									function(erroConsultacep){
-										
-										if (erroConsultacep.status == 404){		
-											
-											ConsultaCEPApi.get({cep : cep}, function(data){											
-
-												console.log(data);
-												$scope.fabricante.logradouro.nome = data.logradouro;
-																					
-												ConsuBairro.get({
-													bairroNome : data.bairro,
-													cidadeNome : data.localidade,
-													estadoNome : data.uf
-												},
-												function(data){
-													$scope.fabricante.logradouro.bairro = data;
-													Logradouro.save($scope.fabricante.logradouro,
-													function(data){
-																$scope.fabricante.logradouro = data;
-													}
-													);
-												}),
-												function(erroBairro){
-													if(erroBairro.status == 404){
-														console.log(data);
-														$scope.fabricante.logradouro.bairro.nome = data.bairro;
-														ConsuCidade.get({
-														cidadeNome : data.localidade,
-														estadoNome : data.uf
-														},
-														function(data){
-															$scope.fabricante.logradouro.bairro.cidade = data;
-															Bairro.save($scope.fabricante.logradouro.bairro, 
-															function(data){
-																LogradouroCep.get({cep : cep},function(data){
-																	$scope.fabricante.logradouro = data;
-																})
-															});
-														});
-													}
-												}
-											});
-											
-										}
-									});
+							ConsultaCep.getLogradouroByCEP(cep);
 						}
-					};
-					
-//					/*Consulta de bairro
-//					 * caso o CEP seja procurado na internet, o bairro que é retornado na consulta
-//					 * é verificado no banco de dados se constatada sua existência o mesmo é retornado
-//					 * para o cadastro de logradouro e salvo normalmente, caso não ele será salvo */
-//					var consulBairro = function(bairroNome, cidadeNome, estadoSigla){
-//						ConsuBairro.get({
-//							bairroNome : bairroNome, 
-//							cidadeNome : cidadeNome,
-//							estadoNome : estadoSigla
-//						}, function(resultBairro){
-//							if(resultBairro){
-//								$scope.fabricante.logradouro.bairro = resultBairro;
-//								console.log(resultBairro);
-//							}
-//						});						
-//					};
+					};			
 
 					$scope.clear = function() {
 						$modalInstance.dismiss('cancel');
