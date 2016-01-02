@@ -10,35 +10,41 @@
 <!-- Header Navbar: style can be found in header.less --> 
 <nav class="navbar navbar-static-top" role="navigation"> 
     <!-- Sidebar toggle button-->
-	<a class="btn btn-menu-topo btn-flat mdi-icon" data-toggle="offcanvas" role="button">
-		<i class="mdi mdi-menu mdi-icon"></i>
-		<span class="mdi-icon-text"> Menu</span>
-	</a>
+    <div class="navbar-custom-menu pull-left">        
+        <ul class="nav navbar-nav">
+            <li>
+				<a data-toggle="offcanvas" role="button">
+					<i class="mdi mdi-menu mdi-icon"></i>
+					<span class="mdi-icon-text"> Menu</span>
+				</a>
+			</li>
+		</ul>
+	</div>		
 	<!-- Navbar--> 	
     <div class="navbar-custom-menu" ng-switch="isAuthenticated()">        
         <ul class="nav navbar-nav">
             <li ui-sref-active="active">
                 <a ui-sref="home">
                     <i class="mdi mdi-home mdi-icon"></i>
-                    <span class="mdi-icon-text hidden-xs"> Início</span>
+                    <span class="hidden-xs"> Início</span>
                 </a>
             </li>
             <!-- Fullscreen --> 
             <li>                
                 <a href="" class="toggle-fullscreen" id="javascript:void(0);">
-                    <i class="mdi mdi-fullscreen mdi-icon"></i>
-                    <span class="mdi-icon-text hidden-xs"> Tela Cheia</span>
+                	<span>
+                    	<i class="mdi mdi-fullscreen mdi-icon"></i>
+                    	<span class="hidden-xs"> Tela Cheia</span>
+                	</span>
                 </a>
             </li>
             <li ng-class="{active: $state.includes('account')}" class="dropdown pointer">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="">
-                    <span>
-                        <i class="mdi mdi-account-box mdi-icon"></i>
-                        <span class="mdi-icon-text hidden-xs">
-                            Conta
-                        </span>
-                        <span class="mdi-icon" style="margin-left: 4px"><b class="caret"></b></span>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="">                    
+                    <i class="mdi mdi-account-box mdi-icon"></i>
+                    <span class="hidden-xs">
+                        Conta
                     </span>
+                    <span style="margin-left: 4px"><b class="caret"></b></span>                    
                 </a>
                 <ul class="dropdown-menu">
                     <li ui-sref-active="active" ng-switch-when="true">
@@ -107,15 +113,15 @@
 			<li ui-sref-active="active">
 				<a ui-sref="home">
 					<i class="mdi mdi-home mdi-icon"></i>
-					<span class="mdi-icon-text"> Início</span>
+					<span class="mdi-icon-text"> INÍCIO</span>
 				</a>
 			</li>
 
 			<li ui-sref-active="active" ng-switch-when="true">
 	          	<a href="" data-toggle="collapse" data-target="#toggle" data-parent="#sidenav01" class="collapsed">
 	          		<i class="mdi mdi-file-document-box mdi-icon"></i>                        
-					<span class="mdi-icon-text"> Cadastros</span>
-					<i class="fa fa-angle-left pull-right"></i>
+					<span class="mdi-icon-text"> CADASTROS</span>
+					<i class="mdi mdi-chevron-down pull-right"></i>
 	          	</a>
 	          	<!-- submenu -->
 	          	<div class="collapse" id="toggle">
@@ -145,8 +151,8 @@
 			<li ng-class="{active: $state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN">
 				<a href="" data-toggle="collapse" data-target="#toggle2" data-parent="#sidenav01" class="collapsed">         
 					<i class="mdi mdi-desktop-tower mdi-icon"></i>                        
-					<span class="mdi-icon-text"> Administração</span>
-					<i class="fa fa-angle-left pull-right"></i>                    
+					<span class="mdi-icon-text"> ADMINISTRAÇÃO</span>
+					<i class="mdi mdi-chevron-down pull-right"></i>                    
 				</a>
 				<!-- submenu -->
 				<div class="collapse" id="toggle2">	            	
