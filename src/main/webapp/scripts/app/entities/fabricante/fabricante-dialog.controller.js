@@ -8,12 +8,9 @@ angular.module('gpApp').controller(
 				'$modalInstance',
 				'entity',
 				'Fabricante',
-				'ConsultaCep',
-				'Cidade',
-				'Bairro',
-				'Logradouro',
+				'factoryCep',
 				function($scope, $stateParams, $modalInstance, entity,
-						Fabricante,Logradouro,ConsultaCep, Bairro, Cidade) {
+						Fabricante,factoryCep) {
 					
 					var cep = '';
 					$scope.fabricante = entity;
@@ -53,9 +50,8 @@ angular.module('gpApp').controller(
 					 * o endereço manualmente*/
 					$scope.findcep = function(cepDom) {
 						var cep = cepDom;
-						var cepApi = '';
 						if (cep.length > 6) {
-							ConsultaCep.getLogradouroByCEP(cep);
+							$scope.fabricante.logradouro = factoryCep.getEnderecoByCep(cep);
 						}
 					};			
 

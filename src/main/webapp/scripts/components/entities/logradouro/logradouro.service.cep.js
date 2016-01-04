@@ -1,22 +1,26 @@
 'use strict';
 
 angular.module('gpApp')
-.service('ConsultaCep', function($http){
+.service('ConsultaCep',function($http, Logradouro, Bairro, Cidade){
+	var getBairro = '';
+	var getCidade = '';
+	var getLogradouroByCep = '';
+	var getEnderecoByCep = '';
 	
-	var getBairro = function(bairroNome, cidadeNome, estadoNome){
+	this.getBairro = function(bairroNome, cidadeNome, estadoNome){
 		return $http.get('/api/bairros/getbycidadeestado/'+bairroNome+'/'+cidadeNome+'/'+estadoNome);
 	};
 	
-	var getCidade = function (cidadeNome, estadoNome){
+	this.getCidade = function(cidadeNome, estadoNome){
 		return $http.get('/api/cidades/getbynome/'+cidadeNome+'/'+estadoNome);
 	};
 	
-	var getLogradouroByCEP = function (cep){
+	this.getLogradouroByCep = function(cep){
 		return $http.get('api/logradouros/cep/'+cep);
 	};
 	
-	var getConsultaCEPApi = function (cep){
-		return $http.get('https://viacep.com.br/ws/'+cep+'/json/').then(function(data){
+	this.getConsultaCepApi = function(cep){
+		return $http.get('https://viacep.com.br/ws/'+cep+'/json/').success(function(data){
             	if (data){	   
             		
             		data = angular.fromJson(data);
@@ -41,11 +45,5 @@ angular.module('gpApp')
             		return data;
             	};		
         });
-    };
-	return {
-		getBairro : getBairro,
-		getCidade : getCidade,
-		getLogradouroByCEP : getLogradouroByCEP,
-		getConsultaCEPApi  : getConsultaCEPApi
-		};
+    };    
 });
