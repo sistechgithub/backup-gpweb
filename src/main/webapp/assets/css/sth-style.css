@@ -2,13 +2,13 @@
  * Configurações do JHipster
  * --------------------------------------------------------------------------
  */
-
+/*
 body {
     background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     color: #333;
 }
-
+*/
 /* ==========================================================================
 Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 ========================================================================== */
@@ -220,184 +220,27 @@ ul#strengthBar {
  */
 
 .bg-primary{
-  background: #1D69A6 !important;
+  background: #1a75ac !important;
  }
 .bg-success{
-  background: #458B49 !important;
+  background: #20a27d !important;
  }
 .bg-info{
-  background: #1E95D6 !important;
+  background: #e73825 !important;
  }
 .bg-warning{
-  background: #FAB23D !important;
+  background: #e89d00 !important;
  }
 .bg-danger{
-  background: #CC4040 !important; 
+  background: #d92a18 !important; 
  }
 
 /* ==========================================================================
-Component: Button
+Botões
 ========================================================================== */
 
-.btn {
-  border-radius: 0px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border: 1px solid transparent;
-}
-.btn.uppercase {
-  text-transform: uppercase;
-}
-.btn.btn-flat {
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  border-width: 1px;
-}
-.btn:active {
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-}
-.btn:focus {
-  outline: none;
-}
-.btn.btn-file {
-  position: relative;
-  overflow: hidden;
-}
-.btn.btn-file > input[type='file'] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-width: 100%;
-  min-height: 100%;
-  font-size: 100px;
-  text-align: right;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  outline: none;
-  background: white;
-  cursor: inherit;
-  display: block;
-}
-.btn-default {
-  background-color: #f4f4f4;
-  color: #444;
-  border-color: #ddd;
-}
-.btn-default:hover,
-.btn-default:active,
-.btn-default.hover {
-  background-color: #e7e7e7;
-  border-color: #ddd;
-}
-.btn-primary {
-  background-color: #1D69A6;
-  border-color: #1D69A6;
-}
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary.hover {
-  background-color: #0E437A;
-  border-color: #0E437A;
-}
-.btn-success {
-  background-color: #458B49;
-  border-color: #458B49;
-}
-.btn-success:hover,
-.btn-success:active,
-.btn-success.hover {
-  background-color: #28672B;
-  border-color: #28672B;
-}
-.btn-info {
-  background-color: #1E95D6;
-  border-color: #1E95D6;
-}
-.btn-info:hover,
-.btn-info:active,
-.btn-info.hover {
-  background-color: #1571AC;
-  border-color: #1571AC;
-}
-.btn-danger {
-  background-color: #CC4040;
-  border-color: #CC4040;
-}
-.btn-danger:hover,
-.btn-danger:active,
-.btn-danger.hover {
-  background-color: #A02121;
-  border-color: #A02121;
-}
-.btn-warning {
-  background-color: #FAB23D;
-  border-color: #FAB23D;
-}
-.btn-warning:hover,
-.btn-warning:active,
-.btn-warning.hover {
-  background-color: #DB9A31;
-  border-color: #DB9A31;
-}
-.btn-outline {
-  border: 1px solid #fff;
-  background: transparent;
-  color: #fff;
-}
-.btn-outline:hover,
-.btn-outline:focus,
-.btn-outline:active {
-  color: rgba(255, 255, 255, 0.7);
-  border-color: rgba(255, 255, 255, 0.7);
-}
-.btn-link {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-.btn[class*='bg-']:hover {
-  -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
-}
-.btn-app {
-  border-radius: 0px;
-  position: relative;
-  padding: 15px 5px;
-  margin: 0 0 10px 10px;
-  min-width: 80px;
-  height: 60px;
-  text-align: center;
-  color: #666;
-  border: 1px solid #ddd;
-  background-color: #f4f4f4;
-  font-size: 12px;
-}
-.btn-app > .fa,
-.btn-app > .glyphicon,
-.btn-app > .ion {
-  font-size: 20px;
-  display: block;
-}
-.btn-app:hover {
-  background: #f4f4f4;
-  color: #444;
-  border-color: #aaa;
-}
-.btn-app:active,
-.btn-app:focus {
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-}
-.btn-app > .badge {
-  position: absolute;
-  top: -3px;
-  right: -10px;
-  font-size: 10px;
-  font-weight: 400;
+.btn{
+    padding: 2px 10px;
 }
 
 /* ==========================================================================
@@ -405,174 +248,142 @@ Botões outlined
 ========================================================================== */
 
 .btn-outlined {
-    padding: 4px 7px;
-    border-radius: 0;
-    -webkit-transition: all 0.3s;
-       -moz-transition: all 0.3s;
-            transition: all 0.3s;
+  padding: 6px 8px 3px;
+  border-radius: 2px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
 }
 .btn-outlined.btn-primary {
-    background: none;
-    border: 1px solid #1D69A6;
-    color: #1D69A6;
+  color: #FFF;
+  background: #1a75ac;
+  border-color: #1a75ac;    
 }
 .btn-outlined.btn-primary:hover,
 .btn-outlined.btn-primary:active {
-    color: #FFF;
-    background: #1D69A6;
-    border-color: #1D69A6;
+  background: none;
+  border: 1px solid #1a75ac;
+  color: #1a75ac;
 }
 .btn-outlined.btn-success {
-    background: none;
-    border: 1px solid #458B49;
-    color: #458B49;
+  color: #FFF;
+  background: #20a27d;
+  border-color: #20a27d;    
 }
 .btn-outlined.btn-success:hover,
 .btn-outlined.btn-success:active {
-    color: #FFF;
-    background: #458B49;
-    border-color: #458B49;
+  background: none;
+  border: 1px solid #20a27d;
+  color: #20a27d;  
 }
 
 .btn-outlined.btn-info {
-    background: none;
-    border: 1px solid #1E95D6;
-    color: #1E95D6;
+  color: #FFF;
+  background: #e73825;
+  border-color: #e73825;
 }
 .btn-outlined.btn-info:hover,
 .btn-outlined.btn-info:active {
-    color: #FFF;
-    background: #1E95D6;
-    border-color: #1E95D6;
+  background: none;
+  border: 1px solid #e73825;
+  color: #e73825;  
 }
 .btn-outlined.btn-warning {
-    background: none;
-    border: 1px solid #FAB23D;
-    color: #FAB23D;
+  color: #FFF;
+  background: #e89d00;
+  border-color: #e89d00;
 }
 .btn-outlined.btn-warning:hover,
 .btn-outlined.btn-warning:active {
-    color: #FFF;
-    background: #FAB23D;
-    border-color: #FAB23D;
+  background: none;
+  border: 1px solid #e89d00;
+  color: #e89d00;
 }
 .btn-outlined.btn-danger {
-    background: none;
-    border: 1px solid #CC4040;
-    color: #CC4040;
+  color: #FFF;
+  background: #d92a18;
+  border-color: #d92a18;
 }
 .btn-outlined.btn-danger:hover,
 .btn-outlined.btn-danger:active {
-    color: #FFF;
-    background: #CC4040;
-    border-color: #CC4040;
+  background: none;
+  border: 1px solid #d92a18;
+  color: #d92a18;
 }
 
 /* ==========================================================================
 Icones Material Design
 ========================================================================== */
-
 /* Configuração padrão dos icones */
-.mdi-icon {
-  margin-left: -8px;  
-  max-height: 50px;
-  text-align: left;
-  font-size: 26px;
+.mdi{
+  vertical-align: middle;
 }
-
+.mdi-icon {  
+  font-size: 20px;
+  line-height: 1.42857143;
+  margin: 0;
+}
 @media (max-width: 767px){
   .mdi-icon {
      margin-left: 0px; 
   }
 }
-
-/* Correções no alinhamento dos icones com o texto */
 .mdi-icon-text {
-  vertical-align: 3px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
-.mdi-icon-text-va {
-  vertical-align: -2px;
+/* Aumenta ou diminui o tamanho dos icones */
+.mdi-18 {
+  font-size: 18px; 
 }
-
-/* Aumenta tamanho dos icones */
-.mdi-x {
-  font-size: 16px; 
-}
-.mdi-2x {
+.mdi-20 {
   font-size: 20px; 
 }
-.mdi-3x {
+.mdi-22 {
+  font-size: 22px; 
+}
+.mdi-24 {
   font-size: 24px; 
 }
-.mdi-4x {
+.mdi-26 {
+  font-size: 26px; 
+}
+.mdi-28 {
   font-size: 28px; 
 }
-.mdi-5x {
+.mdi-30 {
+  font-size: 30px; 
+}
+.mdi-32 {
   font-size: 32px; 
 }
-.mdi-6x {
-  font-size: 36px; 
+.mdi-34 {
+  font-size: 34px; 
 }
 
 /* ==========================================================================
 Correções no Menu do Topo
 ========================================================================== */
-
-.navbar-fixed-top, .navbar-static-top, .logo {    
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-}
-
-@media (max-width: 991px){
-.skin-blue-light .navbar-custom-menu .navbar-nav > li > a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 20px;		
-}
-}
-
-@media (min-width: 768px){
-.skin-blue-light .navbar-nav > li > a {
-    padding-top: 10px;
-    padding-bottom: 10px;	
-}
-}
-
 .btn-menu-topo{
 	color: #fff;
 	background: #0d47a1 !important;
 	margin-left: 0px;
-	
+  vertical-align: middle;	
 }
-
 .btn-menu-topo:hover{
 	color: #fff;
 	background: #0C4091 !important; 
 }
-
-.navbar-nav > li{
-  margin-top: 2px;
-}
-
 /* ==========================================================================
 Correções no Menu Lateral
 ========================================================================== */
-
-.skin-blue-light .main-sidebar{
-  background: #fff;
-}
-
 .sidebar-left-shadow {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
-
-
 .skin-blue-light .submenu {
   margin-left: 20px;
   border-left: 1px dotted #333;
 }
-
 @media (min-width: 768px) {
   .sidebar-mini.sidebar-collapse .sidebar-menu > li > a > i {
     margin-left: -5px;
@@ -583,26 +394,6 @@ Correções no Menu Lateral
   }
 }
 
-/* ==========================================================================
-Ajustes no Componente Box
-========================================================================== */
-
-.skin-blue-light .box {
-  position: relative;
-  border-radius: 0px;
-  background: #ffffff;
-  border-top: 0px solid #d2d6de;
-  margin-bottom: 20px;
-  width: 100%;  
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-}
-.skin-blue-light .box-title {
-  color: #000;  
-}
-
-.box-header.with-border {
-  border-bottom: 1px solid #e0e0e0;
-}
 
 /*
  * Configurações da Página
@@ -674,9 +465,10 @@ Menu da Dashboard
   transition: all 300ms linear; 
 }
 .ca-sub{
-    font-size: 16px;
+    font-size: 14px;
     color: #fff;
-    margin-top: -3px;
+    margin-top: 0px;
+    font-weight: 400;
 }
 .ca-menu li:hover{
     background-color: #212121;
@@ -772,21 +564,6 @@ Menu da Dashboard
 Correções no Formulário
 ========================================================================== */
 
-.mg-bottom-grupo{
-  margin-bottom: 0px;
-}
-
-/*Correções no checkbox*/
-.checkbox-size{
-  width: 18px;
-  height: 18px;
-}
-
-.checkbox-label{
-  padding-top: 3px;
-  margin-left: -10px;
-}
-
 .checkbox-position{
   margin-left: 20px;
 }
@@ -799,12 +576,14 @@ Correções no Modal
   background-color: #0d47a1;
   border-bottom-color: #f4f4f4;
   color: #fff;
-  padding: 10px 18px 8px 18px;
+  padding: 8px 18px 8px 18px;
 }
 
-.mdi-modal-title{
-  float: left;
-  margin-right: 10px;
+.modal-title{
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 6px;
 }
 
 /* Icone fechar */
@@ -832,29 +611,6 @@ Correções no Modal
 /* ==========================================================================
 Correções para as tabelas
 ========================================================================== */
-
-.table{
-  border-top: 1px solid #e0e0e0;  
-}
-
-.table > thead > tr > th{
-  border: 0px solid #e0e0e0; 
-  color: #616161 !important; 
-}
-
-.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, 
-.table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
-  padding: 8px;
-  line-height: 1.42857143;
-  vertical-align: middle;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.table-hover > tbody > tr:hover {
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #000;
-}
-
 .row-pd{
   padding-top: 10px;
   padding-bottom: 20px;

@@ -8,18 +8,18 @@
                 ng-click="clear()">
                 &times;
         </button>
-
-        <h4 class="modal-title" id="mySubgrupoLabel">
+        
+        <i class="mdi mdi-package mdi-22"></i>
+        <h3 class="modal-title" 
+            id="mySubgrupoLabel">
             Criar ou editar um Subgrupo
-            <i class="mdi mdi-package mdi-icon mdi-modal-title"></i>
-        </h4>
+        </h3>
     </div><!-- fim cabeçalho -->
     
     <!-- conteúdo -->
     <div class="modal-body">
         <!-- mensagem de retorno do jhipster -->
         <jh-alert-error></jh-alert-error>
-
         <!--
         <div class="form-group">
             <label for="id">
@@ -46,13 +46,14 @@
                             id="field_nome" 
                             name="nome"                              
                             ng-model="subgrupo.nome"
+                            autofocus
                     />
                 </div>
             </div><!-- fim coluna -->
             
             <div class="col-xs-12 col-sm-2">
                 <div class="form-group">
-                    <label for="field_custo">
+                    <label  for="field_custo">
                             Custo(%)
                     </label>
                     <input  type="number" 
@@ -123,21 +124,19 @@
                 <!-- botão cancelar -->
                 <button type="button" 
                         class="btn btn-default" 
-                        data-dismiss="modal" 
+                        data-dismiss="modal"
                         ng-click="clear()">
-                    <span class="mdi mdi-close mdi-2x mdi-icon-text-va"></span>
-                        &nbsp;
+                    <span class="mdi mdi-close mdi-icon"></span>
                     <span>Cancelar</span>
                 </button>
                 <!-- botão salvar -->
                 <button type="submit" 
-                        class="btn btn-success"
-                        ng-disabled="editForm.$invalid || isSaving">
-                    <span class="mdi mdi-content-save mdi-2x mdi-icon-text-va"></span>
-                        &nbsp;
+                        ng-disabled="editForm.$invalid || isSaving"
+                        class="btn btn-success">
+                    <span class="mdi mdi-content-save mdi-icon"></span>                     
                     <span>Salvar</span>
                 </button>
             </div><!-- fim modal-footer -->
-        </div><!-- fim coluna -->
-    </div><!-- fim row -->
+        </div><!-- fim colunas -->
+    </div><!-- fim rodapé -->
 </form><!-- fim form -->

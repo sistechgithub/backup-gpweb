@@ -2,20 +2,20 @@
     <div class="modal-header bg-danger">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;</button>
-        <h4 class="modal-title">
+        <i class="mdi mdi-delete mdi-22"></i>
+        <h3 class="modal-title">
             Deletar Subgrupo
-            <i class="mdi mdi-delete mdi-icon mdi-modal-title"></i>
-        </h4>
+        </h3>
     </div>
     <div class="modal-body">
         <p>Você realmente quer deletar este Subgrupo?</p>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-            <span class="mdi mdi-close mdi-2x mdi-icon-text-va"></span>&nbsp;<span>Cancelar</span>
+            <span class="mdi mdi-close mdi-icon"></span>&nbsp;<span>Cancelar</span>
         </button>
         <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
-            <span class="mdi mdi-delete mdi-2x mdi-icon-text-va"></span>&nbsp;<span>Deletar</span>
+            <span class="mdi mdi-delete mdi-icon"></span>&nbsp;<span>Deletar</span>
         </button>
     </div>
 </form>

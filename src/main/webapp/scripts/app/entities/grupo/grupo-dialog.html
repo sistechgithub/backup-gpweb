@@ -8,11 +8,11 @@
 				ng-click="clear()">
 				&times;
 		</button>
-  
-		<h4 class="modal-title" id="myGrupoLabel">
-			Criar ou editar Grupo
-			<i class="mdi mdi-package mdi-icon mdi-modal-title"></i>
-		</h4>
+  		
+  		<i class="mdi mdi-package mdi-22"></i>
+		<h3 class="modal-title" id="myGrupoLabel">
+			Criar ou editar Grupo			
+		</h3>		
 	</div><!-- fim cabeçalho -->
 	
 	<!-- conteúdo -->
@@ -31,6 +31,7 @@
 							id="field_nome" 
 							name="nome" 
 							ng-model="grupo.nome" 
+							autofocus
 					/>
 				</div>
 			</div><!-- fim coluna -->
@@ -175,16 +176,14 @@
 						class="btn btn-default" 
 						data-dismiss="modal"
 						ng-click="clear()">
-					<span class="mdi mdi-close mdi-2x mdi-icon-text-va"></span>
-						&nbsp;
+					<span class="mdi mdi-close mdi-icon"></span>
 					<span>Cancelar</span>
 				</button>
 				<!-- botão salvar -->
 				<button type="submit" 
 						ng-disabled="editForm.$invalid || isSaving"
 						class="btn btn-success">
-					<span class="mdi mdi-content-save mdi-2x mdi-icon-text-va"></span>
-						&nbsp;
+					<span class="mdi mdi-content-save mdi-icon"></span>						
 					<span>Salvar</span>
 				</button>
 			</div><!-- fim modal-footer -->
