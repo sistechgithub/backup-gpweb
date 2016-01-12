@@ -54,7 +54,8 @@ angular.module('gpApp').controller(
 						if (cep.length > 6) {
 							ConsultaCep.getLogradouroByCep(cep).then(
 									function(data){
-										$scope.fabricante.logradouro = data;
+										data = angular.fromJson(data);
+										$scope.fabricante.logradouro = data.data;
 									},
 									function(data){
 										if (data.status == 404){
