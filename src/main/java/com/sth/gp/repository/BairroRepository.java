@@ -11,6 +11,6 @@ import java.util.List;
  */
 public interface BairroRepository extends JpaRepository<Bairro,Long> {
 
-	Bairro findOneByNomeAndCidadeNomeAndCidadeEstadoSigla(String nome, String cidadeNome, String estado);
+	Bairro findOneByNomeAndCidadeNomeAndCidadeEstadoSigla(String bairro, String cidadeNome, String estado);
 	
 }

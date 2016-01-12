@@ -8,9 +8,9 @@ angular.module('gpApp').controller(
 				'$modalInstance',
 				'entity',
 				'Fabricante',
-				'factoryCep',
+				'ConsultaCep',
 				function($scope, $stateParams, $modalInstance, entity,
-						Fabricante,factoryCep) {
+						Fabricante, ConsultaCep) {
 					
 					var cep = '';
 					$scope.fabricante = entity;
@@ -50,8 +50,21 @@ angular.module('gpApp').controller(
 					 * o endereço manualmente*/
 					$scope.findcep = function(cepDom) {
 						var cep = cepDom;
+						var data = '';
 						if (cep.length > 6) {
-							$scope.fabricante.logradouro = factoryCep.getEnderecoByCep(cep);
+							ConsultaCep.getLogradouroByCep(cep).then(
+									function(data){
+										$scope.fabricante.logradouro = data;
+									},
+									function(data){
+										if (data.status == 404){
+											ConsultaCep.getConsultaCepApi(cep).then(function(data){
+												data = angular.fromJson(data);
+												$scope.fabricante.logradouro = data;
+											});
+										}
+									}
+							);
 						}
 					};			
 

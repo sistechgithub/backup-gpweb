@@ -1,7 +1,12 @@
 package com.sth.gp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.sth.gp.domain.Bairro;
+import com.sth.gp.domain.Cidade;
 import com.sth.gp.domain.Logradouro;
+import com.sth.gp.repository.BairroRepository;
+import com.sth.gp.repository.CidadeRepository;
+import com.sth.gp.repository.EstadoRepository;
 import com.sth.gp.repository.LogradouroRepository;
 import com.sth.gp.repository.search.LogradouroSearchRepository;
 import com.sth.gp.web.rest.util.HeaderUtil;
@@ -41,7 +46,16 @@ public class LogradouroResource {
 
     @Inject
     private LogradouroSearchRepository logradouroSearchRepository;
-
+    
+    @Inject
+    private BairroRepository bairroRepository;
+    
+    @Inject
+    private CidadeRepository cidadeRepository;
+    
+    @Inject
+    private EstadoRepository estadoRepository;
+    
     /**
      * POST  /logradouros -> Create a new logradouro.
      */
@@ -62,6 +76,53 @@ public class LogradouroResource {
             .body(result);
     }
 
+    
+    @RequestMapping(value = "/logradouros/{cep}/{logradouro}/{bairro}/{cidade}/{uf}",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+        @Timed
+        public ResponseEntity<Logradouro> createLogradouroFromCep(@PathVariable String cep, @PathVariable String logradouro,
+        		@PathVariable String bairro, @PathVariable String cidade, @PathVariable String uf) throws URISyntaxException {
+            log.debug("REST request to save Logradouro : {}", logradouro);
+            
+            logradouro = logradouro.toUpperCase();
+            bairro = bairro.toUpperCase();
+            cidade = cidade.toUpperCase();
+            uf = uf.toUpperCase();
+            
+            Logradouro newLogradouro = null;
+            Bairro bairroFind = null;
+            Cidade cidadeFind = null;
+            
+            bairroFind = bairroRepository.findOneByNomeAndCidadeNomeAndCidadeEstadoSigla(bairro, cidade, uf);
+            
+            if (bairroFind != null){
+            	newLogradouro = new Logradouro();
+            	newLogradouro.setNome(logradouro);
+            	newLogradouro.setCep(cep);
+            	newLogradouro.setBairro(bairroFind);
+            }else{
+            	bairroFind = new Bairro();
+            	cidadeFind = cidadeRepository.findOneByNomeAndEstadoSigla(cidade, uf);
+            	if (cidadeFind != null){
+            		bairroFind.setNome(bairro);
+            		bairroFind.setCidade(cidadeFind);
+            		bairroFind = bairroRepository.save(bairroFind);
+            		newLogradouro = new Logradouro();
+                	newLogradouro.setNome(logradouro);
+                	newLogradouro.setCep(cep);
+                	newLogradouro.setBairro(bairroFind);            		
+            	}
+            }
+            
+            
+            Logradouro result = logradouroRepository.save(newLogradouro);
+            logradouroSearchRepository.save(result);
+            return ResponseEntity.ok()
+                .headers(HeaderUtil.createEntityCreationAlert("logradouro", result.getId().toString()))
+                .body(result);
+        }
+    
     /**
      * PUT  /logradouros -> Updates an existing logradouro.
      */
