@@ -1,23 +1,28 @@
 <!doctype html>
 <html class="no-js">
     <head>
-        <meta charset="utf-8" >
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Cache-Control" content="no-store" />
         <title>STHWEB</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <!-- Loading-bar-->
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css assets/styles/vendor.css -->
+        <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
-        <!-- Bootstrap v3.3.6-->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <!-- endbower -->
         <!-- Icones Material Design -->
         <link rel="stylesheet" href="assets/libs/fonts/mdi-1.3.41/css/materialdesignicons.min.css">
-        <!-- Font Roboto -->
-        <link rel="stylesheet" href="assets/libs/fonts/roboto/roboto.css">
         <!-- Tema Principal-->
-        <link rel="stylesheet" href="assets/css/AdminLTE.css">
+        <link rel="stylesheet" href="assets/css/AdminLTE.css">    
+        <!-- Ajustes no Tema Principal -->
         <link rel="stylesheet" href="assets/css/skins/skin-blue-light.css">
         <link rel="stylesheet" href="assets/css/sth-style.css">
+        <!-- Icones Awesome -->
+	    <link rel="stylesheet" href="assets/libs/fonts/font-awesome-4.4.0/css/font-awesome.min.css">
+        <!-- endbuild -->
     </head>
     
     <body ng-app="gpApp" class="hold-transition skin-blue-light fixed sidebar-mini">
@@ -26,61 +31,58 @@
         <![endif]-->        
 		<div class="wrapper">  
             <div ui-view="navbar"></div>   
-	        <!-- Content Wrapper. Contém o conteúdo da página  -->
+	        <!-- Content Wrapper. Contains page content -->
 			<div class="content-wrapper">			
-				<!-- Conteúdo principal -->
-				<section class="content-body">							        
+				<!-- Main content -->
+				<section class="content">							        
 				    <div ui-view="content"></div>						
 				</section>
 			</div>
-			<!-- Rodapé -->
+			<!-- Main Footer -->
 			<footer class="main-footer">
-				<!-- Versão do sistema alinhado a direita -->
+				<!-- To the right -->
 				<div class="pull-right">
 					Versão: {{VERSION}}
 				</div>
-				<!-- Informações da empresa alinhado a esquerda -->
-				<strong>&copy; 1993 - 2016 <a href="#">&nbsp;Sistech</a></strong><span class="hidden-xs hidden-sm">&nbsp;&nbsp;Sistemas Empresariais</span>
+				<!-- Default to the left -->
+				<strong>Copyright &copy; 2015 <a href="#">Sistech</a></strong><span class="hidden-xs hidden-sm">. Todos os direitos reservados.</span>
 		  </footer>
 	    </div>
 
-    <!-- Plugins angular -->
-    <!-- bower:js -->
-    <script src="bower_components/modernizr/modernizr.js"></script>
-    <script src="bower_components/jquery/dist/jquery-1.11.3.min.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>        
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/json3/lib/json3.js"></script>
-    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
-    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
-    <script src="bower_components/angular-ui-mask/dist/mask.min.js"></script>
-    <script src="bower_components/angular-locale/angular-locale_pt-br.js"></script>
-    <!-- Máscaras -->
-    <script src="bower_components/mascaras/angular-input-masks/angular-input-masks-standalone.min.js"></script>
-    <script src="bower_components/mascaras/angular-br-filters/release/angular-br-filters.js"></script>   
-    <script src="bower_components/mascaras/string-mask/src/string-mask.js"></script>
-    <script src="bower_components/mascaras/br-validations/releases/br-validations.js"></script>
-    <script src="bower_components/mascaras/br-masks/releases/br-masks-standalone.js"></script>  
-    <!-- Fim-máscaras -->
-    <!-- endbower -->
-    <!-- Fim plugins angular -->
+        <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>-->
 
-    <!-- Plugins Jquery -->    
-    <!-- SlimScroll 1.3.7 -->
-    <script src="assets/libs/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <script src="bower_components/jquery/dist/jquery-1.11.3.min.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+        <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>        
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/json3/lib/json3.js"></script>
+        <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+        <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+        <script src="bower_components/angular-ui-mask/dist/mask.min.js"></script>
+        <script src="bower_components/angular-locale/angular-locale_pt-br.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
 
-    <!-- endbuild -->
 
-    <!-- Carregamento das páginas pelo sistema -->
     <!-- build:js({.tmp,src/main/webapp}) scripts/app.js -->
     <script src="scripts/app/app.js"></script>
     <script src="scripts/app/app.constants.js"></script>
@@ -113,9 +115,6 @@
     <script src="scripts/components/alert/alert.directive.js"></script>
     <script src="scripts/components/util/parse-links.service.js"></script>
     <script src="scripts/components/util/dateutil.service.js"></script>
-    <script src="scripts/components/entities/logradouro/logradouro.service.cep.js"></script>
-    <script src="scripts/components/entities/logradouro/logradouro.factory.cep.js"></script>
-    <script src="scripts/components/entities/logradouro/logradouro.service.js"></script>
     <script src="scripts/app/account/account.js"></script>
     <script src="scripts/app/account/activate/activate.js"></script>
     <script src="scripts/app/account/activate/activate.controller.js"></script>
@@ -179,29 +178,11 @@
     <script src="scripts/app/entities/fabricante/fabricante-detail.controller.js"></script>
     <script src="scripts/components/entities/fabricante/fabricante.service.js"></script>
     <script src="scripts/components/entities/fabricante/fabricante.search.service.js"></script>
-    <script src="scripts/app/entities/estado/estado.js"></script>
-    <script src="scripts/app/entities/estado/estado.controller.js"></script>
-    <script src="scripts/app/entities/estado/estado-dialog.controller.js"></script>
-    <script src="scripts/app/entities/estado/estado-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/estado/estado-detail.controller.js"></script>
-    <script src="scripts/components/entities/estado/estado.service.js"></script>
-    <script src="scripts/components/entities/estado/estado.search.service.js"></script>
-    <script src="scripts/app/entities/cidade/cidade.js"></script>
-    <script src="scripts/app/entities/cidade/cidade.controller.js"></script>
-    <script src="scripts/app/entities/cidade/cidade-dialog.controller.js"></script>
-    <script src="scripts/app/entities/cidade/cidade-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/cidade/cidade-detail.controller.js"></script>
-    <script src="scripts/components/entities/cidade/cidade.service.js"></script>
-    <script src="scripts/components/entities/cidade/cidade.search.service.js"></script>
-    <script src="scripts/app/entities/bairro/bairro.js"></script>
-    <script src="scripts/app/entities/bairro/bairro.controller.js"></script>
-    <script src="scripts/app/entities/bairro/bairro-dialog.controller.js"></script>
-    <script src="scripts/app/entities/bairro/bairro-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/bairro/bairro-detail.controller.js"></script>
-    <script src="scripts/components/entities/bairro/bairro.service.js"></script>
-    <script src="scripts/components/entities/bairro/bairro.search.service.js"></script>
     <!-- endbuild -->
-    <!-- Fim carregamento das páginas pelo sistema -->    	
+	
+	<!-- PLUGINS -->    
+	<!-- SlimScroll 1.3.7 -->
+	<script src="assets/libs/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 
 </body>
 </html>
