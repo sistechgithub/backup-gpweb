@@ -16,15 +16,15 @@ angular.module('gpApp')
             'update': {
                 method: 'PUT',
                 transformRequest: function (data) {
-                    data.dt_promo = DateUtils.convertLocaleDateToServer(data.dt_promo);
+                    //data.dt_promo = DateUtils.convertLocaleDateToServer(data.dt_promo);
                     data.dt_operacao = DateUtils.convertLocaleDateToServer(data.dt_operacao);
                     return angular.toJson(data);
                 }
             },
             'save': {
                 method: 'POST',
-                transformRequest: function (data) {
-                    data.dt_promo = DateUtils.convertLocaleDateToServer(data.dt_promo);
+                transformRequest: function (data) {                	
+                    //data.dt_promo = DateUtils.convertLocaleDateToServer(data.dt_promo);                    
                     data.dt_operacao = DateUtils.convertLocaleDateToServer(data.dt_operacao);
                     return angular.toJson(data);
                 }

@@ -29,7 +29,7 @@
 			                	<th>ID</th>                    
 			                    <th class="col-sm-5">Nome</th>
 			                    <th>Comissão(%)</th>
-			                    <th>Sem desconto</th>
+			                    <th>Desconto(%)</th>
 			                    <th>Em promoção</th>                    
 			                    <th></th>
 			                </tr>
@@ -38,8 +38,8 @@
 			                <tr ng-repeat="grupo in grupos track by grupo.id">
 			                    <td><a ui-sref="grupo.detail({id:grupo.id})">{{grupo.id}}</a></td>
 			                    <td class="col-sm-5">{{grupo.nm_grupo}}</td>
-			                    <td>{{grupo.vl_comissao}}</td>
-			                    <td>{{grupo.fl_desconto ? 'Sim': 'Não'}}</td>
+			                    <td>{{grupo.vl_comissao | currency:'':2}}</td>
+			                    <td>{{grupo.vl_desconto | currency:'':2}}</td>
 			                    <td>{{grupo.fl_promo ? 'Sim': 'Não'}}</td>	                                            
 			                    <td>
 			                        <button type="submit"

@@ -37,14 +37,16 @@ angular.module('gpApp')
             $scope.grupo = {
                 nm_grupo: null,
                 vl_comissao: null,
-                fl_desconto: null,
-                fl_promo: null,
-                dt_promo: null,
-                dt_operacao: null,
-                fl_semcontagem: null,
-                fl_envio: null,
-                nn_novo: null,
+                vl_desconto: null,
+                fl_promo: false,
+                dt_promo: new Date(),                
+                fl_semcontagem: false,
+                fl_envio: false,
+                nn_novo: 1,
+                nn_type: 1,
+                nn_day: 1,
+                nm_dayweek: 'SABADOS',
                 id: null
-            };
+            };    
         };
     });
