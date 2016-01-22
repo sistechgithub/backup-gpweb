@@ -52,17 +52,15 @@ angular.module('gpApp')
                         resolve: {
                             entity: function () {
                                 return {
-                                	nm_grupo: null,
-                                    vl_comissao: null,
-                                    vl_desconto: null,
-                                    fl_promo: false,
-                                    dt_promo: new Date(),                
-                                    fl_semcontagem: false,
-                                    fl_envio: false,
-                                    nn_novo: 1,
-                                    nn_type: 1,
-                                    nn_day: 1,
-                                    nm_dayweek: 'SABADOS',
+                                    nome: null,
+                                    valorcomissao: null,
+                                    comdesconto: null,
+                                    empromo: null,
+                                    datapromo: null,
+                                    dataoperacao: null,
+                                    semsaldo: null,
+                                    enviado: null,
+                                    novo: null,
                                     id: null
                                 };
                             }

@@ -58,11 +58,13 @@ angular.module('gpApp')
                                 break;
 
                             default:
-                                if (httpResponse.data && httpResponse.data.message) {
-                                    addErrorAlert(httpResponse.data.message);
-                                } else {
-                                    addErrorAlert(JSON.stringify(httpResponse));
-                                }
+                            	if (httpResponse.data.message.indexOf('cep') == -1){
+                            		if (httpResponse.data && httpResponse.data.message) {
+                            			addErrorAlert(httpResponse.data.message);
+                            		} else {
+                            			addErrorAlert(JSON.stringify(httpResponse));
+                            		}
+                            	}
                         }
                     });
 

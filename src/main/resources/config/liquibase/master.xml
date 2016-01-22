@@ -7,6 +7,11 @@
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20151119134012_added_entity_Grupo.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20151119180555_added_entity_Subgrupo.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151214120603_added_entity_Estado.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151214120842_added_entity_Cidade.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151214120940_added_entity_Bairro.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151214121052_added_entity_Logradouro.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20151130115748_added_entity_Fabricante.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151223111200_insert_data_table.xml" relativeToChangelogFile="false"/>    
     <!-- JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

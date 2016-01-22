@@ -1,0 +1,26 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "id_estado",
+            "otherEntityName": "estado",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "y"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "nm_cidade",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "60"
+        }
+    ],
+    "changelogDate": "20151214120842",
+    "dto": "no",
+    "pagination": "pagination"
+}

@@ -1,80 +1,75 @@
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title" style="font-size:25px">Marcas</h3>            
+        <h3 class="box-title">Marcas</h3>            
     </div>
-    <br>
-    <div class="box-body">
-        <jh-alert></jh-alert>        
-        <div class="row">
-            <div class="col-sm-6">
-                <button class="btn btn-primary btn-flat pull-left" ui-sref="fabricante.new">
-                    <span class="mdi mdi-plus mdi-x"></span> <span>Adicionar</span>
+    <div class="box-header">
+        <div class="box-btn">                     
+            <button class="btn btn-success pull-left" ui-sref="fabricante.new">
+                <span class="mdi mdi-plus mdi-icon"></span> 
+                <span>Adicionar</span>
+            </button>
+        </div>
+        <div class="box-btn pull-right">
+            <form class="form-inline pull-right" name="searchForm">                  
+                <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
+                <button class="btn btn-info hidden-xs" ng-click="search()">
+                    <span class="mdi mdi-magnify mdi-icon"></span>
                 </button>
-            </div>            
-            <div class="col-sm-6">
-                <form name="searchForm" class="form-inline pull-right">                        
-                    <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">
-                   
-                    <button class="btn btn-info btn-flat hidden-xs" ng-click="search()"><span class="mdi mdi-magnify mdi-x"></span>
-                    </button>
-                </form>
-            </div>
-        </div>        
-        <br>
+            </form>
+        </div>            
+    </div>
+    <div class="box-body">
+        <jh-alert></jh-alert>              
         <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
+            <table class="table table-hover">
+                <tbody>
                     <tr>
-                        <th>ID</th>
+                        <th class="text-center">Cód.</th>
                         <th class="col-sm-5">Nome</th>
-                        <th>Telefone</th>
-                        <th>FAX</th>
-                        <th>Inativo</th>
+                        <th class="text-center">Telefone</th>
+                        <th class="text-center">FAX</th>
+                        <th class="text-center">Inativo</th>
                         <th></th>
                     </tr>
-                </thead>
-                <tbody>
                     <tr ng-repeat="fabricante in fabricantes track by fabricante.id">
-                        <td>{{fabricante.id}}</td>
-                        <td class="col-sm-5">{{fabricante.nm_fabricante}}</td>
-                        <td>{{fabricante.cd_tel}}</td>
-                        <td>{{fabricante.cd_fax}}</td>
-                        <td>{{fabricante.fl_inativo ? 'Sim': 'Não'}}</td>
-                        <td>
+                        <td class="text-center"><a ui-sref="fabricante.detail({id:fabricante.id})">{{fabricante.id}}</a></td>
+                        <td class="col-sm-5 text-uppercase">{{fabricante.nome}}</td>
+                        <td class="text-center">{{fabricante.telefone | brPhoneNumber}}</td>
+                        <td class="text-center">{{fabricante.fax | brPhoneNumber}}</td>
+                        <td class="text-center text-uppercase">{{fabricante.inativo ? 'Sim': 'Não'}}</td>
+                        <td class="text-center">
                             <button type="submit"
                                     ui-sref="fabricante.detail({id:fabricante.id})"
-                                    class="btn btn-info btn-flat">
-                                <span class="mdi mdi-eye mdi-x"></span>
+                                    class="btn btn-outlined btn-success">
+                                <span class="mdi mdi-eye mdi-18"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="fabricante.edit({id:fabricante.id})"
-                                    class="btn btn-primary btn-flat">
-                                <span class="mdi mdi-pencil mdi-x"></span>
+                                    class="btn btn-outlined btn-primary">
+                                <span class="mdi mdi-pencil mdi-18"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="fabricante.delete({id:fabricante.id})"
-                                    class="btn btn-danger btn-flat">
-                                <span class="mdi mdi-close mdi-x"></span>
+                                    class="btn btn-outlined btn-danger">
+                                <span class="mdi mdi-delete mdi-18"></span>
                             </button>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <nav>
-                <div class="col-sm-12">
-                    <ul class="pagination pull-right">
-                        <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
-                        <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
-                        <li ng-show="page > 1" ng-click="loadPage(page - 2)"><a>{{page - 1}}</a></li>
-                        <li ng-show="page > 0" ng-click="loadPage(page - 1)"><a>{{page}}</a></li>
-                        <li class="active"><a>{{page + 1}}</a></li>
-                        <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 2}}</a></li>
-                        <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 3}}</a></li>
-                        <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
-                        <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
-                    </ul>
-                </div>
-            </nav>
         </div>
-    </div>
+    </div><!-- /.box-body -->     
+    <div class="box-footer clearfix">
+        <ul class="pagination no-margin pull-right">
+            <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
+            <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
+            <li ng-show="page > 1" ng-click="loadPage(page - 2)"><a>{{page - 1}}</a></li>
+            <li ng-show="page > 0" ng-click="loadPage(page - 1)"><a>{{page}}</a></li>
+            <li class="active"><a>{{page + 1}}</a></li>
+            <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 2}}</a></li>
+            <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 3}}</a></li>
+            <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
+            <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
+        </ul>
+    </div><!-- /.box-footer --> 
 </div>

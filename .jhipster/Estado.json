@@ -1,0 +1,33 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "nm_estado",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": "30"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "sg_estado",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "2"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "ds_pais",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20151214120603",
+    "dto": "no",
+    "pagination": "pagination"
+}

@@ -1,32 +1,38 @@
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title" style="font-size:25px"><span>Subgrupo</span> {{subgrupo.id}}</h3>            
+        <h3 class="box-title"><span>Subgrupo</span> {{subgrupo.id}}</h3>            
     </div>  
 
     <div class="box-body"> 
         <div class="table-responsive">
             <table class="table table-striped">
+                <!--
                 <thead>
-                <tr>
-                    <th>Campo</th>
-                    <th>Valor</th>
-                </tr>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
                 </thead>
+                -->
                 <tbody>
                 <tr>
                     <td>
-                        <span>Nome</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{subgrupo.nm_sub_grupo}}</span>
-                    </td>
+                        <label>Nome</label>
+                    </td>                    
                 </tr>
                 <tr>
                     <td>
-                        <span>Custo(%)</span>
-                    </td>
+                        <span class="form-control-static text-uppercase">{{subgrupo.nome}}</span>
+                    </td>                    
+                </tr>
+                <tr>
                     <td>
-                        <span class="form-control-static">{{subgrupo.vl_custo}}</span>
+                        <label>Custo(%)</label>
+                    </td>
+                </tr>
+                <tr>    
+                    <td>
+                        <span class="form-control-static">{{subgrupo.custo}}</span>
                     </td>
                 </tr>
     <!--             <tr> -->
@@ -68,7 +74,8 @@
         <button type="submit"
                 onclick="window.history.back()"
                 class="btn btn-info">
-            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Voltar</span>
+            <span class="mdi mdi-arrow-left mdi-icon"></span>
+            <span> Voltar</span>
         </button>
     </div>
 </div>

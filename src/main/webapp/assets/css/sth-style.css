@@ -2,13 +2,13 @@
  * Configurações do JHipster
  * --------------------------------------------------------------------------
  */
-
+/*
 body {
     background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     color: #333;
 }
-
+*/
 /* ==========================================================================
 Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 ========================================================================== */
@@ -214,107 +214,186 @@ ul#strengthBar {
  * --------------------------------------------------------------------------
  */
 
+ /*
+ * Paleta de Cores
+ * -----------------
+ */
+
+.bg-primary{
+  background: #1a75ac !important;
+ }
+.bg-success{
+  background: #20a27d !important;
+ }
+.bg-info{
+  background: #e73825 !important;
+ }
+.bg-warning{
+  background: #e89d00 !important;
+ }
+.bg-danger{
+  background: #d92a18 !important; 
+ }
+
+/* ==========================================================================
+Botões
+========================================================================== */
+
+.btn{
+    padding: 2px 10px;
+}
+
+/* ==========================================================================
+Botões outlined
+========================================================================== */
+
+.btn-outlined {
+  padding: 6px 8px 3px;
+  border-radius: 2px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.btn-outlined.btn-primary {
+  color: #FFF;
+  background: #1a75ac;
+  border-color: #1a75ac;    
+}
+.btn-outlined.btn-primary:hover,
+.btn-outlined.btn-primary:active {
+  background: none;
+  border: 1px solid #1a75ac;
+  color: #1a75ac;
+}
+.btn-outlined.btn-success {
+  color: #FFF;
+  background: #20a27d;
+  border-color: #20a27d;    
+}
+.btn-outlined.btn-success:hover,
+.btn-outlined.btn-success:active {
+  background: none;
+  border: 1px solid #20a27d;
+  color: #20a27d;  
+}
+
+.btn-outlined.btn-info {
+  color: #FFF;
+  background: #e73825;
+  border-color: #e73825;
+}
+.btn-outlined.btn-info:hover,
+.btn-outlined.btn-info:active {
+  background: none;
+  border: 1px solid #e73825;
+  color: #e73825;  
+}
+.btn-outlined.btn-warning {
+  color: #FFF;
+  background: #e89d00;
+  border-color: #e89d00;
+}
+.btn-outlined.btn-warning:hover,
+.btn-outlined.btn-warning:active {
+  background: none;
+  border: 1px solid #e89d00;
+  color: #e89d00;
+}
+.btn-outlined.btn-danger {
+  color: #FFF;
+  background: #d92a18;
+  border-color: #d92a18;
+}
+.btn-outlined.btn-danger:hover,
+.btn-outlined.btn-danger:active {
+  background: none;
+  border: 1px solid #d92a18;
+  color: #d92a18;
+}
+
 /* ==========================================================================
 Icones Material Design
 ========================================================================== */
-
-.mdi-x {
-  font-size: 16px; 
+/* Configuração padrão dos icones */
+.mdi{
+  vertical-align: middle;
 }
-.mdi-2x {
+.mdi-icon {  
+  font-size: 20px;
+  line-height: 1.42857143;
+  margin: 0;
+}
+@media (max-width: 767px){
+  .mdi-icon {
+     margin-left: 0px; 
+  }
+}
+.mdi-icon-text {
+  font-size: 14px;
+}
+
+/* Aumenta ou diminui o tamanho dos icones */
+.mdi-18 {
+  font-size: 18px; 
+}
+.mdi-20 {
   font-size: 20px; 
 }
-.mdi-3x {
+.mdi-22 {
+  font-size: 22px; 
+}
+.mdi-24 {
   font-size: 24px; 
 }
-.mdi-icon {
-  margin-left: -7px;  
-  max-height: 50px;
-  text-align: left;
-  font-size: 28px;
+.mdi-26 {
+  font-size: 26px; 
 }
-
-.mdi-icon-text {
-  vertical-align: 3px;
-  font-size: 16px;
+.mdi-28 {
+  font-size: 28px; 
 }
-
-@media (max-width: 767px){
-.mdi-icon {
-   margin-left: 0px; 
+.mdi-30 {
+  font-size: 30px; 
 }
+.mdi-32 {
+  font-size: 32px; 
+}
+.mdi-34 {
+  font-size: 34px; 
 }
 
 /* ==========================================================================
 Correções no Menu do Topo
 ========================================================================== */
-
-.navbar-fixed-top, .navbar-static-top, .logo {    
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-}
-
-@media (max-width: 991px){
-.skin-blue-light .navbar-custom-menu .navbar-nav > li > a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 20px;		
-}
-}
-
-@media (min-width: 768px){
-.skin-blue-light .navbar-nav > li > a {
-    padding-top: 10px;
-    padding-bottom: 10px;	
-}
-}
-
 .btn-menu-topo{
 	color: #fff;
 	background: #0d47a1 !important;
 	margin-left: 0px;
-	
+  vertical-align: middle;	
 }
-
 .btn-menu-topo:hover{
 	color: #fff;
 	background: #0C4091 !important; 
 }
-
 /* ==========================================================================
 Correções no Menu Lateral
 ========================================================================== */
-
-.skin-blue-light .main-sidebar{
-  background: #fff;
-}
-
 .sidebar-left-shadow {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
-
-
 .skin-blue-light .submenu {
   margin-left: 20px;
   border-left: 1px dotted #333;
 }
-
-
-/* ==========================================================================
-Ajustes no Componente Box
-========================================================================== */
-
-.skin-blue-light .box {
-  position: relative;
-  border-radius: 0px;
-  background: #ffffff;
-  border-top: 0px solid #d2d6de;
-  margin-bottom: 20px;
-  width: 100%;  
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+@media (min-width: 768px) {
+  .sidebar-mini.sidebar-collapse .sidebar-menu > li > a > i {
+    margin-left: -5px;
+  }
+  .sidebar-mini.sidebar-collapse .sidebar-menu .submenu {
+    margin-left: 0px;
+    border-left: 0px dotted #333;
+  }
 }
-.skin-blue-light .box-title {
-  color: #000;  
-}
+
 
 /*
  * Configurações da Página
@@ -386,8 +465,10 @@ Menu da Dashboard
   transition: all 300ms linear; 
 }
 .ca-sub{
-    font-size: 16px;
+    font-size: 14px;
     color: #fff;
+    margin-top: 0px;
+    font-weight: 400;
 }
 .ca-menu li:hover{
     background-color: #212121;
@@ -479,28 +560,65 @@ Menu da Dashboard
   background: #212121 !important;  
 }
 
-
-.checkbox-size{
-  width: 18px;
-  height: 18px;
-}
-
-.checkbox-label{
-  padding-top: 3px;
-  margin-left: -10px;
-}
+/* ==========================================================================
+Correções no Formulário
+========================================================================== */
 
 .checkbox-position{
   margin-left: 20px;
 }
 
 /* ==========================================================================
-Correções no Formulário
+Correções no Modal
 ========================================================================== */
 
-.mg-bottom-grupo{
-  margin-bottom: 0px;
+.modal-header {
+  background-color: #0d47a1;
+  border-bottom-color: #f4f4f4;
+  color: #fff;
+  padding: 8px 18px 8px 18px;
 }
 
+.modal-title{
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 6px;
+}
 
+/* Icone fechar */
+.close {
+    float: right;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1;
+    color: #fff;
+    /* text-shadow: 0 1px 0 #fff; */
+    filter: alpha(opacity=20);
+    opacity: 1;
+}
+.close:hover, .close:active {
+    float: right;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1;
+    color: #fff;
+    /* text-shadow: 0 1px 0 #fff; */
+    filter: alpha(opacity=20);
+    opacity: 0.5;
+}
+
+/* ==========================================================================
+Correções para as tabelas
+========================================================================== */
+.row-pd{
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+/* Removendo bordas em resoluções pequenas */
+@media (max-width: 767px){
+.table-responsive{
+  border: 0px solid #e0e0e0;
+}
 

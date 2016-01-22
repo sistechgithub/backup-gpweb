@@ -93,12 +93,12 @@ public class SubgrupoResourceIntTest {
     @Before
     public void initTest() {
         subgrupo = new Subgrupo();
-        subgrupo.setNm_sub_grupo(DEFAULT_NM_SUB_GRUPO);
-        subgrupo.setVl_custo(DEFAULT_VL_CUSTO);
-        subgrupo.setVl_valor(DEFAULT_VL_VALOR);
-        subgrupo.setDt_operacao(DEFAULT_DT_OPERACAO);
-        subgrupo.setFl_envio(DEFAULT_FL_ENVIO);
-        subgrupo.setNn_novo(DEFAULT_NN_NOVO);
+        subgrupo.setNome(DEFAULT_NM_SUB_GRUPO);
+        subgrupo.setCusto(DEFAULT_VL_CUSTO);
+        subgrupo.setValor(DEFAULT_VL_VALOR);
+        subgrupo.setDataOperacao(DEFAULT_DT_OPERACAO);
+        subgrupo.setEnviado(DEFAULT_FL_ENVIO);
+        subgrupo.setNovo(DEFAULT_NN_NOVO);
     }
 
     @Test
@@ -117,12 +117,12 @@ public class SubgrupoResourceIntTest {
         List<Subgrupo> subgrupos = subgrupoRepository.findAll();
         assertThat(subgrupos).hasSize(databaseSizeBeforeCreate + 1);
         Subgrupo testSubgrupo = subgrupos.get(subgrupos.size() - 1);
-        assertThat(testSubgrupo.getNm_sub_grupo()).isEqualTo(DEFAULT_NM_SUB_GRUPO);
-        assertThat(testSubgrupo.getVl_custo()).isEqualTo(DEFAULT_VL_CUSTO);
-        assertThat(testSubgrupo.getVl_valor()).isEqualTo(DEFAULT_VL_VALOR);
-        assertThat(testSubgrupo.getDt_operacao()).isEqualTo(DEFAULT_DT_OPERACAO);
-        assertThat(testSubgrupo.getFl_envio()).isEqualTo(DEFAULT_FL_ENVIO);
-        assertThat(testSubgrupo.getNn_novo()).isEqualTo(DEFAULT_NN_NOVO);
+        assertThat(testSubgrupo.getNome()).isEqualTo(DEFAULT_NM_SUB_GRUPO);
+        assertThat(testSubgrupo.getCusto()).isEqualTo(DEFAULT_VL_CUSTO);
+        assertThat(testSubgrupo.getValor()).isEqualTo(DEFAULT_VL_VALOR);
+        assertThat(testSubgrupo.getDataOperacao()).isEqualTo(DEFAULT_DT_OPERACAO);
+        assertThat(testSubgrupo.getEnviado()).isEqualTo(DEFAULT_FL_ENVIO);
+        assertThat(testSubgrupo.getNovo()).isEqualTo(DEFAULT_NN_NOVO);
     }
 
     @Test
@@ -180,12 +180,12 @@ public class SubgrupoResourceIntTest {
 		int databaseSizeBeforeUpdate = subgrupoRepository.findAll().size();
 
         // Update the subgrupo
-        subgrupo.setNm_sub_grupo(UPDATED_NM_SUB_GRUPO);
-        subgrupo.setVl_custo(UPDATED_VL_CUSTO);
-        subgrupo.setVl_valor(UPDATED_VL_VALOR);
-        subgrupo.setDt_operacao(UPDATED_DT_OPERACAO);
-        subgrupo.setFl_envio(UPDATED_FL_ENVIO);
-        subgrupo.setNn_novo(UPDATED_NN_NOVO);
+        subgrupo.setNome(UPDATED_NM_SUB_GRUPO);
+        subgrupo.setCusto(UPDATED_VL_CUSTO);
+        subgrupo.setValor(UPDATED_VL_VALOR);
+        subgrupo.setDataOperacao(UPDATED_DT_OPERACAO);
+        subgrupo.setEnviado(UPDATED_FL_ENVIO);
+        subgrupo.setNovo(UPDATED_NN_NOVO);
 
         restSubgrupoMockMvc.perform(put("/api/subgrupos")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -196,12 +196,12 @@ public class SubgrupoResourceIntTest {
         List<Subgrupo> subgrupos = subgrupoRepository.findAll();
         assertThat(subgrupos).hasSize(databaseSizeBeforeUpdate);
         Subgrupo testSubgrupo = subgrupos.get(subgrupos.size() - 1);
-        assertThat(testSubgrupo.getNm_sub_grupo()).isEqualTo(UPDATED_NM_SUB_GRUPO);
-        assertThat(testSubgrupo.getVl_custo()).isEqualTo(UPDATED_VL_CUSTO);
-        assertThat(testSubgrupo.getVl_valor()).isEqualTo(UPDATED_VL_VALOR);
-        assertThat(testSubgrupo.getDt_operacao()).isEqualTo(UPDATED_DT_OPERACAO);
-        assertThat(testSubgrupo.getFl_envio()).isEqualTo(UPDATED_FL_ENVIO);
-        assertThat(testSubgrupo.getNn_novo()).isEqualTo(UPDATED_NN_NOVO);
+        assertThat(testSubgrupo.getNome()).isEqualTo(UPDATED_NM_SUB_GRUPO);
+        assertThat(testSubgrupo.getCusto()).isEqualTo(UPDATED_VL_CUSTO);
+        assertThat(testSubgrupo.getValor()).isEqualTo(UPDATED_VL_VALOR);
+        assertThat(testSubgrupo.getDataOperacao()).isEqualTo(UPDATED_DT_OPERACAO);
+        assertThat(testSubgrupo.getEnviado()).isEqualTo(UPDATED_FL_ENVIO);
+        assertThat(testSubgrupo.getNovo()).isEqualTo(UPDATED_NN_NOVO);
     }
 
     @Test

@@ -1,0 +1,26 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "id_cidade",
+            "otherEntityName": "cidade",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "y"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "nm_bairro",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "30"
+        }
+    ],
+    "changelogDate": "20151214120940",
+    "dto": "no",
+    "pagination": "pagination"
+}

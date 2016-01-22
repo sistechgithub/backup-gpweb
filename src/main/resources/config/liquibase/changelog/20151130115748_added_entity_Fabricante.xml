@@ -16,6 +16,9 @@
     <!--
         Added the entity Fabricante.
     -->
+    
+  
+    
     <changeSet id="20151130115748" author="jhipster">
         <createTable tableName="fabricante">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
@@ -31,7 +34,12 @@
             <column name="cd_tel" type="varchar(13)"/>
             <column name="cd_fax" type="varchar(13)"/>
             <column name="fl_inativo" type="bit"/>
+            <column name="id_logradouro" type="bigint"/>
         </createTable>
+        
+        <addForeignKeyConstraint baseColumnNames="id_logradouro"
+			baseTableName="fabricante" constraintName="fk_fabricante_id_logradouro"
+			referencedColumnNames="id" referencedTableName="logradouro" />
         
     </changeSet>
 </databaseChangeLog>

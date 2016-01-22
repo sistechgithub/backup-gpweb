@@ -1,0 +1,64 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myEstadoLabel">Create or edit a Estado</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="estado.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nm_estado">Nm_estado</label>
+            <input type="text" class="form-control" name="nm_estado" id="field_nm_estado"
+                    ng-model="estado.nm_estado"
+                    required ng-minlength="30" />
+            <div ng-show="editForm.nm_estado.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nm_estado.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.nm_estado.$error.minlength" translate-value-min="30">
+                    This field is required to be at least 30 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_sg_estado">Sg_estado</label>
+            <input type="text" class="form-control" name="sg_estado" id="field_sg_estado"
+                    ng-model="estado.sg_estado"
+                    required ng-maxlength="2" />
+            <div ng-show="editForm.sg_estado.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.sg_estado.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.sg_estado.$error.maxlength" translate-value-max="2">
+                    This field cannot be longer than 2 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_ds_pais">Ds_pais</label>
+            <input type="text" class="form-control" name="ds_pais" id="field_ds_pais"
+                    ng-model="estado.ds_pais"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
