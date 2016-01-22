@@ -51,8 +51,8 @@ public class GrupoResourceIntTest {
     private static final BigDecimal DEFAULT_VL_COMISSAO = new BigDecimal(1);
     private static final BigDecimal UPDATED_VL_COMISSAO = new BigDecimal(2);
 
-    private static final Boolean DEFAULT_FL_DESCONTO = false;
-    private static final Boolean UPDATED_FL_DESCONTO = true;
+    private static final BigDecimal DEFAULT_VL_DESCONTO = new BigDecimal(1);
+    private static final BigDecimal UPDATED_VL_DESCONTO = new BigDecimal(2);
 
     private static final Boolean DEFAULT_FL_PROMO = false;
     private static final Boolean UPDATED_FL_PROMO = true;
@@ -104,7 +104,7 @@ public class GrupoResourceIntTest {
         grupo = new Grupo();
         grupo.setNm_grupo(DEFAULT_NM_GRUPO);
         grupo.setVl_comissao(DEFAULT_VL_COMISSAO);
-        grupo.setFl_desconto(DEFAULT_FL_DESCONTO);
+        grupo.setVl_desconto(DEFAULT_VL_DESCONTO);
         grupo.setFl_promo(DEFAULT_FL_PROMO);
         grupo.setDt_promo(DEFAULT_DT_PROMO);
         grupo.setDt_operacao(DEFAULT_DT_OPERACAO);
@@ -131,7 +131,7 @@ public class GrupoResourceIntTest {
         Grupo testGrupo = grupos.get(grupos.size() - 1);
         assertThat(testGrupo.getNm_grupo()).isEqualTo(DEFAULT_NM_GRUPO);
         assertThat(testGrupo.getVl_comissao()).isEqualTo(DEFAULT_VL_COMISSAO);
-        assertThat(testGrupo.getFl_desconto()).isEqualTo(DEFAULT_FL_DESCONTO);
+        assertThat(testGrupo.getVl_desconto()).isEqualTo(DEFAULT_VL_DESCONTO);
         assertThat(testGrupo.getFl_promo()).isEqualTo(DEFAULT_FL_PROMO);
         assertThat(testGrupo.getDt_promo()).isEqualTo(DEFAULT_DT_PROMO);
         assertThat(testGrupo.getDt_operacao()).isEqualTo(DEFAULT_DT_OPERACAO);
@@ -153,7 +153,7 @@ public class GrupoResourceIntTest {
                 .andExpect(jsonPath("$.[*].id").value(hasItem(grupo.getId().intValue())))
                 .andExpect(jsonPath("$.[*].nm_grupo").value(hasItem(DEFAULT_NM_GRUPO.toString())))
                 .andExpect(jsonPath("$.[*].vl_comissao").value(hasItem(DEFAULT_VL_COMISSAO.intValue())))
-                .andExpect(jsonPath("$.[*].fl_desconto").value(hasItem(DEFAULT_FL_DESCONTO.booleanValue())))
+                .andExpect(jsonPath("$.[*].fl_desconto").value(hasItem(DEFAULT_VL_DESCONTO.intValue())))
                 .andExpect(jsonPath("$.[*].fl_promo").value(hasItem(DEFAULT_FL_PROMO.booleanValue())))
                 .andExpect(jsonPath("$.[*].dt_promo").value(hasItem(DEFAULT_DT_PROMO.toString())))
                 .andExpect(jsonPath("$.[*].dt_operacao").value(hasItem(DEFAULT_DT_OPERACAO.toString())))
@@ -175,7 +175,7 @@ public class GrupoResourceIntTest {
             .andExpect(jsonPath("$.id").value(grupo.getId().intValue()))
             .andExpect(jsonPath("$.nm_grupo").value(DEFAULT_NM_GRUPO.toString()))
             .andExpect(jsonPath("$.vl_comissao").value(DEFAULT_VL_COMISSAO.intValue()))
-            .andExpect(jsonPath("$.fl_desconto").value(DEFAULT_FL_DESCONTO.booleanValue()))
+            .andExpect(jsonPath("$.fl_desconto").value(DEFAULT_VL_DESCONTO.intValue()))
             .andExpect(jsonPath("$.fl_promo").value(DEFAULT_FL_PROMO.booleanValue()))
             .andExpect(jsonPath("$.dt_promo").value(DEFAULT_DT_PROMO.toString()))
             .andExpect(jsonPath("$.dt_operacao").value(DEFAULT_DT_OPERACAO.toString()))
@@ -203,7 +203,7 @@ public class GrupoResourceIntTest {
         // Update the grupo
         grupo.setNm_grupo(UPDATED_NM_GRUPO);
         grupo.setVl_comissao(UPDATED_VL_COMISSAO);
-        grupo.setFl_desconto(UPDATED_FL_DESCONTO);
+        grupo.setVl_desconto(UPDATED_VL_DESCONTO);
         grupo.setFl_promo(UPDATED_FL_PROMO);
         grupo.setDt_promo(UPDATED_DT_PROMO);
         grupo.setDt_operacao(UPDATED_DT_OPERACAO);
@@ -222,7 +222,7 @@ public class GrupoResourceIntTest {
         Grupo testGrupo = grupos.get(grupos.size() - 1);
         assertThat(testGrupo.getNm_grupo()).isEqualTo(UPDATED_NM_GRUPO);
         assertThat(testGrupo.getVl_comissao()).isEqualTo(UPDATED_VL_COMISSAO);
-        assertThat(testGrupo.getFl_desconto()).isEqualTo(UPDATED_FL_DESCONTO);
+        assertThat(testGrupo.getVl_desconto()).isEqualTo(UPDATED_VL_DESCONTO);
         assertThat(testGrupo.getFl_promo()).isEqualTo(UPDATED_FL_PROMO);
         assertThat(testGrupo.getDt_promo()).isEqualTo(UPDATED_DT_PROMO);
         assertThat(testGrupo.getDt_operacao()).isEqualTo(UPDATED_DT_OPERACAO);

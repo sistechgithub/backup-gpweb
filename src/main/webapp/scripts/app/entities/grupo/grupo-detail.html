@@ -14,78 +14,84 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>
-                        <span>Nome</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{grupo.nm_grupo}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Comissão(%)</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{grupo.vl_comissao}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Desconto(%)</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{grupo.fl_desconto}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Promoção</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{grupo.fl_promo}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Data Promoção</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{grupo.dt_promo | date:'mediumDate'}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Data Operação</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{grupo.dt_operacao | date:'mediumDate'}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Sem Contagem</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{grupo.fl_semcontagem}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Envio</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{grupo.fl_envio}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Novo</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{grupo.nn_novo}}</span>
-                    </td>
-                </tr>
+	                <tr>
+	                    <td>
+	                        <span>Nome</span>
+	                    </td>
+	                    <td>
+	                        <span class="form-control-static">{{grupo.nm_grupo}}</span>
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <td>
+	                        <span>Comissão(%)</span>
+	                    </td>
+	                    <td>
+	                        <span class="form-control-static">{{grupo.vl_comissao | currency:'':2}}</span>
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <td>
+	                        <span>Desconto(%)</span>
+	                    </td>
+	                    <td>
+	                        <span class="form-control-static">{{grupo.vl_desconto | currency:'':2}}</span>
+	                    </td>
+	                </tr>
+	                <tr>
+	                    <td>
+	                        <span>Data Operação</span>
+	                    </td>
+	                    <td>
+	                        <span class="form-control-static">{{grupo.dt_operacao | date:'dd/MM/yyyy'}}</span>
+	                    </td>
+	                </tr>
+	                
+	                <!-- Promoção -->                
+	                <tr>                
+	                    <td>                    	
+	                        <span>Promoção</span>
+	                    </td>
+	                    <td>
+	                        <span class="form-control-static">{{grupo.fl_promo ? 'Sim': 'Não'}}</span>
+	                    </td>
+	                </tr>
+	                
+	                <!-- 1 - Setting promotion option by date -->
+	                <tr ng-show="grupo.fl_promo && (grupo.nn_type == 1)">
+	                    <td>
+	                        <span>Válida até</span>
+	                    </td>
+	                    <td>
+	                    	<div>
+	                        	<span class="form-control-static">{{grupo.dt_promo | date:'dd/MM/yyyy'}}</span>
+	                        </div>
+	                    </td>
+		             </tr>       
+		            
+		            <!-- 2 - Setting promotion option by day --> 
+		            <tr ng-show="grupo.fl_promo && (grupo.nn_type == 2)">
+	                    <td>
+	                        <span>Válida para todo dia</span>
+	                    </td>
+	                    <td>
+	                    	<div>
+	                        	<span class="form-control-static">{{grupo.nn_day}}</span>
+	                        </div>
+	                    </td>
+	                </tr>
+	                
+	                <!-- 3 - Setting promotion option by week day -->
+	                <tr ng-show="grupo.fl_promo && (grupo.nn_type == 3)">
+	                    <td>
+	                        <span>Válida apenas em</span>
+	                    </td>
+	                    <td>
+	                    	<div>
+	                        	<span class="form-control-static">{{grupo.nm_dayweek}}</span>
+	                        </div>
+	                    </td>
+	                </tr>                               
                 </tbody>
             </table>
         </div>
