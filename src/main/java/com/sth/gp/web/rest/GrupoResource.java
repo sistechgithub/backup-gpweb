@@ -55,7 +55,7 @@ public class GrupoResource {
             return ResponseEntity.badRequest().header("Failure", "A new grupo cannot already have an ID").body(null);
         }        
         
-        grupo.setDt_operacao(LocalDate.now()); //Always use the operation date from server
+        grupo.setDataOperacao(LocalDate.now()); //Always use the operation date from server
         
         Grupo result = grupoRepository.save(grupo);
         grupoSearchRepository.save(result);
@@ -77,7 +77,7 @@ public class GrupoResource {
             return createGrupo(grupo);
         }
         
-        grupo.setDt_operacao(LocalDate.now()); //Always use the operation date from server
+        grupo.setDataOperacao(LocalDate.now()); //Always use the operation date from server
         
         Grupo result = grupoRepository.save(grupo);
         grupoSearchRepository.save(grupo);

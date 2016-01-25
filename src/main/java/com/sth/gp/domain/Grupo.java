@@ -1,6 +1,8 @@
 package com.sth.gp.domain;
 
 import java.time.LocalDate;
+
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
@@ -20,14 +22,14 @@ public class Grupo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nm_grupo")
+    @Column(name = "nm_grupo", unique = true, nullable = false)
     private String nome;
 
     @Column(name = "vl_comissao", precision=10, scale=2)
     private BigDecimal valorComissao;
-
-    @Column(name = "fl_desconto")
-    private Boolean comDesconto;
+    
+    @Column(name = "vl_desconto", precision=10, scale=2)
+    private BigDecimal desconto;
 
     @Column(name = "fl_promo")
     private Boolean emPromo;
@@ -46,6 +48,18 @@ public class Grupo implements Serializable {
 
     @Column(name = "nn_novo")
     private Integer novo;
+    
+    @Column(name = "nn_day")
+    private Integer nomeDia;
+    
+    @Column(name = "nm_dayweek")
+    private String nomeDiaSemana;    
+
+	@Column(name = "nn_type")
+    private Integer tipo;
+	
+	@Column(name = "fl_comdesconto")
+	private Boolean comDesconto;
 
 	public Long getId() {
 		return id;
@@ -71,12 +85,12 @@ public class Grupo implements Serializable {
 		this.valorComissao = valorComissao;
 	}
 
-	public Boolean getComDesconto() {
-		return comDesconto;
+	public BigDecimal getDesconto() {
+		return desconto;
 	}
 
-	public void setComDesconto(Boolean comDesconto) {
-		this.comDesconto = comDesconto;
+	public void setDesconto(BigDecimal desconto) {
+		this.desconto = desconto;
 	}
 
 	public Boolean getEmPromo() {
@@ -127,6 +141,38 @@ public class Grupo implements Serializable {
 		this.novo = novo;
 	}
 
+	public Integer getNomeDia() {
+		return nomeDia;
+	}
+
+	public void setNomeDia(Integer nomeDia) {
+		this.nomeDia = nomeDia;
+	}
+
+	public String getNomeDiaSemana() {
+		return nomeDiaSemana;
+	}
+
+	public void setNomeDiaSemana(String nomeDiaSemana) {
+		this.nomeDiaSemana = nomeDiaSemana;
+	}
+
+	public Integer getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Integer tipo) {
+		this.tipo = tipo;
+	}
+
+	public Boolean getComDesconto() {
+		return comDesconto;
+	}
+
+	public void setComDesconto(Boolean comDesconto) {
+		this.comDesconto = comDesconto;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -134,12 +180,16 @@ public class Grupo implements Serializable {
 		result = prime * result + ((comDesconto == null) ? 0 : comDesconto.hashCode());
 		result = prime * result + ((dataOperacao == null) ? 0 : dataOperacao.hashCode());
 		result = prime * result + ((dataPromo == null) ? 0 : dataPromo.hashCode());
+		result = prime * result + ((desconto == null) ? 0 : desconto.hashCode());
 		result = prime * result + ((emPromo == null) ? 0 : emPromo.hashCode());
 		result = prime * result + ((enviado == null) ? 0 : enviado.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((nomeDia == null) ? 0 : nomeDia.hashCode());
+		result = prime * result + ((nomeDiaSemana == null) ? 0 : nomeDiaSemana.hashCode());
 		result = prime * result + ((novo == null) ? 0 : novo.hashCode());
 		result = prime * result + ((semSaldo == null) ? 0 : semSaldo.hashCode());
+		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
 		result = prime * result + ((valorComissao == null) ? 0 : valorComissao.hashCode());
 		return result;
 	}
@@ -168,6 +218,11 @@ public class Grupo implements Serializable {
 				return false;
 		} else if (!dataPromo.equals(other.dataPromo))
 			return false;
+		if (desconto == null) {
+			if (other.desconto != null)
+				return false;
+		} else if (!desconto.equals(other.desconto))
+			return false;
 		if (emPromo == null) {
 			if (other.emPromo != null)
 				return false;
@@ -188,6 +243,16 @@ public class Grupo implements Serializable {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
+		if (nomeDia == null) {
+			if (other.nomeDia != null)
+				return false;
+		} else if (!nomeDia.equals(other.nomeDia))
+			return false;
+		if (nomeDiaSemana == null) {
+			if (other.nomeDiaSemana != null)
+				return false;
+		} else if (!nomeDiaSemana.equals(other.nomeDiaSemana))
+			return false;
 		if (novo == null) {
 			if (other.novo != null)
 				return false;
@@ -197,6 +262,11 @@ public class Grupo implements Serializable {
 			if (other.semSaldo != null)
 				return false;
 		} else if (!semSaldo.equals(other.semSaldo))
+			return false;
+		if (tipo == null) {
+			if (other.tipo != null)
+				return false;
+		} else if (!tipo.equals(other.tipo))
 			return false;
 		if (valorComissao == null) {
 			if (other.valorComissao != null)
@@ -208,8 +278,13 @@ public class Grupo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Grupo [id=" + id + ", nome=" + nome + ", valorComissao=" + valorComissao + ", comDesconto="
-				+ comDesconto + ", emPromo=" + emPromo + ", dataPromo=" + dataPromo + ", dataOperacao=" + dataOperacao
-				+ ", semSaldo=" + semSaldo + ", enviado=" + enviado + ", novo=" + novo + "]";
+		return "Grupo [id=" + id + ", nome=" + nome + ", valorComissao=" + valorComissao + ", desconto=" + desconto
+				+ ", emPromo=" + emPromo + ", dataPromo=" + dataPromo + ", dataOperacao=" + dataOperacao + ", semSaldo="
+				+ semSaldo + ", enviado=" + enviado + ", novo=" + novo + ", nomeDia=" + nomeDia + ", nomeDiaSemana="
+				+ nomeDiaSemana + ", tipo=" + tipo + ", comDesconto=" + comDesconto + "]";
 	}
+
+
+	
+	
 }
