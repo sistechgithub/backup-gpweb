@@ -59,7 +59,7 @@ public class Grupo implements Serializable {
     private Integer tipo;
 	
 	@Column(name = "fl_comdesconto")
-	private Boolean comDesconto;
+	private Boolean semDesconto;
 
 	public Long getId() {
 		return id;
@@ -165,19 +165,19 @@ public class Grupo implements Serializable {
 		this.tipo = tipo;
 	}
 
-	public Boolean getComDesconto() {
-		return comDesconto;
+	public Boolean getSemDesconto() {
+		return semDesconto;
 	}
 
-	public void setComDesconto(Boolean comDesconto) {
-		this.comDesconto = comDesconto;
+	public void setSemDesconto(Boolean comDesconto) {
+		this.semDesconto = comDesconto;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((comDesconto == null) ? 0 : comDesconto.hashCode());
+		result = prime * result + ((semDesconto == null) ? 0 : semDesconto.hashCode());
 		result = prime * result + ((dataOperacao == null) ? 0 : dataOperacao.hashCode());
 		result = prime * result + ((dataPromo == null) ? 0 : dataPromo.hashCode());
 		result = prime * result + ((desconto == null) ? 0 : desconto.hashCode());
@@ -203,10 +203,10 @@ public class Grupo implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Grupo other = (Grupo) obj;
-		if (comDesconto == null) {
-			if (other.comDesconto != null)
+		if (semDesconto == null) {
+			if (other.semDesconto != null)
 				return false;
-		} else if (!comDesconto.equals(other.comDesconto))
+		} else if (!semDesconto.equals(other.semDesconto))
 			return false;
 		if (dataOperacao == null) {
 			if (other.dataOperacao != null)
@@ -281,7 +281,7 @@ public class Grupo implements Serializable {
 		return "Grupo [id=" + id + ", nome=" + nome + ", valorComissao=" + valorComissao + ", desconto=" + desconto
 				+ ", emPromo=" + emPromo + ", dataPromo=" + dataPromo + ", dataOperacao=" + dataOperacao + ", semSaldo="
 				+ semSaldo + ", enviado=" + enviado + ", novo=" + novo + ", nomeDia=" + nomeDia + ", nomeDiaSemana="
-				+ nomeDiaSemana + ", tipo=" + tipo + ", comDesconto=" + comDesconto + "]";
+				+ nomeDiaSemana + ", tipo=" + tipo + ", comDesconto=" + semDesconto + "]";
 	}
 
 

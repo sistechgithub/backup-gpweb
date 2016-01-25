@@ -104,7 +104,7 @@ public class GrupoResourceIntTest {
         grupo = new Grupo();
         grupo.setNome(DEFAULT_NM_GRUPO);
         grupo.setValorComissao(DEFAULT_VL_COMISSAO);
-        grupo.setComDesconto(DEFAULT_FL_DESCONTO);
+        grupo.setSemDesconto(DEFAULT_FL_DESCONTO);
         grupo.setEmPromo(DEFAULT_FL_PROMO);
         grupo.setDataPromo(DEFAULT_DT_PROMO);
         grupo.setDataOperacao(DEFAULT_DT_OPERACAO);
@@ -131,7 +131,7 @@ public class GrupoResourceIntTest {
         Grupo testGrupo = grupos.get(grupos.size() - 1);
         assertThat(testGrupo.getNome()).isEqualTo(DEFAULT_NM_GRUPO);
         assertThat(testGrupo.getValorComissao()).isEqualTo(DEFAULT_VL_COMISSAO);
-        assertThat(testGrupo.getComDesconto()).isEqualTo(DEFAULT_FL_DESCONTO);
+        assertThat(testGrupo.getSemDesconto()).isEqualTo(DEFAULT_FL_DESCONTO);
         assertThat(testGrupo.getEmPromo()).isEqualTo(DEFAULT_FL_PROMO);
         assertThat(testGrupo.getDataPromo()).isEqualTo(DEFAULT_DT_PROMO);
         assertThat(testGrupo.getDataOperacao()).isEqualTo(DEFAULT_DT_OPERACAO);
@@ -203,7 +203,7 @@ public class GrupoResourceIntTest {
         // Update the grupo
         grupo.setNome(UPDATED_NM_GRUPO);
         grupo.setValorComissao(UPDATED_VL_COMISSAO);
-        grupo.setComDesconto(UPDATED_FL_DESCONTO);
+        grupo.setSemDesconto(UPDATED_FL_DESCONTO);
         grupo.setEmPromo(UPDATED_FL_PROMO);
         grupo.setDataPromo(UPDATED_DT_PROMO);
         grupo.setDataOperacao(UPDATED_DT_OPERACAO);
@@ -222,7 +222,7 @@ public class GrupoResourceIntTest {
         Grupo testGrupo = grupos.get(grupos.size() - 1);
         assertThat(testGrupo.getNome()).isEqualTo(UPDATED_NM_GRUPO);
         assertThat(testGrupo.getValorComissao()).isEqualTo(UPDATED_VL_COMISSAO);
-        assertThat(testGrupo.getComDesconto()).isEqualTo(UPDATED_FL_DESCONTO);
+        assertThat(testGrupo.getSemDesconto()).isEqualTo(UPDATED_FL_DESCONTO);
         assertThat(testGrupo.getEmPromo()).isEqualTo(UPDATED_FL_PROMO);
         assertThat(testGrupo.getDataPromo()).isEqualTo(UPDATED_DT_PROMO);
         assertThat(testGrupo.getDataOperacao()).isEqualTo(UPDATED_DT_OPERACAO);
