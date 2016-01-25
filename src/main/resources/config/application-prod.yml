@@ -27,7 +27,7 @@ spring:
     jpa:
         database-platform: com.sth.gp.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL
-        show_sql: false
+        show_sql: true
         properties:
             hibernate.cache.use_second_level_cache: false
             hibernate.cache.use_query_cache: false

@@ -52,15 +52,16 @@ angular.module('gpApp')
                         resolve: {
                             entity: function () {
                                 return {
-                                    nm_fabricante: null,
-                                    cd_cgc: null,
-                                    cd_cgf: null,
-                                    nn_numero: null,
-                                    cs_complemento: null,
-                                    cd_tel: null,
-                                    cd_fax: null,
-                                    fl_inativo: null,
-                                    id: null
+                                	 nome: null,
+                                     cnpj: null,
+                                     ie: null,
+                                     numero: null,
+                                     complemento: null,
+                                     telefone: null,
+                                     fax: null,
+                                     inativo: null,
+                                     id: null,
+                                     logradouro: null
                                 };
                             }
                         }

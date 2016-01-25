@@ -90,14 +90,14 @@ public class FabricanteResourceIntTest {
     @Before
     public void initTest() {
         fabricante = new Fabricante();
-        fabricante.setNm_fabricante(DEFAULT_NM_FABRICANTE);
-        fabricante.setCd_cgc(DEFAULT_CD_CGC);
-        fabricante.setCd_cgf(DEFAULT_CD_CGF);
-        fabricante.setNn_numero(DEFAULT_NN_NUMERO);
-        fabricante.setCs_complemento(DEFAULT_CS_COMPLEMENTO);
-        fabricante.setCd_tel(DEFAULT_CD_TEL);
-        fabricante.setCd_fax(DEFAULT_CD_FAX);
-        fabricante.setFl_inativo(DEFAULT_FL_INATIVO);
+        fabricante.setNome(DEFAULT_NM_FABRICANTE);
+        fabricante.setCnpj(DEFAULT_CD_CGC);
+        fabricante.setIe(DEFAULT_CD_CGF);
+        fabricante.setNumero(DEFAULT_NN_NUMERO);
+        fabricante.setComplemento(DEFAULT_CS_COMPLEMENTO);
+        fabricante.setTelefone(DEFAULT_CD_TEL);
+        fabricante.setFax(DEFAULT_CD_FAX);
+        fabricante.setInativo(DEFAULT_FL_INATIVO);
     }
 
     @Test
@@ -116,14 +116,14 @@ public class FabricanteResourceIntTest {
         List<Fabricante> fabricantes = fabricanteRepository.findAll();
         assertThat(fabricantes).hasSize(databaseSizeBeforeCreate + 1);
         Fabricante testFabricante = fabricantes.get(fabricantes.size() - 1);
-        assertThat(testFabricante.getNm_fabricante()).isEqualTo(DEFAULT_NM_FABRICANTE);
-        assertThat(testFabricante.getCd_cgc()).isEqualTo(DEFAULT_CD_CGC);
-        assertThat(testFabricante.getCd_cgf()).isEqualTo(DEFAULT_CD_CGF);
-        assertThat(testFabricante.getNn_numero()).isEqualTo(DEFAULT_NN_NUMERO);
-        assertThat(testFabricante.getCs_complemento()).isEqualTo(DEFAULT_CS_COMPLEMENTO);
-        assertThat(testFabricante.getCd_tel()).isEqualTo(DEFAULT_CD_TEL);
-        assertThat(testFabricante.getCd_fax()).isEqualTo(DEFAULT_CD_FAX);
-        assertThat(testFabricante.getFl_inativo()).isEqualTo(DEFAULT_FL_INATIVO);
+        assertThat(testFabricante.getNome()).isEqualTo(DEFAULT_NM_FABRICANTE);
+        assertThat(testFabricante.getCnpj()).isEqualTo(DEFAULT_CD_CGC);
+        assertThat(testFabricante.getIe()).isEqualTo(DEFAULT_CD_CGF);
+        assertThat(testFabricante.getNumero()).isEqualTo(DEFAULT_NN_NUMERO);
+        assertThat(testFabricante.getComplemento()).isEqualTo(DEFAULT_CS_COMPLEMENTO);
+        assertThat(testFabricante.getTelefone()).isEqualTo(DEFAULT_CD_TEL);
+        assertThat(testFabricante.getFax()).isEqualTo(DEFAULT_CD_FAX);
+        assertThat(testFabricante.getInativo()).isEqualTo(DEFAULT_FL_INATIVO);
     }
 
     @Test
@@ -131,7 +131,7 @@ public class FabricanteResourceIntTest {
     public void checkNm_fabricanteIsRequired() throws Exception {
         int databaseSizeBeforeTest = fabricanteRepository.findAll().size();
         // set the field null
-        fabricante.setNm_fabricante(null);
+        fabricante.setNome(null);
 
         // Create the Fabricante, which fails.
 
@@ -203,14 +203,14 @@ public class FabricanteResourceIntTest {
 		int databaseSizeBeforeUpdate = fabricanteRepository.findAll().size();
 
         // Update the fabricante
-        fabricante.setNm_fabricante(UPDATED_NM_FABRICANTE);
-        fabricante.setCd_cgc(UPDATED_CD_CGC);
-        fabricante.setCd_cgf(UPDATED_CD_CGF);
-        fabricante.setNn_numero(UPDATED_NN_NUMERO);
-        fabricante.setCs_complemento(UPDATED_CS_COMPLEMENTO);
-        fabricante.setCd_tel(UPDATED_CD_TEL);
-        fabricante.setCd_fax(UPDATED_CD_FAX);
-        fabricante.setFl_inativo(UPDATED_FL_INATIVO);
+        fabricante.setNome(UPDATED_NM_FABRICANTE);
+        fabricante.setCnpj(UPDATED_CD_CGC);
+        fabricante.setIe(UPDATED_CD_CGF);
+        fabricante.setNumero(UPDATED_NN_NUMERO);
+        fabricante.setComplemento(UPDATED_CS_COMPLEMENTO);
+        fabricante.setTelefone(UPDATED_CD_TEL);
+        fabricante.setFax(UPDATED_CD_FAX);
+        fabricante.setInativo(UPDATED_FL_INATIVO);
 
         restFabricanteMockMvc.perform(put("/api/fabricantes")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -221,14 +221,14 @@ public class FabricanteResourceIntTest {
         List<Fabricante> fabricantes = fabricanteRepository.findAll();
         assertThat(fabricantes).hasSize(databaseSizeBeforeUpdate);
         Fabricante testFabricante = fabricantes.get(fabricantes.size() - 1);
-        assertThat(testFabricante.getNm_fabricante()).isEqualTo(UPDATED_NM_FABRICANTE);
-        assertThat(testFabricante.getCd_cgc()).isEqualTo(UPDATED_CD_CGC);
-        assertThat(testFabricante.getCd_cgf()).isEqualTo(UPDATED_CD_CGF);
-        assertThat(testFabricante.getNn_numero()).isEqualTo(UPDATED_NN_NUMERO);
-        assertThat(testFabricante.getCs_complemento()).isEqualTo(UPDATED_CS_COMPLEMENTO);
-        assertThat(testFabricante.getCd_tel()).isEqualTo(UPDATED_CD_TEL);
-        assertThat(testFabricante.getCd_fax()).isEqualTo(UPDATED_CD_FAX);
-        assertThat(testFabricante.getFl_inativo()).isEqualTo(UPDATED_FL_INATIVO);
+        assertThat(testFabricante.getNome()).isEqualTo(UPDATED_NM_FABRICANTE);
+        assertThat(testFabricante.getCnpj()).isEqualTo(UPDATED_CD_CGC);
+        assertThat(testFabricante.getIe()).isEqualTo(UPDATED_CD_CGF);
+        assertThat(testFabricante.getNumero()).isEqualTo(UPDATED_NN_NUMERO);
+        assertThat(testFabricante.getComplemento()).isEqualTo(UPDATED_CS_COMPLEMENTO);
+        assertThat(testFabricante.getTelefone()).isEqualTo(UPDATED_CD_TEL);
+        assertThat(testFabricante.getFax()).isEqualTo(UPDATED_CD_FAX);
+        assertThat(testFabricante.getInativo()).isEqualTo(UPDATED_FL_INATIVO);
     }
 
     @Test

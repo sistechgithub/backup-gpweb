@@ -1,0 +1,33 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "id_bairro",
+            "otherEntityName": "bairro",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "y"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "nm_logradouro",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "cd_dep",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "9"
+        }
+    ],
+    "changelogDate": "20151214121052",
+    "dto": "no",
+    "pagination": "pagination"
+}

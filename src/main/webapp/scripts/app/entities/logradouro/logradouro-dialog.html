@@ -1,0 +1,56 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myLogradouroLabel">Create or edit a Logradouro</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="logradouro.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nm_logradouro">Nome</label>
+            <input type="text" class="form-control" name="nm_logradouro" id="field_nome"
+                    ng-model="logradouro.nome"
+                    required />
+            <div ng-show="editForm.nm_logradouro.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nm_logradouro.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_cd_dep">Cd_dep</label>
+            <input type="text" class="form-control" name="cd_dep" id="field_cd_dep"
+                    ng-model="logradouro.cd_dep"
+                    ng-maxlength="9" />
+            <div ng-show="editForm.cd_dep.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.cd_dep.$error.maxlength" translate-value-max="9">
+                    This field cannot be longer than 9 characters.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_id_bairro">id_bairro</label>
+            <select class="form-control" id="field_id_bairro" name="id_bairro" ng-model="logradouro.id_bairro" ng-options="bairro as bairro.y for bairro in bairros track by bairro.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
