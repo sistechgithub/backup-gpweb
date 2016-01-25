@@ -52,12 +52,12 @@ angular.module('gpApp')
                         resolve: {
                             entity: function () {
                                 return {
-                                    nm_sub_grupo: null,
-                                    vl_custo: null,
-                                    vl_valor: null,
-                                    dt_operacao: null,
-                                    fl_envio: null,
-                                    nn_novo: null,
+                                    nome: null,
+                                    custo: null,
+                                    valor: null,
+                                    dataoperacao: null,
+                                    enviado: null,
+                                    novo: null,
                                     id: null
                                 };
                             }

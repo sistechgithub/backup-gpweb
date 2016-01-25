@@ -31,6 +31,7 @@
             <column name="dt_operacao" type="date"/>
             <column name="fl_semcontagem" type="bit"/>
             <column name="fl_envio" type="bit"/>
+            <column name="fl_comdesconto" type="bit"/>
             <column name="nn_novo" type="integer"/>
             <column name="nn_type" type="integer"/>
             <column name="nn_day" type="integer"/>

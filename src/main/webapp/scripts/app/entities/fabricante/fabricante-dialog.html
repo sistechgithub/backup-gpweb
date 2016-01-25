@@ -1,165 +1,338 @@
-
 <form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+	<!-- cabeçalho -->
+	<div class="modal-header">
+		<button type="button" 
+				class="close"
+				aria-hidden="true" 
+				data-dismiss="modal"				 
+				ng-click="clear()">
+				&times;
+		</button>
 
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="myFabricanteLabel">Criar ou editar uma Marca</h4>
-    </div>
-    <div class="modal-body">
-        <jh-alert-error></jh-alert-error>
+		<i class="mdi mdi-package mdi-22"></i>
+		<h3 class="modal-title" id="myFabricanteLabel">			
+			Criar ou editar	uma Marca			
+		</h3>		
+	</div><!-- fim cabeçalho -->
+	
+	<!-- conteúdo -->
+	<div class="modal-body">
+		<!-- mensagem de retorno do jhipster -->
+ 		<jh-alert-error></jh-alert-error> 
 
-        <div class="row">
-            <div class="col-xs-12 col-sm-2">
-                <div class="form-group">
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                            ng-model="fabricante.id" readonly />
-                </div>            
-            </div>
-            
-            <div class="col-xs-12 col-sm-10">
-                <div class="form-group mg-bottom-grupo">
-                    <label class="control-label" for="field_nm_fabricante">Nome</label>
-                    <input type="text" class="form-control" name="nm_fabricante" id="field_nm_fabricante"
-                            ng-model="fabricante.nm_fabricante"
-                            required ng-minlength="10" ng-maxlength="50" />
-                    <div ng-show="editForm.nm_fabricante.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.nm_fabricante.$error.required">
-                            Este campo é obrigatório.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.nm_fabricante.$error.minlength" translate-value-min="10">
-                            Este campo deve conter no mínimo 10 caracteres.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.nm_fabricante.$error.maxlength" translate-value-max="50">
-                            Este campo de conter no máximo 50 caracteres.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-2">
+				<div class="form-group">
+					<label  for="id">
+							ID
+					</label> 
+					<input  type="text" 
+							class="form-control"
+							id="id" 
+							name="id" 
+							ng-model="fabricante.id" 
+							readonly 
+					/>
+				</div>
+			</div><!-- fim coluna -->
 
-        <div class="row">
-            <div class="col-xs-12 col-md-6">
-                <div class="form-group">
-                    <label class="control-label" for="field_cd_cgc">CNPJ</label>
-                    <input type="text" class="form-control" name="cd_cgc" id="field_cd_cgc"
-                            ng-model="fabricante.cd_cgc"
-                            ng-minlength="14" ng-maxlength="14"
-                            ui-mask="99.999.999/9999-99" ng-pattern="/^[0-9]{1,7}[-\.\/]?+$/" />
-                    <div ng-show="editForm.cd_cgc.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.cd_cgc.$error.minlength" translate-value-min="14">
-                            Este campo deve conter no mínimo 14 caracteres.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.cd_cgc.$error.maxlength" translate-value-max="14">
-                            Este campo de conter no máximo 14 caracteres.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="form-group">
-                    <label class="control-label" for="field_cd_cgf">Inscrição Estadual</label>
-                    <input type="text" class="form-control" name="cd_cgf" id="field_cd_cgf"
-                            ng-model="fabricante.cd_cgf"
-                            ng-minlength="18" ng-maxlength="18" />
-                    <div ng-show="editForm.cd_cgf.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.cd_cgf.$error.minlength" translate-value-min="18">
-                            Este campo deve conter no mínimo 18 caracteres.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.cd_cgf.$error.maxlength" translate-value-max="18">
-                            Este campo deve conter no máximo 18 caracteres.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-2">
-                <div class="form-group">
-                    <label class="control-label" for="field_nn_numero">Número</label>
-                    <input type="text" class="form-control" name="nn_numero" id="field_nn_numero"
-                            ng-model="fabricante.nn_numero"
-                    />
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-10">
-                <div class="form-group">
-                    <label class="control-label" for="field_cs_complemento">Complemento</label>
-                    <input type="text" class="form-control" name="cs_complemento" id="field_cs_complemento"
-                            ng-model="fabricante.cs_complemento"
-                            ng-maxlength="20" />
-                    <div ng-show="editForm.cs_complemento.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.cs_complemento.$error.maxlength" translate-value-max="20">
-                            Este campo deve conter no máximo 20 caracteres.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6">
-                <div class="form-group">
-                    <label class="control-label" for="field_cd_tel">Telefone</label>
-                    <input type="text" class="form-control" name="cd_tel" id="field_cd_tel"
-                            ng-model="fabricante.cd_tel"
-                            ng-maxlength="11"
-                            
-                    />
+			<div class="col-xs-12 col-sm-10">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_nome">
+							Nome
+					</label>
+					<input 	type="text" 
+							class="form-control text-uppercase" 
+							name="nome"
+							id="field_nome" 
+							ng-model="fabricante.nome"
+							ng-minlength="10" 
+							ng-maxlength="50" 
+							autofocus
+							required 
+					/>
+					<div ng-show="editForm.nome.$invalid">
+						<!--<p class="help-block"
+							ng-show="editForm.nome.$error.required">Este campo é
+							obrigatório.
+						</p>-->
+						<p  class="help-block"
+							ng-show="editForm.nome.$error.minlength"
+							translate-value-min="10">
+							Este campo deve conter no mínimo 10	caracteres.
+						</p>
+						<p  class="help-block"
+							ng-show="editForm.nome.$error.maxlength"
+							translate-value-max="50">
+							Este campo de conter no máximo 50 caracteres.
+						</p>
+					</div>
+				</div>
+			</div><!-- fim coluna -->
+		</div><!-- fim row -->
+		
+		<div class="row">
+			<div class="col-xs-12 col-sm-2">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_fax">
+							CEP
+					</label>
+					<input  type="text" 
+							class="form-control" 
+							name="cep"
+							id="field_cep" 
+							ng-change="findcep(fabricante.logradouro.cep)"				 
+							ng-model="fabricante.logradouro.cep" 
+							ui-br-cep-mask 
+							placeholder="00000-000"
+					/>
+				</div>
+			</div><!-- fim coluna -->			
+			<div class="col-xs-12 col-sm-8">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_logradouro_nome">
+							Logradouro
+					</label>
+					<input  type="text" 
+							class="form-control text-uppercase" 
+							name="logradouro_nome"
+							id="field_logradouro_nome"
+							ng-model="fabricante.logradouro.nome" 
+					/>
+				</div>
+			</div><!-- fim coluna -->
+			<div class="col-xs-12 col-sm-2">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_numero">
+							Número
+					</label> 
+					<input	type="text" 
+							class="form-control" 
+							name="numero"
+							id="field_numero" 
+							ng-model="fabricante.numero" 
+					/>
+				</div>
+			</div><!-- fim coluna -->
+		</div><!-- fim row -->
+		<div class="row">			
+			<div class="col-xs-12 col-sm-4">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_complemento">
+							Complemento
+					</label>
+					<input  type="text" 
+							class="form-control text-uppercase" 
+							name="complemento"
+							id="field_complemento" 
+							ng-model="fabricante.complemento"
+							ng-maxlength="20" 
+					/>
+					<div ng-show="editForm.complemento.$invalid">
+						<p  class="help-block"
+							ng-show="editForm.complemento.$error.maxlength"
+							translate-value-max="20">
+							Este campo deve conter no máximo 20	caracteres.
+						</p>
+					</div>
+				</div>
+			</div><!-- fim coluna -->
+			<div class="col-xs-12 col-sm-4">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_bairro_nome">
+							Bairro
+					</label> 
+					<input	type="text" 
+							class="form-control text-uppercase" 
+							name="bairro_nome" 
+							id="field_bairro_nome"
+							ng-model="fabricante.logradouro.bairro.nome" 
+					/>
+				</div>
+			</div><!-- fim coluna -->
+			<div class="col-xs-12 col-sm-4">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_cidade_nome">
+							Cidade
+					</label> 
+					<input	type="text" 
+							class="form-control text-uppercase" 
+							name="cidade_nome" 
+							id="field_cidade_nome"
+							ng-model="fabricante.logradouro.bairro.cidade.nome" 
+					/>
+				</div>
+			</div><!-- fim coluna -->
+		</div><!-- fim row -->
+		<div class="row">			
+			<div class="col-xs-12 col-sm-4">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_estado_nome">
+							Estado
+					</label> 
+					<input	type="text" 
+							class="form-control text-uppercase" 
+							name="estado_nome" 
+							id="field_estado_nome"
+							ng-model="fabricante.logradouro.bairro.cidade.estado.nome" 
+					/>
+				</div>
+			</div><!-- fim coluna -->
+			<div class="col-xs-12 col-sm-4">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_cnpj">
+							CNPJ
+					</label> 
+					<input	type="text" 
+							class="form-control" 
+							name="cnpj" 
+							id="field_cnpj"
+							ng-model="fabricante.cnpj" 
+							ng-model="cnpj" 
+							ng-minlength="14" 
+							ng-maxlength="18" 
+							ui-br-cnpj-mask
+							placeholder="00.000.000/0000-00"  
+					/>
+					<div ng-show="editForm.cnpj.$invalid">
+						<p  class="help-block" 
+							ng-show="editForm.cnpj.$error.minlength"
+							translate-value-min="14">
+							Este campo deve conter no mínimo 14	caracteres.
+						</p>
+						<p  class="help-block" 
+							ng-show="editForm.cnpj.$error.maxlength"
+							translate-value-max="18">
+							Este campo de conter no máximo 14 caracteres.
+						</p>
+					</div>
+				</div>
+			</div><!-- fim coluna -->
+			<div class="col-xs-12 col-sm-4">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_ie">
+							Inscrição Estadual
+					</label> 
+					<input  type="text" 
+							class="form-control text-uppercase" 
+							name="ie"
+							id="field_ie" 
+							ng-model="fabricante.ie"  
+							ng-minlength="4"
+							ng-maxlength="18" 
+					/>
+					<div ng-show="editForm.ie.$invalid">					
+						<p  class="help-block" 
+							ng-show="editForm.ie.$error.minlength"
+							translate-value-min="4">
+							Este campo deve conter no mínimo 4 caracteres.
+						</p>
+					
+						<p  class="help-block" 
+							ng-show="editForm.ie.$error.maxlength"
+							translate-value-max="18">
+							Este campo deve conter no máximo 18	caracteres.
+						</p>
+					</div>
+				</div>
+			</div><!-- fim coluna -->
+		</div><!-- fim row -->
+		<div class="row">
+			<div class="col-xs-12 col-sm-4">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_telefone">
+							Telefone
+					</label> 
+					<input	type="text" 
+							class="form-control" 
+							name="telefone" 
+							id="field_telefone"
+							ng-model="fabricante.telefone" 
+							ui-br-phone-number
+							placeholder="(00) 00000-0000" 
+					/>
 
-                    <div ng-show="editForm.cd_tel.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.cd_tel.$error.maxlength" translate-value-max="11">
-                            Este campo deve conter no máximo 11 caracteres.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-                <div class="form-group">
-                    <label class="control-label" for="field_cd_fax">FAX</label>
-                    <input type="text" class="form-control" name="cd_fax" id="field_cd_fax"
-                            ng-model="fabricante.cd_fax"
-                            ng-maxlength="13" />
-                    <div ng-show="editForm.cd_fax.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.cd_fax.$error.maxlength" translate-value-max="13">
-                            Este campo deve conter no máximo 13 caracteres.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-12">
-                <div class="form-group">
-                    <div class="checkbox checkbox-position">                  
-                        <input class="checkbox-size" type="checkbox" class="form-control" name="fl_inativo" id="field_fl_inativo"
-                                ng-model="fabricante.fl_inativo" />
-                        <label class="checkbox-label" class="control-label" for="field_fl_inativo">Inativo</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-12">
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-                    <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
-                </button>
-                <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salvar</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</form>
+					<div ng-show="editForm.telefone.$invalid">
+						<p  class="help-block" 
+							ng-show="editForm.telefone.$error.maxlength"
+							translate-value-max="11">Este campo deve conter no máximo 11
+							caracteres.
+						</p>
+					</div>
+				</div>
+			</div><!-- fim coluna -->
+			<div class="col-xs-12 col-sm-4">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_fax">
+							FAX
+					</label> 
+					<input	type="text" 
+							class="form-control" 
+							name="fax" 
+							id="field_fax"
+							ng-model="fabricante.fax" 
+							ui-br-phone-number 
+							placeholder="(00) 0000-0000"
+					/>
+					<div ng-show="editForm.fax.$invalid">
+						<p  class="help-block" 
+							ng-show="editForm.fax.$error.maxlength"
+							translate-value-max="13">Este campo deve conter no máximo 13
+							caracteres.
+						</p>
+					</div>
+				</div>
+			</div><!-- fim coluna -->				
+		</div><!-- fim row -->			
+		<div class="row">
+			<div class="col-xs-12 col-md-12">
+				<div class="form-group">
+					<div class="checkbox checkbox-position">
+						<input  type="checkbox"								
+								name="inativado" id="field_inativo"
+								ng-model="fabricante.inativo" 
+						/> 
+						<label	class="control-label"
+								for="field_inativo">
+								Inativo
+						</label>
+					</div>
+				</div>
+			</div><!-- fim coluna -->
+		</div><!-- fim row -->
+	</div>
+	<!-- rodapé -->	
+	<div class="row">
+    	<div class="col-xs-12 col-sm-12">
+			<div class="modal-footer">
+				<!-- botão cancelar -->
+				<button type="button" 
+						class="btn btn-default" 
+						data-dismiss="modal"
+						ng-click="clear()">
+					<span class="mdi mdi-close mdi-icon"></span>
+					<span>Cancelar</span>
+				</button>
+				<!-- botão salvar -->
+				<button type="submit" 
+						ng-disabled="editForm.$invalid || isSaving"
+						class="btn btn-success">
+					<span class="mdi mdi-content-save mdi-icon"></span>						
+					<span>Salvar</span>
+				</button>
+			</div><!-- fim modal-footer -->
+		</div><!-- fim colunas -->
+	</div><!-- fim rodapé -->
+</form><!-- fim form -->
