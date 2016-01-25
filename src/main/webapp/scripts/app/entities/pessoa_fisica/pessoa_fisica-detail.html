@@ -1,0 +1,134 @@
+
+<div>
+    <h2><span>Pessoa_fisica</span> {{pessoa_fisica.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Dt_nascimento</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{pessoa_fisica.dt_nascimento | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Cd_rg</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{pessoa_fisica.cd_rg}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Cd_cpf</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{pessoa_fisica.cd_cpf}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Nm_pai</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{pessoa_fisica.nm_pai}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Nm_mae</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{pessoa_fisica.nm_mae}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Ds_estcivil</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{pessoa_fisica.ds_estcivil}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Nm_conjuge</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{pessoa_fisica.nm_conjuge}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Ds_profissao</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{pessoa_fisica.ds_profissao}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Ds_localtrab</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{pessoa_fisica.ds_localtrab}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Ds_complemento</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{pessoa_fisica.ds_complemento}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Ds_apelido</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{pessoa_fisica.ds_apelido}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Ds_obs</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{pessoa_fisica.ds_obs}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>id_pessoa</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="pessoa.detail({id:pessoa_fisica.id_pessoa.id})">{{pessoa_fisica.id_pessoa.id}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>id_logradouro</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="logradouro.detail({id:pessoa_fisica.id_logradouro.id})">{{pessoa_fisica.id_logradouro.id}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

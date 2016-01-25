@@ -1,0 +1,116 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myPessoa_fisicaLabel">Create or edit a Pessoa_fisica</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="pessoa_fisica.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_dt_nascimento">Dt_nascimento</label>
+            <input type="date" class="form-control" name="dt_nascimento" id="field_dt_nascimento"
+                    ng-model="pessoa_fisica.dt_nascimento"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_cd_rg">Cd_rg</label>
+            <input type="text" class="form-control" name="cd_rg" id="field_cd_rg"
+                    ng-model="pessoa_fisica.cd_rg"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_cd_cpf">Cd_cpf</label>
+            <input type="text" class="form-control" name="cd_cpf" id="field_cd_cpf"
+                    ng-model="pessoa_fisica.cd_cpf"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nm_pai">Nm_pai</label>
+            <input type="text" class="form-control" name="nm_pai" id="field_nm_pai"
+                    ng-model="pessoa_fisica.nm_pai"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nm_mae">Nm_mae</label>
+            <input type="text" class="form-control" name="nm_mae" id="field_nm_mae"
+                    ng-model="pessoa_fisica.nm_mae"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_ds_estcivil">Ds_estcivil</label>
+            <input type="text" class="form-control" name="ds_estcivil" id="field_ds_estcivil"
+                    ng-model="pessoa_fisica.ds_estcivil"
+                    ng-maxlength="11" />
+            <div ng-show="editForm.ds_estcivil.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.ds_estcivil.$error.maxlength" translate-value-max="11">
+                    This field cannot be longer than 11 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nm_conjuge">Nm_conjuge</label>
+            <input type="text" class="form-control" name="nm_conjuge" id="field_nm_conjuge"
+                    ng-model="pessoa_fisica.nm_conjuge"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_ds_profissao">Ds_profissao</label>
+            <input type="text" class="form-control" name="ds_profissao" id="field_ds_profissao"
+                    ng-model="pessoa_fisica.ds_profissao"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_ds_localtrab">Ds_localtrab</label>
+            <input type="text" class="form-control" name="ds_localtrab" id="field_ds_localtrab"
+                    ng-model="pessoa_fisica.ds_localtrab"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_ds_complemento">Ds_complemento</label>
+            <input type="text" class="form-control" name="ds_complemento" id="field_ds_complemento"
+                    ng-model="pessoa_fisica.ds_complemento"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_ds_apelido">Ds_apelido</label>
+            <input type="text" class="form-control" name="ds_apelido" id="field_ds_apelido"
+                    ng-model="pessoa_fisica.ds_apelido"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_ds_obs">Ds_obs</label>
+            <input type="text" class="form-control" name="ds_obs" id="field_ds_obs"
+                    ng-model="pessoa_fisica.ds_obs"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_id_pessoa">id_pessoa</label>
+            <select class="form-control" id="field_id_pessoa" name="id_pessoa" ng-model="pessoa_fisica.id_pessoa" ng-options="pessoa as pessoa.id for pessoa in id_pessoas | orderBy:'id' track by pessoa.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_id_logradouro">id_logradouro</label>
+            <select class="form-control" id="field_id_logradouro" name="id_logradouro" ng-model="pessoa_fisica.id_logradouro" ng-options="logradouro as logradouro.id for logradouro in logradouros track by logradouro.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
