@@ -27,11 +27,11 @@
             <column name="vl_comissao" type="decimal(10,2)"/>
             <column name="vl_desconto" type="decimal(10,2)"/>
             <column name="fl_promo" type="bit"/>
+            <column name="fl_desco" type="bit"/>
             <column name="dt_promo" type="date"/>
             <column name="dt_operacao" type="date"/>
             <column name="fl_semcontagem" type="bit"/>
             <column name="fl_envio" type="bit"/>
-            <column name="fl_comdesconto" type="bit"/>
             <column name="nn_novo" type="integer"/>
             <column name="nn_type" type="integer"/>
             <column name="nn_day" type="integer"/>
