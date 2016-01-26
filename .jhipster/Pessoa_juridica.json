@@ -1,0 +1,60 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "id_pessoa",
+            "otherEntityName": "pessoa",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "pessoa_juridica"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "cd_cgc",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "18"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "cd_cgf",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "18"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "nm_fantasia",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "cd_cnpj",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "14"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "ds_responsavel",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "ds_obs",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160125180547",
+    "dto": "no",
+    "pagination": "pagination"
+}

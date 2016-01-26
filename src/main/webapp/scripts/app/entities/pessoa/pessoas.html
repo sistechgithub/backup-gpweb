@@ -1,0 +1,106 @@
+<div>
+    <h2>Pessoas</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="pessoa.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Pessoa</span>
+                </button>
+            </div>
+            <div class="col-md-8">
+                <form name="searchForm" class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="query">
+                    </div>
+                    <button class="btn btn-info" ng-click="search()"><span class="glyphicon glyphicon-search"></span> <span>Search a Pessoa</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Id_pessoa</th>
+                    <th>Nm_pessoa</th>
+                    <th>Cd_tel</th>
+                    <th>Cd_cel</th>
+                    <th>Cd_fax</th>
+                    <th>Id_logradouro</th>
+                    <th>Nm_numero</th>
+                    <th>Ds_complemento</th>
+                    <th>Ds_situacao</th>
+                    <th>Fl_fisica</th>
+                    <th>Ds_email</th>
+                    <th>Ds_obs</th>
+                    <th>Ds_historico</th>
+                    <th>Fl_vendedor</th>
+                    <th>Ds_inativo</th>
+                    <th>Fl_usuario</th>
+                    <th>Dt_cadastro</th>
+                    <th>id_logra</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="pessoa in pessoas track by pessoa.id">
+                    <td><a ui-sref="pessoa.detail({id:pessoa.id})">{{pessoa.id}}</a></td>
+                    <td>{{pessoa.id_pessoa}}</td>
+                    <td>{{pessoa.nm_pessoa}}</td>
+                    <td>{{pessoa.cd_tel}}</td>
+                    <td>{{pessoa.cd_cel}}</td>
+                    <td>{{pessoa.cd_fax}}</td>
+                    <td>{{pessoa.id_logradouro}}</td>
+                    <td>{{pessoa.nm_numero}}</td>
+                    <td>{{pessoa.ds_complemento}}</td>
+                    <td>{{pessoa.ds_situacao}}</td>
+                    <td>{{pessoa.fl_fisica}}</td>
+                    <td>{{pessoa.ds_email}}</td>
+                    <td>{{pessoa.ds_obs}}</td>
+                    <td>{{pessoa.ds_historico}}</td>
+                    <td>{{pessoa.fl_vendedor}}</td>
+                    <td>{{pessoa.ds_inativo}}</td>
+                    <td>{{pessoa.fl_usuario}}</td>
+                        <td>{{pessoa.dt_cadastro | date:'mediumDate'}}</td>
+                    <td>
+                        <a ui-sref="logradouro.detail({id:pessoa.id_logra.id})">{{pessoa.id_logra.cep}}</a>
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="pessoa.detail({id:pessoa.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="pessoa.edit({id:pessoa.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="pessoa.delete({id:pessoa.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pagination">
+                <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
+                <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
+                <li ng-show="page > 1" ng-click="loadPage(page - 2)"><a>{{page - 1}}</a></li>
+                <li ng-show="page > 0" ng-click="loadPage(page - 1)"><a>{{page}}</a></li>
+                <li class="active"><a>{{page + 1}}</a></li>
+                <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 2}}</a></li>
+                <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 3}}</a></li>
+                <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
+                <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
