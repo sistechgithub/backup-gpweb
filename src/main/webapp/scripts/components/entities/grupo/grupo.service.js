@@ -8,24 +8,24 @@ angular.module('gpApp')
                 method: 'GET',
                 transformResponse: function (data) {
                     data = angular.fromJson(data);
-                    data.dt_promo = DateUtils.convertLocaleDateFromServer(data.dt_promo);
-                    data.dt_operacao = DateUtils.convertLocaleDateFromServer(data.dt_operacao);
+                    data.dtPromo = DateUtils.convertLocaleDateFromServer(data.dtPromo);
+                    data.dtOperacao = DateUtils.convertLocaleDateFromServer(data.dtOperacao);
                     return data;
                 }
             },
             'update': {
                 method: 'PUT',
                 transformRequest: function (data) {
-                    //data.dt_promo = DateUtils.convertLocaleDateToServer(data.dt_promo);
-                    data.dt_operacao = DateUtils.convertLocaleDateToServer(data.dt_operacao);
+                    //data.dtPromo = DateUtils.convertLocaleDateToServer(data.dtPromo);
+                    data.dtOperacao = DateUtils.convertLocaleDateToServer(data.dtOperacao);
                     return angular.toJson(data);
                 }
             },
             'save': {
                 method: 'POST',
                 transformRequest: function (data) {                	
-                    //data.dt_promo = DateUtils.convertLocaleDateToServer(data.dt_promo);                    
-                    data.dt_operacao = DateUtils.convertLocaleDateToServer(data.dt_operacao);
+                    //data.dtPromo = DateUtils.convertLocaleDateToServer(data.dtPromo);                    
+                    data.dtOperacao = DateUtils.convertLocaleDateToServer(data.dtOperacao);
                     return angular.toJson(data);
                 }
             }

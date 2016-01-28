@@ -23,268 +23,194 @@ public class Grupo implements Serializable {
     private Long id;
 
     @Column(name = "nm_grupo", unique = true, nullable = false)
-    private String nome;
+    private String nmGrupo;
 
     @Column(name = "vl_comissao", precision=10, scale=2)
-    private BigDecimal valorComissao;
+    private BigDecimal vlComissao;
     
     @Column(name = "vl_desconto", precision=10, scale=2)
-    private BigDecimal desconto;
+    private BigDecimal vlDesconto;
 
     @Column(name = "fl_promo")
-    private Boolean emPromo;
+    private Boolean flPromo;
+    
+    @Column(name = "fl_desco")
+    private Boolean flDesco;
 
     @Column(name = "dt_promo")
-    private LocalDate dataPromo;
+    private LocalDate dtPromo;
 
     @Column(name = "dt_operacao")
-    private LocalDate dataOperacao;
+    private LocalDate dtOperacao;
 
     @Column(name = "fl_semcontagem")
-    private Boolean semSaldo;
+    private Boolean flSemcontagem;
 
     @Column(name = "fl_envio")
-    private Boolean enviado;
+    private Boolean flEnvio;
 
     @Column(name = "nn_novo")
-    private Integer novo;
+    private Integer nnNovo;
     
     @Column(name = "nn_day")
-    private Integer nomeDia;
+    private Integer nnDay;
     
     @Column(name = "nm_dayweek")
-    private String nomeDiaSemana;    
+    private String nmDayweek;
+    
+    @Column(name = "nn_type")
+    private Integer nnType;
+    
+    public Integer getNnDay() {
+		return nnDay;
+	}
 
-	@Column(name = "nn_type")
-    private Integer tipo;
-	
-	@Column(name = "fl_comdesconto")
-	private Boolean semDesconto;
+	public void setNnDay(Integer nnDay) {
+		this.nnDay = nnDay;
+	}
+
+	public String getNmDayweek() {
+		return nmDayweek;
+	}
+
+	public void setNmDayweek(String nmDayweek) {
+		this.nmDayweek = nmDayweek;
+	}
+
+	public Integer getNnType() {
+		return nnType;
+	}
+
+	public void setNnType(Integer nnType) {
+		this.nnType = nnType;
+	}
 
 	public Long getId() {
-		return id;
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNmGrupo() {
+        return nmGrupo;
+    }
+
+    public void setNmGrupo(String nmGrupo) {
+        this.nmGrupo = nmGrupo;
+    }
+
+    public BigDecimal getVlComissao() {
+        return vlComissao;
+    }
+
+    public void setVlComissao(BigDecimal vlComissao) {
+        this.vlComissao = vlComissao;
+    }
+
+    public BigDecimal getVlDesconto() {
+        return vlDesconto;
+    }
+
+    public void setVlDesconto(BigDecimal vlDesconto) {
+        this.vlDesconto = vlDesconto;
+    }
+
+    public Boolean getFlPromo() {
+        return flPromo;
+    }
+
+    public void setFlPromo(Boolean flPromo) {
+        this.flPromo = flPromo;
+    }
+
+    public LocalDate getDtPromo() {
+        return dtPromo;
+    }
+
+    public void setDtPromo(LocalDate dtPromo) {
+        this.dtPromo = dtPromo;
+    }
+
+    public LocalDate getDtOperacao() {
+        return dtOperacao;
+    }
+
+    public void setDtOperacao(LocalDate dtOperacao) {
+        this.dtOperacao = dtOperacao;
+    }
+
+    public Boolean getFlSemcontagem() {
+        return flSemcontagem;
+    }
+
+    public void setFlSemcontagem(Boolean flSemcontagem) {
+        this.flSemcontagem = flSemcontagem;
+    }
+
+    public Boolean getFlEnvio() {
+        return flEnvio;
+    }
+
+    public void setFlEnvio(Boolean flEnvio) {
+        this.flEnvio = flEnvio;
+    }
+
+    public Integer getNnNovo() {
+        return nnNovo;
+    }
+
+    public void setNnNovo(Integer nnNovo) {
+        this.nnNovo = nnNovo;
+    }
+
+    public Boolean getFlDesco() {
+		return flDesco;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public BigDecimal getValorComissao() {
-		return valorComissao;
-	}
-
-	public void setValorComissao(BigDecimal valorComissao) {
-		this.valorComissao = valorComissao;
-	}
-
-	public BigDecimal getDesconto() {
-		return desconto;
-	}
-
-	public void setDesconto(BigDecimal desconto) {
-		this.desconto = desconto;
-	}
-
-	public Boolean getEmPromo() {
-		return emPromo;
-	}
-
-	public void setEmPromo(Boolean emPromo) {
-		this.emPromo = emPromo;
-	}
-
-	public LocalDate getDataPromo() {
-		return dataPromo;
-	}
-
-	public void setDataPromo(LocalDate dataPromo) {
-		this.dataPromo = dataPromo;
-	}
-
-	public LocalDate getDataOperacao() {
-		return dataOperacao;
-	}
-
-	public void setDataOperacao(LocalDate dataOperacao) {
-		this.dataOperacao = dataOperacao;
-	}
-
-	public Boolean getSemSaldo() {
-		return semSaldo;
-	}
-
-	public void setSemSaldo(Boolean semSaldo) {
-		this.semSaldo = semSaldo;
-	}
-
-	public Boolean getEnviado() {
-		return enviado;
-	}
-
-	public void setEnviado(Boolean enviado) {
-		this.enviado = enviado;
-	}
-
-	public Integer getNovo() {
-		return novo;
-	}
-
-	public void setNovo(Integer novo) {
-		this.novo = novo;
-	}
-
-	public Integer getNomeDia() {
-		return nomeDia;
-	}
-
-	public void setNomeDia(Integer nomeDia) {
-		this.nomeDia = nomeDia;
-	}
-
-	public String getNomeDiaSemana() {
-		return nomeDiaSemana;
-	}
-
-	public void setNomeDiaSemana(String nomeDiaSemana) {
-		this.nomeDiaSemana = nomeDiaSemana;
-	}
-
-	public Integer getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(Integer tipo) {
-		this.tipo = tipo;
-	}
-
-	public Boolean getSemDesconto() {
-		return semDesconto;
-	}
-
-	public void setSemDesconto(Boolean comDesconto) {
-		this.semDesconto = comDesconto;
+	public void setFlDesco(Boolean flDesco) {
+		this.flDesco = flDesco;
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((semDesconto == null) ? 0 : semDesconto.hashCode());
-		result = prime * result + ((dataOperacao == null) ? 0 : dataOperacao.hashCode());
-		result = prime * result + ((dataPromo == null) ? 0 : dataPromo.hashCode());
-		result = prime * result + ((desconto == null) ? 0 : desconto.hashCode());
-		result = prime * result + ((emPromo == null) ? 0 : emPromo.hashCode());
-		result = prime * result + ((enviado == null) ? 0 : enviado.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((nomeDia == null) ? 0 : nomeDia.hashCode());
-		result = prime * result + ((nomeDiaSemana == null) ? 0 : nomeDiaSemana.hashCode());
-		result = prime * result + ((novo == null) ? 0 : novo.hashCode());
-		result = prime * result + ((semSaldo == null) ? 0 : semSaldo.hashCode());
-		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
-		result = prime * result + ((valorComissao == null) ? 0 : valorComissao.hashCode());
-		return result;
-	}
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Grupo other = (Grupo) obj;
-		if (semDesconto == null) {
-			if (other.semDesconto != null)
-				return false;
-		} else if (!semDesconto.equals(other.semDesconto))
-			return false;
-		if (dataOperacao == null) {
-			if (other.dataOperacao != null)
-				return false;
-		} else if (!dataOperacao.equals(other.dataOperacao))
-			return false;
-		if (dataPromo == null) {
-			if (other.dataPromo != null)
-				return false;
-		} else if (!dataPromo.equals(other.dataPromo))
-			return false;
-		if (desconto == null) {
-			if (other.desconto != null)
-				return false;
-		} else if (!desconto.equals(other.desconto))
-			return false;
-		if (emPromo == null) {
-			if (other.emPromo != null)
-				return false;
-		} else if (!emPromo.equals(other.emPromo))
-			return false;
-		if (enviado == null) {
-			if (other.enviado != null)
-				return false;
-		} else if (!enviado.equals(other.enviado))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (nomeDia == null) {
-			if (other.nomeDia != null)
-				return false;
-		} else if (!nomeDia.equals(other.nomeDia))
-			return false;
-		if (nomeDiaSemana == null) {
-			if (other.nomeDiaSemana != null)
-				return false;
-		} else if (!nomeDiaSemana.equals(other.nomeDiaSemana))
-			return false;
-		if (novo == null) {
-			if (other.novo != null)
-				return false;
-		} else if (!novo.equals(other.novo))
-			return false;
-		if (semSaldo == null) {
-			if (other.semSaldo != null)
-				return false;
-		} else if (!semSaldo.equals(other.semSaldo))
-			return false;
-		if (tipo == null) {
-			if (other.tipo != null)
-				return false;
-		} else if (!tipo.equals(other.tipo))
-			return false;
-		if (valorComissao == null) {
-			if (other.valorComissao != null)
-				return false;
-		} else if (!valorComissao.equals(other.valorComissao))
-			return false;
-		return true;
-	}
+        Grupo grupo = (Grupo) o;
 
-	@Override
-	public String toString() {
-		return "Grupo [id=" + id + ", nome=" + nome + ", valorComissao=" + valorComissao + ", desconto=" + desconto
-				+ ", emPromo=" + emPromo + ", dataPromo=" + dataPromo + ", dataOperacao=" + dataOperacao + ", semSaldo="
-				+ semSaldo + ", enviado=" + enviado + ", novo=" + novo + ", nomeDia=" + nomeDia + ", nomeDiaSemana="
-				+ nomeDiaSemana + ", tipo=" + tipo + ", comDesconto=" + semDesconto + "]";
-	}
+        if ( ! Objects.equals(id, grupo.id)) return false;
 
+        return true;
+    }
 
-	
-	
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Grupo{" +
+            "id=" + id +
+            ", nmGrupo='" + nmGrupo + "'" +
+            ", vlComissao='" + vlComissao + "'" +
+            ", vlDesconto='" + vlDesconto + "'" +
+            ", flPromo='" + flPromo + "'" +
+            ", flDesco='" + flDesco + "'" +
+            ", dtPromo='" + dtPromo + "'" +
+            ", dtOperacao='" + dtOperacao + "'" +
+            ", flSemcontagem='" + flSemcontagem + "'" +
+            ", flEnvio='" + flEnvio + "'" +
+            ", nnNovo='" + nnNovo + "'" +
+            ", nnType='" + nnType + "'" +
+            ", nnDay='" + nnDay + "'" +
+            ", nmDayweek='" + nmDayweek + "'" +
+            '}';
+    }
 }
