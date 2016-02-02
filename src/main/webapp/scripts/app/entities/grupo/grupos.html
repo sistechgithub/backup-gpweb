@@ -1,85 +1,76 @@
 <div class="box">
 	<div class="box-header with-border">
-		<h3 class="box-title" style="font-size:25px">Grupos</h3>	  
-	</div>
-	<br>
-	<div class="box-body">
-		<jh-alert></jh-alert>
-		<div class="row">
-            <div class="col-sm-6">
-                <button class="btn btn-primary btn-flat pull-left" ui-sref="grupo.new">
-                    <span class="mdi mdi-plus mdi-x"></span> <span>Adicionar</span>
+		<h3 class="box-title">Grupos</h3>	  
+	</div>	
+	<div class="box-header">
+        <div class="box-btn">                     
+            <button class="btn btn-success pull-left" ui-sref="grupo.new">
+                <span class="mdi mdi-plus mdi-icon"></span> 
+                <span>Adicionar</span>
+            </button>
+        </div>
+        <div class="box-btn pull-right">
+            <form class="form-inline pull-right" name="searchForm">                  
+                <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
+                <button class="btn btn-info hidden-xs" ng-click="search()">
+                    <span class="mdi mdi-magnify mdi-icon"></span>
                 </button>
-            </div>
-            <div class="col-sm-6">
-                <form class="form-inline pull-right" name="searchForm">                    
-                    <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">
-                    
-                    <button class="btn btn-info btn-flat hidden-xs" ng-click="search()"><span class="mdi mdi-magnify mdi-x"></span></button>
-                </form>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-12">
-		        <div class="table-responsive">
-			        <table class="table table-striped table-bordered">
-			            <thead>
-			                <tr>
-			                	<th>ID</th>                    
-			                    <th class="col-sm-5">Nome</th>
-			                    <th>Comissão(%)</th>
-			                    <th>Desconto(%)</th>
-			                    <th>Em promoção</th>                    
-			                    <th></th>
-			                </tr>
-			            </thead>
-			            <tbody>
-			                <tr ng-repeat="grupo in grupos track by grupo.id">
-			                    <td><a ui-sref="grupo.detail({id:grupo.id})">{{grupo.id}}</a></td>
-			                    <td class="col-sm-5">{{grupo.nmGrupo}}</td>
-			                    <td>{{grupo.vlComissao | currency:'':2}}</td>
-			                    <td>{{grupo.vlDesconto | currency:'':2}}</td>
-			                    <td>{{grupo.flPromo ? 'Sim': 'Não'}}</td>	                                            
-			                    <td>
-			                        <button type="submit"
-			                                ui-sref="grupo.detail({id:grupo.id})"
-			                                class="btn btn-info btn-flat">
-			                            <span class="mdi mdi-eye mdi-x"></span>
-			                        </button>
-			                        <button type="submit"
-			                                ui-sref="grupo.edit({id:grupo.id})"
-			                                class="btn btn-primary btn-flat">
-			                            <span class="mdi mdi-pencil mdi-x"></span>
-			                        </button>
-			                        <button type="submit"
-			                                ui-sref="grupo.delete({id:grupo.id})"
-			                                class="btn btn-danger btn-flat">
-			                            <span class="mdi mdi-close mdi-x"></span>
-			                        </button>
-			                    </td>
-			                </tr>
-			            </tbody>
-			        </table>			        
-			    </div>
-	    	</div>
-		</div><!-- /.row-table -->
-		<div class="row">
-			<div class="col-sm-12">
-	            <ul class="pagination pull-right">
-	                <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
-	                <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
-	                <li ng-show="page > 1" ng-click="loadPage(page - 2)"><a>{{page - 1}}</a></li>
-	                <li ng-show="page > 0" ng-click="loadPage(page - 1)"><a>{{page}}</a></li>
-	                <li class="active"><a>{{page + 1}}</a></li>
-	                <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 2}}</a></li>
-	                <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 3}}</a></li>
-	                <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
-	                <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
-	            </ul>
-	        </div>
-        </div>
-
-
-	</div><!-- /.box-body -->	
+            </form>
+        </div>            
+    </div>
+    <div class="box-body">
+		<jh-alert></jh-alert>
+        <div class="table-responsive">
+		    <table class="table table-hover">
+			    <tbody>
+			        <tr>
+	                	<th class="col-lg-2 col-md-1">Cód.</th>            
+	                    <th class="col-lg-4 col-md-4 col-sm-12 col-xs-12">Nome</th>
+	                    <th class="">Comissão(%)</th>
+	                    <th class="">Desconto(%)</th>
+	                    <th class="">Promoção</th>                    
+	                    <th></th>
+	                </tr>			        
+	                <tr ng-repeat="grupo in grupos track by grupo.id">
+	                    <td class=""><a ui-sref="grupo.detail({id:grupo.id})">{{grupo.id}}</a></td>
+	                    <td class="text-uppercase">{{grupo.nmGrupo}}</td>
+	                    <td>{{grupo.vlComissao | currency:'':2}}</td>
+	                    <td>{{grupo.vlDesconto | currency:'':2}}</td>
+	                    <td>{{grupo.flPromo ? 'Sim': 'Não'}}</td>	                                            
+	                    <td class="text-center">
+	                        <button type="submit"
+	                                ui-sref="grupo.detail({id:grupo.id})"
+	                                class="btn btn-outlined btn-success">
+	                            <span class="mdi mdi-eye mdi-18"></span>
+	                        </button>
+	                        <button type="submit"
+	                                ui-sref="grupo.edit({id:grupo.id})"
+	                                class="btn btn-outlined btn-primary">
+	                            <span class="mdi mdi-pencil mdi-18"></span>
+	                        </button>
+	                        <button type="submit"
+	                                ui-sref="grupo.delete({id:grupo.id})"
+	                                class="btn btn-outlined btn-danger">
+	                            <span class="mdi mdi-delete mdi-18"></span>
+	                        </button>
+	                    </td>
+	                </tr>	
+	            </tbody>		        
+			</table>			        
+		</div>
+	 </div><!-- /.box-body -->	
+		
+		<div class="box-footer clearfix">
+        <ul class="pagination no-margin pull-right">
+            <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
+            <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
+            <li ng-show="page > 1" ng-click="loadPage(page - 2)"><a>{{page - 1}}</a></li>
+            <li ng-show="page > 0" ng-click="loadPage(page - 1)"><a>{{page}}</a></li>
+            <li class="active"><a>{{page + 1}}</a></li>
+            <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 2}}</a></li>
+            <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 3}}</a></li>
+            <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
+            <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
+        </ul>
+    </div><!-- /.box-footer -->
 </div>
