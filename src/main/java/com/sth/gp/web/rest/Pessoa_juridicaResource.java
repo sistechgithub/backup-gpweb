@@ -1,7 +1,7 @@
 package com.sth.gp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.sth.gp.domain.Pessoa_juridica;
+import com.sth.gp.domain.PessoaJuridica;
 import com.sth.gp.repository.Pessoa_juridicaRepository;
 import com.sth.gp.repository.search.Pessoa_juridicaSearchRepository;
 import com.sth.gp.web.rest.util.HeaderUtil;
@@ -49,12 +49,12 @@ public class Pessoa_juridicaResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Pessoa_juridica> createPessoa_juridica(@Valid @RequestBody Pessoa_juridica pessoa_juridica) throws URISyntaxException {
+    public ResponseEntity<PessoaJuridica> createPessoa_juridica(@Valid @RequestBody PessoaJuridica pessoa_juridica) throws URISyntaxException {
         log.debug("REST request to save Pessoa_juridica : {}", pessoa_juridica);
         if (pessoa_juridica.getId() != null) {
             return ResponseEntity.badRequest().header("Failure", "A new pessoa_juridica cannot already have an ID").body(null);
         }
-        Pessoa_juridica result = pessoa_juridicaRepository.save(pessoa_juridica);
+        PessoaJuridica result = pessoa_juridicaRepository.save(pessoa_juridica);
         pessoa_juridicaSearchRepository.save(result);
         return ResponseEntity.created(new URI("/api/pessoa_juridicas/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("pessoa_juridica", result.getId().toString()))
@@ -68,12 +68,12 @@ public class Pessoa_juridicaResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Pessoa_juridica> updatePessoa_juridica(@Valid @RequestBody Pessoa_juridica pessoa_juridica) throws URISyntaxException {
+    public ResponseEntity<PessoaJuridica> updatePessoa_juridica(@Valid @RequestBody PessoaJuridica pessoa_juridica) throws URISyntaxException {
         log.debug("REST request to update Pessoa_juridica : {}", pessoa_juridica);
         if (pessoa_juridica.getId() == null) {
             return createPessoa_juridica(pessoa_juridica);
         }
-        Pessoa_juridica result = pessoa_juridicaRepository.save(pessoa_juridica);
+        PessoaJuridica result = pessoa_juridicaRepository.save(pessoa_juridica);
         pessoa_juridicaSearchRepository.save(pessoa_juridica);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("pessoa_juridica", pessoa_juridica.getId().toString()))
@@ -87,9 +87,9 @@ public class Pessoa_juridicaResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<Pessoa_juridica>> getAllPessoa_juridicas(Pageable pageable)
+    public ResponseEntity<List<PessoaJuridica>> getAllPessoa_juridicas(Pageable pageable)
         throws URISyntaxException {
-        Page<Pessoa_juridica> page = pessoa_juridicaRepository.findAll(pageable);
+        Page<PessoaJuridica> page = pessoa_juridicaRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/pessoa_juridicas");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -101,7 +101,7 @@ public class Pessoa_juridicaResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Pessoa_juridica> getPessoa_juridica(@PathVariable Long id) {
+    public ResponseEntity<PessoaJuridica> getPessoa_juridica(@PathVariable Long id) {
         log.debug("REST request to get Pessoa_juridica : {}", id);
         return Optional.ofNullable(pessoa_juridicaRepository.findOne(id))
             .map(pessoa_juridica -> new ResponseEntity<>(
@@ -132,7 +132,7 @@ public class Pessoa_juridicaResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<Pessoa_juridica> searchPessoa_juridicas(@PathVariable String query) {
+    public List<PessoaJuridica> searchPessoa_juridicas(@PathVariable String query) {
         return StreamSupport
             .stream(pessoa_juridicaSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());

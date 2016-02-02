@@ -1,7 +1,7 @@
 package com.sth.gp.web.rest;
 
 import com.sth.gp.Application;
-import com.sth.gp.domain.Pessoa_fisica;
+import com.sth.gp.domain.PessoaFisica;
 import com.sth.gp.repository.Pessoa_fisicaRepository;
 import com.sth.gp.repository.search.Pessoa_fisicaSearchRepository;
 
@@ -84,7 +84,7 @@ public class Pessoa_fisicaResourceIntTest {
 
     private MockMvc restPessoa_fisicaMockMvc;
 
-    private Pessoa_fisica pessoa_fisica;
+    private PessoaFisica pessoa_fisica;
 
     @PostConstruct
     public void setup() {
@@ -99,7 +99,7 @@ public class Pessoa_fisicaResourceIntTest {
 
     @Before
     public void initTest() {
-        pessoa_fisica = new Pessoa_fisica();
+        pessoa_fisica = new PessoaFisica();
         pessoa_fisica.setDataNascimento(DEFAULT_DT_NASCIMENTO);
         pessoa_fisica.setRg(DEFAULT_CD_RG);
         pessoa_fisica.setCpf(DEFAULT_CD_CPF);
@@ -127,9 +127,9 @@ public class Pessoa_fisicaResourceIntTest {
                 .andExpect(status().isCreated());
 
         // Validate the Pessoa_fisica in the database
-        List<Pessoa_fisica> pessoa_fisicas = pessoa_fisicaRepository.findAll();
+        List<PessoaFisica> pessoa_fisicas = pessoa_fisicaRepository.findAll();
         assertThat(pessoa_fisicas).hasSize(databaseSizeBeforeCreate + 1);
-        Pessoa_fisica testPessoa_fisica = pessoa_fisicas.get(pessoa_fisicas.size() - 1);
+        PessoaFisica testPessoa_fisica = pessoa_fisicas.get(pessoa_fisicas.size() - 1);
         assertThat(testPessoa_fisica.getDataNascimento()).isEqualTo(DEFAULT_DT_NASCIMENTO);
         assertThat(testPessoa_fisica.getRg()).isEqualTo(DEFAULT_CD_RG);
         assertThat(testPessoa_fisica.getCpf()).isEqualTo(DEFAULT_CD_CPF);
@@ -230,9 +230,9 @@ public class Pessoa_fisicaResourceIntTest {
                 .andExpect(status().isOk());
 
         // Validate the Pessoa_fisica in the database
-        List<Pessoa_fisica> pessoa_fisicas = pessoa_fisicaRepository.findAll();
+        List<PessoaFisica> pessoa_fisicas = pessoa_fisicaRepository.findAll();
         assertThat(pessoa_fisicas).hasSize(databaseSizeBeforeUpdate);
-        Pessoa_fisica testPessoa_fisica = pessoa_fisicas.get(pessoa_fisicas.size() - 1);
+        PessoaFisica testPessoa_fisica = pessoa_fisicas.get(pessoa_fisicas.size() - 1);
         assertThat(testPessoa_fisica.getDataNascimento()).isEqualTo(UPDATED_DT_NASCIMENTO);
         assertThat(testPessoa_fisica.getRg()).isEqualTo(UPDATED_CD_RG);
         assertThat(testPessoa_fisica.getCpf()).isEqualTo(UPDATED_CD_CPF);
@@ -261,7 +261,7 @@ public class Pessoa_fisicaResourceIntTest {
                 .andExpect(status().isOk());
 
         // Validate the database is empty
-        List<Pessoa_fisica> pessoa_fisicas = pessoa_fisicaRepository.findAll();
+        List<PessoaFisica> pessoa_fisicas = pessoa_fisicaRepository.findAll();
         assertThat(pessoa_fisicas).hasSize(databaseSizeBeforeDelete - 1);
     }
 }
