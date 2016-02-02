@@ -15,7 +15,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "pessoa_juridica")
 @Document(indexName = "pessoa_juridica")
-public class Pessoa_juridica implements Serializable {
+public class PessoaJuridica implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,7 +43,7 @@ public class Pessoa_juridica implements Serializable {
     private String obs;
 
     @OneToOne
-    @Column(name="id_pessoa")    
+    @JoinColumn(name="id_pessoa")    
     private Pessoa pessoa;
 
     public Long getId() {
@@ -118,7 +118,7 @@ public class Pessoa_juridica implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Pessoa_juridica pessoa_juridica = (Pessoa_juridica) o;
+        PessoaJuridica pessoa_juridica = (PessoaJuridica) o;
         return Objects.equals(id, pessoa_juridica.id);
     }
 

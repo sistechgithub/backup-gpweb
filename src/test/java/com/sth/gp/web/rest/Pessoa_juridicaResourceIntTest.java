@@ -1,7 +1,7 @@
 package com.sth.gp.web.rest;
 
 import com.sth.gp.Application;
-import com.sth.gp.domain.Pessoa_juridica;
+import com.sth.gp.domain.PessoaJuridica;
 import com.sth.gp.repository.Pessoa_juridicaRepository;
 import com.sth.gp.repository.search.Pessoa_juridicaSearchRepository;
 
@@ -69,7 +69,7 @@ public class Pessoa_juridicaResourceIntTest {
 
     private MockMvc restPessoa_juridicaMockMvc;
 
-    private Pessoa_juridica pessoa_juridica;
+    private PessoaJuridica pessoa_juridica;
 
     @PostConstruct
     public void setup() {
@@ -84,7 +84,7 @@ public class Pessoa_juridicaResourceIntTest {
 
     @Before
     public void initTest() {
-        pessoa_juridica = new Pessoa_juridica();
+        pessoa_juridica = new PessoaJuridica();
         pessoa_juridica.setCgc(DEFAULT_CD_CGC);
         pessoa_juridica.setCgf(DEFAULT_CD_CGF);
         pessoa_juridica.setFantasia(DEFAULT_NM_FANTASIA);
@@ -106,9 +106,9 @@ public class Pessoa_juridicaResourceIntTest {
                 .andExpect(status().isCreated());
 
         // Validate the Pessoa_juridica in the database
-        List<Pessoa_juridica> pessoa_juridicas = pessoa_juridicaRepository.findAll();
+        List<PessoaJuridica> pessoa_juridicas = pessoa_juridicaRepository.findAll();
         assertThat(pessoa_juridicas).hasSize(databaseSizeBeforeCreate + 1);
-        Pessoa_juridica testPessoa_juridica = pessoa_juridicas.get(pessoa_juridicas.size() - 1);
+        PessoaJuridica testPessoa_juridica = pessoa_juridicas.get(pessoa_juridicas.size() - 1);
         assertThat(testPessoa_juridica.getCgc()).isEqualTo(DEFAULT_CD_CGC);
         assertThat(testPessoa_juridica.getCgf()).isEqualTo(DEFAULT_CD_CGF);
         assertThat(testPessoa_juridica.getFantasia()).isEqualTo(DEFAULT_NM_FANTASIA);
@@ -185,9 +185,9 @@ public class Pessoa_juridicaResourceIntTest {
                 .andExpect(status().isOk());
 
         // Validate the Pessoa_juridica in the database
-        List<Pessoa_juridica> pessoa_juridicas = pessoa_juridicaRepository.findAll();
+        List<PessoaJuridica> pessoa_juridicas = pessoa_juridicaRepository.findAll();
         assertThat(pessoa_juridicas).hasSize(databaseSizeBeforeUpdate);
-        Pessoa_juridica testPessoa_juridica = pessoa_juridicas.get(pessoa_juridicas.size() - 1);
+        PessoaJuridica testPessoa_juridica = pessoa_juridicas.get(pessoa_juridicas.size() - 1);
         assertThat(testPessoa_juridica.getCgc()).isEqualTo(UPDATED_CD_CGC);
         assertThat(testPessoa_juridica.getCgf()).isEqualTo(UPDATED_CD_CGF);
         assertThat(testPessoa_juridica.getFantasia()).isEqualTo(UPDATED_NM_FANTASIA);
@@ -210,7 +210,7 @@ public class Pessoa_juridicaResourceIntTest {
                 .andExpect(status().isOk());
 
         // Validate the database is empty
-        List<Pessoa_juridica> pessoa_juridicas = pessoa_juridicaRepository.findAll();
+        List<PessoaJuridica> pessoa_juridicas = pessoa_juridicaRepository.findAll();
         assertThat(pessoa_juridicas).hasSize(databaseSizeBeforeDelete - 1);
     }
 }
