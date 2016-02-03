@@ -29,8 +29,8 @@
                         <th class="text-center">Custo(%)</th>
     <!--                     <th>Vl_valor</th> -->
     <!--                     <th>Dt_operacao</th> -->
-    <!--                     <th>Fl_envio</th> -->
-    <!--                     <th>Nn_novo</th> -->
+    <!--                     <th>flEnvio</th> -->
+    <!--                     <th>nnNovo</th> -->
                         <th></th>
                     </tr>
                     <tr ng-repeat="subgrupo in subgrupos track by subgrupo.id">
@@ -39,8 +39,8 @@
                         <td class="text-center">{{subgrupo.custo}}</td>
     <!--                     <td>{{subgrupo.vl_valor}}</td> -->
     <!--                         <td>{{subgrupo.dt_operacao | date:'mediumDate'}}</td> -->
-    <!--                     <td>{{subgrupo.fl_envio}}</td> -->
-    <!--                     <td>{{subgrupo.nn_novo}}</td> -->
+    <!--                     <td>{{subgrupo.flEnvio}}</td> -->
+    <!--                     <td>{{subgrupo.nnNovo}}</td> -->
                         <td class="text-center">
                             <button type="submit"
                                     ui-sref="subgrupo.detail({id:subgrupo.id})"

@@ -16,14 +16,17 @@ public class HeaderUtil {
     }
 
     public static HttpHeaders createEntityCreationAlert(String entityName, String param) {
-        return createAlert("Um novo " + entityName + " foi criado com o código " + param, param);
+        //return createAlert("A new " + entityName + " is created with identifier " + param, param);
+        return createAlert("Um(a) novo(a) " + entityName + " foi criado(a) com o identificador " + param, param);
     }
 
     public static HttpHeaders createEntityUpdateAlert(String entityName, String param) {
-        return createAlert("Um " + entityName + " foi atualizado com os valores " + param, param);
+        //return createAlert("A " + entityName + " is updated with identifier " + param, param);
+        return createAlert("O(A) " + entityName + " foi atualizado(a) com identificador " + param, param);
     }
 
     public static HttpHeaders createEntityDeletionAlert(String entityName, String param) {
-        return createAlert("Um " + entityName + " foi deletado com o código " + param, param);
+        //return createAlert("A " + entityName + " is deleted with identifier " + param, param);
+        return createAlert("Um(a) " + entityName + " foi deletado(a) com identificador " + param, param);
     }
 }

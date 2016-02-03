@@ -51,8 +51,8 @@ public class GrupoResourceIntTest {
     private static final BigDecimal DEFAULT_VL_COMISSAO = new BigDecimal(1);
     private static final BigDecimal UPDATED_VL_COMISSAO = new BigDecimal(2);
 
-    private static final Boolean DEFAULT_FL_DESCONTO = false;
-    private static final Boolean UPDATED_FL_DESCONTO = true;
+    private static final BigDecimal DEFAULT_VL_DESCONTO = new BigDecimal(1);
+    private static final BigDecimal UPDATED_VL_DESCONTO = new BigDecimal(2);
 
     private static final Boolean DEFAULT_FL_PROMO = false;
     private static final Boolean UPDATED_FL_PROMO = true;
@@ -102,15 +102,15 @@ public class GrupoResourceIntTest {
     @Before
     public void initTest() {
         grupo = new Grupo();
-        grupo.setNome(DEFAULT_NM_GRUPO);
-        grupo.setValorComissao(DEFAULT_VL_COMISSAO);
-        grupo.setComDesconto(DEFAULT_FL_DESCONTO);
-        grupo.setEmPromo(DEFAULT_FL_PROMO);
-        grupo.setDataPromo(DEFAULT_DT_PROMO);
-        grupo.setDataOperacao(DEFAULT_DT_OPERACAO);
-        grupo.setSemSaldo(DEFAULT_FL_SEMCONTAGEM);
-        grupo.setEnviado(DEFAULT_FL_ENVIO);
-        grupo.setNovo(DEFAULT_NN_NOVO);
+        grupo.setNmGrupo(DEFAULT_NM_GRUPO);
+        grupo.setVlComissao(DEFAULT_VL_COMISSAO);
+        grupo.setVlDesconto(DEFAULT_VL_DESCONTO);
+        grupo.setFlPromo(DEFAULT_FL_PROMO);
+        grupo.setDtPromo(DEFAULT_DT_PROMO);
+        grupo.setDtOperacao(DEFAULT_DT_OPERACAO);
+        grupo.setFlSemcontagem(DEFAULT_FL_SEMCONTAGEM);
+        grupo.setFlEnvio(DEFAULT_FL_ENVIO);
+        grupo.setNnNovo(DEFAULT_NN_NOVO);
     }
 
     @Test
@@ -129,15 +129,15 @@ public class GrupoResourceIntTest {
         List<Grupo> grupos = grupoRepository.findAll();
         assertThat(grupos).hasSize(databaseSizeBeforeCreate + 1);
         Grupo testGrupo = grupos.get(grupos.size() - 1);
-        assertThat(testGrupo.getNome()).isEqualTo(DEFAULT_NM_GRUPO);
-        assertThat(testGrupo.getValorComissao()).isEqualTo(DEFAULT_VL_COMISSAO);
-        assertThat(testGrupo.getComDesconto()).isEqualTo(DEFAULT_FL_DESCONTO);
-        assertThat(testGrupo.getEmPromo()).isEqualTo(DEFAULT_FL_PROMO);
-        assertThat(testGrupo.getDataPromo()).isEqualTo(DEFAULT_DT_PROMO);
-        assertThat(testGrupo.getDataOperacao()).isEqualTo(DEFAULT_DT_OPERACAO);
-        assertThat(testGrupo.getSemSaldo()).isEqualTo(DEFAULT_FL_SEMCONTAGEM);
-        assertThat(testGrupo.getEnviado()).isEqualTo(DEFAULT_FL_ENVIO);
-        assertThat(testGrupo.getNovo()).isEqualTo(DEFAULT_NN_NOVO);
+        assertThat(testGrupo.getNmGrupo()).isEqualTo(DEFAULT_NM_GRUPO);
+        assertThat(testGrupo.getVlComissao()).isEqualTo(DEFAULT_VL_COMISSAO);
+        assertThat(testGrupo.getVlDesconto()).isEqualTo(DEFAULT_VL_DESCONTO);
+        assertThat(testGrupo.getFlPromo()).isEqualTo(DEFAULT_FL_PROMO);
+        assertThat(testGrupo.getDtPromo()).isEqualTo(DEFAULT_DT_PROMO);
+        assertThat(testGrupo.getDtOperacao()).isEqualTo(DEFAULT_DT_OPERACAO);
+        assertThat(testGrupo.getFlSemcontagem()).isEqualTo(DEFAULT_FL_SEMCONTAGEM);
+        assertThat(testGrupo.getFlEnvio()).isEqualTo(DEFAULT_FL_ENVIO);
+        assertThat(testGrupo.getNnNovo()).isEqualTo(DEFAULT_NN_NOVO);
     }
 
     @Test
@@ -153,7 +153,7 @@ public class GrupoResourceIntTest {
                 .andExpect(jsonPath("$.[*].id").value(hasItem(grupo.getId().intValue())))
                 .andExpect(jsonPath("$.[*].nm_grupo").value(hasItem(DEFAULT_NM_GRUPO.toString())))
                 .andExpect(jsonPath("$.[*].vl_comissao").value(hasItem(DEFAULT_VL_COMISSAO.intValue())))
-                .andExpect(jsonPath("$.[*].fl_desconto").value(hasItem(DEFAULT_FL_DESCONTO.booleanValue())))
+                .andExpect(jsonPath("$.[*].fl_desconto").value(hasItem(DEFAULT_VL_DESCONTO.intValue())))
                 .andExpect(jsonPath("$.[*].fl_promo").value(hasItem(DEFAULT_FL_PROMO.booleanValue())))
                 .andExpect(jsonPath("$.[*].dt_promo").value(hasItem(DEFAULT_DT_PROMO.toString())))
                 .andExpect(jsonPath("$.[*].dt_operacao").value(hasItem(DEFAULT_DT_OPERACAO.toString())))
@@ -175,7 +175,7 @@ public class GrupoResourceIntTest {
             .andExpect(jsonPath("$.id").value(grupo.getId().intValue()))
             .andExpect(jsonPath("$.nm_grupo").value(DEFAULT_NM_GRUPO.toString()))
             .andExpect(jsonPath("$.vl_comissao").value(DEFAULT_VL_COMISSAO.intValue()))
-            .andExpect(jsonPath("$.fl_desconto").value(DEFAULT_FL_DESCONTO.booleanValue()))
+            .andExpect(jsonPath("$.fl_desconto").value(DEFAULT_VL_DESCONTO.intValue()))
             .andExpect(jsonPath("$.fl_promo").value(DEFAULT_FL_PROMO.booleanValue()))
             .andExpect(jsonPath("$.dt_promo").value(DEFAULT_DT_PROMO.toString()))
             .andExpect(jsonPath("$.dt_operacao").value(DEFAULT_DT_OPERACAO.toString()))
@@ -201,15 +201,15 @@ public class GrupoResourceIntTest {
 		int databaseSizeBeforeUpdate = grupoRepository.findAll().size();
 
         // Update the grupo
-        grupo.setNome(UPDATED_NM_GRUPO);
-        grupo.setValorComissao(UPDATED_VL_COMISSAO);
-        grupo.setComDesconto(UPDATED_FL_DESCONTO);
-        grupo.setEmPromo(UPDATED_FL_PROMO);
-        grupo.setDataPromo(UPDATED_DT_PROMO);
-        grupo.setDataOperacao(UPDATED_DT_OPERACAO);
-        grupo.setSemSaldo(UPDATED_FL_SEMCONTAGEM);
-        grupo.setEnviado(UPDATED_FL_ENVIO);
-        grupo.setNovo(UPDATED_NN_NOVO);
+        grupo.setNmGrupo(UPDATED_NM_GRUPO);
+        grupo.setVlComissao(UPDATED_VL_COMISSAO);
+        grupo.setVlDesconto(UPDATED_VL_DESCONTO);
+        grupo.setFlPromo(UPDATED_FL_PROMO);
+        grupo.setDtPromo(UPDATED_DT_PROMO);
+        grupo.setDtOperacao(UPDATED_DT_OPERACAO);
+        grupo.setFlSemcontagem(UPDATED_FL_SEMCONTAGEM);
+        grupo.setFlEnvio(UPDATED_FL_ENVIO);
+        grupo.setNnNovo(UPDATED_NN_NOVO);
 
         restGrupoMockMvc.perform(put("/api/grupos")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -220,15 +220,15 @@ public class GrupoResourceIntTest {
         List<Grupo> grupos = grupoRepository.findAll();
         assertThat(grupos).hasSize(databaseSizeBeforeUpdate);
         Grupo testGrupo = grupos.get(grupos.size() - 1);
-        assertThat(testGrupo.getNome()).isEqualTo(UPDATED_NM_GRUPO);
-        assertThat(testGrupo.getValorComissao()).isEqualTo(UPDATED_VL_COMISSAO);
-        assertThat(testGrupo.getComDesconto()).isEqualTo(UPDATED_FL_DESCONTO);
-        assertThat(testGrupo.getEmPromo()).isEqualTo(UPDATED_FL_PROMO);
-        assertThat(testGrupo.getDataPromo()).isEqualTo(UPDATED_DT_PROMO);
-        assertThat(testGrupo.getDataOperacao()).isEqualTo(UPDATED_DT_OPERACAO);
-        assertThat(testGrupo.getSemSaldo()).isEqualTo(UPDATED_FL_SEMCONTAGEM);
-        assertThat(testGrupo.getEnviado()).isEqualTo(UPDATED_FL_ENVIO);
-        assertThat(testGrupo.getNovo()).isEqualTo(UPDATED_NN_NOVO);
+        assertThat(testGrupo.getNmGrupo()).isEqualTo(UPDATED_NM_GRUPO);
+        assertThat(testGrupo.getVlComissao()).isEqualTo(UPDATED_VL_COMISSAO);
+        assertThat(testGrupo.getVlDesconto()).isEqualTo(UPDATED_VL_DESCONTO);
+        assertThat(testGrupo.getFlPromo()).isEqualTo(UPDATED_FL_PROMO);
+        assertThat(testGrupo.getDtPromo()).isEqualTo(UPDATED_DT_PROMO);
+        assertThat(testGrupo.getDtOperacao()).isEqualTo(UPDATED_DT_OPERACAO);
+        assertThat(testGrupo.getFlSemcontagem()).isEqualTo(UPDATED_FL_SEMCONTAGEM);
+        assertThat(testGrupo.getFlEnvio()).isEqualTo(UPDATED_FL_ENVIO);
+        assertThat(testGrupo.getNnNovo()).isEqualTo(UPDATED_NN_NOVO);
     }
 
     @Test

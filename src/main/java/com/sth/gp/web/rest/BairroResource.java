@@ -42,6 +42,27 @@ public class BairroResource {
     @Inject
     private BairroSearchRepository bairroSearchRepository;
 
+    
+    @RequestMapping(value = "/bairros/getbycidadeestado/{nome}/{cidade}/{estado}",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+        @Timed
+        public ResponseEntity<Bairro> getBairroByNomeCidadeEstado(@PathVariable String nome, @PathVariable String cidade, @PathVariable String estado) {
+            log.debug("REST request to get Bairro : {} {} {}", nome, cidade, estado);
+            
+            nome = nome.toUpperCase();
+            cidade = cidade.toUpperCase();
+            estado = estado.toUpperCase();
+            
+            return Optional.ofNullable(bairroRepository.
+            		findOneByNomeAndCidadeNomeAndCidadeEstadoSigla(nome, cidade, estado))
+                .map(bairro -> new ResponseEntity<>(
+                    bairro,
+                    HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        }
+    
+    
     /**
      * POST  /bairros -> Create a new bairro.
      */
@@ -109,25 +130,6 @@ public class BairroResource {
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-    
-    @RequestMapping(value = "/bairros/getbycidadeestado/{nome}/{cidade}/{estado}",
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-        @Timed
-        public ResponseEntity<Bairro> getBairroByNomeCidadeEstado(@PathVariable String nome, @PathVariable String cidade, @PathVariable String estado) {
-            log.debug("REST request to get Bairro : {} {} {}", nome, cidade, estado);
-            
-            nome = nome.toUpperCase();
-            cidade = cidade.toUpperCase();
-            estado = estado.toUpperCase();
-            
-            return Optional.ofNullable(bairroRepository.
-            		findOneByNomeAndCidadeNomeAndCidadeEstadoSigla(nome, cidade, estado))
-                .map(bairro -> new ResponseEntity<>(
-                    bairro,
-                    HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-        }
 
     /**
      * DELETE  /bairros/:id -> delete the "id" bairro.

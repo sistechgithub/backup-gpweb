@@ -13,8 +13,8 @@
         },
         {
             "fieldId": 3,
-            "fieldName": "fl_desconto",
-            "fieldType": "Boolean"
+            "fieldName": "vl_desconto",
+            "fieldType": "BigDecimal"
         },
         {
             "fieldId": 4,

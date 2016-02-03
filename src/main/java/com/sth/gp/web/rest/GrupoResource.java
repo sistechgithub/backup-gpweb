@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -52,7 +53,10 @@ public class GrupoResource {
         log.debug("REST request to save Grupo : {}", grupo);
         if (grupo.getId() != null) {
             return ResponseEntity.badRequest().header("Failure", "A new grupo cannot already have an ID").body(null);
-        }
+        }        
+        
+        grupo.setDtOperacao(LocalDate.now()); //Always use the operation date from server
+        
         Grupo result = grupoRepository.save(grupo);
         grupoSearchRepository.save(result);
         return ResponseEntity.created(new URI("/api/grupos/" + result.getId()))
@@ -72,6 +76,9 @@ public class GrupoResource {
         if (grupo.getId() == null) {
             return createGrupo(grupo);
         }
+        
+        grupo.setDtOperacao(LocalDate.now()); //Always use the operation date from server
+        
         Grupo result = grupoRepository.save(grupo);
         grupoSearchRepository.save(grupo);
         return ResponseEntity.ok()
@@ -128,6 +135,7 @@ public class GrupoResource {
      * to the query.
      */
     @RequestMapping(value = "/_search/grupos/{query}",
+    		
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed

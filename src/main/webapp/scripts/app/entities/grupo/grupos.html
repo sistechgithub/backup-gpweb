@@ -1,42 +1,42 @@
 <div class="box">
 	<div class="box-header with-border">
 		<h3 class="box-title">Grupos</h3>	  
-	</div>
+	</div>	
 	<div class="box-header">
-		<div class="box-btn">		              
-	        <button class="btn btn-success pull-left" ui-sref="grupo.new">
-	            <span class="mdi mdi-plus mdi-icon"></span> 
-	            <span>Adicionar</span>
-	        </button>
-	    </div>
-	  	<div class="box-btn pull-right">
-	        <form class="form-inline pull-right" name="searchForm">                  
-	            <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
-	            <button class="btn btn-info hidden-xs" ng-click="search()">
-	            	<span class="mdi mdi-magnify mdi-icon"></span>
-	            </button>
-	        </form>
-        </div>       	  
-	</div>
-	<div class="box-body">
+        <div class="box-btn">                     
+            <button class="btn btn-success pull-left" ui-sref="grupo.new">
+                <span class="mdi mdi-plus mdi-icon"></span> 
+                <span>Adicionar</span>
+            </button>
+        </div>
+        <div class="box-btn pull-right">
+            <form class="form-inline pull-right" name="searchForm">                  
+                <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
+                <button class="btn btn-info hidden-xs" ng-click="search()">
+                    <span class="mdi mdi-magnify mdi-icon"></span>
+                </button>
+            </form>
+        </div>            
+    </div>
+    <div class="box-body">
 		<jh-alert></jh-alert>
         <div class="table-responsive">
-	        <table class="table table-hover">
-	            <tbody>
-	            	<tr>
-	                	<th class="text-center">Cód.</th>                    
-	                    <th class="col-sm-5">Nome</th>
-	                    <th class="text-center">Comissão(%)</th>
-	                    <th class="text-center">Sem desconto</th>
-	                    <th class="text-center">Em promoção</th>                    
+		    <table class="table table-hover">
+			    <tbody>
+			        <tr>
+	                	<th class="col-lg-2 col-md-1">Cód.</th>            
+	                    <th class="col-lg-4 col-md-4 col-sm-12 col-xs-12">Nome</th>
+	                    <th class="">Comissão(%)</th>
+	                    <th class="">Desconto(%)</th>
+	                    <th class="">Promoção</th>                    
 	                    <th></th>
-	                </tr>
+	                </tr>			        
 	                <tr ng-repeat="grupo in grupos track by grupo.id">
-	                    <td class="text-center"><a ui-sref="grupo.detail({id:grupo.id})">{{grupo.id}}</a></td>
-	                    <td class="col-sm-5 text-uppercase">{{grupo.nome}}</td>
-	                    <td class="text-center">{{grupo.valorComissao}}</td>
-	                    <td class="text-center text-uppercase">{{grupo.comDesconto ? 'Sim': 'Não'}}</td>
-	                    <td class="text-center text-uppercase">{{grupo.emPromo ? 'Sim': 'Não'}}</td>	                                            
+	                    <td class=""><a ui-sref="grupo.detail({id:grupo.id})">{{grupo.id}}</a></td>
+	                    <td class="text-uppercase">{{grupo.nmGrupo}}</td>
+	                    <td>{{grupo.vlComissao | currency:'':2}}</td>
+	                    <td>{{grupo.vlDesconto | currency:'':2}}</td>
+	                    <td>{{grupo.flPromo ? 'Sim': 'Não'}}</td>	                                            
 	                    <td class="text-center">
 	                        <button type="submit"
 	                                ui-sref="grupo.detail({id:grupo.id})"
@@ -52,14 +52,15 @@
 	                                ui-sref="grupo.delete({id:grupo.id})"
 	                                class="btn btn-outlined btn-danger">
 	                            <span class="mdi mdi-delete mdi-18"></span>
-	                        </button>			                        
+	                        </button>
 	                    </td>
-	                </tr>
-	            </tbody>
-	        </table>			        
-	    </div>
-	</div><!-- /.box-body -->
-	<div class="box-footer clearfix">
+	                </tr>	
+	            </tbody>		        
+			</table>			        
+		</div>
+	 </div><!-- /.box-body -->	
+		
+		<div class="box-footer clearfix">
         <ul class="pagination no-margin pull-right">
             <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
             <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
@@ -71,5 +72,5 @@
             <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
             <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
         </ul>
-	</div><!-- /.box-footer -->	
+    </div><!-- /.box-footer -->
 </div>

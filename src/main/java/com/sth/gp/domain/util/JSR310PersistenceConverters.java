@@ -16,12 +16,12 @@ public final class JSR310PersistenceConverters {
     public static class LocalDateConverter implements AttributeConverter<LocalDate, java.sql.Date> {
 
         @Override
-        public java.sql.Date convertToDatabaseColumn(LocalDate date) {
+        public java.sql.Date convertToDatabaseColumn(LocalDate date) {        	
             return date == null ? null : java.sql.Date.valueOf(date);
         }
 
         @Override
-        public LocalDate convertToEntityAttribute(java.sql.Date date) {
+        public LocalDate convertToEntityAttribute(java.sql.Date date) {        	
             return date == null ? null : date.toLocalDate();
         }
     }
