@@ -12,8 +12,9 @@ angular.module('gpApp')
 	
 	this.getConsultaCepApi = function(cep){		
 		var endereco = $q.defer();  		
-		$http.get('https://viacep.com.br/ws/'+cep+'/json/').success(function(data){  	
-        	if (data){	   
+		$http.get('https://viacep.com.br/ws/'+cep+'/json/').success(function(data){ 
+			data = angular.fromJson(data);
+        	if (!data.erro){	   
 				data.bairro = data.bairro.replace(/[á|ã|â|à]/gi, "a");
 				data.bairro = data.bairro.replace(/[é|ê|è]/gi, "e");
 				data.bairro = data.bairro.replace(/[í|ì|î]/gi, "i");
@@ -37,6 +38,8 @@ angular.module('gpApp')
 							data = angular.fromJson(data);
 							endereco.resolve(data);
 						});
+        	}else{
+        		endereco.resolve(data);
         	};		
     });
 		return endereco.promise;

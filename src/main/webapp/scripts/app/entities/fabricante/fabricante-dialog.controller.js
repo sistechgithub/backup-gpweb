@@ -52,7 +52,7 @@ angular.module('gpApp').controller(
 					$scope.findcep = function(valid, cepDom) {
 					if (valid){	
 						$scope.cep = cepDom;
-						if ($scope.cep.length > 6) {
+						if ($scope.cep.length > 7) {
 							ConsultaCep.clear;
 							ConsultaCep.getLogradouroByCep($scope.cep).then(
 									function(data){
@@ -62,9 +62,15 @@ angular.module('gpApp').controller(
 									function(data){
 										if (data.status == 404){
 											ConsultaCep.getConsultaCepApi($scope.cep).then(function(data){
-												data = angular.fromJson(data);
-												console.log(data);
+											  if (!data.erro){
+												  console.log('Aqui1');
+												$scope.editForm.cep.$invalid = false;  
+												data = angular.fromJson(data);												
 												$scope.fabricante.logradouro = data;
+											  }else{
+												  console.log('Aqui2');												  
+												$scope.editForm.cep.$invalid = true;
+											  }	
 											});
 										}
 									}
