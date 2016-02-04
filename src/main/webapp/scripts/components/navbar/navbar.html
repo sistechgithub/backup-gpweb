@@ -1,9 +1,11 @@
+<!--
 <li ui-sref-active="active" ><a ui-sref="pessoa_fisica" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
                         &#xA0;<span >pessoa_fisica</span></a></li>
 <li ui-sref-active="active" ><a ui-sref="pessoa_juridica" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
                         &#xA0;<span >pessoa_juridica</span></a></li>
 <li ui-sref-active="active" ><a ui-sref="pessoa" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
                         &#xA0;<span >pessoa</span></a></li>
+-->
 <!-- Menu Topo -->
 <header class="main-header">
 <!-- Logo -->
@@ -117,7 +119,7 @@
 		<ul class="sidebar-menu" ng-switch="isAuthenticated()">
 
 			<li ui-sref-active="active">
-				<a ui-sref="home">
+				<a ui-sref="home" data-toggle="offcanvas">
 					<i class="mdi mdi-home mdi-icon"></i>
 					<span class="mdi-icon-text"> INÍCIO</span>
 				</a>
@@ -128,10 +130,10 @@
 	          		<i class="mdi mdi-file-document-box mdi-icon"></i>                        
 					<span class="mdi-icon-text"> CADASTROS</span>
 					<i class="mdi mdi-chevron-down pull-right"></i>
-	          	</a>
+	          	</a>	          	
 	          	<!-- submenu -->
 	          	<div class="collapse" id="toggle">
-	            	<ul class="sidebar-menu submenu">
+	            	<ul class="sidebar-menu submenu">	            		
 	              		<li ui-sref-active="active" >
 							<a ui-sref="grupo">
 								<i class="mdi mdi-package mdi-icon"></i>

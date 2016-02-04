@@ -236,23 +236,15 @@ ul#strengthBar {
  }
 
 /* ==========================================================================
-Botões
-========================================================================== */
-
-.btn{
-    padding: 2px 10px;
-}
-
-/* ==========================================================================
 Botões outlined
 ========================================================================== */
 
 .btn-outlined {
-  padding: 6px 8px 3px;
+  padding: 5px 7px 5px;
   border-radius: 2px;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
 }
 .btn-outlined.btn-primary {
   color: #FFF;
@@ -315,64 +307,103 @@ Botões outlined
 Icones Material Design
 ========================================================================== */
 /* Configuração padrão dos icones */
-.mdi{
-  vertical-align: middle;
+.mdi::before {
+    font-size: 20px;
+    line-height: 14px;
 }
-.mdi-icon {  
-  font-size: 20px;
-  line-height: 1.42857143;
-  margin: 0;
+.btn .mdi::before {
+    position: relative;
+    top: 3px;
 }
-@media (max-width: 767px){
-  .mdi-icon {
-     margin-left: 0px; 
-  }
+.btn-xs .mdi::before {
+    font-size: 18px;
+    top: 3px;
 }
-.mdi-icon-text {
-  font-size: 14px;
+.btn-sm .mdi::before {
+    font-size: 18px;
+    top: 3px;
 }
-
-/* Aumenta ou diminui o tamanho dos icones */
-.mdi-18 {
-  font-size: 18px; 
+.dropdown-menu .mdi {
+    width: 18px;
 }
-.mdi-20 {
-  font-size: 20px; 
+.dropdown-menu .mdi::before {
+    position: relative;
+    top: 4px;
+    left: 0px;
 }
-.mdi-22 {
-  font-size: 22px; 
+.sidebar-menu .mdi {
+    width: 18px;
 }
-.mdi-24 {
-  font-size: 24px; 
+.sidebar-menu .mdi::before {
+    position: relative;
+    top: 2px;
+    left: -3px;
 }
-.mdi-26 {
-  font-size: 26px; 
+.nav .mdi::before {
+    position: relative;
+    top: 2px;
 }
-.mdi-28 {
-  font-size: 28px; 
+.navbar .navbar-toggle .mdi::before {
+    position: relative;
+    top: 2px;
+    color: #FFF;
 }
-.mdi-30 {
-  font-size: 30px; 
+.breadcrumb .mdi::before {
+    position: relative;
+    top: 4px;
 }
-.mdi-32 {
-  font-size: 32px; 
+.breadcrumb a:hover {
+    text-decoration: none;
 }
-.mdi-34 {
-  font-size: 34px; 
+.breadcrumb a:hover span {
+    text-decoration: underline;
+}
+.alert .mdi::before {
+    position: relative;
+    top: 4px;
+    margin-right: 2px;
+}
+.input-group-addon .mdi::before {
+    position: relative;
+    top: 3px;
+}
+.navbar-brand .mdi::before {
+    position: relative;
+    top: 2px;
+    margin-right: 2px;
+}
+.list-group-item .mdi::before {
+    position: relative;
+    top: 3px;
+    left: -3px;
+}
+.modal-header .mdi::before{
+  font-size: 24px;
+  position: relative;
+  top: 6px;
+  left: -3px;  
 }
 
 /* ==========================================================================
 Correções no Menu do Topo
 ========================================================================== */
-.btn-menu-topo{
-	color: #fff;
-	background: #0d47a1 !important;
-	margin-left: 0px;
-  vertical-align: middle;	
+.navbar-nav > li > a {
+  line-height: 30px;
 }
-.btn-menu-topo:hover{
-	color: #fff;
-	background: #0C4091 !important; 
+@media (max-width: 767px) {
+  .navbar-custom-menu .navbar-nav > li > a {
+    line-height: 30px;
+  }
+}
+
+.navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header {
+    padding: 10px 20px;
+  }
+
+@media (max-width: 767px){
+.navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header {
+    padding: 10px 20px;
+  }
 }
 /* ==========================================================================
 Correções no Menu Lateral
@@ -380,20 +411,19 @@ Correções no Menu Lateral
 .sidebar-left-shadow {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
-.skin-blue-light .submenu {
-  margin-left: 20px;
+.submenu {
+  margin-left: 24px;
   border-left: 1px dotted #333;
 }
 @media (min-width: 768px) {
   .sidebar-mini.sidebar-collapse .sidebar-menu > li > a > i {
-    margin-left: -5px;
+    margin-left: 0px;
   }
   .sidebar-mini.sidebar-collapse .sidebar-menu .submenu {
     margin-left: 0px;
     border-left: 0px dotted #333;
   }
 }
-
 
 /*
  * Configurações da Página
@@ -418,11 +448,11 @@ Menu da Dashboard
     -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     margin-bottom: 6px;    
-    -webkit-transition: all 300ms ease-in-out;
-  -moz-transition: all 300ms ease-in-out;
-  -o-transition: all 300ms ease-in-out;
-  -ms-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  -ms-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 .ca-menu li:last-child{
     margin-bottom: 0px;    
@@ -435,19 +465,21 @@ Menu da Dashboard
     color: #333;
     position: relative;    
 }
-.ca-icon{    
-    font-size: 75px;
-    color: #fff;    
-    line-height: 125px;
-    position: absolute;
-    width: 90px;
-    left: 0px;
-    text-align: center;
-  -webkit-transition: all 300ms linear;
-  -moz-transition: all 300ms linear;
-  -o-transition: all 300ms linear;
-  -ms-transition: all 300ms linear;
-  transition: all 300ms linear; 
+.ca-icon{ 
+  color: #fff;  
+}
+.ca-menu .mdi::before{
+  font-size: 75px;
+  line-height: 100px;
+  position: absolute;
+  width: 90px;
+  left: 0px;
+  text-align: center;
+  -webkit-transition: all 200ms linear;
+  -moz-transition: all 200ms linear;
+  -o-transition: all 200ms linear;
+  -ms-transition: all 200ms linear;
+  transition: all 200ms linear; 
 }
 .ca-content{
     position: absolute;
@@ -458,11 +490,11 @@ Menu da Dashboard
 .ca-main{
     font-size: 30px;
     color: #fff;
-    -webkit-transition: all 300ms linear;
-  -moz-transition: all 300ms linear;
-  -o-transition: all 300ms linear;
-  -ms-transition: all 300ms linear;
-  transition: all 300ms linear; 
+    -webkit-transition: all 200ms linear;
+  -moz-transition: all 200ms linear;
+  -o-transition: all 200ms linear;
+  -ms-transition: all 200ms linear;
+  transition: all 200ms linear; 
 }
 .ca-sub{
     font-size: 14px;
@@ -473,7 +505,7 @@ Menu da Dashboard
 .ca-menu li:hover{
     background-color: #212121;
 }
-.ca-menu li:hover .ca-icon{    
+.ca-menu li:hover .ca-icon .mdi::before{    
     font-size: 130px;
     opacity: 0.2;
     left: -20px;
@@ -576,14 +608,14 @@ Correções no Modal
   background-color: #0d47a1;
   border-bottom-color: #f4f4f4;
   color: #fff;
-  padding: 8px 18px 8px 18px;
+  padding: 7px 14px 7px 14px;
 }
 
 .modal-title{
-  font-size: 18px;
+  font-size: 17px;
   display: inline-block;
   vertical-align: middle;
-  margin: 0 6px;
+  margin: 3px 0px 0px 0px;
 }
 
 /* Icone fechar */
