@@ -57,7 +57,8 @@ angular.module('gpApp')
                                 }
                                 break;
 
-                            default:
+                            case 404:
+                            	if (httpResponse.data && httpResponse.data.fieldErrors) {
                             	if (httpResponse.data.message.indexOf('cep') == -1){
                             		if (httpResponse.data && httpResponse.data.message) {
                             			addErrorAlert(httpResponse.data.message);
@@ -65,6 +66,15 @@ angular.module('gpApp')
                             			addErrorAlert(JSON.stringify(httpResponse));
                             		}
                             	}
+                            	}
+                            	default : 
+                            		if (httpResponse.data && httpResponse.data.fieldErrors) {
+                                    		if (httpResponse.data && httpResponse.data.message) {
+                                    			addErrorAlert(httpResponse.data.message);
+                                    		} else {
+                                    			addErrorAlert(JSON.stringify(httpResponse));
+                                    		}
+                                    }
                         }
                     });
 
