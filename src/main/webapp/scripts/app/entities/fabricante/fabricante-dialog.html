@@ -83,7 +83,7 @@
 							class="form-control" 
 							name="cep"
 							id="field_cep" 
-							ng-change="findcep(fabricante.logradouro.cep)"				 
+							ng-change="findcep(editForm.cep.$valid, fabricante.logradouro.cep)"				 
 							ng-model="fabricante.logradouro.cep" 
 							ui-br-cep-mask 
 							placeholder="00000-000"
