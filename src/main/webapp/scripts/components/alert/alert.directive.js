@@ -67,6 +67,14 @@ angular.module('gpApp')
                             		}
                             	}
                             	}
+                            	default : 
+                            		if (httpResponse.data && httpResponse.data.fieldErrors) {
+                                    		if (httpResponse.data && httpResponse.data.message) {
+                                    			addErrorAlert(httpResponse.data.message);
+                                    		} else {
+                                    			addErrorAlert(JSON.stringify(httpResponse));
+                                    		}
+                                    }
                         }
                     });
 
