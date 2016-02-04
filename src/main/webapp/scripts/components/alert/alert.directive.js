@@ -58,24 +58,25 @@ angular.module('gpApp')
                                 break;
 
                             case 404:
-                            	if (httpResponse.data && httpResponse.data.fieldErrors) {
+                            	console.log('Entrei');
+                            	if (httpResponse.data && httpResponse.data.fieldErrors) {                            		
                             	if (httpResponse.data.message.indexOf('cep') == -1){
-                            		if (httpResponse.data && httpResponse.data.message) {
+                            		if (httpResponse.data.message) {
                             			addErrorAlert(httpResponse.data.message);
                             		} else {
                             			addErrorAlert(JSON.stringify(httpResponse));
                             		}
                             	}
-                            	}
-                            	default : 
-                            		if (httpResponse.data && httpResponse.data.fieldErrors) {
-                                    		if (httpResponse.data && httpResponse.data.message) {
-                                    			addErrorAlert(httpResponse.data.message);
-                                    		} else {
-                                    			addErrorAlert(JSON.stringify(httpResponse));
-                                    		}
-                                    }
-                        }
+                            }
+                            	break;
+                            default :
+                            	
+                            	if (httpResponse.data && httpResponse.data.message) {
+                                    addErrorAlert(httpResponse.data.message);
+                                } else {
+                                    addErrorAlert(JSON.stringify(httpResponse));
+                                }
+                        	}
                     });
 
                     $scope.$on('$destroy', function () {
