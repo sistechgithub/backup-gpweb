@@ -12,7 +12,7 @@ angular.module('gpApp').controller(
 				function($scope, $stateParams, $modalInstance, entity,
 						Fabricante, ConsultaCep) {
 					
-					var cep = '';
+					$scope.cep = '';
 					$scope.fabricante = entity;
 					$scope.load = function(id) {
 						Fabricante.get({
@@ -48,19 +48,22 @@ angular.module('gpApp').controller(
 					 * o sistema irá procura-lo na internet numa consulta de CEP gratuita,
 					 * caso não o encontre, o sistema irá permitir que o cliente entre com
 					 * o endereço manualmente*/
-					$scope.findcep = function(cepDom) {
-						var cep = cepDom;
-						var data = '';
-						if (cep.length > 6) {
-							ConsultaCep.getLogradouroByCep(cep).then(
+
+					$scope.findcep = function(valid, cepDom) {
+					if (valid){	
+						$scope.cep = cepDom;
+						if ($scope.cep.length > 6) {
+							ConsultaCep.clear;
+							ConsultaCep.getLogradouroByCep($scope.cep).then(
 									function(data){
 										data = angular.fromJson(data);
 										$scope.fabricante.logradouro = data.data;
 									},
 									function(data){
 										if (data.status == 404){
-											ConsultaCep.getConsultaCepApi(cep).then(function(data){
+											ConsultaCep.getConsultaCepApi($scope.cep).then(function(data){
 												data = angular.fromJson(data);
+												console.log(data);
 												$scope.fabricante.logradouro = data;
 											});
 										}
@@ -72,4 +75,5 @@ angular.module('gpApp').controller(
 					$scope.clear = function() {
 						$modalInstance.dismiss('cancel');
 					};
+					}
 				} ]);
