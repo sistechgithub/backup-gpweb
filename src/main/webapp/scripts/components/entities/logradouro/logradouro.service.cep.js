@@ -4,14 +4,15 @@ angular.module('gpApp')
 .service('ConsultaCep',function($http, $q){
 	var getLogradouroByCep = '';
 	var getConsultaCepApi = '';
-	var endereco = $q.defer();
+	var clear = '';
 	
     this.getLogradouroByCep = function(cep){	    
 		return $http.get('api/logradouros/cep/'+cep);
 	};
 	
-	this.getConsultaCepApi = function(cep){			
-		$http.get('https://viacep.com.br/ws/'+cep+'/json/').success(function(data){    		
+	this.getConsultaCepApi = function(cep){		
+		var endereco = $q.defer();  		
+		$http.get('https://viacep.com.br/ws/'+cep+'/json/').success(function(data){  	
         	if (data){	   
 				data.bairro = data.bairro.replace(/[á|ã|â|à]/gi, "a");
 				data.bairro = data.bairro.replace(/[é|ê|è]/gi, "e");
@@ -30,9 +31,7 @@ angular.module('gpApp')
 				data.localidade = data.localidade.replace(/[ç]/gi, "c");
 				data.localidade = data.localidade.replace(/[ñ]/gi, "n");
 				data.localidade = data.localidade.replace(/[á|ã|â]/gi, "a");
-				
-				console.log(data);
-				
+								
 				$http.post('api/logradouros/'+cep+'/'+data.logradouro+'/'+data.bairro+'/'+data.localidade+
 						'/'+data.uf).success(function(data){
 							data = angular.fromJson(data);
@@ -42,6 +41,9 @@ angular.module('gpApp')
     });
 		return endereco.promise;
     };	
-    
+    this.clear = function(){
+    	this.getLogradouroByCep = '';
+    	this.getConsultaCepApi = '';
+    }
 	
 });

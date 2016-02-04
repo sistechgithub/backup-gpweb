@@ -18,6 +18,31 @@
 		<loadData encoding="UTF-8" file="config/liquibase/LOGRADOURO.csv"
 			separator=";" tableName="logradouro" />
 
+		<sql dbms="postgresql"
+            splitStatements="true"
+            stripComments="true">SELECT setval('public.logradouro_id_seq', (select max(id) from logradouro), true);
+        <comment>atualizando sequence do logradouro</comment>
+   		 </sql>
+   		 
+   		 <sql dbms="postgresql"
+            splitStatements="true"
+            stripComments="true">SELECT setval('public.bairro_id_seq', (select max(id) from bairro), true);
+        <comment>atualizando sequence do bairro</comment>
+   		 </sql>
+   		 
+   		 <sql dbms="postgresql"
+            splitStatements="true"
+            stripComments="true">SELECT setval('public.cidade_id_seq', (select max(id) from cidade), true);
+        <comment>atualizando sequence da cidade</comment>
+   		 </sql>
+   		 
+   		 <sql dbms="postgresql"
+            splitStatements="true"
+            stripComments="true">SELECT setval('public.estado_id_seq', (select max(id) from estado), true);
+        <comment>atualizando sequence do estado</comment>
+   		 </sql>
+
+
 
 
 	</changeSet>
