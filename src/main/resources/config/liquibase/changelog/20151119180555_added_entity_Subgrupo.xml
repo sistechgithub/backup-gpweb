@@ -23,7 +23,9 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="nm_sub_grupo" type="varchar(255)"/>
+            <column name="nm_sub_grupo" type="varchar(255)">
+            	<constraints unique="true" nullable="false"/>
+            </column>
             <column name="vl_custo" type="decimal(10,2)"/>
             <column name="vl_valor" type="decimal(10,2)"/>
             <column name="dt_operacao" type="date"/>

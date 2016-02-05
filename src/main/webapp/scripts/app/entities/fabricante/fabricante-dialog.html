@@ -87,8 +87,16 @@
 							ng-model="fabricante.logradouro.cep" 
 							ui-br-cep-mask 
 							placeholder="00000-000"
+							maxlength=9
 					/>
 				</div>
+				<div ng-show="editForm.cep.$invalid">
+						<p  class="help-block"
+							ng-show="editForm.cep.$invalid"
+							translate-value-min="10">
+							CEP inexistente!
+						</p>
+					</div>
 			</div><!-- fim coluna -->			
 			<div class="col-xs-12 col-sm-8">
 				<div class="form-group">
