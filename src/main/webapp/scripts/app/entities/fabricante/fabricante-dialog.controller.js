@@ -61,14 +61,13 @@ angular.module('gpApp').controller(
 									},
 									function(data){
 										if (data.status == 404){
-											ConsultaCep.getConsultaCepApi($scope.cep).then(function(data){
+											ConsultaCep.getConsultaCepApi($scope.cep).then(
+											 function(data){
 											  if (!data.erro){
-												  console.log('Aqui1');
 												$scope.editForm.cep.$invalid = false;  
 												data = angular.fromJson(data);												
 												$scope.fabricante.logradouro = data;
-											  }else{
-												  console.log('Aqui2');												  
+											  }else{											  
 												$scope.editForm.cep.$invalid = true;
 											  }	
 											});
