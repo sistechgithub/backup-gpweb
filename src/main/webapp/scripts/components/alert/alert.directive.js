@@ -58,7 +58,6 @@ angular.module('gpApp')
                                 break;
 
                             case 404:
-                            	console.log('Entrei');
                             	if (httpResponse.data && httpResponse.data.fieldErrors) {                            		
                             	if (httpResponse.data.message.indexOf('cep') == -1){
                             		if (httpResponse.data.message) {
