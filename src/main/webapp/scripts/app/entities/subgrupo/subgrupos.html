@@ -24,23 +24,15 @@
             <table class="table table-hover">                        
                 <tbody>
                     <tr>
-                        <th class="text-center">Cód.</th>
-                        <th class="col-sm-8">Nome</th>
-                        <th class="text-center">Custo(%)</th>
-    <!--                     <th>Vl_valor</th> -->
-    <!--                     <th>Dt_operacao</th> -->
-    <!--                     <th>flEnvio</th> -->
-    <!--                     <th>nnNovo</th> -->
+                        <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Cód.</th>            
+	                    <th class="col-lg-6 col-md-4 col-sm-4 col-xs-4">Nome</th>
+                        <th class="text-center">Custo(%)</th>    
                         <th></th>
                     </tr>
                     <tr ng-repeat="subgrupo in subgrupos track by subgrupo.id">
-                        <td class="text-center"><a ui-sref="subgrupo.detail({id:subgrupo.id})">{{subgrupo.id}}</a></td>
-                        <td class="col-sm-8 text-uppercase">{{subgrupo.nome}}</td>
-                        <td class="text-center">{{subgrupo.custo}}</td>
-    <!--                     <td>{{subgrupo.vl_valor}}</td> -->
-    <!--                         <td>{{subgrupo.dt_operacao | date:'mediumDate'}}</td> -->
-    <!--                     <td>{{subgrupo.flEnvio}}</td> -->
-    <!--                     <td>{{subgrupo.nnNovo}}</td> -->
+                        <td><a ui-sref="subgrupo.detail({id:subgrupo.id})">{{subgrupo.id}}</a></td>
+                        <td class="text-uppercase">{{subgrupo.nmSubGrupo}}</td>
+                        <td class="text-center">{{subgrupo.vlCusto | currency:'':2}}</td>    
                         <td class="text-center">
                             <button type="submit"
                                     ui-sref="subgrupo.detail({id:subgrupo.id})"
