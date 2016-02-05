@@ -66,10 +66,6 @@ public class PessoaFisica implements Serializable {
     @JoinColumn(name = "id_pessoa") 
     private Pessoa pessoa;
 
-    @ManyToOne
-    @JoinColumn(name = "id_logradouro")
-    private Logradouro logradouro;
-
     public Long getId() {
         return id;
     }
@@ -190,14 +186,6 @@ public class PessoaFisica implements Serializable {
 		this.pessoa = pessoa;
 	}
 
-	public Logradouro getLogradouro() {
-		return logradouro;
-	}
-
-	public void setLogradouro(Logradouro logradouro) {
-		this.logradouro = logradouro;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -210,7 +198,6 @@ public class PessoaFisica implements Serializable {
 		result = prime * result + ((estadoCivil == null) ? 0 : estadoCivil.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((localTrabalho == null) ? 0 : localTrabalho.hashCode());
-		result = prime * result + ((logradouro == null) ? 0 : logradouro.hashCode());
 		result = prime * result + ((mae == null) ? 0 : mae.hashCode());
 		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
 		result = prime * result + ((obs == null) ? 0 : obs.hashCode());
@@ -270,11 +257,6 @@ public class PessoaFisica implements Serializable {
 				return false;
 		} else if (!localTrabalho.equals(other.localTrabalho))
 			return false;
-		if (logradouro == null) {
-			if (other.logradouro != null)
-				return false;
-		} else if (!logradouro.equals(other.logradouro))
-			return false;
 		if (mae == null) {
 			if (other.mae != null)
 				return false;
@@ -319,7 +301,7 @@ public class PessoaFisica implements Serializable {
 				+ ", pai=" + pai + ", mae=" + mae + ", estadoCivil=" + estadoCivil + ", conjuge=" + conjuge
 				+ ", profissao=" + profissao + ", localTrabalho=" + localTrabalho + ", complemento=" + complemento
 				+ ", numero=" + numero + ", apelido=" + apelido + ", obs=" + obs + ", pessoa=" + pessoa
-				+ ", logradouro=" + logradouro + "]";
+				+"]";
 	}
     
     
