@@ -1,120 +1,35 @@
 <form name="editForm" role="form" novalidate ng-submit="save()">
     <!-- cabeçalho -->
     <div class="modal-header">
-        <button type="button" 
-                class="close" 
-                aria-hidden="true"
-                data-dismiss="modal"                
-                ng-click="clear()">
-                &times;
-        </button>
+        <button type="button" class="close" aria-hidden="true" data-dismiss="modal" ng-click="clear()">&times;</button>
         
         <i class="mdi mdi-package mdi-22"></i>
-        <h3 class="modal-title" 
-            id="mySubgrupoLabel">
-            Criar ou editar um Subgrupo
-        </h3>
-    </div><!-- fim cabeçalho -->
+        <h3 class="modal-title" id="mySubgrupoLabel">Criar ou editar um Subgrupo</h3>
+    </div>
+    <!-- fim cabeçalho -->
     
     <!-- conteúdo -->
     <div class="modal-body">
         <!-- mensagem de retorno do jhipster -->
-        <jh-alert-error></jh-alert-error>
-        <!--
-        <div class="form-group">
-            <label for="id">
-                    ID
-            </label>
-            <input  type="text" 
-                    class="form-control" 
-                    id="id" 
-                    name="id"
-                    ng-model="subgrupo.id" 
-                    readonly 
-            />
-        </div>
-        -->
+        <jh-alert-error></jh-alert-error>        
 
         <div class="row">
             <div class="col-xs-12 col-sm-10">
                 <div class="form-group">
-                    <label  for="field_nome">
-                            Nome
-                    </label>
-                    <input  type="text" 
-                            class="form-control text-uppercase"
-                            id="field_nome" 
-                            name="nome"                              
-                            ng-model="subgrupo.nome"
-                            autofocus
-                    />
+                    <label  for="field_nome">Nome</label>
+                    <input  type="text" class="form-control text-uppercase" id="field_nome" name="nome"                              
+                            ng-model="subgrupo.nmSubGrupo" autofocus ng-required="true" maxlength="35"/>
                 </div>
             </div><!-- fim coluna -->
             
             <div class="col-xs-12 col-sm-2">
                 <div class="form-group">
-                    <label  for="field_custo">
-                            Custo(%)
-                    </label>
-                    <input  type="number" 
-                            class="form-control"                             
-                            id="field_custo"
-                            name="custo"
-                            ng-model="subgrupo.custo"                            
-                            ng-init="subgrupo.custo = 0"
-                            min="0" max="100"
-                    />
+                    <label  for="field_custo">Custo(%)</label>
+                    <input  type="number" class="form-control" id="field_custo" name="custo"
+                            ng-model="subgrupo.vlCusto" min="0" max="100" placeholder="0,00"/>
                 </div>
             </div><!-- fim coluna -->
         </div><!-- fim row -->
-        
-        <!--
-        <div class="form-group">
-            <label for="field_vl_valor">
-                    Vl_valor
-            </label>
-            <input  type="number" 
-                    class="form-control" 
-                    id="field_vl_valor" 
-                    name="vl_valor"
-                    ng-model="subgrupo.vl_valor"
-            />
-        </div>
-        <div class="form-group">
-            <label for="field_dt_operacao">
-                    Dt_operacao
-            </label>
-            <input  type="date" 
-                    class="form-control"                         
-                    id="field_dt_operacao"
-                    name="dt_operacao"
-                    ng-model="subgrupo.dt_operacao"
-            />
-        </div> 
-
-        <div class="form-group">
-            <label for="field_flEnvio">
-                    flEnvio
-            </label>
-            <input  type="checkbox" 
-                    class="form-control" 
-                    id="field_flEnvio" 
-                    name="flEnvio"
-                    ng-model="subgrupo.flEnvio"
-            />
-        </div>
-        <div class="form-group">
-            <label for="field_nnNovo">
-                    nnNovo
-            </label>
-            <input  type="number" 
-                    class="form-control" 
-                    id="field_nnNovo" 
-                    name="nnNovo"
-                    ng-model="subgrupo.nnNovo"
-            />
-        </div> 
-        -->
     </div><!-- fim conteúdo -->
 
     <!-- rodapé --> 
