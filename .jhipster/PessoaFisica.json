@@ -1,0 +1,24 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "pessoa",
+            "otherEntityName": "pessoa",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "nome",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "pessoaFisica"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "cpf",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160207172805",
+    "dto": "no",
+    "pagination": "pagination"
+}

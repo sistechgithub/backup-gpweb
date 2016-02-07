@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span>PessoaFisica</span> {{pessoaFisica.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Cpf</span>
+                </td>
+                <td>
+                    <input type="text" class="input-sm form-control" value="{{pessoaFisica.cpf}}" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>pessoa</span>
+                </td>
+                <td>
+                    <input type="text" class="input-sm form-control" value="{{pessoaFisica.pessoa.nome}}" readonly>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="pessoaFisica"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>
