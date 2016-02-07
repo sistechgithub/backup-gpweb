@@ -1,5 +1,6 @@
 package com.sth.gp.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import java.util.Objects;
  * A PessoaFisica.
  */
 @Entity
-@Table(name = "PESSOAFISICA")
+@Table(name = "pessoafisica")
 @Document(indexName="pessoafisica")
 public class PessoaFisica implements Serializable {
 
@@ -21,12 +22,12 @@ public class PessoaFisica implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
-    
     @Column(name = "cpf")
     private String cpf;
 
+    @JsonBackReference
     @OneToOne
+    @JoinColumn(name="id_pessoa")
     private Pessoa pessoa;
 
     public Long getId() {

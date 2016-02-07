@@ -23,12 +23,12 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="cpf" type="varchar(255)"/>
-            <column name="pessoa_id" type="bigint">
+            <column name="id_pessoa" type="bigint">
                 <constraints unique="true"/>
             </column>
         </createTable>
 
-        <addForeignKeyConstraint baseColumnNames="pessoa_id"
+        <addForeignKeyConstraint baseColumnNames="id_pessoa"
                                  baseTableName="pessoafisica"
                                  constraintName="fk_pessoafisica_pessoa_id"
                                  referencedColumnNames="id"
