@@ -11,21 +11,10 @@ import java.util.Objects;
  * A Cliente.
  */
 @Entity
-@Table(name = "CLIENTE")
+@Table(name = "cliente")
+@PrimaryKeyJoinColumn(name="id_pessoa")
 @Document(indexName="cliente")
-public class Cliente implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+public class Cliente extends Pessoa implements Serializable {
 
     @Override
     public boolean equals(Object o) {

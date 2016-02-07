@@ -51,12 +51,14 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Nome</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="cliente in clientes">
                     <td><a ui-sref="cliente.detail({id:cliente.id})">{{cliente.id}}</a></td>
+                    <td>{{cliente.nome}}</td>
                     <td>
                         <button type="submit"
                                 ui-sref="cliente.detail({id:cliente.id})"

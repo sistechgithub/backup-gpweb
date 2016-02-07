@@ -11,18 +11,17 @@ import java.util.Objects;
  * A Pessoa.
  */
 @Entity
-@Table(name = "PESSOA")
+@Table(name = "pessoa")
 @Document(indexName="pessoa")
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Pessoa implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    protected Long id;
 
-
-    
     @Column(name = "nome")
-    private String nome;
+    protected String nome;
 
     public Long getId() {
         return id;

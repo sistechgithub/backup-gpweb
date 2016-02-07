@@ -18,7 +18,7 @@
         Added the entity PessoaFisica.
     -->
     <changeSet id="20160207172805" author="jhipster">
-        <createTable tableName="PESSOAFISICA">
+        <createTable tableName="pessoafisica">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}" >
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -27,12 +27,12 @@
                 <constraints unique="true"/>
             </column>
         </createTable>
-        
+
         <addForeignKeyConstraint baseColumnNames="pessoa_id"
-                                 baseTableName="PESSOAFISICA"
+                                 baseTableName="pessoafisica"
                                  constraintName="fk_pessoafisica_pessoa_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="PESSOA"/>
+                                 referencedTableName="pessoa"/>
 
     </changeSet>
 </databaseChangeLog>
