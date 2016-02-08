@@ -11,18 +11,18 @@ import java.util.Objects;
 
 
 /**
- * A PessoaFisica.
+ * Pessoa Física.
  */
 @Entity
-@Table(name = "pessoafisica")
-@Document(indexName="pessoafisica")
+@Table(name = "pessoa_fisica")
+@Document(indexName="pessoa_fisica")
 public class PessoaFisica implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "cpf")
+    @Column(name = "cd_cpf")
     private String cpf;
 
     @JsonBackReference

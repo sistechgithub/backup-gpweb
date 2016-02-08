@@ -8,7 +8,7 @@ import java.util.Objects;
 
 
 /**
- * A Cliente.
+ * Cliente.
  */
 @Entity
 @Table(name = "cliente")

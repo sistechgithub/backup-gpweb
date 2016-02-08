@@ -9,7 +9,7 @@ import java.util.Objects;
 
 
 /**
- * A Pessoa.
+ * Pessoa.
  */
 @Entity
 @Table(name = "pessoa")
