@@ -21,7 +21,7 @@ public class Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
 
-    @Column(name = "nome")
+    @Column(name = "nm_pessoa")
     protected String nome;
 
     @JsonManagedReference
