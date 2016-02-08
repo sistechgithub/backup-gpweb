@@ -90,6 +90,10 @@ public class Pessoa implements Serializable {
     @OneToOne(mappedBy = "pessoa", cascade=CascadeType.ALL)
     protected PessoaFisica pessoaFisica;
 
+    @JsonManagedReference
+    @OneToOne(mappedBy = "pessoa", cascade=CascadeType.ALL)
+    protected PessoaJuridica pessoaJuridica;
+
     public Long getId() {
         return id;
     }
@@ -223,8 +227,21 @@ public class Pessoa implements Serializable {
     }
 
     public void setPessoaFisica(PessoaFisica pessoaFisica) {
-        this.pessoaFisica = pessoaFisica;
-        this.pessoaFisica.setPessoa(this);
+        if(pessoaFisica.getCpf()!=null) {
+            this.pessoaFisica = pessoaFisica;
+            this.pessoaFisica.setPessoa(this);
+        }
+    }
+
+    public PessoaJuridica getPessoaJuridica() {
+        return pessoaJuridica;
+    }
+
+    public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
+        if(pessoaJuridica.getCnpj()!=null){
+            this.pessoaJuridica = pessoaJuridica;
+            this.pessoaJuridica.setPessoa(this);
+        }
     }
 
     @Override

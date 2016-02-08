@@ -51,7 +51,18 @@ angular.module('gpApp')
                         size: 'lg',
                         resolve: {
                             entity: function () {
-                                return {tipoPessoa: 'F', nome: null, dataCadastro: new Date(), id: null, pessoaFisica: {cpf: null}};
+                                return {
+                                    tipoPessoa: 'F',
+                                    nome: null,
+                                    dataCadastro: new Date(),
+                                    id: null,
+                                    pessoaFisica: {
+                                        cpf: null
+                                    },
+                                    pessoaJuridica: {
+                                        cnpj: null
+                                    }
+                                };
                             }
                         }
                     }).result.then(function(result) {
