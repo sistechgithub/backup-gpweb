@@ -12,18 +12,160 @@
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="cliente.id" readonly>
         </div>
-        <div class="form-group">
-            <label for="field_nome">Nome</label>
-            <input type="text" class="form-control" name="nome" id="field_nome"
-                   ng-model="cliente.nome"
-                >
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a showtab="" href="#tabGeral">Geral</a></li>
+            <li ng-show="cliente.tipoPessoa=='F'" ><a showtab=""  href="#tabPessoaFisica">Pessoa Física</a></li>
+            <li ng-show="cliente.tipoPessoa=='J'" ><a showtab="" href="#tabPessoaJuridica">Pessoa Jurídica</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tabGeral">
+                <br>
+                <div class="form-group">
+                    <label class="control-label" >Tipo Pessoa</label>
+
+                    <label>
+                        <input type="radio" ng-model="cliente.tipoPessoa" value="F">
+                        Fisica
+                    </label>
+                    <label>
+                        <input type="radio" ng-model="cliente.tipoPessoa" value="J">
+                        Juridica
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                           ng-model="cliente.nome"
+                           required />
+                    <div ng-show="editForm.nome.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.nome.$error.required">
+                            This field is required.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_telefone">Telefone</label>
+                    <input type="text" class="form-control" name="telefone" id="field_telefone"
+                           ng-model="cliente.telefone"
+                           ng-maxlength="13" />
+                    <div ng-show="editForm.telefone.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.telefone.$error.maxlength" translate-value-max="13">
+                            This field cannot be longer than 13 characters.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_celular">Celular</label>
+                    <input type="text" class="form-control" name="celular" id="field_celular"
+                           ng-model="cliente.celular"
+                           ng-maxlength="13" />
+                    <div ng-show="editForm.celular.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.celular.$error.maxlength" translate-value-max="13">
+                            This field cannot be longer than 13 characters.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_fax">Fax</label>
+                    <input type="text" class="form-control" name="fax" id="field_fax"
+                           ng-model="cliente.fax"
+                           ng-maxlength="13" />
+                    <div ng-show="editForm.fax.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.fax.$error.maxlength" translate-value-max="13">
+                            This field cannot be longer than 13 characters.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_numero">Número</label>
+                    <input type="text" class="form-control" name="numero" id="field_numero"
+                           ng-model="cliente.numero"
+                        />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_complemento">Complemento</label>
+                    <input type="text" class="form-control" name="complemento" id="field_complemento"
+                           ng-model="cliente.complemento"
+                        />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" >Situação</label>
+
+                    <label>
+                        <input type="radio" ng-model="cliente.situacao" value="A">
+                        A
+                    </label>
+                    <label>
+                        <input type="radio" ng-model="cliente.situacao" value="B">
+                        B
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           ng-model="cliente.email"
+                        />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_obs">Obs.</label>
+                    <input type="text" class="form-control" name="obs" id="field_obs"
+                           ng-model="cliente.obs"
+                        />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_historico">Histórico</label>
+                    <br/>
+            <textarea rows="4" cols="50" name="historico" id="field_historico"
+                      ng-model="cliente.historico">
+            </textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_vendedor">Vendedor</label>
+                    <input type="checkbox"  name="vendedor" id="field_vendedor"
+                           ng-model="cliente.vendedor"
+                        />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_inativo">Inativo</label>
+                    <input type="checkbox" name="inativo" id="field_inativo"
+                           ng-model="cliente.inativo"
+                        />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_usuario">Usuário</label>
+                    <input  type="checkbox"
+                            name="usuario" id="field_usuario"
+                            ng-model="cliente.usuario"
+                        />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_data_cadastro">Data de Cadastro</label>
+                    <span id="field_data_cadastro">{{cliente.dataCadastro | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+                </div>
+            </div>
+            <div class="tab-pane" id="tabPessoaFisica">
+                <br>
+                <div class="form-group">
+                    <label for="field_cpf">CPF</label>
+                    <input type="text" class="form-control" name="cpf" id="field_cpf"
+                           ng-model="cliente.pessoaFisica.cpf"
+                        >
+                </div>
+            </div>
+            <div class="tab-pane" id="tabPessoaJuridica">
+                <br>
+                juridica
+            </div>
         </div>
-        <div class="form-group">
-            <label for="field_cpf">CPF</label>
-            <input type="text" class="form-control" name="cpf" id="field_cpf"
-                   ng-model="cliente.pessoaFisica.cpf"
-                >
-        </div>
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
