@@ -1,0 +1,56 @@
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myProdutoLabel">Create or edit a Produto</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="produto.id" readonly />
+        </div>
+        <div class="form-group">
+            <label for="field_nmProduto">NmProduto</label>
+            <input type="text" class="form-control" name="nmProduto" id="field_nmProduto"
+                    ng-model="produto.nmProduto"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_vlCusto">VlCusto</label>
+            <input type="number" class="form-control" name="vlCusto" id="field_vlCusto"
+                    ng-model="produto.vlCusto"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_qtSaldo">QtSaldo</label>
+            <input type="number" class="form-control" name="qtSaldo" id="field_qtSaldo"
+                    ng-model="produto.qtSaldo"
+                     />
+        </div>
+        <div class="form-group">
+            <label for="field_vlVenda">VlVenda</label>
+            <input type="number" class="form-control" name="vlVenda" id="field_vlVenda"
+                    ng-model="produto.vlVenda"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_grupo">grupo</label>
+            <select class="form-control" id="field_grupo" name="grupo" ng-model="produto.grupo" 
+            	ng-options="grupo as grupo.id for grupo in grupos track by grupo.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salvar</span>
+        </button>
+    </div>
+</form>
