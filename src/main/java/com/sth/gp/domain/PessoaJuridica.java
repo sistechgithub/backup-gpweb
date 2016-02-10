@@ -1,20 +1,20 @@
 package com.sth.gp.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
+
 /**
- * A Pessoa_juridica.
+ * Pessoa Jurídica.
  */
 @Entity
 @Table(name = "pessoa_juridica")
-@Document(indexName = "pessoa_juridica")
+@Document(indexName="pessoa_juridica")
 public class PessoaJuridica implements Serializable {
 
     @Id
@@ -22,7 +22,7 @@ public class PessoaJuridica implements Serializable {
     private Long id;
 
     @Size(max = 18)
-    @Column(name = "cgc", length = 18)
+    @Column(name = "cd_cgc", length = 18)
     private String cgc;
 
     @Size(max = 18)
@@ -39,11 +39,9 @@ public class PessoaJuridica implements Serializable {
     @Column(name = "ds_responsavel")
     private String responsavel;
 
-    @Column(name = "ds_obs")
-    private String obs;
-
+    @JsonBackReference
     @OneToOne
-    @JoinColumn(name="id_pessoa")    
+    @JoinColumn(name="id_pessoa")
     private Pessoa pessoa;
 
     public Long getId() {
@@ -52,6 +50,22 @@ public class PessoaJuridica implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
     public String getCgc() {
@@ -66,48 +80,24 @@ public class PessoaJuridica implements Serializable {
         return cgf;
     }
 
-    public void setCgf(String cd_cgf) {
-        this.cgf = cd_cgf;
+    public void setCgf(String cgf) {
+        this.cgf = cgf;
     }
 
     public String getFantasia() {
         return fantasia;
     }
 
-    public void setFantasia(String nm_fantasia) {
-        this.fantasia = nm_fantasia;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cd_cnpj) {
-        this.cnpj = cd_cnpj;
+    public void setFantasia(String fantasia) {
+        this.fantasia = fantasia;
     }
 
     public String getResponsavel() {
         return responsavel;
     }
 
-    public void setResponsavel(String ds_responsavel) {
-        this.responsavel = ds_responsavel;
-    }
-
-    public String getObs() {
-        return obs;
-    }
-
-    public void setObs(String ds_obs) {
-        this.obs = ds_obs;
-    }
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
     }
 
     @Override
@@ -118,8 +108,12 @@ public class PessoaJuridica implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PessoaJuridica pessoa_juridica = (PessoaJuridica) o;
-        return Objects.equals(id, pessoa_juridica.id);
+
+        PessoaJuridica pessoaFisica = (PessoaJuridica) o;
+
+        if ( ! Objects.equals(id, pessoaFisica.id)) return false;
+
+        return true;
     }
 
     @Override
@@ -129,14 +123,9 @@ public class PessoaJuridica implements Serializable {
 
     @Override
     public String toString() {
-        return "Pessoa_juridica{" +
-            "id=" + id +
-            ", cgc='" + cgc + "'" +
-            ", cd_cgf='" + cgf + "'" +
-            ", nm_fantasia='" + fantasia + "'" +
-            ", cd_cnpj='" + cnpj + "'" +
-            ", ds_responsavel='" + responsavel + "'" +
-            ", ds_obs='" + obs + "'" +
-            '}';
+        return "PessoaJuridica{" +
+                "id=" + id +
+                ", cnpj='" + cnpj + "'" +
+                '}';
     }
 }

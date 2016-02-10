@@ -11,10 +11,11 @@
     <include file="classpath:config/liquibase/changelog/20151214120842_added_entity_Cidade.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20151214120940_added_entity_Bairro.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20151214121052_added_entity_Logradouro.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20151130115748_added_entity_Fabricante.xml" relativeToChangelogFile="false"/>  
-    <include file="classpath:config/liquibase/changelog/20160125172926_added_entity_Pessoa.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160125180547_added_entity_Pessoa_juridica.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160125190125_added_entity_Pessoa_fisica.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20151223111200_insert_data_table.xml" relativeToChangelogFile="false"/>  
+    <include file="classpath:config/liquibase/changelog/20151130115748_added_entity_Fabricante.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160207162348_added_entity_Pessoa.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160207172805_added_entity_PessoaFisica.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160207172806_added_entity_PessoaJuridica.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160207175509_added_entity_Cliente.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20151223111200_insert_data_table.xml" relativeToChangelogFile="false"/>
     <!-- JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
