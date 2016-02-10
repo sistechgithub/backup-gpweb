@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -22,8 +24,45 @@ public class PessoaFisica implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "dt_nascimento")
+    private LocalDate dataNascimento;
+
+    @Column(name = "cd_rg")
+    private String rg;
+
     @Column(name = "cd_cpf")
     private String cpf;
+
+    @Column(name = "nm_pai")
+    private String pai;
+
+    @Column(name = "nm_mae")
+    private String mae;
+
+    @Size(max = 11)
+    @Column(name = "ds_estcivil", length = 11)
+    private String estadoCivil;
+
+    @Column(name = "nm_conjuge")
+    private String conjuge;
+
+    @Column(name = "ds_profissao")
+    private String profissao;
+
+    @Column(name = "ds_localtrab")
+    private String localTrabalho;
+
+    @Column(name = "ds_complemento")
+    private String complemento;
+
+    @Column(name = "nm_numero")
+    private String numero;
+
+    @Column(name = "ds_apelido")
+    private String apelido;
+
+    @Column(name = "ds_obs")
+    private String obs;
 
     @JsonBackReference
     @OneToOne
