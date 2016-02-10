@@ -35,13 +35,12 @@ angular.module('gpApp')
 
         $scope.clear = function () {
             $scope.subgrupo = {
-            		 nome: null,
-                     custo: null,
-                     valor: null,
-                     dataoperacao: null,
-                     enviado: null,
-                     novo: null,
-                     id: null
+            		nmSubGrupo: null,
+                    vlCusto: null,
+                    vlValor: null,
+                    flEnvio: false,
+                    nnNovo: 1,
+                    id: null	
             };
         };
     });

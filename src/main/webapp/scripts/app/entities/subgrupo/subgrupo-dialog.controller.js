@@ -20,9 +20,26 @@ angular.module('gpApp').controller('SubgrupoDialogController',
         var onSaveError = function (result) {
             $scope.isSaving = false;
         };
+        
+        var onBeforeSaveOrUpdate = function(){
+        	
+        	//Setting to uppercase
+        	$scope.subgrupo.nmSubGrupo = angular.uppercase($scope.subgrupo.nmSubGrupo);
+        	
+        	//Setting default currency values
+        	if(($scope.subgrupo.vlCusto == null) || ($scope.subgrupo.vlCusto == undefined)){
+        		$scope.subgrupo.vlCusto = 0.00;
+        	};        	 
+        	if(($scope.subgrupo.vlValor == null) || ($scope.subgrupo.vlValor == undefined)){
+        		$scope.subgrupo.vlValor = 0.00;
+        	};     
+        };   
 
         $scope.save = function () {
             $scope.isSaving = true;
+            
+            onBeforeSaveOrUpdate(); //validations rules
+            
             if ($scope.subgrupo.id != null) {
                 Subgrupo.update($scope.subgrupo, onSaveSuccess, onSaveError);
             } else {
