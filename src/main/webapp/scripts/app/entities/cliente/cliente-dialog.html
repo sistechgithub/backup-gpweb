@@ -229,12 +229,53 @@
             <div class="tab-pane" id="tabPessoaJuridica">
                 <br>
                 <div class="form-group">
-                    <label for="field_cnpj">CNPJ</label>
+                    <label class="control-label" for="field_cgc">CGC</label>
+                    <input type="text" class="form-control" name="cgc" id="field_cgc"
+                           ng-model="cliente.pessoaJuridica.cgc"
+                           ng-maxlength="18" />
+                    <div ng-show="editForm.pessoaJuridica.cgc.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.pessoaJuridica.cgc.$error.maxlength" translate-value-max="18">
+                            This field cannot be longer than 18 characters.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_cgf">CGF</label>
+                    <input type="text" class="form-control" name="cgf" id="field_cgf"
+                           ng-model="cliente.pessoaJuridica.cgf"
+                           ng-maxlength="18" />
+                    <div ng-show="editForm.pessoaJuridica.cgf.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.pessoaJuridica.cgf.$error.maxlength" translate-value-max="18">
+                            This field cannot be longer than 18 characters.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_fantasia">Nome Fantasia</label>
+                    <input type="text" class="form-control" name="fantasia" id="field_fantasia"
+                           ng-model="cliente.pessoaJuridica.fantasia"
+                        />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_cnpj">CNPJ</label>
                     <input type="text" class="form-control" name="cnpj" id="field_cnpj"
                            ng-model="cliente.pessoaJuridica.cnpj"
-                        >
+                           ng-maxlength="14" />
+                    <div ng-show="editForm.pessoaJuridica.cnpj.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.pessoaJuridica.cnpj.$error.maxlength" translate-value-max="14">
+                            This field cannot be longer than 14 characters.
+                        </p>
+                    </div>
                 </div>
-
+                <div class="form-group">
+                    <label class="control-label" for="field_responsavel">Responsável</label>
+                    <input type="text" class="form-control" name="responsavel" id="field_responsavel"
+                           ng-model="cliente.pessoaJuridica.responsavel"
+                        />
+                </div>
             </div>
         </div>
 

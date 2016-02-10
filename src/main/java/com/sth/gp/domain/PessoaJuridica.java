@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -20,8 +21,23 @@ public class PessoaJuridica implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "cd_cnpj")
+    @Size(max = 18)
+    @Column(name = "cd_cgc", length = 18)
+    private String cgc;
+
+    @Size(max = 18)
+    @Column(name = "cd_cgf", length = 18)
+    private String cgf;
+
+    @Column(name = "nm_fantasia")
+    private String fantasia;
+
+    @Size(max = 14)
+    @Column(name = "cd_cnpj", length = 14)
     private String cnpj;
+
+    @Column(name = "ds_responsavel")
+    private String responsavel;
 
     @JsonBackReference
     @OneToOne
@@ -50,6 +66,38 @@ public class PessoaJuridica implements Serializable {
 
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
+    }
+
+    public String getCgc() {
+        return cgc;
+    }
+
+    public void setCgc(String cgc) {
+        this.cgc = cgc;
+    }
+
+    public String getCgf() {
+        return cgf;
+    }
+
+    public void setCgf(String cgf) {
+        this.cgf = cgf;
+    }
+
+    public String getFantasia() {
+        return fantasia;
+    }
+
+    public void setFantasia(String fantasia) {
+        this.fantasia = fantasia;
+    }
+
+    public String getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
     }
 
     @Override
