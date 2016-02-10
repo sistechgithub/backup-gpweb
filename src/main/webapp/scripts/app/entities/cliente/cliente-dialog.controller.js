@@ -18,11 +18,19 @@ angular.module('gpApp').controller('ClienteDialogController',
 
         $scope.save = function () {
             if ($scope.cliente.id != null) {
+                limparValoresNulos();
                 Cliente.update($scope.cliente, onSaveFinished);
             } else {
                 Cliente.save($scope.cliente, onSaveFinished);
             }
         };
+
+        function limparValoresNulos(){
+            if($scope.cliente.pessoaFisica == null)
+                $scope.cliente.pessoaFisica = {};
+            if($scope.cliente.pessoaJuridica == null)
+                $scope.cliente.pessoaJuridica = {};
+        }
 
         $scope.clear = function() {
             $modalInstance.dismiss('cancel');
