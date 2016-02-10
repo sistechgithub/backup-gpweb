@@ -1,4 +1,10 @@
 <!--
+<li ui-sref-active="active" ><a ui-sref="cliente"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span >cliente</span></a></li>
+<li ui-sref-active="active" ><a ui-sref="pessoaFisica"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span >pessoaFisica</span></a></li>
+<li ui-sref-active="active" ><a ui-sref="pessoa"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span >pessoa</span></a></li>
 <li ui-sref-active="active" ><a ui-sref="pessoa_fisica" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
                         &#xA0;<span >pessoa_fisica</span></a></li>
 <li ui-sref-active="active" ><a ui-sref="pessoa_juridica" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
@@ -15,10 +21,10 @@
   	<!-- logo for regular state and mobile devices -->
   	<span class="logo-lg"><b class="text-aqua">STH</b>WEB</span>
 </a>
-<!-- Header Navbar: style can be found in header.less --> 
-<nav class="navbar navbar-static-top" role="navigation"> 
+<!-- Header Navbar: style can be found in header.less -->
+<nav class="navbar navbar-static-top" role="navigation">
     <!-- Sidebar toggle button-->
-    <div class="navbar-custom-menu pull-left">        
+    <div class="navbar-custom-menu pull-left">
         <ul class="nav navbar-nav">
             <li>
 				<a data-toggle="offcanvas" role="button">
@@ -27,9 +33,9 @@
 				</a>
 			</li>
 		</ul>
-	</div>		
-	<!-- Navbar--> 	
-    <div class="navbar-custom-menu" ng-switch="isAuthenticated()">        
+	</div>
+	<!-- Navbar-->
+    <div class="navbar-custom-menu" ng-switch="isAuthenticated()">
         <ul class="nav navbar-nav">
             <li ui-sref-active="active">
                 <a ui-sref="home">
@@ -37,8 +43,8 @@
                     <span class="hidden-xs"> Início</span>
                 </a>
             </li>
-            <!-- Fullscreen --> 
-            <li>                
+            <!-- Fullscreen -->
+            <li>
                 <a href="" class="toggle-fullscreen" id="javascript:void(0);">
                 	<span>
                     	<i class="mdi mdi-fullscreen mdi-icon"></i>
@@ -47,12 +53,12 @@
                 </a>
             </li>
             <li ng-class="{active: $state.includes('account')}" class="dropdown pointer">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="">                    
+                <a class="dropdown-toggle" data-toggle="dropdown" href="">
                     <i class="mdi mdi-account-box mdi-icon"></i>
                     <span class="hidden-xs">
                         Conta
                     </span>
-                    <span style="margin-left: 4px"><b class="caret"></b></span>                    
+                    <span style="margin-left: 4px"><b class="caret"></b></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li ui-sref-active="active" ng-switch-when="true">
@@ -92,10 +98,10 @@
                         </a>
                     </li>
                 </ul>
-            </li>           
+            </li>
         </ul>
     </div>
-    
+
 </nav>
 </header>
 
@@ -127,17 +133,23 @@
 
 			<li ui-sref-active="active" ng-switch-when="true">
 	          	<a href="" data-toggle="collapse" data-target="#toggle" data-parent="#sidenav01" class="collapsed">
-	          		<i class="mdi mdi-file-document-box mdi-icon"></i>                        
+	          		<i class="mdi mdi-file-document-box mdi-icon"></i>
 					<span class="mdi-icon-text"> CADASTROS</span>
 					<i class="mdi mdi-chevron-down pull-right"></i>
-	          	</a>	          	
+	          	</a>
 	          	<!-- submenu -->
 	          	<div class="collapse" id="toggle">
-	            	<ul class="sidebar-menu submenu">	            		
+	            	<ul class="sidebar-menu submenu">
+                        <li ui-sref-active="active" >
+                            <a ui-sref="cliente">
+                                <i class="mdi mdi-package mdi-icon"></i>
+                                <span class="mdi-icon-text">Cliente</span>
+                            </a>
+                        </li>
 	              		<li ui-sref-active="active" >
 							<a ui-sref="grupo">
 								<i class="mdi mdi-package mdi-icon"></i>
-								<span class="mdi-icon-text"> Grupo</span>
+								<span class="mdi-icon-text">Grupo</span>
 							</a>
 						</li>
 						<li ui-sref-active="active" >
@@ -157,19 +169,19 @@
 								<i class="mdi mdi-package mdi-icon"></i>
 								<span class="mdi-icon-text">Produto</span>
 							</a>
-                        </li>					
+                        </li>
 	            	</ul>
 	          	</div>
 	        </li>
 
 			<li ng-class="{active: $state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN">
-				<a href="" data-toggle="collapse" data-target="#toggle2" data-parent="#sidenav01" class="collapsed">         
-					<i class="mdi mdi-desktop-tower mdi-icon"></i>                        
+				<a href="" data-toggle="collapse" data-target="#toggle2" data-parent="#sidenav01" class="collapsed">
+					<i class="mdi mdi-desktop-tower mdi-icon"></i>
 					<span class="mdi-icon-text"> ADMINISTRAÇÃO</span>
-					<i class="mdi mdi-chevron-down pull-right"></i>                    
+					<i class="mdi mdi-chevron-down pull-right"></i>
 				</a>
 				<!-- submenu -->
-				<div class="collapse" id="toggle2">	            	
+				<div class="collapse" id="toggle2">
 					<ul class="sidebar-menu submenu">
 						<li ui-sref-active="active">
 							<a ui-sref="user-management">
@@ -213,8 +225,8 @@
 								<span class="mdi-icon-text">API</span>
 							</a>
 						</li>
-					</ul> 
-				</div>               
+					</ul>
+				</div>
 			</li>
 		  	<!-- /.sidebar-menu -->
 	</section>
@@ -223,7 +235,7 @@
 <!-- /.aside -->
 
 <!-- AdminSTH App -->
-<script src="assets/js/AdminLTE.js"></script>    
+<script src="assets/js/AdminLTE.js"></script>
 <!-- Tela Cheia -->
 <script src="assets/js/fullscreen.js"></script>
 

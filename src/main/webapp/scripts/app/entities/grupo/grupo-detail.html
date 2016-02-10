@@ -1,114 +1,117 @@
 <div class="box">
-
     <div class="box-header with-border">
-        <h3 class="box-title" style="font-size:25px"><span>Grupo</span> {{grupo.id}}</h3>            
-    </div>  
-
+        <h3 class="box-title"><span>Grupo</span> {{grupo.id}}</h3>            
+    </div> 
     <div class="box-body">    
         <div class="table-responsive">
             <table class="table table-striped">
-                <thead>
+                <!--<thead>
                 <tr>
                     <th>Campo</th>
                     <th>Valor</th>
                 </tr>
                 </thead>
+                -->
                 <tbody>
+                	<!-- Linha 1 -->
 	                <tr>
-	                    <td>
-	                        <span>Nome</span>
-	                    </td>
-	                    <td>
+	                    <td colspan="2">
+	                        <label>Nome</label>
+	                    </td>	                    
+	                </tr>
+	                <tr>
+	                	<td colspan="2">
 	                        <span class="form-control-static">{{grupo.nmGrupo}}</span>
-	                    </td>
+	                    </td>	                    
+	                </tr>
+
+	                <!-- Linha 2 -->
+	                <tr>
+	                	<td colspan="2">
+	                        <label>Data Operação</label>
+	                    </td>	                    	                    
 	                </tr>
 	                <tr>
-	                    <td>
-	                        <span>Comissão(%)</span>
-	                    </td>
-	                    <td>
-	                        <span class="form-control-static">{{grupo.vlComissao | currency:'':2}}</span>
-	                    </td>
-	                </tr>
-	                <tr>
-	                    <td>
-	                        <span>Desconto(%)</span>
-	                    </td>
-	                    <td>
-	                        <span class="form-control-static">{{grupo.vlDesconto | currency:'':2}}</span>
-	                    </td>
-	                </tr>
-	                <tr>
-	                    <td>
-	                        <span>Data Operação</span>
-	                    </td>
-	                    <td>
+	                	<td colspan="2">
 	                        <span class="form-control-static">{{grupo.dtOperacao | date:'dd/MM/yyyy'}}</span>
 	                    </td>
-	                </tr>	                
-	                      
-	                <tr>                
-	                    <td>                    	
-	                        <span>Sem desconto</span>
+	                    
+	                </tr>
+					
+					<!-- Linha 3 -->
+	                <tr>
+	                	<td>
+	                        <label>Comissão (%)</label>
 	                    </td>
-	                    <td>
-	                        <span class="form-control-static">{{grupo.flDesco ? 'Sim': 'Não'}}</span>
+	                	<td>                    	
+	                        <label>Sem desconto</label>
+	                    </td>                   
+	                </tr>
+	                <tr>
+	                	<td>
+	                        <span class="form-control-static">{{grupo.vlComissao | currency:'':2}}%</span>
+	                    </td>
+	                	<td>
+	                        <span class="form-control-static text-uppercase">{{grupo.flDesco ? 'Sim': 'Não'}}</span>
+	                    </td>                   
+	                </tr>
+
+	                <!-- Linha 4 -->
+	                <tr>
+	                	<td>                    	
+	                        <label>Promoção</label>
+	                    </td>
+	                	<td>
+	                        <label>Desconto Promocional (%)</label>
 	                    </td>
 	                </tr>
+	                <tr>
+	                	<td>
+	                        <span class="form-control-static text-uppercase">{{grupo.flPromo ? 'Sim': 'Não'}}</span>
+	                    </td>
+	                	<td>
+	                        <span class="form-control-static">{{grupo.vlDesconto | currency:'':2}}%</span>
+	                    </td>
+	                </tr>                 
 	                
+	                <!-- Linha 5 -->
 	                <!-- Promoção -->                
-	                <tr>                
-	                    <td>                    	
-	                        <span>Promoção</span>
+	                <tr> 
+	                    <!-- 1 - Setting promotion option by date -->
+	                    <td colspan="2" ng-show="grupo.flPromo && (grupo.nnType == 1)">
+	                        <label>Válida até:</label>
 	                    </td>
-	                    <td>
-	                        <span class="form-control-static">{{grupo.flPromo ? 'Sim': 'Não'}}</span>
+	                    <!-- 2 - Setting promotion option by day -->
+	                    <td colspan="2" ng-show="grupo.flPromo && (grupo.nnType == 2)">
+	                        <label>Válida para todo dia:</label>
 	                    </td>
-	                </tr>
-	                
-	                <!-- 1 - Setting promotion option by date -->
-	                <tr ng-show="grupo.flPromo && (grupo.nnType == 1)">
-	                    <td>
-	                        <span>Válida até</span>
+	                    <!-- 3 - Setting promotion option by week day -->
+	                    <td colspan="2" ng-show="grupo.flPromo && (grupo.nnType == 3)">
+	                        <label>Válida apenas nas(os):</label>
 	                    </td>
-	                    <td>
-	                    	<div>
-	                        	<span class="form-control-static">{{grupo.dtPromo | date:'dd/MM/yyyy'}}</span>
-	                        </div>
+					</tr>
+	                <tr>
+	                    <!-- 1 - Setting promotion option by date -->
+	                    <td colspan="2" ng-show="grupo.flPromo && (grupo.nnType == 1)">	                    	
+	                        <span class="form-control-static">{{grupo.dtPromo | date:'dd/MM/yyyy'}}</span>
 	                    </td>
-		             </tr>       
-		            
-		            <!-- 2 - Setting promotion option by day --> 
-		            <tr ng-show="grupo.flPromo && (grupo.nnType == 2)">
-	                    <td>
-	                        <span>Válida para todo dia</span>
+	                    <!-- 2 - Setting promotion option by day -->
+	                    <td colspan="2" ng-show="grupo.flPromo && (grupo.nnType == 2)">
+	                        <span class="form-control-static">{{grupo.nnDay}}</span>
 	                    </td>
-	                    <td>
-	                    	<div>
-	                        	<span class="form-control-static">{{grupo.nnDay}}</span>
-	                        </div>
+	                    <!-- 3 - Setting promotion option by week day -->
+	                    <td colspan="2" ng-show="grupo.flPromo && (grupo.nnType == 3)">
+	                        <span class="form-control-static">{{grupo.nmDayweek}}</span>
 	                    </td>
-	                </tr>
-	                
-	                <!-- 3 - Setting promotion option by week day -->
-	                <tr ng-show="grupo.flPromo && (grupo.nnType == 3)">
-	                    <td>
-	                        <span>Válida apenas em</span>
-	                    </td>
-	                    <td>
-	                    	<div>
-	                        	<span class="form-control-static">{{grupo.nmDayweek}}</span>
-	                        </div>
-	                    </td>
-	                </tr>                               
+	                </tr>	                                  
                 </tbody>
             </table>
         </div>
-
         <button type="submit"
                 onclick="window.history.back()"
                 class="btn btn-info">
-            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Voltar</span>
-        </button>
+            <span class="mdi mdi-arrow-left"></span>
+            <span> Voltar</span>
+        </button>    
     </div>
 </div>
