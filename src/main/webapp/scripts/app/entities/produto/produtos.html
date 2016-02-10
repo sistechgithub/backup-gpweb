@@ -1,63 +1,67 @@
 <div class="box">
-	<div class="box-header with-border">
-		<h3 class="box-title">Grupos</h3>	  
-	</div>	
-	<div class="box-header">
-        <div class="box-btn">                     
-            <button class="btn btn-success pull-left" ui-sref="grupo.new">
+    <div class="box-header with-border">
+		<h3 class="box-title">Produtos</h3>	  
+	</div>    
+    <div class="box-header">
+        <div class="box-btn">            
+            <button class="btn btn-success pull-left" ui-sref="produto.new">
                 <span class="mdi mdi-plus mdi-icon"></span> 
                 <span>Adicionar</span>
             </button>
-        </div>
+        </div>  
         <div class="box-btn pull-right">
-            <form class="form-inline pull-right" name="searchForm">                  
+             <form class="form-inline pull-right" name="searchForm">                  
                 <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
                 <button class="btn btn-info hidden-xs" ng-click="search()">
                     <span class="mdi mdi-magnify mdi-icon"></span>
                 </button>
             </form>
-        </div>            
+        </div>    
     </div>
     <div class="box-body">
 	<jh-alert></jh-alert>
-        <div class="table-responsive">
-		    <table class="table table-hover">
-			    <tbody>
-			        <tr>
-	                	<th class="col-lg-2 col-md-1">Cód.</th>            
+	    <div class="table-responsive">
+	        <table class="table table-hover">
+	            <tbody>
+	                <tr>
+	                    <th class="col-lg-2 col-md-1">Cód.</th>
 	                    <th class="col-lg-4 col-md-4 col-sm-12 col-xs-12">Nome</th>
-	                    <th class="">Comissão(%)</th>
-	                    <th class="">Desconto(%)</th>
-	                    <th class="">Promoção</th>                    
+	                    <th>Custo($)</th>
+	                    <th>Venda($)</th>
+	                    <th>Saldo</th>	                    
+	                    <th>Grupo</th>
 	                    <th></th>
-	                </tr>			        
-	                <tr ng-repeat="grupo in grupos track by grupo.id">
-	                    <td class=""><a ui-sref="grupo.detail({id:grupo.id})">{{grupo.id}}</a></td>
-	                    <td class="text-uppercase">{{grupo.nmGrupo}}</td>
-	                    <td>{{grupo.vlComissao | currency:'':2}}</td>
-	                    <td>{{grupo.vlDesconto | currency:'':2}}</td>
-	                    <td>{{grupo.flPromo ? 'Sim': 'Não'}}</td>	                                            
+	                </tr>
+	                <tr ng-repeat="produto in produtos track by produto.id">
+	                    <td><a ui-sref="produto.detail({id:produto.id})">{{produto.id}}</a></td>
+	                    <td>{{produto.nmProduto}}</td>
+	                    <td>{{produto.vlCusto | currency:'':6}}</td>
+	                    <td>{{produto.qtSaldo | currency:'':4}}</td>
+	                    <td>{{produto.vlVenda | currency:'':6}}</td>
+	                    <td>
+	                        <a ui-sref="grupo.detail({id:produto.grupo.id})">{{produto.grupo.id}}</a>
+	                    </td>
 	                    <td class="text-center">
 	                        <button type="submit"
-	                                ui-sref="grupo.detail({id:grupo.id})"
+	                                ui-sref="produto.detail({id:produto.id})"
 	                                class="btn btn-outlined btn-success">
 	                            <span class="mdi mdi-eye mdi-18"></span>
 	                        </button>
 	                        <button type="submit"
-	                                ui-sref="grupo.edit({id:grupo.id})"
+	                                ui-sref="produto.edit({id:produto.id})"
 	                                class="btn btn-outlined btn-primary">
 	                            <span class="mdi mdi-pencil mdi-18"></span>
 	                        </button>
 	                        <button type="submit"
-	                                ui-sref="grupo.delete({id:grupo.id})"
+	                                ui-sref="produto.delete({id:produto.id})"
 	                                class="btn btn-outlined btn-danger">
 	                            <span class="mdi mdi-delete mdi-18"></span>
 	                        </button>
 	                    </td>
-	                </tr>	
-	            </tbody>		        
-			</table>			        
-		</div>
+	                </tr>
+	            </tbody>
+	        </table>	
+	     </div>        		
 	 </div><!-- /.box-body -->	
 		
 		<div class="box-footer clearfix">
