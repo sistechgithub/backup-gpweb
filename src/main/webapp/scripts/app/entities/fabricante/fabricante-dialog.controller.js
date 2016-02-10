@@ -75,10 +75,13 @@ angular.module('gpApp').controller(
 									}
 							);
 						}
+					}
 					};			
 
 					$scope.clear = function() {
 						$modalInstance.dismiss('cancel');
 					};
 					}
-				} ]);
+					
+					
+				]);
