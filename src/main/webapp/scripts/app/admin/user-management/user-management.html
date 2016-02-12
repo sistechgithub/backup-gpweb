@@ -2,6 +2,22 @@
     <div class="box-header with-border">
         <h3 class="box-title" style="font-size:25px">Usuários</h3>            
     </div>
+     <div class="box-header">
+        <div class="box-btn">                     
+            <button class="btn btn-success pull-left" ui-sref="user-management.new">
+                <span class="mdi mdi-plus mdi-icon"></span> 
+                <span>Adicionar</span>
+            </button>
+        </div>
+        <div class="box-btn pull-right">
+            <form class="form-inline pull-right" name="searchForm">                  
+                <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
+                <button class="btn btn-info hidden-xs" ng-click="search()">
+                    <span class="mdi mdi-magnify mdi-icon"></span>
+                </button>
+            </form>
+        </div>            
+    </div>
 
     <div class="box-body">
         <div class="table-responsive">
@@ -55,19 +71,19 @@
                 </tr>
                 </tbody>
             </table>
-            <nav>
-                <ul class="pagination">
-                    <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
-                    <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
-                    <li ng-show="page > 1" ng-click="loadPage(page - 2)"><a>{{page - 1}}</a></li>
-                    <li ng-show="page > 0" ng-click="loadPage(page - 1)"><a>{{page}}</a></li>
-                    <li class="active"><a>{{page + 1}}</a></li>
-                    <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 2}}</a></li>
-                    <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 3}}</a></li>
-                    <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
-                    <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
-                </ul>
-            </nav>
         </div>
     </div>
+    <div class="box-footer clearfix">
+        <ul class="pagination no-margin pull-right">
+            <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
+            <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
+            <li ng-show="page > 1" ng-click="loadPage(page - 2)"><a>{{page - 1}}</a></li>
+            <li ng-show="page > 0" ng-click="loadPage(page - 1)"><a>{{page}}</a></li>
+            <li class="active"><a>{{page + 1}}</a></li>
+            <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 2}}</a></li>
+            <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 3}}</a></li>
+            <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
+            <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
+        </ul>
+    </div><!-- /.box-footer --> 
 </div>
