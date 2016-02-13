@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('gpApp')
-    .controller('UserManagementController', function ($scope, User, ParseLinks) {
+    .controller('UserManagementController', function ($scope, User, UserSearch, ParseLinks) {
         $scope.users = [];
         $scope.authorities = ["ROLE_USER", "ROLE_ADMIN"];
 
@@ -10,6 +10,16 @@ angular.module('gpApp')
             User.query({page: $scope.page, per_page: 20}, function (result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
                 $scope.users = result;
+            });
+        };
+        
+        $scope.search = function () {
+        	UserSearch.query({query: $scope.searchQuery}, function(result) {
+                $scope.users = result;
+            }, function(response) {
+                if(response.status === 404) {
+                    $scope.loadAll();
+                }
             });
         };
 

@@ -13,7 +13,7 @@ angular.module('gpApp')
             if ($scope.registerAccount.password !== $scope.confirmPassword) {
                 $scope.doNotMatch = 'ERROR';
             } else {
-                $scope.registerAccount.langKey =  'en' ;
+                $scope.registerAccount.langKey =  'pt' ;
                 $scope.doNotMatch = null;
                 $scope.error = null;
                 $scope.errorUserExists = null;
