@@ -73,7 +73,7 @@ public class BairroResource {
     public ResponseEntity<Bairro> createBairro(@Valid @RequestBody Bairro bairro) throws URISyntaxException {
         log.debug("REST request to save Bairro : {}", bairro);
         if (bairro.getId() != null) {
-            return ResponseEntity.badRequest().header("Failure", "A new bairro cannot already have an ID").body(null);
+            return ResponseEntity.badRequest().header("Falha", "Um novo Bairro não pode já ter um Código").body(null);
         }
         Bairro result = bairroRepository.save(bairro);
         bairroSearchRepository.save(result);

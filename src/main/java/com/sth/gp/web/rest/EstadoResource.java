@@ -52,7 +52,7 @@ public class EstadoResource {
     public ResponseEntity<Estado> createEstado(@Valid @RequestBody Estado estado) throws URISyntaxException {
         log.debug("REST request to save Estado : {}", estado);
         if (estado.getId() != null) {
-            return ResponseEntity.badRequest().header("Failure", "A new estado cannot already have an ID").body(null);
+            return ResponseEntity.badRequest().header("Falha", "Um novo Estado não pode já ter um Código").body(null);
         }
         Estado result = estadoRepository.save(estado);
         estadoSearchRepository.save(result);
