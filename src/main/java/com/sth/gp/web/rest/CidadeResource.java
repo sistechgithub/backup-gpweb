@@ -52,7 +52,7 @@ public class CidadeResource {
     public ResponseEntity<Cidade> createCidade(@Valid @RequestBody Cidade cidade) throws URISyntaxException {
         log.debug("REST request to save Cidade : {}", cidade);
         if (cidade.getId() != null) {
-            return ResponseEntity.badRequest().header("Failure", "A new cidade cannot already have an ID").body(null);
+            return ResponseEntity.badRequest().header("Falha", "Uma nova Cidade não pode já ter um Código").body(null);
         }
         Cidade result = cidadeRepository.save(cidade);
         cidadeSearchRepository.save(result);

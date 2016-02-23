@@ -7,7 +7,7 @@ angular.module('gpApp')
                 parent: 'entity',
                 url: '/clientes',
                 data: {
-                    roles: ['ROLE_USER'],
+                    authorities: ['ROLE_USER'],
                     pageTitle: 'Clientes'
                 },
                 views: {
@@ -23,7 +23,7 @@ angular.module('gpApp')
                 parent: 'entity',
                 url: '/cliente/{id}',
                 data: {
-                    roles: ['ROLE_USER'],
+                    authorities: ['ROLE_USER'],
                     pageTitle: 'Cliente'
                 },
                 views: {
@@ -42,7 +42,7 @@ angular.module('gpApp')
                 parent: 'cliente',
                 url: '/new',
                 data: {
-                    roles: ['ROLE_USER'],
+                    authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
@@ -76,13 +76,36 @@ angular.module('gpApp')
                 parent: 'cliente',
                 url: '/{id}/edit',
                 data: {
-                    roles: ['ROLE_USER'],
+                    authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({
                         templateUrl: 'scripts/app/entities/cliente/cliente-dialog.html',
                         controller: 'ClienteDialogController',
                         size: 'lg',
+                        resolve: {
+                            entity: ['Cliente', function(Cliente) {
+                                return Cliente.get({id : $stateParams.id});
+                            }]
+                        }
+                    }).result.then(function(result) {
+                        $state.go('cliente', null, { reload: true });
+                    }, function() {
+                        $state.go('^');
+                    })
+                }]
+            })
+            .state('cliente.delete', {
+                parent: 'cliente',
+                url: '/{id}/delete',
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
+                    $modal.open({
+                        templateUrl: 'scripts/app/entities/cliente/cliente-delete-dialog.html',
+                        controller: 'ClienteDeleteController',
+                        size: 'md',
                         resolve: {
                             entity: ['Cliente', function(Cliente) {
                                 return Cliente.get({id : $stateParams.id});
