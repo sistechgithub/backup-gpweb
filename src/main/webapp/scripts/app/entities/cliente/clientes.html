@@ -1,86 +1,70 @@
-<div>
-
-    <h2>Clientes</h2>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <button class="btn btn-primary" ui-sref="cliente.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Cliente</span>
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Clientes</h3>            
+    </div>
+    <div class="box-header">
+        <div class="box-btn">                     
+            <button class="btn btn-success pull-left" ui-sref="cliente.new">
+                <span class="mdi mdi-plus"></span> 
+                <span>Adicionar</span>
+            </button>
+        </div>
+        <div class="box-btn pull-right">
+            <form class="form-inline pull-right" name="searchForm">                  
+                <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
+                <button class="btn btn-info hidden-xs" ng-click="search()">
+                    <span class="mdi mdi-magnify"></span>
                 </button>
-            </div>
-            <div class="col-md-8">
-                <form name="searchForm" class="form-inline">
-                    <div class="form-group">
-                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="query">
-                    </div>
-                    <button class="btn btn-info" ng-click="search()"><span class="glyphicon glyphicon-search"></span> <span>Search a Cliente</span>
-                    </button>
-                </form>
-            </div>
-        </div>
+            </form>
+        </div>          
     </div>
-
-    <div class="modal fade" id="deleteClienteConfirmation">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form name="deleteForm" ng-submit="confirmDelete(cliente.id)">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                                ng-click="clear()">&times;</button>
-                        <h4 class="modal-title">Confirm delete operation</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Are you sure you want to delete this Cliente?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
-                        </button>
-                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Delete</span>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
+    <div class="box-body">
+    <jh-alert></jh-alert>
     <div class="table-responsive">
-        <table class="table table-striped">
+        <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th></th>
+                    <th class="col-md-1">Código</th>
+                    <th class="col-md-3">Nome</th>
+                    <th class="col-md-2">CPF</th>
+                    <th class="col-md-2">CNPJ</th>
+                    <th class="col-md-2">Celular</th>
+                    <th class="col-md-2 text-center">Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="cliente in clientes">
-                    <td><a ui-sref="cliente.detail({id:cliente.id})">{{cliente.id}}</a></td>
-                    <td>{{cliente.nome}}</td>
+                <tr ng-repeat="cliente in clientes track by cliente.id">
                     <td>
+                        <a ui-sref="cliente.detail({id:cliente.id})">{{cliente.id}}</a>
+                    </td>
+                    <td class="text-uppercase">{{cliente.nome}}</td>
+                    <td>{{cliente.pessoaFisica.cpf | brCpf}}</td>
+                    <td>{{cliente.pessoaJuridica.cnpj | brCnpj}}</td>
+                    <td>{{cliente.celular | brPhoneNumber}}</td>
+                    <td class="text-center">
                         <button type="submit"
                                 ui-sref="cliente.detail({id:cliente.id})"
-                                class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                                class="btn btn-outlined btn-success">
+                            <span class="mdi mdi-eye"></span>
                         </button>
                         <button type="submit"
                                 ui-sref="cliente.edit({id:cliente.id})"
-                                class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                                class="btn btn-outlined btn-primary">
+                            <span class="mdi mdi-pencil"></span>
                         </button>
-                        <button type="submit"
-                                ng-click="delete(cliente.id)"
-                                class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        <button type="submit"                        
+                                ui-sref="cliente.delete({id:cliente.id})"
+                                class="btn btn-outlined btn-danger">
+                            <span class="mdi mdi-delete"></span>
                         </button>
-                    </td>
+                    </td>                    
                 </tr>
             </tbody>
         </table>
-        <nav>
-            <ul class="pagination">
+
+        
+        <nav class="box-footer clearfix">
+            <ul class="pagination no-margin pull-right">
                 <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
                 <li ng-show="links['prev']" ng-click="loadPage(links['prev'])"><a>&lt;</a></li>
                 <li ng-show="page > 2" ng-click="loadPage(page - 2)"><a>{{page - 2}}</a></li>
@@ -92,5 +76,6 @@
                 <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
             </ul>
         </nav>
+        
     </div>
 </div>
