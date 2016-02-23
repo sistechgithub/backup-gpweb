@@ -170,6 +170,12 @@
                                  constraintName="fk_evt_pers_audit_evt_data"
                                  referencedColumnNames="event_id"
                                  referencedTableName="jhi_persistent_audit_event"/>
+                                 
+       <sql dbms="postgresql"
+            splitStatements="true"
+            stripComments="true">SELECT setval('public.jhi_user_id_seq', (select max(id) from jhi_user), true);
+        <comment>atualizando sequence do estado</comment>
+   		 </sql>                          
     
     </changeSet>
     

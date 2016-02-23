@@ -1,0 +1,62 @@
+
+<div>
+    <h2><span>Produto</span> {{produto.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>NmProduto</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{produto.nmProduto}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>VlCusto</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{produto.vlCusto | currency:'':6}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>QtSaldo</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{produto.qtSaldo | currency:'':4}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>VlVenda</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{produto.vlVenda | currency:'':6}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>grupo</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="grupo.detail({id:produto.grupo.id})">{{produto.grupo.id}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Voltar</span>
+    </button>
+</div>
