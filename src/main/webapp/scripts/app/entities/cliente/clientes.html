@@ -5,7 +5,7 @@
     <div class="box-header">
         <div class="box-btn">                     
             <button class="btn btn-success pull-left" ui-sref="cliente.new">
-                <span class="mdi mdi-plus mdi-icon"></span> 
+                <span class="mdi mdi-plus"></span> 
                 <span>Adicionar</span>
             </button>
         </div>
@@ -13,10 +13,10 @@
             <form class="form-inline pull-right" name="searchForm">                  
                 <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
                 <button class="btn btn-info hidden-xs" ng-click="search()">
-                    <span class="mdi mdi-magnify mdi-icon"></span>
+                    <span class="mdi mdi-magnify"></span>
                 </button>
             </form>
-        </div>            
+        </div>          
     </div>
     <div class="box-body">
     <jh-alert></jh-alert>
@@ -24,15 +24,23 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th></th>
+                    <th class="col-md-1">Código</th>
+                    <th class="col-md-3">Nome</th>
+                    <th class="col-md-2">CPF</th>
+                    <th class="col-md-2">CNPJ</th>
+                    <th class="col-md-2">Celular</th>
+                    <th class="col-md-2 text-center">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="cliente in clientes track by cliente.id">
-                    <td><a ui-sref="cliente.detail({id:cliente.id})">{{cliente.id}}</a></td>
-                    <td>{{cliente.nome}}</td>
+                    <td>
+                        <a ui-sref="cliente.detail({id:cliente.id})">{{cliente.id}}</a>
+                    </td>
+                    <td class="text-uppercase">{{cliente.nome}}</td>
+                    <td>{{cliente.pessoaFisica.cpf | brCpf}}</td>
+                    <td>{{cliente.pessoaJuridica.cnpj | brCnpj}}</td>
+                    <td>{{cliente.celular | brPhoneNumber}}</td>
                     <td class="text-center">
                         <button type="submit"
                                 ui-sref="cliente.detail({id:cliente.id})"
@@ -53,6 +61,8 @@
                 </tr>
             </tbody>
         </table>
+
+        
         <nav class="box-footer clearfix">
             <ul class="pagination no-margin pull-right">
                 <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
@@ -66,5 +76,6 @@
                 <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
             </ul>
         </nav>
+        
     </div>
 </div>
