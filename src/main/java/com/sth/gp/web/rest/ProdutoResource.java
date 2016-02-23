@@ -51,7 +51,7 @@ public class ProdutoResource {
     public ResponseEntity<Produto> createProduto(@RequestBody Produto produto) throws URISyntaxException {
         log.debug("REST request to save Produto : {}", produto);
         if (produto.getId() != null) {
-            return ResponseEntity.badRequest().header("Failure", "A new produto cannot already have an ID").body(null);
+            return ResponseEntity.badRequest().header("Falha", "Um novo Produto não pode já ter um Código").body(null);
         }
         Produto result = produtoRepository.save(produto);
         produtoSearchRepository.save(result);
