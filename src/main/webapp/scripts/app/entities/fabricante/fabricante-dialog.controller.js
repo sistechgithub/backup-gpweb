@@ -12,7 +12,6 @@ angular.module('gpApp').controller(
 				function($scope, $stateParams, $modalInstance, entity,
 						Fabricante, ConsultaCep) {
 					
-					$scope.cep = '';
 					$scope.fabricante = entity;
 					$scope.load = function(id) {
 						Fabricante.get({
@@ -41,42 +40,7 @@ angular.module('gpApp').controller(
 							Fabricante.save($scope.fabricante, onSaveSuccess,
 									onSaveError);
 						}
-					};
-
-					/*Consulta de CEP
-					 * Caso no cadastro de endereço existente no banco não conste o CEP informado
-					 * o sistema irá procura-lo na internet numa consulta de CEP gratuita,
-					 * caso não o encontre, o sistema irá permitir que o cliente entre com
-					 * o endereço manualmente*/
-
-					$scope.findcep = function(valid, cepDom) {
-					if (valid){	
-						$scope.cep = cepDom;
-						if ($scope.cep.length > 7) {
-							ConsultaCep.clear;
-							ConsultaCep.getLogradouroByCep($scope.cep).then(
-									function(data){
-										data = angular.fromJson(data);
-										$scope.fabricante.logradouro = data.data;
-									},
-									function(data){
-										if (data.status == 404){
-											ConsultaCep.getConsultaCepApi($scope.cep).then(
-											 function(data){
-											  if (!data.erro){
-												$scope.editForm.cep.$invalid = false;  
-												data = angular.fromJson(data);												
-												$scope.fabricante.logradouro = data;
-											  }else{											  
-												$scope.editForm.cep.$invalid = true;
-											  }	
-											});
-										}
-									}
-							);
-						}
-					}
-					};			
+					};		
 
 					$scope.clear = function() {
 						$modalInstance.dismiss('cancel');
