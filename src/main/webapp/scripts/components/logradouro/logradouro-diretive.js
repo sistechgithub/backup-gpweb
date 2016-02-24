@@ -13,7 +13,6 @@ angular.module('gpApp')
 				 * caso não o encontre, o sistema irá permitir que o cliente entre com
 				 * o endereço manualmente*/
             	$scope.findcep = function(valid, cepDom) {
-            		console.log('teste diretiva cep');
 					if (true){	
 						$scope.cep = cepDom;
 						if ($scope.cep.length > 7) {
