@@ -8,9 +8,8 @@ angular.module('gpApp').controller(
 				'$modalInstance',
 				'entity',
 				'Fabricante',
-				'ConsultaCep',
 				function($scope, $stateParams, $modalInstance, entity,
-						Fabricante, ConsultaCep) {
+						Fabricante) {
 					
 					$scope.fabricante = entity;
 					$scope.load = function(id) {
