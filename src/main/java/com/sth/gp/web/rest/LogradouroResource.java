@@ -66,7 +66,7 @@ public class LogradouroResource {
     public ResponseEntity<Logradouro> createLogradouro(@Valid @RequestBody Logradouro logradouro) throws URISyntaxException {
         log.debug("REST request to save Logradouro : {}", logradouro);
         if (logradouro.getId() != null) {
-            return ResponseEntity.badRequest().header("Failure", "A new logradouro cannot already have an ID").body(null);
+            return ResponseEntity.badRequest().header("Falha", "Um novo Logradouro não pode já ter um Código").body(null);
         }
         
         Logradouro result = logradouroRepository.save(logradouro);

@@ -58,7 +58,7 @@ public class FabricanteResource {
     public ResponseEntity<Fabricante> createFabricante(@Valid @RequestBody Fabricante fabricante) throws URISyntaxException {
         log.debug("REST request to save Fabricante : {}", fabricante);
         if (fabricante.getId() != null) {
-            return ResponseEntity.badRequest().header("Failure", "A new fabricante cannot already have an ID").body(null);
+            return ResponseEntity.badRequest().header("Falha", "Um novo Fabricante não pode já ter um Código").body(null);
         }
         Fabricante result = fabricanteRepository.save(fabricante);
         fabricanteSearchRepository.save(result);
