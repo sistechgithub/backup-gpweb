@@ -51,7 +51,7 @@ public class SubgrupoResource {
     public ResponseEntity<Subgrupo> createSubgrupo(@RequestBody Subgrupo subgrupo) throws URISyntaxException {
         log.debug("REST request to save Subgrupo : {}", subgrupo);
         if (subgrupo.getId() != null) {
-            return ResponseEntity.badRequest().header("Failure", "A new subgrupo cannot already have an ID").body(null);
+            return ResponseEntity.badRequest().header("Falha", "Um novo Subgrupo não pode já ter um Código").body(null);
         }
         Subgrupo result = subgrupoRepository.save(subgrupo);
         subgrupoSearchRepository.save(result);

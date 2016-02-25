@@ -8,7 +8,8 @@ angular.module('gpApp')
                 $scope.cliente = result;
             });
         };
-        $rootScope.$on('gpApp:clienteUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('gpApp:clienteUpdate', function(event, result) {
             $scope.cliente = result;
         });
+        $scope.$on('$destroy', unsubscribe);
     });

@@ -97,7 +97,7 @@ public class CustomPersistentRememberMeServices extends
             addCookie(token, request, response);
         } catch (DataAccessException e) {
             log.error("Failed to update token: ", e);
-            throw new RememberMeAuthenticationException("Autologin failed due to data access problem", e);
+            throw new RememberMeAuthenticationException("Falha no login automático devido a problemas com os dados: ", e);
         }
         return getUserDetailsService().loadUserByUsername(login);
     }
@@ -118,7 +118,7 @@ public class CustomPersistentRememberMeServices extends
             t.setIpAddress(request.getRemoteAddr());
             t.setUserAgent(request.getHeader("User-Agent"));
             return t;
-        }).orElseThrow(() -> new UsernameNotFoundException("User " + login + " was not found in the database"));
+        }).orElseThrow(() -> new UsernameNotFoundException("Usuário " + login + " não encontrado na base de dados"));
         try {
             persistentTokenRepository.saveAndFlush(token);
             addCookie(token, request, response);

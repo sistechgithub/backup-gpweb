@@ -39,7 +39,7 @@ angular.module('gpApp')
             })
             .state('user-management.new', {
                 parent: 'user-management',
-                url: '/new',
+                url: '/new/system',
                 data: {
                     authorities: ['ROLE_ADMIN'],
                 },
