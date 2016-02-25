@@ -1,0 +1,123 @@
+<div class="row"> 
+			<div class="col-xs-12 col-sm-2"> 
+				<div class="form-group"> 
+					<label  class="control-label" 
+							for="field_fax"> 
+							CEP 
+					</label> 
+					<input  type="text"  
+							class="form-control"  
+							name="cep" 
+							id="field_cep"  
+							ng-change="findcep(editForm.cep.$valid, logradouro.cep)" 				 
+							ng-model="logradouro.cep" 
+							ui-br-cep-mask 
+							placeholder="00000-000" 
+							maxlength=9 
+					/> 
+				</div> 
+				<div ng-show="editForm.cep.$invalid"> 
+						<p  class="help-block" 
+							ng-show="editForm.cep.$invalid" 
+							translate-value-min="10"> 
+							CEP inexistente! 
+						</p> 
+					</div> 
+			</div>  			
+			<div class="col-xs-12 col-sm-8"> 
+				<div class="form-group"> 
+					<label  class="control-label"  
+							for="field_logradouro_nome"> 
+							Logradouro 
+					</label> 
+					<input  type="text" 
+							class="form-control text-uppercase"  
+							name="logradouro_nome" 
+							id="field_logradouro_nome" 
+							ng-model="logradouro.nome" 
+							ng-disabled="true" 
+					/> 
+				</div> 
+			</div>  
+			<div class="col-xs-12 col-sm-2"> 
+				<div class="form-group"> 
+					<label  class="control-label"  
+							for="field_numero"> 
+							Número 
+					</label>  
+					<input	type="text" 
+							class="form-control"  
+							name="numero" 
+							id="field_numero" 
+							ng-model="numero"  
+					/> 
+				</div> 
+			</div>  
+		</div> 
+		<div class="row"> 			
+			<div class="col-xs-12 col-sm-4"> 
+				<div class="form-group"> 
+					<label  class="control-label"  
+							for="field_complemento"> 
+							Complemento 
+					</label> 
+					<input  type="text"  
+							class="form-control text-uppercase"  
+							name="complemento" 
+							id="field_complemento"  
+							ng-model="complemento" 
+							ng-maxlength="20" 
+					/> 
+					<div ng-show="editForm.complemento.$invalid"> 
+						<p  class="help-block" 
+							ng-show="editForm.complemento.$error.maxlength" 
+							translate-value-max="20"> 
+							Este campo deve conter no máximo 20	caracteres. 
+						</p> 
+					</div> 
+				</div> 
+			</div>  
+			<div class="col-xs-12 col-sm-4"> 
+				<div class="form-group"> 
+					<label  class="control-label" 
+							for="field_bairro_nome"> 
+							Bairro
+					</label>  
+					<input	type="text"  
+							class="form-control text-uppercase"  
+							name="bairro_nome"  
+							id="field_bairro_nome" 
+							ng-model="logradouro.bairro.nome"  
+							ng-disabled="true"
+					/> 
+				</div> 
+			</div>  
+			<div class="col-xs-12 col-sm-4"> 
+				<div class="form-group"> 
+					<label  class="control-label" 
+							for="field_cidade_nome"> 
+							Cidade 
+					</label>  
+					<input	type="text" 
+							class="form-control text-uppercase"  
+							name="cidade_nome"  
+							id="field_cidade_nome" 
+							ng-model="logradouro.bairro.cidade.nome"   
+							ng-disabled="true"
+					/> 
+				</div> 
+				<div class="form-group"> 
+				<label  class="control-label"  
+						for="field_estado_nome"> 
+						Estado 
+				</label>  
+				<input	type="text"  
+						class="form-control text-uppercase"  
+						name="estado_nome"  
+						id="field_estado_nome" 
+						ng-model="logradouro.bairro.cidade.estado.nome"   
+						ng-disabled="true"
+				/> 
+			</div> 
+			</div> 
+		</div> 

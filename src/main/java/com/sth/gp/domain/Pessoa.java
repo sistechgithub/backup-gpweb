@@ -78,13 +78,9 @@ public class Pessoa implements Serializable {
     @Column(name = "dt_cadastro")
     private Date dataCadastro;
 
-    /**
-     * TODO Adicionar logradouro
-     *
     @ManyToOne
-    @JoinColumn(name = "id_logradouro_id")
+    @JoinColumn(name = "id_logradouro",referencedColumnName="id")
     private Logradouro logradouro;
-     */
 
     @JsonManagedReference
     @OneToOne(mappedBy = "pessoa", cascade=CascadeType.ALL)
@@ -233,7 +229,15 @@ public class Pessoa implements Serializable {
         }
     }
 
-    public PessoaJuridica getPessoaJuridica() {
+    public Logradouro getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(Logradouro logradouro) {
+		this.logradouro = logradouro;
+	}
+
+	public PessoaJuridica getPessoaJuridica() {
         return pessoaJuridica;
     }
 

@@ -41,6 +41,10 @@
             <column name="dt_cadastro" type="timestamp"/>
             <column name="id_logradouro" type="bigint"/>
         </createTable>
+        
+         <addForeignKeyConstraint baseColumnNames="id_logradouro"
+			baseTableName="pessoa" constraintName="fk_pessoa_id_logradouro"
+			referencedColumnNames="id" referencedTableName="logradouro" />
 
     </changeSet>
 </databaseChangeLog>
