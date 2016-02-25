@@ -1,5 +1,4 @@
 <form name="editForm" role="form" novalidate ng-submit="save()">
-
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;
@@ -12,17 +11,26 @@
 	    	<div class="col-md-2">
 		        <div class="form-group">
 		            <label for="id">Código</label>
-		            <input type="text" class="form-control" id="id" name="id"
-		                    ng-model="cliente.id" readonly>
+		            <input type="text" 
+		            	   class="form-control" 
+		            	   name="id"
+		            	   id="id" 
+		                   ng-model="cliente.id" 
+		                   readonly
+		            />
 		        </div>
 	        </div>
 			
 			<div class="col-md-10">
 		        <div class="form-group">
 		            <label class="control-label" for="field_nome">Nome</label>
-		            <input type="text" class="form-control text-uppercase" name="nome" id="field_nome"
+		            <input type="text" 
+		            	   class="form-control text-uppercase" 
+		            	   name="nome" 
+		            	   id="field_nome"
 		                   ng-model="cliente.nome"
-		                   required />
+		                   required 
+		            />
 		            <div ng-show="editForm.nome.$invalid">
 		                <p class="help-block"
 		                   ng-show="editForm.nome.$error.required">
@@ -32,10 +40,17 @@
 		        </div>
 		    </div>		    
 		</div>
+
         <ul class="nav nav-tabs">
-            <li class="active"><a showtab="" href="#tabGeral">Geral</a></li>
-            <li ng-show="cliente.tipoPessoa=='F'" ><a showtab=""  href="#tabPessoaFisica">Pessoa Física</a></li>
-            <li ng-show="cliente.tipoPessoa=='J'" ><a showtab="" href="#tabPessoaJuridica">Pessoa Jurídica</a></li>
+            <li class="active">
+            	<a showtab="" href="#tabGeral">Geral</a>
+            </li>
+            <li ng-show="cliente.tipoPessoa=='F'" >
+            	<a showtab=""  href="#tabPessoaFisica">Pessoa Física</a>
+            </li>
+            <li ng-show="cliente.tipoPessoa=='J'" >
+            	<a showtab="" href="#tabPessoaJuridica">Pessoa Jurídica</a>
+            </li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="tabGeral">
@@ -54,15 +69,10 @@
 		                        Juridica
 		                    </label>
 		                </div>
-				    </div>
-				    <div class="col-md-9">			    	
-	                    <h4>Consulte a situação do cliente no site do <strong>SINTEGRA:</strong>
-	                    	<a href="http://www.sintegra.gov.br/" target="_blank">sintegra.gov.br</a>
-	                    </h4>	                
-				    </div>
+				    </div>				    
                 </div>               
                 <div class="row">
-    				<div class="col-md-4">
+    				<div class="col-md-2">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_telefone">Telefone</label>
 		                    <input type="text" class="form-control" name="telefone" id="field_telefone"
@@ -80,7 +90,7 @@
 		                    </div>
 		                </div>
 		            </div>
-		            <div class="col-md-4">
+		            <div class="col-md-2">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_celular">Celular</label>
 		                    <input type="text" class="form-control" name="celular" id="field_celular"
@@ -98,7 +108,7 @@
 		                    </div>
 		                </div>
 		            </div>
-		            <div class="col-md-4">
+		            <div class="col-md-2">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_fax">Fax</label>
 		                    <input type="text" class="form-control" name="fax" id="field_fax"
@@ -116,33 +126,23 @@
 		                    </div>
 		                </div>
 		            </div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+		                    <label class="control-label" for="field_email">Email</label>
+		                    <input type="text" class="form-control" name="email" id="field_email"
+		                           ng-model="cliente.email"
+		                        />
+		                </div>	
+		            </div>
 		        </div>
-		        <logradouro entidade="cliente"></logradouro>
-		        <div class="form-group">
-                    <label class="control-label" for="field_email">Email</label>
-                    <input type="text" class="form-control" name="email" id="field_email"
-                           ng-model="cliente.email"
-                        />
+
+		        <logradouro entidade="cliente"></logradouro>          
+		        
+                <div class="form-group">
+                  <label for="field_historico">Histórico</label>
+                  <textarea class="form-control text-uppercase" rows="3" name="historico" id="field_historico" ng-model="cliente.historico"></textarea>
                 </div>
-		        <div class="row">
-		        	<div class="col-md-2">
-		        		<div class="form-group">
-		                    <label class="control-label" for="field_numero">Número</label>
-		                    <input type="text" class="form-control text-uppercase" name="numero" id="field_numero"
-		                           ng-model="cliente.numero"
-		                        />
-		                </div>
-		        	</div>
-		        	<div class="col-md-10">
-		        		<div class="form-group">
-		                    <label class="control-label" for="field_complemento">Complemento</label>
-		                    <input type="text" class="form-control text-uppercase" name="complemento" id="field_complemento"
-		                           ng-model="cliente.complemento"
-		                        />
-		                </div>
-		        	</div>		        	
-		        </div>                
-		        <div class="form-group">
+                <div class="form-group">
                     <label class="control-label" >Situação</label>
 
                     <label>
@@ -153,11 +153,6 @@
                         <input type="radio" ng-model="cliente.situacao" value="B">
                         B
                     </label>
-                </div>
-
-                <div class="form-group">
-                  <label for="field_historico">Histórico</label>
-                  <textarea class="form-control" rows="3" name="historico" id="field_historico" ng-model="cliente.historico"></textarea>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="field_inativo">Inativo</label>
@@ -298,7 +293,7 @@
 		        	<div class="col-md-12">
 		        		<div class="form-group">
 		                    <label class="control-label" for="field_obs">Observação:</label>
-		                    <input type="text" class="form-control" name="obs" id="field_obs"
+		                    <input type="text" class="form-control text-uppercase" name="obs" id="field_obs"
 		                           ng-model="cliente.obs"
 		                        />
 		                </div>
@@ -308,31 +303,23 @@
             <div class="tab-pane" id="tabPessoaJuridica">
                 <br>
                 <div class="row">
+                	<div class="col-md-12">			    	
+	                    <h4 class="text-center">Consulte a situação do cliente no site do <strong>SINTEGRA:</strong>
+	                    	<a href="http://www.sintegra.gov.br/" target="_blank">sintegra.gov.br</a>
+	                    </h4>	                
+				    </div>
+                </div>                
+                <div class="row">
 					<div class="col-md-12">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_fantasia">Nome Fantasia</label>
-		                    <input type="text" class="form-control" name="fantasia" id="field_fantasia"
+		                    <input type="text" class="form-control text-uppercase" name="fantasia" id="field_fantasia"
 		                           ng-model="cliente.pessoaJuridica.fantasia"
 		                        />
 		                </div>
 		            </div>
 		        </div>
-		        <div class="row">
-					<div class="col-md-4">
-		                <div class="form-group">
-		                    <label class="control-label" for="field_cgc">CGC</label>
-		                    <input type="text" class="form-control" name="cgc" id="field_cgc"
-		                           ng-model="cliente.pessoaJuridica.cgc"
-		                           maxlength="18"
-		                           ng-maxlength="18" />
-		                    <div ng-show="editForm.pessoaJuridica.cgc.$invalid">
-		                        <p class="help-block"
-		                           ng-show="editForm.pessoaJuridica.cgc.$error.maxlength" translate-value-max="18">
-		                            Este campo não pode ser maior do que 18	caracteres.
-		                        </p>
-		                    </div>
-		                </div>
-		            </div>
+		        <div class="row">					
 		            <div class="col-md-4">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_cnpj">CNPJ</label>
@@ -355,7 +342,7 @@
 		            <div class="col-md-4">               
 		                <div class="form-group">
 		                    <label class="control-label" for="field_cgf">Inscrição Estadual</label>
-		                    <input type="text" class="form-control" name="cgf" id="field_cgf"
+		                    <input type="text" class="form-control text-uppercase" name="cgf" id="field_cgf"
 		                           ng-model="cliente.pessoaJuridica.cgf"
 		                           maxlength="18"
 		                           ng-maxlength="18" />
@@ -372,7 +359,7 @@
 					<div class="col-md-12">               
 		                <div class="form-group">
 		                    <label class="control-label" for="field_responsavel">Responsável</label>
-		                    <input type="text" class="form-control" name="responsavel" id="field_responsavel"
+		                    <input type="text" class="form-control text-uppercase" name="responsavel" id="field_responsavel"
 		                           ng-model="cliente.pessoaJuridica.responsavel"
 		                        />
 		                </div>
