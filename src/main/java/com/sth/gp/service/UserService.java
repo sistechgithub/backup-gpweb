@@ -114,6 +114,33 @@ public class UserService {
         return newUser;
     }
 
+    public User createUserInformation(String login, String password, String firstName, String lastName, String email,
+            String langKey, Set<String> authorits, Boolean ativado) {
+
+            User newUser = new User();
+            Set<Authority> authorities = new HashSet<>();
+            String encryptedPassword = passwordEncoder.encode(password);
+            newUser.setLogin(login);
+            // new user gets initially a generated password
+            newUser.setPassword(encryptedPassword);
+            newUser.setFirstName(firstName);
+            newUser.setLastName(lastName);
+            newUser.setEmail(email);
+            newUser.setLangKey(langKey);
+            // new user is not active
+            newUser.setActivated(ativado);
+            // new user gets registration key
+            newUser.setActivationKey(RandomUtil.generateActivationKey());
+            authorits.stream().forEach(
+                    authority -> authorities.add(authorityRepository.findOne(authority))
+                );
+            newUser.setAuthorities(authorities);
+            userRepository.save(newUser);
+            userSearchRepository.save(newUser);
+            log.debug("Created Information for User: {}", newUser);
+            return newUser;
+        }
+    
     public void updateUserInformation(String firstName, String lastName, String email, String langKey) {
         userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername()).ifPresent(u -> {
             u.setFirstName(firstName);
