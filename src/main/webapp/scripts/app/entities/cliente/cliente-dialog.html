@@ -1,18 +1,37 @@
-
 <form name="editForm" role="form" novalidate ng-submit="save()">
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="myClienteLabel">Create or edit a Cliente</h4>
+                ng-click="clear()">&times;
+        </button>
+        <i class="mdi mdi-account"></i>
+        <h4 class="modal-title" id="myClienteLabel">Criar ou editar um Cliente</h4>
     </div>
     <div class="modal-body">
-        <div class="form-group">
-            <label for="id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="cliente.id" readonly>
-        </div>
-
+    	<div class="row">
+	    	<div class="col-md-2">
+		        <div class="form-group">
+		            <label for="id">Código</label>
+		            <input type="text" class="form-control" id="id" name="id"
+		                    ng-model="cliente.id" readonly>
+		        </div>
+	        </div>
+			
+			<div class="col-md-10">
+		        <div class="form-group">
+		            <label class="control-label" for="field_nome">Nome</label>
+		            <input type="text" class="form-control text-uppercase" name="nome" id="field_nome"
+		                   ng-model="cliente.nome"
+		                   required />
+		            <div ng-show="editForm.nome.$invalid">
+		                <p class="help-block"
+		                   ng-show="editForm.nome.$error.required">
+		                    Preenchimento obrigatório.
+		                </p>
+		            </div>
+		        </div>
+		    </div>		    
+		</div>
         <ul class="nav nav-tabs">
             <li class="active"><a showtab="" href="#tabGeral">Geral</a></li>
             <li ng-show="cliente.tipoPessoa=='F'" ><a showtab=""  href="#tabPessoaFisica">Pessoa Física</a></li>
@@ -20,82 +39,110 @@
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="tabGeral">
-                <br>
-                <div class="form-group">
-                    <label class="control-label" >Tipo Pessoa</label>
-
-                    <label>
-                        <input type="radio" ng-model="cliente.tipoPessoa" value="F">
-                        Fisica
-                    </label>
-                    <label>
-                        <input type="radio" ng-model="cliente.tipoPessoa" value="J">
-                        Juridica
-                    </label>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="field_nome">Nome</label>
-                    <input type="text" class="form-control" name="nome" id="field_nome"
-                           ng-model="cliente.nome"
-                           required />
-                    <div ng-show="editForm.nome.$invalid">
-                        <p class="help-block"
-                           ng-show="editForm.nome.$error.required">
-                            This field is required.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_telefone">Telefone</label>
-                    <input type="text" class="form-control" name="telefone" id="field_telefone"
-                           ng-model="cliente.telefone"
-                           ng-maxlength="13" />
-                    <div ng-show="editForm.telefone.$invalid">
-                        <p class="help-block"
-                           ng-show="editForm.telefone.$error.maxlength" translate-value-max="13">
-                            This field cannot be longer than 13 characters.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_celular">Celular</label>
-                    <input type="text" class="form-control" name="celular" id="field_celular"
-                           ng-model="cliente.celular"
-                           ng-maxlength="13" />
-                    <div ng-show="editForm.celular.$invalid">
-                        <p class="help-block"
-                           ng-show="editForm.celular.$error.maxlength" translate-value-max="13">
-                            This field cannot be longer than 13 characters.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_fax">Fax</label>
-                    <input type="text" class="form-control" name="fax" id="field_fax"
-                           ng-model="cliente.fax"
-                           ng-maxlength="13" />
-                    <div ng-show="editForm.fax.$invalid">
-                        <p class="help-block"
-                           ng-show="editForm.fax.$error.maxlength" translate-value-max="13">
-                            This field cannot be longer than 13 characters.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_numero">Número</label>
-                    <input type="text" class="form-control" name="numero" id="field_numero"
-                           ng-model="cliente.numero"
+                <br> 
+                <div class="row">
+                	<div class="col-md-3">
+				    	<div class="form-group">
+		                    <label class="control-label" >Tipo de Cliente</label>
+		                    <br>
+		                    <label>
+		                        <input type="radio" ng-model="cliente.tipoPessoa" value="F">
+		                        Fisica
+		                    </label>
+		                    <label>
+		                        <input type="radio" ng-model="cliente.tipoPessoa" value="J">
+		                        Juridica
+		                    </label>
+		                </div>
+				    </div>
+				    <div class="col-md-9">			    	
+	                    <h4>Consulte a situação do cliente no site do <strong>SINTEGRA:</strong>
+	                    	<a href="http://www.sintegra.gov.br/" target="_blank">sintegra.gov.br</a>
+	                    </h4>	                
+				    </div>
+                </div>               
+                <div class="row">
+    				<div class="col-md-4">
+		                <div class="form-group">
+		                    <label class="control-label" for="field_telefone">Telefone</label>
+		                    <input type="text" class="form-control" name="telefone" id="field_telefone"
+		                           ng-model="cliente.telefone"
+		                           ui-br-phone-number
+		                           maxlength="15"
+		                           ng-maxlength="15"
+		                           placeholder="(00) 0000-0000"
+		                           />
+		                    <div ng-show="editForm.telefone.$invalid">
+		                        <p class="help-block"
+		                           ng-show="editForm.telefone.$error.maxlength" translate-value-max="15">
+		                            Este campo deve conter no máximo 15	caracteres.
+		                        </p>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="col-md-4">
+		                <div class="form-group">
+		                    <label class="control-label" for="field_celular">Celular</label>
+		                    <input type="text" class="form-control" name="celular" id="field_celular"
+		                           ng-model="cliente.celular"
+		                           ui-br-phone-number
+		                           maxlength="15"
+		                           ng-maxlength="15" 
+								   placeholder="(00) 00000-0000"	
+		                           />
+		                    <div ng-show="editForm.celular.$invalid">
+		                        <p class="help-block"
+		                           ng-show="editForm.celular.$error.maxlength" translate-value-max="15">
+		                            Este campo deve conter no máximo 15	caracteres.
+		                        </p>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="col-md-4">
+		                <div class="form-group">
+		                    <label class="control-label" for="field_fax">Fax</label>
+		                    <input type="text" class="form-control" name="fax" id="field_fax"
+		                           ng-model="cliente.fax"
+		                           ui-br-phone-number
+		                           maxlength="15" 
+		                           ng-maxlength="15" 
+								   placeholder="(00) 0000-0000"
+		                           />
+		                    <div ng-show="editForm.fax.$invalid">
+		                        <p class="help-block"
+		                           ng-show="editForm.fax.$error.maxlength" translate-value-max="15">
+		                            Este campo não pode ser maior do que 15	caracteres.
+		                        </p>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <logradouro entidade="cliente"></logradouro>
+		        <div class="form-group">
+                    <label class="control-label" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           ng-model="cliente.email"
                         />
                 </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_complemento">Complemento</label>
-                    <input type="text" class="form-control" name="complemento" id="field_complemento"
-                           ng-model="cliente.complemento"
-                        />
-                </div>
-
-                <div class="form-group">
+		        <div class="row">
+		        	<div class="col-md-2">
+		        		<div class="form-group">
+		                    <label class="control-label" for="field_numero">Número</label>
+		                    <input type="text" class="form-control text-uppercase" name="numero" id="field_numero"
+		                           ng-model="cliente.numero"
+		                        />
+		                </div>
+		        	</div>
+		        	<div class="col-md-10">
+		        		<div class="form-group">
+		                    <label class="control-label" for="field_complemento">Complemento</label>
+		                    <input type="text" class="form-control text-uppercase" name="complemento" id="field_complemento"
+		                           ng-model="cliente.complemento"
+		                        />
+		                </div>
+		        	</div>		        	
+		        </div>                
+		        <div class="form-group">
                     <label class="control-label" >Situação</label>
 
                     <label>
@@ -109,29 +156,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label" for="field_email">Email</label>
-                    <input type="text" class="form-control" name="email" id="field_email"
-                           ng-model="cliente.email"
-                        />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_obs">Obs.</label>
-                    <input type="text" class="form-control" name="obs" id="field_obs"
-                           ng-model="cliente.obs"
-                        />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_historico">Histórico</label>
-                    <br/>
-            <textarea rows="4" cols="50" name="historico" id="field_historico"
-                      ng-model="cliente.historico">
-            </textarea>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_vendedor">Vendedor</label>
-                    <input type="checkbox"  name="vendedor" id="field_vendedor"
-                           ng-model="cliente.vendedor"
-                        />
+                  <label for="field_historico">Histórico</label>
+                  <textarea class="form-control" rows="3" name="historico" id="field_historico" ng-model="cliente.historico"></textarea>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="field_inativo">Inativo</label>
@@ -139,6 +165,13 @@
                            ng-model="cliente.inativo"
                         />
                 </div>
+                <!--
+                <div class="form-group">
+                    <label class="control-label" for="field_vendedor">Vendedor</label>
+                    <input type="checkbox"  name="vendedor" id="field_vendedor"
+                           ng-model="cliente.vendedor"
+                        />
+                </div>                
                 <div class="form-group">
                     <label class="control-label" for="field_usuario">Usuário</label>
                     <input  type="checkbox"
@@ -146,6 +179,7 @@
                             ng-model="cliente.usuario"
                         />
                 </div>
+                -->
                 <div class="form-group">
                     <label class="control-label" for="field_data_cadastro">Data de Cadastro</label>
                     <span id="field_data_cadastro">{{cliente.dataCadastro | date:'dd/MM/yyyy HH:mm:ss'}}</span>
@@ -153,139 +187,209 @@
             </div>
             <div class="tab-pane" id="tabPessoaFisica">
                 <br>
-                <div class="form-group">
-                    <label for="field_cpf">CPF</label>
-                    <input type="text" class="form-control" name="cpf" id="field_cpf"
-                           ng-model="cliente.pessoaFisica.cpf"
-                        >
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_data_nascimento">Data Nascimento</label>
-                    <input type="date" class="form-control" name="data_nascimento" id="field_data_nascimento"
-                           ng-model="cliente.pessoaFisica.dataNascimento"
-                        />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_rg">RG</label>
-                    <input type="text" class="form-control" name="rg" id="field_rg"
-                           ng-model="cliente.pessoaFisica.rg"
-                        />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_nome_pai">Nome do Pai</label>
-                    <input type="text" class="form-control" name="pai" id="field_nome_pai"
-                           ng-model="cliente.pessoaFisica.pai"
-                        />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_nome_mae">Nome da Mãe</label>
-                    <input type="text" class="form-control" name="mae" id="field_nome_mae"
-                           ng-model="cliente.pessoaFisica.mae"
-                        />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_estado_civil">Ds_estcivil</label>
-                    <input type="text" class="form-control" name="estado_civil" id="field_estado_civil"
-                           ng-model="cliente.pessoaFisica.estadoCivil"
-                           ng-maxlength="11" />
-                    <div ng-show="editForm.pessoaFisica.estadoCivil.$invalid">
-                        <p class="help-block"
-                           ng-show="editForm.pessoaFisica.estadoCivil.$error.maxlength" translate-value-max="11">
-                            This field cannot be longer than 11 characters.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_nome_conjuge">Nome do Cônjuge</label>
-                    <input type="text" class="form-control" name="nome_conjuge" id="field_nome_conjuge"
-                           ng-model="cliente.pessoaFisica.conjuge"
-                        />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_profissao">Profissão</label>
-                    <input type="text" class="form-control" name="profissao" id="field_profissao"
-                           ng-model="cliente.pessoaFisica.profissao"
-                        />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_local_trabalho">Local de trabalho</label>
-                    <input type="text" class="form-control" name="local_trabalho" id="field_local_trabalho"
-                           ng-model="cliente.pessoaFisica.localTrabalho"
-                        />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_complemento">Complemento</label>
-                    <input type="text" class="form-control" name="complemento" id="field_complemento"
-                           ng-model="cliente.pessoaFisica.complemento"
-                        />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_apelido">Apelido</label>
-                    <input type="text" class="form-control" name="apelido" id="field_apelido"
-                           ng-model="cliente.pessoaFisica.apelido"
-                        />
-                </div>
+                <div class="row">
+                	<div class="col-md-4">
+	                	<div class="form-group">
+		                    <label class="control-label" for="field_rg">Identidade</label>
+		                    <input type="text" class="form-control" name="rg" id="field_rg"
+		                           ng-model="cliente.pessoaFisica.rg"
+		                        />
+		                </div>
+	                </div>
+	                <div class="col-md-4">
+		                <div class="form-group">
+		                    <label for="field_cpf">CPF</label>
+		                    <input type="text" class="form-control" name="cpf" id="field_cpf"
+		                           ng-model="cliente.pessoaFisica.cpf"
+		                           ui-br-cpf-mask
+		                           placeholder="000.000.000-00"
+		                           required
+		                        >
+		                </div>
+	                </div>
+	                <div class="col-md-4">
+		                <div class="form-group">
+		                    <label class="control-label" for="field_data_nascimento">Data Nascimento</label>
+		                    <input type="date" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask=""  class="form-control" name="data_nascimento" id="field_data_nascimento"
+		                           ng-model="cliente.pessoaFisica.dataNascimento"
+		                        />
+		                </div>	
+	                </div>                
+	            </div>
+	            <div class="row">	            	
+	                <div class="col-md-6">
+		                <div class="form-group">
+		                    <label class="control-label" for="field_nome_mae">Nome da Mãe</label>
+		                    <input type="text" class="form-control text-uppercase" name="mae" id="field_nome_mae"
+		                           ng-model="cliente.pessoaFisica.mae"
+		                        />
+		                </div>
+		            </div>
+		            <div class="col-md-6">
+		                <div class="form-group">
+		                    <label class="control-label" for="field_nome_pai">Nome do Pai</label>
+		                    <input type="text" class="form-control text-uppercase" name="pai" id="field_nome_pai"
+		                           ng-model="cliente.pessoaFisica.pai"
+		                        />
+		                </div>
+	                </div>
+	            </div>
+	            <div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+		                    <label class="control-label" for="field_estado_civil">Estado Civil</label>
+		                    <input type="text" class="form-control text-uppercase" name="estado_civil" id="field_estado_civil"
+		                           ng-model="cliente.pessoaFisica.estadoCivil"
+		                           ng-maxlength="11" />
+		                    <div ng-show="editForm.pessoaFisica.estadoCivil.$invalid">
+		                        <p class="help-block"
+		                           ng-show="editForm.pessoaFisica.estadoCivil.$error.maxlength" translate-value-max="11">
+		                            Este campo não pode ser maior do que 11	caracteres.
+		                        </p>
+		                    </div>
+		                </div>
+					</div>
+		            <div class="col-md-6">    
+		                <div class="form-group">
+		                    <label class="control-label" for="field_nome_conjuge">Nome do Cônjuge</label>
+		                    <input type="text" class="form-control text-uppercase" name="nome_conjuge" id="field_nome_conjuge"
+		                           ng-model="cliente.pessoaFisica.conjuge"
+		                        />
+		                </div>
+		            </div>
+		        </div>
+		        <div class="row">
+					<div class="col-md-6">
+		                <div class="form-group">
+		                    <label class="control-label" for="field_profissao">Profissão</label>
+		                    <input type="text" class="form-control text-uppercase" name="profissao" id="field_profissao"
+		                           ng-model="cliente.pessoaFisica.profissao"
+		                        />
+		                </div>
+		            </div>
+		            <div class="col-md-6">
+		                <div class="form-group">
+		                    <label class="control-label" for="field_local_trabalho">Local de trabalho</label>
+		                    <input type="text" class="form-control text-uppercase" name="local_trabalho" id="field_local_trabalho"
+		                           ng-model="cliente.pessoaFisica.localTrabalho"
+		                        />
+		                </div>
+		            </div>
+		        </div>
+		        <div class="row">
+					<div class="col-md-6">
+		                <div class="form-group">
+		                    <label class="control-label" for="field_complemento">Complemento</label>
+		                    <input type="text" class="form-control text-uppercase" name="complemento" id="field_complemento"
+		                           ng-model="cliente.pessoaFisica.complemento"
+		                        />
+		                </div>
+		            </div>
+		            <div class="col-md-6">
+		                <div class="form-group">
+		                    <label class="control-label" for="field_apelido">Apelido</label>
+		                    <input type="text" class="form-control text-uppercase" name="apelido" id="field_apelido"
+		                           ng-model="cliente.pessoaFisica.apelido"
+		                        />
+		                </div>
+		            </div>
+		        </div>
+		        <div class="row">
+		        	<div class="col-md-12">
+		        		<div class="form-group">
+		                    <label class="control-label" for="field_obs">Observação:</label>
+		                    <input type="text" class="form-control" name="obs" id="field_obs"
+		                           ng-model="cliente.obs"
+		                        />
+		                </div>
+		        	</div>		        	
+		        </div>
             </div>
             <div class="tab-pane" id="tabPessoaJuridica">
                 <br>
-                <div class="form-group">
-                    <label class="control-label" for="field_cgc">CGC</label>
-                    <input type="text" class="form-control" name="cgc" id="field_cgc"
-                           ng-model="cliente.pessoaJuridica.cgc"
-                           ng-maxlength="18" />
-                    <div ng-show="editForm.pessoaJuridica.cgc.$invalid">
-                        <p class="help-block"
-                           ng-show="editForm.pessoaJuridica.cgc.$error.maxlength" translate-value-max="18">
-                            This field cannot be longer than 18 characters.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_cgf">CGF</label>
-                    <input type="text" class="form-control" name="cgf" id="field_cgf"
-                           ng-model="cliente.pessoaJuridica.cgf"
-                           ng-maxlength="18" />
-                    <div ng-show="editForm.pessoaJuridica.cgf.$invalid">
-                        <p class="help-block"
-                           ng-show="editForm.pessoaJuridica.cgf.$error.maxlength" translate-value-max="18">
-                            This field cannot be longer than 18 characters.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_fantasia">Nome Fantasia</label>
-                    <input type="text" class="form-control" name="fantasia" id="field_fantasia"
-                           ng-model="cliente.pessoaJuridica.fantasia"
-                        />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_cnpj">CNPJ</label>
-                    <input type="text" class="form-control" name="cnpj" id="field_cnpj"
-                           ng-model="cliente.pessoaJuridica.cnpj"
-                           ng-maxlength="14" />
-                    <div ng-show="editForm.pessoaJuridica.cnpj.$invalid">
-                        <p class="help-block"
-                           ng-show="editForm.pessoaJuridica.cnpj.$error.maxlength" translate-value-max="14">
-                            This field cannot be longer than 14 characters.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_responsavel">Responsável</label>
-                    <input type="text" class="form-control" name="responsavel" id="field_responsavel"
-                           ng-model="cliente.pessoaJuridica.responsavel"
-                        />
-                </div>
+                <div class="row">
+					<div class="col-md-12">
+		                <div class="form-group">
+		                    <label class="control-label" for="field_fantasia">Nome Fantasia</label>
+		                    <input type="text" class="form-control" name="fantasia" id="field_fantasia"
+		                           ng-model="cliente.pessoaJuridica.fantasia"
+		                        />
+		                </div>
+		            </div>
+		        </div>
+		        <div class="row">
+					<div class="col-md-4">
+		                <div class="form-group">
+		                    <label class="control-label" for="field_cgc">CGC</label>
+		                    <input type="text" class="form-control" name="cgc" id="field_cgc"
+		                           ng-model="cliente.pessoaJuridica.cgc"
+		                           maxlength="18"
+		                           ng-maxlength="18" />
+		                    <div ng-show="editForm.pessoaJuridica.cgc.$invalid">
+		                        <p class="help-block"
+		                           ng-show="editForm.pessoaJuridica.cgc.$error.maxlength" translate-value-max="18">
+		                            Este campo não pode ser maior do que 18	caracteres.
+		                        </p>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="col-md-4">
+		                <div class="form-group">
+		                    <label class="control-label" for="field_cnpj">CNPJ</label>
+		                    <input type="text" class="form-control" name="cnpj" id="field_cnpj"
+		                           ng-model="cliente.pessoaJuridica.cnpj"
+		                           ui-br-cnpj-mask
+		                           maxlength="18" 
+		                           ng-maxlength="18"
+		                           placeholder="00.000.000/0000-00" 
+		                           
+		                           />
+		                    <div ng-show="editForm.pessoaJuridica.cnpj.$invalid">
+		                        <p class="help-block"
+		                           ng-show="editForm.pessoaJuridica.cnpj.$error.maxlength" translate-value-max="18">
+		                            Este campo não pode ser maior do que 17	caracteres.
+		                        </p>
+		                    </div>
+		                </div> 
+		            </div>
+		            <div class="col-md-4">               
+		                <div class="form-group">
+		                    <label class="control-label" for="field_cgf">Inscrição Estadual</label>
+		                    <input type="text" class="form-control" name="cgf" id="field_cgf"
+		                           ng-model="cliente.pessoaJuridica.cgf"
+		                           maxlength="18"
+		                           ng-maxlength="18" />
+		                    <div ng-show="editForm.pessoaJuridica.cgf.$invalid">
+		                        <p class="help-block"
+		                           ng-show="editForm.pessoaJuridica.cgf.$error.maxlength" translate-value-max="18">
+		                            Este campo não pode ser maior do que 18	caracteres.
+		                        </p>
+		                    </div>
+		                </div> 
+		            </div>
+		        </div>
+		        <div class="row">
+					<div class="col-md-12">               
+		                <div class="form-group">
+		                    <label class="control-label" for="field_responsavel">Responsável</label>
+		                    <input type="text" class="form-control" name="responsavel" id="field_responsavel"
+		                           ng-model="cliente.pessoaJuridica.responsavel"
+		                        />
+		                </div>
+		            </div>
+		        </div>
             </div>
         </div>
 
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+            <span class="mdi mdi-close"></span>
+            <span>Cancelar</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || editForm.$submitted" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        <button type="submit" class="btn btn-success" ng-disabled="editForm.$invalid || editForm.$submitted">
+            <span class="mdi mdi-content-save"></span>
+            <span>Salvar</span>
         </button>
     </div>
 </form>

@@ -2,6 +2,7 @@
 
 angular.module('gpApp')
     .controller('ClienteController', function ($scope, Cliente, ClienteSearch, ParseLinks) {
+        
         $scope.clientes = [];
         $scope.page = 1;
         $scope.loadAll = function() {
@@ -14,23 +15,8 @@ angular.module('gpApp')
             $scope.page = page;
             $scope.loadAll();
         };
-        $scope.loadAll();
+        $scope.loadAll();        
 
-        $scope.delete = function (id) {
-            Cliente.get({id: id}, function(result) {
-                $scope.cliente = result;
-                $('#deleteClienteConfirmation').modal('show');
-            });
-        };
-
-        $scope.confirmDelete = function (id) {
-            Cliente.delete({id: id},
-                function () {
-                    $scope.loadAll();
-                    $('#deleteClienteConfirmation').modal('hide');
-                    $scope.clear();
-                });
-        };
 
         $scope.search = function () {
             ClienteSearch.query({query: $scope.searchQuery}, function(result) {
@@ -48,6 +34,8 @@ angular.module('gpApp')
         };
 
         $scope.clear = function () {
-            $scope.cliente = {id: null};
+            $scope.cliente = {
+                id: null
+            };
         };
     });

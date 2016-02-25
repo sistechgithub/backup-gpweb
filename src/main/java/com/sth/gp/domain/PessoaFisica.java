@@ -93,7 +93,103 @@ public class PessoaFisica implements Serializable {
         this.pessoa = pessoa;
     }
 
-    @Override
+    public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
+	public String getPai() {
+		return pai;
+	}
+
+	public void setPai(String pai) {
+		this.pai = pai;
+	}
+
+	public String getMae() {
+		return mae;
+	}
+
+	public void setMae(String mae) {
+		this.mae = mae;
+	}
+
+	public String getEstadoCivil() {
+		return estadoCivil;
+	}
+
+	public void setEstadoCivil(String estadoCivil) {
+		this.estadoCivil = estadoCivil;
+	}
+
+	public String getConjuge() {
+		return conjuge;
+	}
+
+	public void setConjuge(String conjuge) {
+		this.conjuge = conjuge;
+	}
+
+	public String getProfissao() {
+		return profissao;
+	}
+
+	public void setProfissao(String profissao) {
+		this.profissao = profissao;
+	}
+
+	public String getLocalTrabalho() {
+		return localTrabalho;
+	}
+
+	public void setLocalTrabalho(String localTrabalho) {
+		this.localTrabalho = localTrabalho;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getApelido() {
+		return apelido;
+	}
+
+	public void setApelido(String apelido) {
+		this.apelido = apelido;
+	}
+
+	public String getObs() {
+		return obs;
+	}
+
+	public void setObs(String obs) {
+		this.obs = obs;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

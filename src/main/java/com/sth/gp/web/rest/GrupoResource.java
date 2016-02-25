@@ -52,7 +52,7 @@ public class GrupoResource {
     public ResponseEntity<Grupo> createGrupo(@RequestBody Grupo grupo) throws URISyntaxException {
         log.debug("REST request to save Grupo : {}", grupo);
         if (grupo.getId() != null) {
-            return ResponseEntity.badRequest().header("Failure", "A new grupo cannot already have an ID").body(null);
+            return ResponseEntity.badRequest().header("Falha", "Um novo Grupo não pode já ter um Código").body(null);
         }        
         
         grupo.setDtOperacao(LocalDate.now()); //Always use the operation date from server

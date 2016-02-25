@@ -35,7 +35,7 @@ public class UserDetailsService implements org.springframework.security.core.use
         Optional<User> userFromDatabase = userRepository.findOneByLogin(lowercaseLogin);
         return userFromDatabase.map(user -> {
             if (!user.getActivated()) {
-                throw new UserNotActivatedException("User " + lowercaseLogin + " was not activated");
+                throw new UserNotActivatedException("Usuário " + lowercaseLogin + " não foi ativado");
             }
             List<GrantedAuthority> grantedAuthorities = user.getAuthorities().stream()
                     .map(authority -> new SimpleGrantedAuthority(authority.getName()))
@@ -43,7 +43,7 @@ public class UserDetailsService implements org.springframework.security.core.use
             return new org.springframework.security.core.userdetails.User(lowercaseLogin,
                 user.getPassword(),
                 grantedAuthorities);
-        }).orElseThrow(() -> new UsernameNotFoundException("User " + lowercaseLogin + " was not found in the " +
-        "database"));
+        }).orElseThrow(() -> new UsernameNotFoundException("Usuário " + lowercaseLogin + " não encontrado na " +
+        "base de dados"));
     }
 }

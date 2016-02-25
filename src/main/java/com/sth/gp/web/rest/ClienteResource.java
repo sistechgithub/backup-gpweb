@@ -49,7 +49,7 @@ public class ClienteResource {
     public ResponseEntity<Cliente> create(@RequestBody Cliente cliente) throws URISyntaxException {
         log.debug("REST request to save Cliente : {}", cliente);
         if (cliente.getId() != null) {
-            return ResponseEntity.badRequest().header("Failure", "A new cliente cannot already have an ID").body(null);
+            return ResponseEntity.badRequest().header("Falha", "Um novo Cliente não pode já ter um Código").body(null);
         }
         Cliente result = clienteRepository.save(cliente);
         clienteSearchRepository.save(result);

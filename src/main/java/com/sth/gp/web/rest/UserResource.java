@@ -86,7 +86,7 @@ public class UserResource {
     public ResponseEntity<User> createUser(@RequestBody User user) throws URISyntaxException {
         log.debug("REST request to save User : {}", user);
         if (user.getId() != null) {
-            return ResponseEntity.badRequest().header("Failure", "A new user cannot already have an ID").body(null);
+            return ResponseEntity.badRequest().header("Falha", "Um novo Usuário não pode já ter um Código").body(null);
         }
         User result = userRepository.save(user);
         return ResponseEntity.created(new URI("/api/users/" + result.getId()))
