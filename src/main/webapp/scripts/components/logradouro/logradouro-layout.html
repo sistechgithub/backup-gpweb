@@ -9,8 +9,8 @@
 							class="form-control"  
 							name="cep" 
 							id="field_cep"  
-							ng-change="findcep(editForm.cep.$valid, entidade.logradouro.cep)" 				 
-							ng-model="entidade.logradouro.cep" 
+							ng-change="findcep(editForm.cep.$valid, logradouro.cep)" 				 
+							ng-model="logradouro.cep" 
 							ui-br-cep-mask 
 							placeholder="00000-000" 
 							maxlength=9 
@@ -34,7 +34,7 @@
 							class="form-control text-uppercase"  
 							name="logradouro_nome" 
 							id="field_logradouro_nome" 
-							ng-model="entidade.logradouro.nome" 
+							ng-model="logradouro.nome" 
 							ng-disabled="true" 
 					/> 
 				</div> 
@@ -49,7 +49,7 @@
 							class="form-control"  
 							name="numero" 
 							id="field_numero" 
-							ng-model="entidade.numero"  
+							ng-model="numero"  
 					/> 
 				</div> 
 			</div>  
@@ -65,7 +65,7 @@
 							class="form-control text-uppercase"  
 							name="complemento" 
 							id="field_complemento"  
-							ng-model="entidade.complemento" 
+							ng-model="complemento" 
 							ng-maxlength="20" 
 					/> 
 					<div ng-show="editForm.complemento.$invalid"> 
@@ -87,7 +87,7 @@
 							class="form-control text-uppercase"  
 							name="bairro_nome"  
 							id="field_bairro_nome" 
-							ng-model="entidade.logradouro.bairro.nome"  
+							ng-model="logradouro.bairro.nome"  
 							ng-disabled="true"
 					/> 
 				</div> 
@@ -102,7 +102,7 @@
 							class="form-control text-uppercase"  
 							name="cidade_nome"  
 							id="field_cidade_nome" 
-							ng-model="entidade.logradouro.bairro.cidade.nome"   
+							ng-model="logradouro.bairro.cidade.nome"   
 							ng-disabled="true"
 					/> 
 				</div> 
@@ -115,7 +115,7 @@
 						class="form-control text-uppercase"  
 						name="estado_nome"  
 						id="field_estado_nome" 
-						ng-model="entidade.logradouro.bairro.cidade.estado.nome"   
+						ng-model="logradouro.bairro.cidade.estado.nome"   
 						ng-disabled="true"
 				/> 
 			</div> 
