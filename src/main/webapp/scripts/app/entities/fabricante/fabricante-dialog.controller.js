@@ -33,11 +33,9 @@ angular.module('gpApp').controller(
 					$scope.save = function() {
 						$scope.isSaving = true;
 						if ($scope.fabricante.id != null) {
-							console.log($scope.fabricante.logradouro);
 							Fabricante.update($scope.fabricante, onSaveSuccess,
 									onSaveError);
 						} else {
-							console.log($scope.fabricante.logradouro);
 							Fabricante.save($scope.fabricante, onSaveSuccess,
 									onSaveError);
 						}
