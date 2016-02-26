@@ -1,14 +1,22 @@
 'use strict';
 
 angular.module('gpApp')
-    .directive('logradouro', function(ConsultaCep) {
+    .directive('logradouro', function(ConsultaCep, $parse) {
         return {
             restrict: 'E',
             templateUrl: 'scripts/components/logradouro/logradouro-layout.html',   
             require: 'ngModel',//informando para o angular que a diretiva usa o controller do ngModel
-            link: function($scope, $element, $attrs, ngModelCtrl){
-				
-				ngModelCtrl.$modelValue = {};
+            link: {
+            	
+            	post:function ($scope, $element, $attrs, ngModelCtrl){
+
+            		/* quando a página for carregada pela primeira vez para edção de
+            		 * cadastro, o endereço será jogado na tela conforme cadastro */ 
+            		var ngModelGet = $parse($attrs.ngModel);
+
+                    $scope.$watch($attrs.ngModel, function () {
+                        $scope.logradouro = ngModelCtrl.$viewValue;
+                    });
 				/*Consulta de CEP
 				 * Caso no cadastro de endereço existente no banco não conste o CEP informado
 				 * o sistema irá procura-lo na internet numa consulta de CEP gratuita,
@@ -25,7 +33,7 @@ angular.module('gpApp')
 									function(data){
 										data = angular.fromJson(data);				
 										$scope.logradouro = data.data;						
-										ngModelCtrl.$modelValue = data.data;
+										ngModelCtrl.$setViewValue(data.data);
 									},
 									//caso o endereço não exista na base ele procura em api gratuita
 									function(data){ 
@@ -35,7 +43,7 @@ angular.module('gpApp')
 											  if (!data.erro){
 												data = angular.fromJson(data);		
 												$scope.logradouro = data;
-												ngModelCtrl.$modelValue = data;
+												ngModelCtrl.$setViewValue(data);
 											  }else{											  
 												$scope.editForm.cep.$invalid = true;
 											  }	
@@ -46,6 +54,7 @@ angular.module('gpApp')
 						}
 					}
 					};	
+            }
             }
         
         }
