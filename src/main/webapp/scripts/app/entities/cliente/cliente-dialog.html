@@ -11,25 +11,25 @@
 	    	<div class="col-md-2">
 		        <div class="form-group">
 		            <label for="id">Código</label>
-		            <input type="text" 
-		            	   class="form-control" 
+		            <input type="text"
+		            	   class="form-control"
 		            	   name="id"
-		            	   id="id" 
-		                   ng-model="cliente.id" 
+		            	   id="id"
+		                   ng-model="cliente.id"
 		                   readonly
 		            />
 		        </div>
-	        </div>			
+	        </div>
 			<div class="col-md-10">
 		        <div class="form-group">
 		            <label class="control-label" for="field_nome">Nome</label>
-		            <input type="text" 
-		            	   class="form-control text-uppercase" 
-		            	   name="nome" 
+		            <input type="text"
+		            	   class="form-control text-uppercase"
+		            	   name="nome"
 		            	   id="field_nome"
 		                   ng-model="cliente.nome"
 		                   required
-		                   autofocus 
+		                   autofocus
 		            />
 		            <div ng-show="editForm.nome.$invalid">
 		                <p class="help-block"
@@ -38,7 +38,7 @@
 		                </p>
 		            </div>
 		        </div>
-		    </div>		    
+		    </div>
 		</div>
 
         <ul class="nav nav-tabs">
@@ -55,23 +55,25 @@
 
         <div class="tab-content">
             <div class="tab-pane active" id="tabGeral">
-                <br> 
+                <br>
+                <!-- Tipo de cliente -->
                 <div class="row">
-                	<div class="col-md-3">
-				    	<div class="form-group">
-		                    <label class="control-label" >Tipo de Cliente</label>
+                	<div class="form-group">
+                		<div class="col-md-3">
+		                    <label class="control-label" for="radios" >Tipo de Cliente</label>
 		                    <br>
-		                    <label>
-		                        <input type="radio" ng-model="cliente.tipoPessoa" value="F">
+		                    <label class="radio-inline" for="radios-F">
+		                        <input type="radio" name="radios" id="radios-F" value="F" ng-model="cliente.tipoPessoa">
 		                        Fisica
 		                    </label>
-		                    <label>
-		                        <input type="radio" ng-model="cliente.tipoPessoa" value="J">
+		                    <label class="radio-inline" for="radios-J">
+		                        <input type="radio" name="radios" id="radios-J" value="J" ng-model="cliente.tipoPessoa">
 		                        Juridica
 		                    </label>
 		                </div>
-				    </div>				    
-                </div> 
+				    </div>
+                </div>
+                <br>
 
 		        <logradouro ng-model="cliente.logradouro"></logradouro>
 
@@ -101,8 +103,8 @@
 		                           ng-model="cliente.celular"
 		                           ui-br-phone-number
 		                           maxlength="15"
-		                           ng-maxlength="15" 
-								   placeholder="(00) 00000-0000"	
+		                           ng-maxlength="15"
+								   placeholder="(00) 00000-0000"
 		                           />
 		                    <div ng-show="editForm.celular.$invalid">
 		                        <p class="help-block"
@@ -118,8 +120,8 @@
 		                    <input type="text" class="form-control" name="fax" id="field_fax"
 		                           ng-model="cliente.fax"
 		                           ui-br-phone-number
-		                           maxlength="15" 
-		                           ng-maxlength="15" 
+		                           maxlength="15"
+		                           ng-maxlength="15"
 								   placeholder="(00) 0000-0000"
 		                           />
 		                    <div ng-show="editForm.fax.$invalid">
@@ -136,48 +138,70 @@
 		                    <input type="text" class="form-control" name="email" id="field_email"
 		                           ng-model="cliente.email"
 		                        />
-		                </div>	
+		                </div>
 		            </div>
-		        </div>          
-		        
+		        </div>
+
                 <div class="form-group">
                 	<label for="field_historico">Histórico</label>
-                	<textarea class="form-control text-uppercase"                			   
-                			  name="historico" 
-                			  id="field_historico" 
+                	<textarea class="form-control text-uppercase"
+                			  name="historico"
+                			  id="field_historico"
                 			  rows="3"
                 			  ng-model="cliente.historico">
                 	</textarea>
                 </div>
 
-                <div class="form-group">
-                    <label class="control-label" >Situação</label>
-
-                    <label>
-                        <input type="radio" ng-model="cliente.situacao" value="A">
-                        A
-                    </label>
-                    <label>
-                        <input type="radio" ng-model="cliente.situacao" value="B">
-                        B
-                    </label>
+                <!-- Situação -->
+                <div class="row">
+                	<label class="col-md-1" for="radioSitua">Situação</label>
                 </div>
+                <div class="row">
+                	<div class="col-md-6">
+						<div class="form-group">						  	
+						    <label class="radio-inline" for="radioSitua-0">
+						      <input type="radio" name="radioSitua" id="radioSitua-0" value="A" ng-model="cliente.situacao">
+						      Bom cliente
+						    </label>
+						
+						    <label class="radio-inline" for="radioSitua-1">
+						      <input type="radio" name="radioSitua" id="radioSitua-1" value="B" ng-model="cliente.situacao">
+						      Regular
+						    </label>
+						
+						    <label class="radio-inline" for="radioSitua-2">
+						      <input type="radio" name="radioSitua" id="radioSitua-2" value="C" ng-model="cliente.situacao">
+						      S.P.C.
+						    </label>
+						
+						    <label class="radio-inline" for="radioSitua-3">
+						      <input type="radio" name="radioSitua" id="radioSitua-3" value="D" ng-model="cliente.situacao">
+						      Não vender
+						    </label>						
+						</div>
+					</div>
+				</div>
 
-                <div class="form-group">
-                    <label class="control-label" for="field_inativo">Inativo</label>
-                    <input type="checkbox" 
-                    	   name="inativo" 
-                    	   id="field_inativo"
-                           ng-model="cliente.inativo"
-                        />
-                </div>
+				<!-- Inativo -->
+				<div class="row">
+	                <div class="form-group">
+	                	<div class="col-md-4">
+		                    <label class="control-label" for="field_inativo">Inativo</label>
+		                    <input type="checkbox"
+		                    	   name="inativo"
+		                    	   id="field_inativo"
+		                           ng-model="cliente.inativo"
+		                        />
+		                </div>
+		            </div>
+	            </div>
                 <!--
                 <div class="form-group">
                     <label class="control-label" for="field_vendedor">Vendedor</label>
                     <input type="checkbox"  name="vendedor" id="field_vendedor"
                            ng-model="cliente.vendedor"
                         />
-                </div>                
+                </div>
                 <div class="form-group">
                     <label class="control-label" for="field_usuario">Usuário</label>
                     <input  type="checkbox"
@@ -186,10 +210,15 @@
                         />
                 </div>
                 -->
-                <div class="form-group">
-                    <label class="control-label" for="field_data_cadastro">Data de Cadastro</label>
-                    <span id="field_data_cadastro">{{cliente.dataCadastro | date:'dd/MM/yyyy HH:mm:ss'}}</span>
-                </div>
+
+                <div class="row">
+	                <div class="form-group">
+	                	<div class="col-md-4">
+		                    <label class="control-label" for="field_data_cadastro">Data de Cadastro</label>
+		                    <span id="field_data_cadastro">{{cliente.dataCadastro | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+		                </div>
+	                </div>
+	            </div>
             </div>
 
             <div class="tab-pane" id="tabPessoaFisica">
@@ -198,9 +227,9 @@
                 	<div class="col-md-4">
 	                	<div class="form-group">
 		                    <label class="control-label" for="field_rg">Identidade</label>
-		                    <input type="text" 
-		                    	   class="form-control" 
-		                    	   name="rg" 
+		                    <input type="text"
+		                    	   class="form-control"
+		                    	   name="rg"
 		                    	   id="field_rg"
 		                           ng-model="cliente.pessoaFisica.rg"
 		                        />
@@ -209,38 +238,38 @@
 	                <div class="col-md-4">
 		                <div class="form-group">
 		                    <label for="field_cpf">CPF</label>
-		                    <input type="text" 
-		                    	   class="form-control" 
-		                    	   name="cpf" 
+		                    <input type="text"
+		                    	   class="form-control"
+		                    	   name="cpf"
 		                    	   id="field_cpf"
 		                           ng-model="cliente.pessoaFisica.cpf"
 		                           ui-br-cpf-mask
-		                           placeholder="000.000.000-00"		                           
+		                           placeholder="000.000.000-00"
 		                        >
 		                </div>
 	                </div>
 	                <div class="col-md-4">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_data_nascimento">Data Nascimento</label>
-		                    <input type="date"		                    	     
-		                    	   class="form-control" 
-		                    	   name="data_nascimento" 
+		                    <input type="date"
+		                    	   class="form-control"
+		                    	   name="data_nascimento"
 		                    	   id="field_data_nascimento"
-		                    	   data-inputmask="'alias': 'dd/mm/yyyy'" 
+		                    	   data-inputmask="'alias': 'dd/mm/yyyy'"
 		                    	   data-mask=""
 		                           ng-model="cliente.pessoaFisica.dataNascimento"
 		                        />
-		                </div>	
-	                </div>                
+		                </div>
+	                </div>
 	            </div>
 
-	            <div class="row">	            	
+	            <div class="row">
 	                <div class="col-md-6">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_nome_mae">Nome da Mãe</label>
-		                    <input type="text" 
-		                    	   class="form-control text-uppercase" 
-		                    	   name="mae" 
+		                    <input type="text"
+		                    	   class="form-control text-uppercase"
+		                    	   name="mae"
 		                    	   id="field_nome_mae"
 		                           ng-model="cliente.pessoaFisica.mae"
 		                        />
@@ -249,9 +278,9 @@
 		            <div class="col-md-6">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_nome_pai">Nome do Pai</label>
-		                    <input type="text" 
-		                    	   class="form-control text-uppercase" 
-		                    	   name="pai" 
+		                    <input type="text"
+		                    	   class="form-control text-uppercase"
+		                    	   name="pai"
 		                    	   id="field_nome_pai"
 		                           ng-model="cliente.pessoaFisica.pai"
 		                        />
@@ -263,9 +292,9 @@
 					<div class="col-md-6">
 						<div class="form-group">
 		                    <label class="control-label" for="field_estado_civil">Estado Civil</label>
-		                    <input type="text" 
-		                    	   class="form-control text-uppercase" 
-		                    	   name="estado_civil" 
+		                    <input type="text"
+		                    	   class="form-control text-uppercase"
+		                    	   name="estado_civil"
 		                    	   id="field_estado_civil"
 		                           ng-model="cliente.pessoaFisica.estadoCivil"
 		                           ng-maxlength="11" />
@@ -277,12 +306,12 @@
 		                    </div>
 		                </div>
 					</div>
-		            <div class="col-md-6">    
+		            <div class="col-md-6">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_nome_conjuge">Nome do Cônjuge</label>
-		                    <input type="text" 
-		                    	   class="form-control text-uppercase" 
-		                    	   name="nome_conjuge" 
+		                    <input type="text"
+		                    	   class="form-control text-uppercase"
+		                    	   name="nome_conjuge"
 		                    	   id="field_nome_conjuge"
 		                           ng-model="cliente.pessoaFisica.conjuge"
 		                        />
@@ -294,9 +323,9 @@
 					<div class="col-md-6">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_profissao">Profissão</label>
-		                    <input type="text" 
-		                    	   class="form-control text-uppercase" 
-		                    	   name="profissao" 
+		                    <input type="text"
+		                    	   class="form-control text-uppercase"
+		                    	   name="profissao"
 		                    	   id="field_profissao"
 		                           ng-model="cliente.pessoaFisica.profissao"
 		                        />
@@ -305,9 +334,9 @@
 		            <div class="col-md-6">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_local_trabalho">Local de trabalho</label>
-		                    <input type="text" 
-		                    	   class="form-control text-uppercase" 
-		                    	   name="local_trabalho" 
+		                    <input type="text"
+		                    	   class="form-control text-uppercase"
+		                    	   name="local_trabalho"
 		                    	   id="field_local_trabalho"
 		                           ng-model="cliente.pessoaFisica.localTrabalho"
 		                        />
@@ -319,9 +348,9 @@
 					<div class="col-md-6">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_complemento">Complemento</label>
-		                    <input type="text" 
-		                    	   class="form-control text-uppercase" 
-		                    	   name="complemento" 
+		                    <input type="text"
+		                    	   class="form-control text-uppercase"
+		                    	   name="complemento"
 		                    	   id="field_complemento"
 		                           ng-model="cliente.pessoaFisica.complemento"
 		                        />
@@ -330,9 +359,9 @@
 		            <div class="col-md-6">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_apelido">Apelido</label>
-		                    <input type="text" 
-		                    	   class="form-control text-uppercase" 
-		                    	   name="apelido" 
+		                    <input type="text"
+		                    	   class="form-control text-uppercase"
+		                    	   name="apelido"
 		                    	   id="field_apelido"
 		                           ng-model="cliente.pessoaFisica.apelido"
 		                        />
@@ -344,23 +373,23 @@
 		        	<div class="col-md-12">
 		        		<div class="form-group">
 		                    <label class="control-label" for="field_obs">Observação:</label>
-		                    <input type="text" 
-		                    	   class="form-control text-uppercase" 
-		                    	   name="obs" 
+		                    <input type="text"
+		                    	   class="form-control text-uppercase"
+		                    	   name="obs"
 		                    	   id="field_obs"
 		                           ng-model="cliente.obs"
 		                        />
 		                </div>
-		        	</div>		        	
+		        	</div>
 		        </div>
             </div>
             <div class="tab-pane" id="tabPessoaJuridica">
                 <br>
                 <div class="row">
-                	<div class="col-md-12">			    	
+                	<div class="col-md-12">
 	                    <h4 class="text-center">Consulte a situação do cliente no site do <strong>SINTEGRA:</strong>
 	                    	<a href="http://www.sintegra.gov.br/" target="_blank">sintegra.gov.br</a>
-	                    </h4>	                
+	                    </h4>
 				    </div>
                 </div>
 
@@ -368,9 +397,9 @@
 					<div class="col-md-12">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_fantasia">Nome Fantasia</label>
-		                    <input type="text" 
-		                    	   class="form-control text-uppercase" 
-		                    	   name="fantasia" 
+		                    <input type="text"
+		                    	   class="form-control text-uppercase"
+		                    	   name="fantasia"
 		                    	   id="field_fantasia"
 		                           ng-model="cliente.pessoaJuridica.fantasia"
 		                        />
@@ -378,17 +407,17 @@
 		            </div>
 		        </div>
 
-		        <div class="row">					
+		        <div class="row">
 		            <div class="col-md-4">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_cnpj">CNPJ</label>
 		                    <input type="text" class="form-control" name="cnpj" id="field_cnpj"
 		                           ng-model="cliente.pessoaJuridica.cnpj"
 		                           ui-br-cnpj-mask
-		                           maxlength="18" 
+		                           maxlength="18"
 		                           ng-maxlength="18"
-		                           placeholder="00.000.000/0000-00" 
-		                           
+		                           placeholder="00.000.000/0000-00"
+
 		                           />
 		                    <div ng-show="editForm.pessoaJuridica.cnpj.$invalid">
 		                        <p class="help-block"
@@ -396,14 +425,14 @@
 		                            Este campo não pode ser maior do que 17	caracteres.
 		                        </p>
 		                    </div>
-		                </div> 
+		                </div>
 		            </div>
-		            <div class="col-md-4">               
+		            <div class="col-md-4">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_cgf">Inscrição Estadual</label>
-		                    <input type="text" 
-		                    	   class="form-control text-uppercase" 
-		                    	   name="cgf" 
+		                    <input type="text"
+		                    	   class="form-control text-uppercase"
+		                    	   name="cgf"
 		                    	   id="field_cgf"
 		                           ng-model="cliente.pessoaJuridica.cgf"
 		                           maxlength="18"
@@ -414,17 +443,14 @@
 		                            Este campo não pode ser maior do que 18	caracteres.
 		                        </p>
 		                    </div>
-		                </div> 
+		                </div>
 		            </div>
-		        </div>
-
-		        <div class="row">
-					<div class="col-md-12">               
+		            <div class="col-md-4">
 		                <div class="form-group">
 		                    <label class="control-label" for="field_responsavel">Responsável</label>
-		                    <input type="text" 
-		                    	   class="form-control text-uppercase" 
-		                    	   name="responsavel" 
+		                    <input type="text"
+		                    	   class="form-control text-uppercase"
+		                    	   name="responsavel"
 		                    	   id="field_responsavel"
 		                           ng-model="cliente.pessoaJuridica.responsavel"
 		                        />
