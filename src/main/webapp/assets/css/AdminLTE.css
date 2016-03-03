@@ -1288,6 +1288,7 @@ a:focus {
   border-radius: 0;
   box-shadow: none;
   border-color: #d2d6de;
+  padding: 3px 7px;
 }
 .form-control:focus {
   border-color: #1a75ac;
@@ -3045,6 +3046,20 @@ table.text-center th {
   -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.125);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.125);
   border: 0;
+}
+.fade{
+  transition: opacity .0s linear;
+}
+.modal.fade .modal-dialog {
+  transition: transform .0s ease-out;
+}
+@media (min-width: 768px) {
+.fade{
+  transition: opacity .0s linear;
+}
+.modal.fade .modal-dialog {
+  transition: transform .0s ease-out;
+}
 }
 @media (min-width: 768px) {
   .modal-content {
