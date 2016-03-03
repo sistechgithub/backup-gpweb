@@ -15,7 +15,23 @@ angular.module('gpApp')
             		var ngModelGet = $parse($attrs.ngModel);
 
                     $scope.$watch($attrs.ngModel, function () {
-                        $scope.logradouro = ngModelCtrl.$viewValue;
+                        $scope.logradouro = ngModelCtrl.$viewValue.logradouro;
+                        $scope.numero = ngModelCtrl.$modelValue.numero;
+                        $scope.complemento = ngModelCtrl.$modelValue.complemento;
+                    });
+                    
+                    /* observando mudanças no campo número para inserir
+                     * no campo correspondente do cadastro que está usando 
+                     * a diretiva logradouro */
+                    $scope.$watch("numero", function () {
+                        ngModelCtrl.$modelValue.numero = $scope.numero;
+                    });
+                    
+                    /* observando mudanças no campo complemento para inserir
+                     * no campo correspondente do cadastro que está usando 
+                     * a diretiva logradouro */
+                    $scope.$watch("complemento", function () {
+                        ngModelCtrl.$modelValue.complemento = $scope.complemento;
                     });
 				/*Consulta de CEP
 				 * Caso no cadastro de endereço existente no banco não conste o CEP informado
@@ -33,7 +49,7 @@ angular.module('gpApp')
 									function(data){
 										data = angular.fromJson(data);				
 										$scope.logradouro = data.data;						
-										ngModelCtrl.$setViewValue(data.data);
+										ngModelCtrl.$modelValue.logradouro = data.data;
 									},
 									//caso o endereço não exista na base ele procura em api gratuita
 									function(data){ 
@@ -43,7 +59,7 @@ angular.module('gpApp')
 											  if (!data.erro){
 												data = angular.fromJson(data);		
 												$scope.logradouro = data;
-												ngModelCtrl.$setViewValue(data);
+												ngModelCtrl.$modelValue.logradouro = data;
 											  }else{											  
 												$scope.editForm.cep.$invalid = true;
 											  }	
