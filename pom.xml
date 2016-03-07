@@ -342,6 +342,10 @@
             <artifactId>metrics-spark-reporter</artifactId>
             <version>${metrics-spark-reporter.version}</version>
         </dependency>
+        <dependency>
+        	<groupId>org.hibernate</groupId>
+        	<artifactId>hibernate-jpamodelgen</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <defaultGoal>spring-boot:run</defaultGoal>
