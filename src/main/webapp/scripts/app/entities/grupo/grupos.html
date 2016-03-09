@@ -6,19 +6,13 @@
         <div class="box-btn">                     
             <button class="btn btn-success pull-left" ui-sref="grupo.new">
                 <span class="mdi mdi-plus"></span> 
-                <span>Adicionar</span>
+                <span>Novo</span>
             </button>
-        </div>
-        <div class="box-btn pull-right">
-            <form class="form-inline pull-right" name="searchForm">                  
-                <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
-                <button class="btn btn-info hidden-xs" ng-click="search()">
-                    <span class="mdi mdi-magnify"></span>
-                </button>
-            </form>
-        </div>            
+        </div>    
+             
+        <search ng-model="grupos"></search>       
     </div>
-    <div class="box-body">
+    <div class="box-body">    
 	<jh-alert></jh-alert>
         <div class="table-responsive">
 		    <table class="table table-hover">
