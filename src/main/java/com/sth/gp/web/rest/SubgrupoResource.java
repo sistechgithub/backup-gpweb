@@ -1,6 +1,7 @@
 package com.sth.gp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.sth.gp.domain.Grupo;
 import com.sth.gp.domain.Subgrupo;
 import com.sth.gp.repository.SubgrupoRepository;
 import com.sth.gp.repository.search.SubgrupoSearchRepository;
@@ -123,17 +124,34 @@ public class SubgrupoResource {
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("subgrupo", id.toString())).build();
     }
 
+    
     /**
-     * SEARCH  /_search/subgrupos/:query -> search for the subgrupo corresponding
+     * SEARCH  /_search/grupos/:query -> search for the grupo corresponding
      * to the query.
      */
     @RequestMapping(value = "/_search/subgrupos/{query}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<Subgrupo> searchSubgrupos(@PathVariable String query) {
-        return StreamSupport
-            .stream(subgrupoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .collect(Collectors.toList());
+    public ResponseEntity<List<Subgrupo>> searchSubgrupos(@PathVariable String query, Pageable pageable)
+        throws URISyntaxException {
+    	
+    	try{ 
+    		
+	    	String[] parameters = query.split(",");
+	    	Page<Subgrupo> page; 
+	    	
+	    	if(parameters[0].equals("codigo")){    		
+	    		page = subgrupoRepository.findById(Long.parseLong(parameters[1]), pageable);
+	    	}else{
+	    		page = subgrupoRepository.findByNmSubGrupoStartingWithOrderByNmSubGrupoAsc(parameters[1], pageable);
+	    	}    	
+	    	
+	        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/_search/subgrupos");
+	        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+	        
+    	}catch(Exception e){
+    		return ResponseEntity.badRequest().header("Falha", e.getMessage()).body(null);
+    	}
     }
 }
