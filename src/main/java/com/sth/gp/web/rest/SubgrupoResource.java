@@ -1,12 +1,12 @@
 package com.sth.gp.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
-import com.sth.gp.domain.Grupo;
-import com.sth.gp.domain.Subgrupo;
-import com.sth.gp.repository.SubgrupoRepository;
-import com.sth.gp.repository.search.SubgrupoSearchRepository;
-import com.sth.gp.web.rest.util.HeaderUtil;
-import com.sth.gp.web.rest.util.PaginationUtil;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Optional;
+
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -15,17 +15,17 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.inject.Inject;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import com.codahale.metrics.annotation.Timed;
+import com.sth.gp.domain.Subgrupo;
+import com.sth.gp.repository.SubgrupoRepository;
+import com.sth.gp.web.rest.util.HeaderUtil;
+import com.sth.gp.web.rest.util.PaginationUtil;
 
 /**
  * REST controller for managing Subgrupo.
@@ -39,9 +39,6 @@ public class SubgrupoResource {
     @Inject
     private SubgrupoRepository subgrupoRepository;
 
-    @Inject
-    private SubgrupoSearchRepository subgrupoSearchRepository;
-
     /**
      * POST  /subgrupos -> Create a new subgrupo.
      */
@@ -54,8 +51,7 @@ public class SubgrupoResource {
         if (subgrupo.getId() != null) {
             return ResponseEntity.badRequest().header("Falha", "Um novo Subgrupo não pode já ter um Código").body(null);
         }
-        Subgrupo result = subgrupoRepository.save(subgrupo);
-        subgrupoSearchRepository.save(result);
+        Subgrupo result = subgrupoRepository.save(subgrupo);        
         return ResponseEntity.created(new URI("/api/subgrupos/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("subgrupo", result.getId().toString()))
             .body(result);
@@ -73,8 +69,7 @@ public class SubgrupoResource {
         if (subgrupo.getId() == null) {
             return createSubgrupo(subgrupo);
         }
-        Subgrupo result = subgrupoRepository.save(subgrupo);
-        subgrupoSearchRepository.save(subgrupo);
+        Subgrupo result = subgrupoRepository.save(subgrupo);        
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("subgrupo", subgrupo.getId().toString()))
             .body(result);
@@ -120,7 +115,6 @@ public class SubgrupoResource {
     public ResponseEntity<Void> deleteSubgrupo(@PathVariable Long id) {
         log.debug("REST request to delete Subgrupo : {}", id);
         subgrupoRepository.delete(id);
-        subgrupoSearchRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("subgrupo", id.toString())).build();
     }
 
