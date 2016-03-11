@@ -5,6 +5,16 @@ angular.module('gpApp')
       
         $scope.subgrupos = [];
         $scope.page = 0;
+        
+        // Fields that will be used on the directive search
+        $scope.fieldsSearch = [ {
+			desc : 'Código',
+			value : 'codigo'
+		}, {
+			desc : 'Descrição',
+			value : 'descricao'
+		} ];
+        
         $scope.loadAll = function() {
             Subgrupo.query({page: $scope.page, size: 20}, function(result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
@@ -12,21 +22,15 @@ angular.module('gpApp')
             });
         };
         $scope.loadPage = function(page) {
-            $scope.page = page;
-            $scope.loadAll();
+            $scope.page = page;            
+            
+            if(!($scope.valueSearch === '')){
+            	$scope.search();
+            }else{
+                $scope.loadAll();            	
+            };
         };
         $scope.loadAll();
-
-
-        $scope.search = function () {
-            SubgrupoSearch.query({query: $scope.searchQuery}, function(result) {
-                $scope.subgrupos = result;
-            }, function(response) {
-                if(response.status === 404) {
-                    $scope.loadAll();
-                }
-            });
-        };
 
         $scope.refresh = function () {
             $scope.loadAll();
