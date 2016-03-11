@@ -17,6 +17,9 @@
     <!--
         Added the entity Cliente.
     -->
+    <changeSet id="00000000000000" author="jhipster" dbms="postgresql,oracle">
+        <createSequence sequenceName="prazo_id_seq" startValue="1" incrementBy="1"/>
+    </changeSet>
     <changeSet id="20160307082100" author="ronaldo">
         <createTable tableName="prazo">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}" >
@@ -24,11 +27,40 @@
             </column>
             <column name="ds_prazo" 		 type="varchar(200)" />
             <column name="qt_parcelas" 		 type="integer" />
-            <column name="ajuste" 			 type="decimal(18,4)" />
+            <column name="vl_ajuste" 		 type="decimal(18,4)" />
             <column name="vl_minimo" 		 type="decimal(18,4)" />
             <column name="nm_dias_intervalo" type="integer" />
             <column name="vl_juros" 		 type="decimal(18,4)" />
+            <column name="conf_intervalo" 	 type="bit"/>
+            <column name="fl_entrada"	 	 type="bit"/>
         </createTable>
+
+		 
+        <createTable tableName="prazo_intervalo">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_prazo" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ordem_intervalo" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="intervalo" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nome" type="varchar(5)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+          <addForeignKeyConstraint baseColumnNames="id_prazo"
+                                 baseTableName="prazo_intervalo"
+                                 constraintName="fk_prazo_id_prazo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prazo"/>
+        
+        <addPrimaryKey columnNames="id_prazo, id, ordem_intervalo" tableName="prazo_intervalo"/>
 
     </changeSet>
 </databaseChangeLog>

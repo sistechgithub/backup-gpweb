@@ -25,7 +25,7 @@ public class TipoCliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name="ds_tipo_cliente")
+	@Column(name="ds_tipo_cliente", unique = true, nullable = false)
 	private String nome;			
 			
 	@Column(name = "vl_deconto_max", precision = 18, scale = 6)
@@ -34,6 +34,9 @@ public class TipoCliente implements Serializable {
 	@Column(name = "vl_comissao", precision = 18, scale = 6)
 	private BigDecimal vlComissao;
 
+	@Column(name = "vl_meta", precision = 18, scale = 6)
+	private BigDecimal vlMeta;
+	
 	@Column(name = "nm_dia_fatura")
 	private Integer diaFatura;
 
@@ -45,16 +48,43 @@ public class TipoCliente implements Serializable {
 	private Boolean vip;
 
 	@Column(name = "ds_bloqueado")
-	private Boolean bloqueado;
+	private Boolean bloqueado;	
 
+	@Column(name = "ds_forca_juros")
+	private Boolean forcaJuros;
+
+	@Column(name = "fl_dinheiro")
+	private Boolean flDinheiro;
+
+	@Column(name = "fl_cartao")
+	private Boolean flCartao;
+
+	@Column(name = "fl_cheque")
+	private Boolean flCheque;
+
+	@Column(name = "fl_crediario")
+	private Boolean flCrediario;
+
+	@Column(name = "fl_bloqueia_prazo")
+	private Boolean bloqueiaPrazo;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_operacao")
 	private Date dataCadastro;
 
-	@ManyToMany @JoinTable(name="ds_prazo_conf",
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name="ds_prazo_conf",
 	joinColumns= {@JoinColumn(name = "id_tipo_cliente", referencedColumnName = "id")},
 	inverseJoinColumns={@JoinColumn(name = "id_prazo", referencedColumnName = "id")})
 	private Set<Prazo> prazos = new HashSet<>();
+	
+	public Boolean getForcaJuros() {
+		return forcaJuros;
+	}
+
+	public void setForcaJuros(Boolean forcaJuros) {
+		this.forcaJuros = forcaJuros;
+	}
 
 	public Long getId() {
 		return id;
@@ -134,6 +164,54 @@ public class TipoCliente implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public BigDecimal getVlMeta() {
+		return vlMeta;
+	}
+
+	public void setVlMeta(BigDecimal vlMeta) {
+		this.vlMeta = vlMeta;
+	}
+
+	public Boolean getFlDinheiro() {
+		return flDinheiro;
+	}
+
+	public void setFlDinheiro(Boolean flDinheiro) {
+		this.flDinheiro = flDinheiro;
+	}
+
+	public Boolean getFlCartao() {
+		return flCartao;
+	}
+
+	public void setFlCartao(Boolean flCartao) {
+		this.flCartao = flCartao;
+	}
+
+	public Boolean getFlCheque() {
+		return flCheque;
+	}
+
+	public void setFlCheque(Boolean flCheque) {
+		this.flCheque = flCheque;
+	}
+
+	public Boolean getFlCrediario() {
+		return flCrediario;
+	}
+
+	public void setFlCrediario(Boolean flCrediario) {
+		this.flCrediario = flCrediario;
+	}
+
+	public Boolean getBloqueiaPrazo() {
+		return bloqueiaPrazo;
+	}
+
+	public void setBloqueiaPrazo(Boolean bloqueiaPrazo) {
+		this.bloqueiaPrazo = bloqueiaPrazo;
 	}
 
 	@Override

@@ -50,9 +50,9 @@ public class TipoClienteResource {
     
 
     /**
-     * POST  /tipoClientes -> Create a new tipoCliente.
+     * POST  /tipoclientes -> Create a new tipoCliente.
      */
-    @RequestMapping(value = "/tipoClientes",
+    @RequestMapping(value = "/tipoclientes",
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
@@ -63,15 +63,15 @@ public class TipoClienteResource {
         }
         TipoCliente result = tipoClienteRepository.save(tipoCliente);
         tipoClienteSearchRepository.save(result);
-        return ResponseEntity.created(new URI("/api/tipoClientes/" + result.getId()))
+        return ResponseEntity.created(new URI("/api/tipoclientes/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("tipoCliente", result.getId().toString()))
             .body(result);
     }
 
     /**
-     * PUT  /tipoClientes -> Updates an existing tipoCliente.
+     * PUT  /tipoclientes -> Updates an existing tipoCliente.
      */
-    @RequestMapping(value = "/tipoClientes",
+    @RequestMapping(value = "/tipoclientes",
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
@@ -88,30 +88,30 @@ public class TipoClienteResource {
     }
 
     /**
-     * GET  /tipoClientes -> get all the tipoClientes.
+     * GET  /tipoclientes -> get all the tipoclientes.
      */
-    @RequestMapping(value = "/tipoClientes",
+    @RequestMapping(value = "/tipoclientes",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<List<TipoCliente>> getAllTipoClientes(Pageable pageable)
         throws URISyntaxException {
         Page<TipoCliente> page = tipoClienteRepository.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/tipoClientes");
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/tipoclientes");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
     
  
     /**
-     * GET  /tipoClientes/:id -> get the "id" tipoCliente.
+     * GET  /tipoclientes/:id -> get the "id" tipoCliente.
      */
-    @RequestMapping(value = "/tipoClientes/{id}",
+    @RequestMapping(value = "/tipoclientes/{id}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<TipoCliente> getTipoCliente(@PathVariable Long id) {
         log.debug("REST request to get TipoCliente : {}", id);
-        return Optional.ofNullable(tipoClienteRepository.findOne(id))
+        return Optional.ofNullable(tipoClienteRepository.findOneWithPrazosById(id))
             .map(tipoCliente -> new ResponseEntity<>(
                 tipoCliente,
                 HttpStatus.OK))
@@ -119,9 +119,9 @@ public class TipoClienteResource {
     }
 
     /**
-     * DELETE  /tipoClientes/:id -> delete the "id" tipoCliente.
+     * DELETE  /tipoclientes/:id -> delete the "id" tipoCliente.
      */
-    @RequestMapping(value = "/tipoClientes/{id}",
+    @RequestMapping(value = "/tipoclientes/{id}",
         method = RequestMethod.DELETE,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
@@ -133,10 +133,10 @@ public class TipoClienteResource {
     }
 
     /**
-     * SEARCH  /_search/tipoClientes/:query -> search for the tipoCliente corresponding
+     * SEARCH  /_search/tipoclientes/:query -> search for the tipoCliente corresponding
      * to the query.
      */
-    @RequestMapping(value = "/_search/tipoCliente/{query}",
+    @RequestMapping(value = "/_search/tipocliente/{query}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed

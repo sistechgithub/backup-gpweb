@@ -17,6 +17,10 @@
     <!--
         Added the entity Cliente.
     -->
+    <changeSet id="00000000000000" author="jhipster" dbms="postgresql,oracle">
+        <createSequence sequenceName="tipo_cliente_id_seq" startValue="1" incrementBy="1"/>
+    </changeSet>
+    
     <changeSet id="20160307083900" author="ronaldo">
         <createTable tableName="tipo_cliente">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}" >
@@ -29,8 +33,15 @@
             <column name="fl_preco_venda"    type="varchar(2)" />
             <column name="ds_vip" 	 		 type="bit" />
             <column name="ds_bloqueado"		 type="bit" />
+            <column name="fl_dinheiro"		 type="bit" />
+            <column name="fl_cheque"		 type="bit" />
+            <column name="fl_crediario"		 type="bit" />
+            <column name="fl_cartao"		 type="bit" />
             <column name="dt_operacao" 		 type="timestamp" defaultValueDate="${now}" />
             <column name="vl_juros" 		 type="decimal(18,4)" />
+            <column name="vl_meta" 			 type="decimal(18,4)" />
+            <column name="ds_forca_juros" 	 type="bit" />
+            <column name="fl_bloqueia_prazo" type="bit" />
         </createTable>
         
         <createTable tableName="ds_prazo_conf">

@@ -2,15 +2,25 @@ package com.sth.gp.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="prazo")
@@ -22,7 +32,7 @@ public class Prazo implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Column(name="ds_prazo")
+	@Column(name="ds_prazo", unique = true, nullable = false)
 	private String nome;
 	
 	@Column(name="qt_parcelas")
@@ -42,6 +52,35 @@ public class Prazo implements Serializable{
 	
 	@Column(name="vl_juros")
 	private BigDecimal juros;
+	
+	@Column(name="conf_intervalo")
+	private Boolean intervaloConfigurado;
+
+	@JsonManagedReference
+	@OneToMany(mappedBy="prazo_intervalo_id", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private Set<PrazoIntervalo> intervalos = new HashSet<>();
+
+	
+	public Boolean getIntervaloConfigurado() {
+		return intervaloConfigurado;
+	}
+
+	public void setIntervaloConfigurado(Boolean intervaloConfigurado) {
+		this.intervaloConfigurado = intervaloConfigurado;
+	}
+
+	public Set<PrazoIntervalo> getIntervalos() {
+		return intervalos;
+	}
+
+	public void setIntervalos(Set<PrazoIntervalo> intervalos) {
+		if (this.intervaloConfigurado){
+			for(PrazoIntervalo intervalo : intervalos){
+				intervalo.setPrazo_intervalo_id(this);
+				this.intervalos.add(intervalo);
+			}
+		}
+	}
 
 	public Long getId() {
 		return id;

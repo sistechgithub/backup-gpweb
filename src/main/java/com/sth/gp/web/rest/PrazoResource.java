@@ -1,17 +1,17 @@
 package com.sth.gp.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
-import com.sth.gp.domain.Prazo;
-import com.sth.gp.domain.Logradouro;
-import com.sth.gp.domain.Prazo;
-import com.sth.gp.domain.Prazo;
-import com.sth.gp.repository.PrazoRepository;
-import com.sth.gp.repository.LogradouroRepository;
-import com.sth.gp.repository.PrazoRepository;
-import com.sth.gp.repository.search.PrazoSearchRepository;
-import com.sth.gp.repository.search.PrazoSearchRepository;
-import com.sth.gp.web.rest.util.HeaderUtil;
-import com.sth.gp.web.rest.util.PaginationUtil;
+import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
+import javax.inject.Inject;
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -20,18 +20,18 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.inject.Inject;
-import javax.validation.Valid;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import com.codahale.metrics.annotation.Timed;
+import com.sth.gp.domain.Prazo;
+import com.sth.gp.repository.PrazoRepository;
+import com.sth.gp.repository.search.PrazoSearchRepository;
+import com.sth.gp.web.rest.util.HeaderUtil;
+import com.sth.gp.web.rest.util.PaginationUtil;
 
 /**
  * REST controller for managing Prazo.
@@ -81,8 +81,11 @@ public class PrazoResource {
         if (prazo.getId() == null) {
             return createPrazo(prazo);
         }
+        System.out.println("s1");
         Prazo result = prazoRepository.save(prazo);
+        System.out.println("s2");
         prazoSearchRepository.save(prazo);
+        System.out.println("s3");
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("prazo", prazo.getId().toString()))
             .body(result);
