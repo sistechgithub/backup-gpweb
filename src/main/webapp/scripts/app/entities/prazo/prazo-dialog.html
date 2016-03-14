@@ -1,0 +1,214 @@
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+	<!-- cabeçalho -->
+	<div class="modal-header">
+		<button type="button" 
+				class="close"
+				aria-hidden="true" 
+				data-dismiss="modal"				 
+				ng-click="clear()">
+				&times;
+		</button>
+
+		<i class="mdi mdi-package"></i>
+		<h3 class="modal-title" id="myPrazoLabel">			
+			Criar ou editar	um Prazo			
+		</h3>		
+	</div><!-- fim cabeçalho -->
+	
+	<!-- conteúdo -->
+	<div class="modal-body">
+		<div class="row">
+			<div class="col-xs-12 col-sm-2">
+				<div class="form-group">
+					<label  for="id">
+							ID
+					</label> 
+					<input  type="text" 
+							class="form-control"
+							id="id" 
+							name="id" 
+							ng-model="prazo.id" 
+							readonly 
+					/>
+				</div>
+			</div><!-- fim coluna -->
+
+			<div class="col-xs-12 col-sm-10">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_nome">
+							Nome
+					</label>
+					<input 	type="text" 
+							class="form-control text-uppercase" 
+							name="nome"
+							id="field_nome" 
+							ng-model="prazo.nome"
+							ng-minlength="10" 
+							ng-maxlength="50" 
+							autofocus
+							required 
+					/>
+					<div ng-show="editForm.nome.$invalid">
+						<!--<p class="help-block"
+							ng-show="editForm.nome.$error.required">Este campo é
+							obrigatório.
+						</p>-->
+						<p  class="help-block"
+							ng-show="editForm.nome.$error.minlength"
+							translate-value-min="10">
+							Este campo deve conter no mínimo 10	caracteres.
+						</p>
+						<p  class="help-block"
+							ng-show="editForm.nome.$error.maxlength"
+							translate-value-max="50">
+							Este campo de conter no máximo 50 caracteres.
+						</p>
+					</div>
+				</div>
+			</div><!-- fim coluna -->
+		</div><!-- fim row -->
+
+		<div class="row">			
+			<div class="col-xs-12">
+				<div class="form-group">
+					<div class="checkbox checkbox-position">					
+						<input class="checkbox-size" type="checkbox" name="fl_entrada" id="field_fl_entrada" ng-model="prazo.entrada" /> 	
+						<label class="checkbox-label" for="field_fl_entrada">Pagamento de Entrada</label>		 
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-3">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_parcelas">
+							Número de Parcelas
+					</label>
+					<input 	type="text" 
+							class="form-control text-uppercase" 
+							name="parcelas"
+							id="" 
+							ng-model="prazo.qntParcelas" 
+							ng-blur="criarIntervalos()"
+					/>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-sm-3">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_ajuste">
+							Ajuste nos Produtos (%) 
+					</label>
+					<input 	type="text" 
+							class="form-control text-uppercase" 
+							name="ajuste"
+							id="" 
+							ng-model="prazo.ajuste" 
+					/>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-sm-3">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_minimo">
+							Valor Mínimo Permitido 
+					</label>
+					<input 	type="text" 
+							class="form-control text-uppercase" 
+							name="minimo"
+							id="" 
+							ng-model="prazo.valorMinimo" 
+					/>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-sm-3">	
+				<div class="form-group">											
+					<label  class="control-label" 
+							for="field_dias_intervalo"
+							ng-disabled="!prazo.intervaloConfigurado">
+							Intervalo de Dias (Parcelas)
+					</label>
+					<input 	type="text" 
+							class="form-control text-uppercase" 
+							name="dias_intervalo"
+							id="" 
+							ng-model="prazo.intervalo" 
+							ng-disabled="!prazo.intervaloConfigurado"
+					/>						
+				</div>
+			</div>
+		</div>
+
+		<div class="row">			
+			<div class="col-xs-12">
+				<div class="form-group">
+					<div class="checkbox checkbox-position">					
+						<input 	class="checkbox-size" 
+								type="checkbox" 
+								name="fl_intervalo" 
+								id="field_fl_intervalo" 
+								ng-model="prazo.intervaloConfigurado" 
+								ng-change="criarIntervalos()"/> 	
+						
+						<label 	class="checkbox-label" 
+								for="field_fl_intervalo">								
+								Usar Intervalos Configurados na Lista Abaixo								
+						</label>		 
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row" ng-show="prazo.intervaloConfigurado">
+		 <div class="table-responsive">
+		 <div class="col-sm-4">
+            <table class="table table-striped">
+            	<thead>
+                    <tr >
+                        <th colspan="2" class="input-pdl">Intervalo configurado entre as parcelas:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="inter in prazo.intervalos | orderBy: 'ordemIntervalo'">
+                    	<td class="text-uppercase input-pdl">{{inter.nome}}</td>
+                    	<td class="text-uppercase">
+                    		<input 	class="form-control" 
+                    				type="text"  
+                    				ng-model="inter.intervalo" 
+                    				required /> 
+                    	</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            </div>
+        </div>
+	</div>
+	<!-- rodapé -->	
+	<div class="row">
+    	<div class="col-xs-12 col-sm-12">
+			<div class="modal-footer">
+				<!-- botão cancelar -->
+				<button type="button" 
+						class="btn btn-default" 
+						data-dismiss="modal"
+						ng-click="clear()">
+					<span class="mdi mdi-close mdi-icon"></span>
+					<span>Cancelar</span>
+				</button>
+				<!-- botão salvar -->
+				<button type="submit" 
+						ng-disabled="editForm.$invalid || isSaving"
+						class="btn btn-success">
+					<span class="mdi mdi-content-save mdi-icon"></span>						
+					<span>Salvar</span>
+				</button>
+			</div><!-- fim modal-footer -->
+		</div><!-- fim colunas -->
+	</div><!-- fim rodapé -->
+</form><!-- fim form -->

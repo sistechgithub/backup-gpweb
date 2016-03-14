@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql"/>
+    <property name="autoIncrement" value="false" dbms="oracle"/>
+
+    <property name="floatType" value="real" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity Cliente.
+    -->
+    <changeSet id="00000000000000" author="jhipster" dbms="postgresql,oracle">
+        <createSequence sequenceName="prazo_id_seq" startValue="1" incrementBy="1"/>
+    </changeSet>
+    <changeSet id="20160307082100" author="ronaldo">
+        <createTable tableName="prazo">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}" >
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="ds_prazo" 		 type="varchar(200)" />
+            <column name="qt_parcelas" 		 type="integer" />
+            <column name="vl_ajuste" 		 type="decimal(18,4)" />
+            <column name="vl_minimo" 		 type="decimal(18,4)" />
+            <column name="nm_dias_intervalo" type="integer" />
+            <column name="vl_juros" 		 type="decimal(18,4)" />
+            <column name="conf_intervalo" 	 type="bit"/>
+            <column name="fl_entrada"	 	 type="bit"/>
+        </createTable>
+
+		 
+        <createTable tableName="prazo_intervalo">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_prazo" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ordem_intervalo" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="intervalo" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nome" type="varchar(5)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+          <addForeignKeyConstraint baseColumnNames="id_prazo"
+                                 baseTableName="prazo_intervalo"
+                                 constraintName="fk_prazo_id_prazo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prazo"/>
+        
+        <addPrimaryKey columnNames="id_prazo, id, ordem_intervalo" tableName="prazo_intervalo"/>
+
+    </changeSet>
+</databaseChangeLog>
