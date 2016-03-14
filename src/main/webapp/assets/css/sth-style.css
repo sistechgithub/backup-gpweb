@@ -385,6 +385,29 @@ Icones Material Design
 }
 
 /* ==========================================================================
+Fieldset
+========================================================================== */
+fieldset {
+    min-width: 0;
+    padding: .35em .625em .75em;
+    margin: 0;
+    border: 1px solid #c0c0c0;
+}
+
+legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 0px solid #e5e5e5;
+}
+
+/* ==========================================================================
 Correções no Menu do Topo
 ========================================================================== */
 .navbar-nav > li > a {
@@ -653,4 +676,3 @@ Correções para as tabelas
 .table-responsive{
   border: 0px solid #e0e0e0;
 }
-

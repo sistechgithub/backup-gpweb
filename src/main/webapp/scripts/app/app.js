@@ -12,7 +12,7 @@ angular.module('gpApp', ['LocalStorageModule',
                 'angular-loading-bar', 
                 'ui.mask', 
                 'ui.utils.masks', 
-                'idf.br-filters'
+                'idf.br-filters',
             ])
 
     .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION) {

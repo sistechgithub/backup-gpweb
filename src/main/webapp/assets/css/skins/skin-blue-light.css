@@ -169,3 +169,25 @@
 .skin-blue.layout-top-nav .main-header > .logo:hover {
   background-color: #3b8ab8;
 }
+
+/*Alinhamento botões pagina prazo*/
+.skin-blue-light .btn-vert{
+  margin-top: 30px;
+}
+.skin-blue-light .btn-vert-mg-bt{
+  margin-bottom: 4px !important;
+}
+
+.skin-blue-light .no-border-r{
+  border-radius: 0px !important;
+}
+
+/*pagina Tipo de Cliente*/
+.skin-blue-light .check-pd{
+  padding-bottom: 0px;
+}
+
+/*pagina Prazo*/
+.skin-blue-light .input-pdl{
+  padding-left: 0px;
+}
