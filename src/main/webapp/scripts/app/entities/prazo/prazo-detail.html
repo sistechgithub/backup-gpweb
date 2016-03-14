@@ -1,0 +1,59 @@
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title"><span>Prazo</span> {{prazo.id}}</h3>            
+    </div>  
+
+    <div class="box-body"> 
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <!--
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                -->
+                <tbody>
+                    <!--
+                    <tr>
+                        <td>
+                            <span>Código</span>
+                        </td>
+                        <td>
+                            <span class="form-control-static">{{fabricante.id}}</span>
+                        </td>
+                    </tr>
+                    -->
+                    <tr>
+                        <td colspan="2">
+                            <label>Nome</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <span class="form-control-static text-uppercase">{{prazo.nome}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label>Parcelas</label>
+                        </td>                   
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <span class="form-control-static">{{prazo.parcelas}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button type="submit"
+                onclick="window.history.back()"
+                class="btn btn-info">
+            <span class="mdi mdi-arrow-left"></span>
+            <span> Voltar</span>
+        </button>
+    </div>
+</div>
