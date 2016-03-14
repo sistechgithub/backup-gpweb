@@ -1,0 +1,21 @@
+<form name="deleteForm" ng-submit="confirmDelete(tipocliente.id)">
+    <div class="modal-header bg-danger">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <i class="mdi mdi-delete"></i>
+        <h3 class="modal-title">
+            Deletar Tipo de Cliente
+        </h3>
+    </div>
+    <div class="modal-body">
+        <p>Você realmente deseja excluir este tipo de cliente?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="mdi mdi-close"></span>&nbsp;<span>Cancelar</span>
+        </button>
+        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+            <span class="mdi mdi-delete"></span>&nbsp;<span>Excluir</span>
+        </button>
+    </div>
+</form>
