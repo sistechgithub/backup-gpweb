@@ -1,21 +1,23 @@
 'use strict';
 
-angular.module('gpApp', ['LocalStorageModule', 
-               'ui.bootstrap', // for modal dialogs
-                'ngResource', 
-                'ui.router', 
-                'ngCookies', 
-                'ngAria', 
-                'ngCacheBuster', 
-                'ngFileUpload', 
-                'infinite-scroll', 
-                'angular-loading-bar', 
+angular.module('gpApp', [
+                'LocalStorageModule', 
+                'ui.bootstrap', // for modal dialogs
+                'ui.router',
                 'ui.mask', 
                 'ui.utils.masks', 
                 'idf.br-filters',
+                'infinite-scroll', 
+                'oc.lazyLoad',
+                'ngResource', 
+                'ngCookies', 
+                'ngAria', 
+                'ngCacheBuster', 
+                'ngFileUpload',
+                'angular-loading-bar'                  
             ])
 
-    .run(function ($rootScope, $location, $window, $http, $state,  Auth, Principal, ENV, VERSION) {
+    .run(function ($rootScope, $location, $window, $http, $state, $ocLazyLoad, Auth, Principal, ENV, VERSION) {
         
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
@@ -55,6 +57,11 @@ angular.module('gpApp', ['LocalStorageModule',
                 $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
             }
         };
+
+        $ocLazyLoad.load([{
+          files: ['assets/js/AdminLTE.js'],
+          cache: true
+        }]);
     })
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider,  httpRequestInterceptorCacheBusterProvider, AlertServiceProvider) {
         // uncomment below to make alerts look like toast
@@ -75,6 +82,10 @@ angular.module('gpApp', ['LocalStorageModule',
                 'navbar@': {
                     templateUrl: 'scripts/components/navbar/navbar.html',
                     controller: 'NavbarController'
+                },
+                'navtop@': {
+                    templateUrl: 'scripts/components/navtop/navtop.html',
+                    controller: 'NavtopController'
                 }
             },
             resolve: {

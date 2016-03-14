@@ -1,0 +1,91 @@
+<!-- Menu Topo -->
+<header class="main-header">
+    <!-- Logo -->
+    <a href="#/" class="logo">
+      	<!-- mini logo for sidebar mini 50x50 pixels -->
+      	<span class="logo-mini"><b>S</b>TH</span>
+      	<!-- logo for regular state and mobile devices -->
+      	<span class="logo-lg"><b class="text-aqua">STH</b>WEB</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <div class="navbar-custom-menu pull-left">
+            <ul class="nav navbar-nav">
+                <li>
+    				<a data-toggle="offcanvas" role="button">
+    					<i class="mdi mdi-menu"></i>
+    					<span class="mdi-icon-text"> Menu</span>
+    				</a>
+    			</li>
+    		</ul>
+    	</div>
+    	<!-- Navbar-->
+        <div class="navbar-custom-menu" ng-switch="isAuthenticated()">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="active">
+                    <a ui-sref="home">
+                        <i class="mdi mdi-home"></i>
+                        <span class="hidden-xs"> Início</span>
+                    </a>
+                </li>
+                <!-- Fullscreen -->
+                <li>
+                    <a href="" class="toggle-fullscreen" id="javascript:void(0);">
+                    	<span>
+                        	<i class="mdi mdi-fullscreen"></i>
+                        	<span class="hidden-xs"> Tela Cheia</span>
+                    	</span>
+                    </a>
+                </li>
+                <li ng-class="{active: $state.includes('account')}" class="dropdown pointer">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                        <i class="mdi mdi-account-box"></i>
+                        <span class="hidden-xs">
+                            Conta
+                        </span>
+                        <span style="margin-left: 4px"><b class="caret"></b></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ui-sref-active="active" ng-switch-when="true">
+                        	<a ui-sref="settings">
+                        		<i class="mdi mdi-wrench"></i>
+                            	<span class="mdi-icon-text">Configurações</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" ng-switch-when="true">
+                        	<a ui-sref="password">
+                        		<i class="mdi mdi-lock"></i>
+                            	<span class="mdi-icon-text">Senha</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" ng-switch-when="true">
+                        	<a ui-sref="sessions">
+                        		<i class="mdi mdi-weather-cloudy"></i>
+                            	<span class="mdi-icon-text">Sessões</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" ng-switch-when="true">
+                        	<a href="" ng-click="logout()">
+                        		<span class="mdi mdi-logout"></span>
+                            	<span class="mdi-icon-text">Sair</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" ng-switch-when="false">
+                        	<a ui-sref="login">
+                        		<i class="mdi mdi-login"></i>
+                            	<span class="mdi-icon-text">Entrar</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" ng-switch-when="false">
+                        	<a ui-sref="register">
+                        		<i class="mdi mdi-account-plus"></i>
+                            	<span class="mdi-icon-text">Criar Conta</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
