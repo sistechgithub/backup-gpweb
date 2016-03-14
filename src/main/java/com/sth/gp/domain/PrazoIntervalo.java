@@ -19,7 +19,6 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sth.gp.compositekey.PrazoIntervaloPK;
 
-import net.minidev.json.annotate.JsonIgnore;
 
 @Entity
 @Table(name = "prazo_intervalo")
