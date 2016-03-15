@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('gpApp')
-    .controller('NavbarController', function ($scope, $location, $state, $ocLazyLoad, Auth, Principal, ENV) {
+    .controller('NavtopController', function ($scope, $location, $state, $ocLazyLoad, Auth, Principal, ENV) {
         $scope.isAuthenticated = Principal.isAuthenticated;
         $scope.$state = $state;
         $scope.inProduction = ENV === 'prod';
@@ -10,4 +10,11 @@ angular.module('gpApp')
             Auth.logout();
             $state.go('home');
         };
+        $ocLazyLoad.load([{
+		  files: ['assets/js/AdminLTE-NavTop.js'],
+		  cache: false
+		},{
+		  files: ['assets/js/fullscreen.js'],
+		  cache: false
+		}]);
     });
