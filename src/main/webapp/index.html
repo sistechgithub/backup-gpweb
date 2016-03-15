@@ -25,6 +25,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 		<div class="wrapper">
+			<div ui-view="navtop"></div>
             <div ui-view="navbar"></div>
 	        <!-- Content Wrapper. Contém o conteúdo da página  -->
 			<div class="content-wrapper">
@@ -68,6 +69,7 @@
     <script src="bower_components/mascaras/angular-input-masks/angular-input-masks-standalone.min.js"></script>
     <script src="bower_components/mascaras/angular-br-filters/release/angular-br-filters.js"></script>
     <!-- Fim-máscaras -->
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
     <!-- endbower -->
     <!-- Fim plugins angular -->
 
@@ -102,6 +104,7 @@
     <script src="scripts/components/interceptor/notification.interceptor.js"></script>
     <script src="scripts/components/navbar/navbar.directive.js"></script>
     <script src="scripts/components/navbar/navbar.controller.js"></script>
+    <script src="scripts/components/navtop/navtop.controller.js"></script>
     <script src="scripts/components/tabs/showTab.directive.js"></script>
     <script src="scripts/components/user/user.service.js"></script>
     <script src="scripts/components/user/user.search.service.js"></script>
