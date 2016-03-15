@@ -18,7 +18,7 @@
 
 		<!-- Sidebar Menu -->
 		<ul class="sidebar-menu" ng-switch="isAuthenticated()">
-			<li ui-sref-active="active" class="treeview active">
+			<li ui-sref-active="active" class="active">
 				<a ui-sref="home">
 					<i class="mdi mdi-home"></i> 
 					<span>INÍCIO</span>
@@ -77,7 +77,7 @@
 
 			<li ng-class="{active: $state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN">
 				<a href="">
-					<i class="mdi mdi-desktop-tower"></i> 
+					<i class="mdi mdi-wan"></i> 
 					<span>ADMINISTRAÇÃO</span>
 					<i class="mdi mdi-chevron-left pull-right"></i>
 				</a>
