@@ -50,31 +50,43 @@
             </li>
             <li ng-show="cliente.tipoPessoa=='J'" >
             	<a showtab="" href="#tabPessoaJuridica">Pessoa Jurídica</a>
-            </li>
+            </li>            
         </ul>
 
         <div class="tab-content">
             <div class="tab-pane active" id="tabGeral">
                 <br>
                 <!-- Tipo de cliente -->
-                <div class="row">
-                	<div class="form-group">
-                		<div class="col-md-3">
-		                    <label class="control-label" for="radios" >Tipo de Cliente</label>
-		                    <br>
-		                    <label class="radio-inline" for="radios-F">
-		                        <input type="radio" name="radios" id="radios-F" value="F" ng-model="cliente.tipoPessoa">
-		                        Fisica
-		                    </label>
-		                    <label class="radio-inline" for="radios-J">
-		                        <input type="radio" name="radios" id="radios-J" value="J" ng-model="cliente.tipoPessoa">
-		                        Juridica
-		                    </label>
-		                </div>
-				    </div>
+                <div class="row">                	
+            		<div class="col-md-12">
+	                    <label class="control-label" for="radios" >Tipo de Cliente</label>
+	                </div>				    
                 </div>
-                <br>
-				
+                <div class="row">                    
+        			<div class="col-md-12">
+        				<div class="form-group">
+		                    <div class="radios-inline">
+					            <div class="radio-inline">			                    
+						          	<label>
+						            	<input type="radio" name="radios" value="F" ng-model="cliente.tipoPessoa"/>
+						            	<span class="radio__label">
+						            		Fisica
+						            	</span>
+						          	</label>
+						        </div>
+						        <div class="radio-inline">
+						          	<label>
+						            	<input type="radio" name="radios" value="J" ng-model="cliente.tipoPessoa"/>
+						            	<span class="radio__label">
+						            		Juridica
+						            	</span>
+						          	</label>
+						        </div>
+						    </div>
+						</div>
+					</div>
+			    </div>
+
 				<div class="row">
 		        	<logradouro ng-model="cliente"></logradouro>
 				</div>
@@ -159,28 +171,41 @@
                 	<label class="col-md-1" for="radioSitua">Situação</label>
                 </div>
                 <div class="row">
-                	<div class="col-md-6">
-						<div class="form-group">						  	
-						    <label class="radio-inline" for="radioSitua-0">
-						      <input type="radio" name="radioSitua" id="radioSitua-0" value="A" ng-model="cliente.situacao">
-						      Bom cliente
-						    </label>
-						
-						    <label class="radio-inline" for="radioSitua-1">
-						      <input type="radio" name="radioSitua" id="radioSitua-1" value="B" ng-model="cliente.situacao">
-						      Regular
-						    </label>
-						
-						    <label class="radio-inline" for="radioSitua-2">
-						      <input type="radio" name="radioSitua" id="radioSitua-2" value="C" ng-model="cliente.situacao">
-						      S.P.C.
-						    </label>
-						
-						    <label class="radio-inline" for="radioSitua-3">
-						      <input type="radio" name="radioSitua" id="radioSitua-3" value="D" ng-model="cliente.situacao">
-						      Não vender
-						    </label>						
-						</div>
+                	<div class="col-md-12">						
+						<div class="radios-inline">
+				            <div class="radio-inline">			                    
+					          	<label>
+					            	<input type="radio" name="radioSitua" value="A" ng-model="cliente.situacao"/>
+					            	<span class="radio__label">
+					            		Bom cliente
+					            	</span>
+					          	</label>
+					        </div>
+					        <div class="radio-inline">
+					          	<label>
+					            	<input type="radio" name="radioSitua" value="B" ng-model="cliente.situacao"/>
+					            	<span class="radio__label">
+					            		Regular
+					            	</span>
+					          	</label>
+					        </div>
+					        <div class="radio-inline">
+					          	<label>
+					            	<input type="radio" name="radioSitua" value="C" ng-model="cliente.situacao"/>
+					            	<span class="radio__label">
+					            		S.P.C.
+					            	</span>
+					          	</label>
+					        </div>
+					        <div class="radio-inline">
+					          	<label>
+					            	<input type="radio" name="radioSitua" value="D" ng-model="cliente.situacao"/>
+					            	<span class="radio__label">
+					            		Não vender
+					            	</span>
+					          	</label>
+					        </div>
+					    </div>
 					</div>
 				</div>
 
@@ -188,30 +213,15 @@
 				<div class="row">
 	                <div class="form-group">
 	                	<div class="col-md-4">
-		                    <label class="control-label" for="field_inativo">Inativo</label>
-		                    <input type="checkbox"
-		                    	   name="inativo"
-		                    	   id="field_inativo"
-		                           ng-model="cliente.inativo"
-		                        />
+							<div class="checkbox">
+					          	<label>
+					            	<input type="checkbox" name="inativo" ng-model="cliente.inativo"/>
+					            	<span class="checkbox__label">Inativo</span>
+					          	</label>
+					        </div>
 		                </div>
 		            </div>
 	            </div>
-                <!--
-                <div class="form-group">
-                    <label class="control-label" for="field_vendedor">Vendedor</label>
-                    <input type="checkbox"  name="vendedor" id="field_vendedor"
-                           ng-model="cliente.vendedor"
-                        />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_usuario">Usuário</label>
-                    <input  type="checkbox"
-                            name="usuario" id="field_usuario"
-                            ng-model="cliente.usuario"
-                        />
-                </div>
-                -->
 
                 <div class="row">
 	                <div class="form-group">
