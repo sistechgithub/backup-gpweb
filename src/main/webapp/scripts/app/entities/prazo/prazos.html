@@ -1,0 +1,71 @@
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Prazos</h3>            
+    </div>
+    <div class="box-header">
+        <div class="box-btn">                     
+            <button class="btn btn-success pull-left" ui-sref="prazo.new">
+                <span class="mdi mdi-plus mdi-icon"></span> 
+                <span>Adicionar</span>
+            </button>
+        </div>
+        <div class="box-btn pull-right">
+            <form class="form-inline pull-right" name="searchForm">                  
+                <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
+                <button class="btn btn-info hidden-xs" ng-click="search()">
+                    <span class="mdi mdi-magnify mdi-icon"></span>
+                </button>
+            </form>
+        </div>            
+    </div>
+    <div class="box-body">
+        <jh-alert></jh-alert>              
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <th class="text-center">Código</th>
+                        <th class="col-sm-5">Nome</th>
+                        <th class="col-sm-5">Parcelas</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                    <tr ng-repeat="prazo in prazos track by prazo.id">
+                        <td class="text-center"><a ui-sref="prazo.detail({id:prazo.id})">{{prazo.id}}</a></td>
+                        <td class="col-sm-5 text-uppercase">{{prazo.nome}}</td>
+                        <td class="text-uppercase">{{prazo.qntParcelas}}</td>
+                        <td class="text-center">
+                            <button type="submit"
+                                    ui-sref="prazo.detail({id:prazo.id})"
+                                    class="btn btn-outlined btn-success">
+                                <span class="mdi mdi-eye"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="prazo.edit({id:prazo.id})"
+                                    class="btn btn-outlined btn-primary">
+                                <span class="mdi mdi-pencil"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="prazo.delete({id:prazo.id})"
+                                    class="btn btn-outlined btn-danger">
+                                <span class="mdi mdi-delete"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div><!-- /.box-body -->     
+    <div class="box-footer clearfix">
+        <ul class="pagination no-margin pull-right">
+            <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
+            <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
+            <li ng-show="page > 1" ng-click="loadPage(page - 2)"><a>{{page - 1}}</a></li>
+            <li ng-show="page > 0" ng-click="loadPage(page - 1)"><a>{{page}}</a></li>
+            <li class="active"><a>{{page + 1}}</a></li>
+            <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 2}}</a></li>
+            <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 3}}</a></li>
+            <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
+            <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
+        </ul>
+    </div><!-- /.box-footer --> 
+</div>
