@@ -153,11 +153,11 @@ body.hold-transition .main-header .logo {
   padding-right: 15px;
 }
 .content-body {
-    padding: 30px 30px 40px;
+    padding: 30px 30px 30px;
 }
 @media (max-width: 767px) {
   .content-body {
-    padding: 3px 0px 20px;
+    padding: 3px 0px 3px;
 }
 }
 /* H1 - H6 font */
@@ -1343,19 +1343,19 @@ a:focus {
 .icheck > label {
   padding-left: 0;
 }
-/* support Font Awesome icons in form-control */
-.form-control-feedback.fa {
+/* support Font Material Design icons in form-control */
+.form-control-feedback.mdi {
+  line-height: 38px;
+}
+.input-lg + .form-control-feedback.mdi,
+.input-group-lg + .form-control-feedback.mdi,
+.form-group-lg .form-control + .form-control-feedback.mdi {
+  line-height: 50px;
+}
+.input-sm + .form-control-feedback.mdi,
+.input-group-sm + .form-control-feedback.mdi,
+.form-group-sm .form-control + .form-control-feedback.mdi {
   line-height: 34px;
-}
-.input-lg + .form-control-feedback.fa,
-.input-group-lg + .form-control-feedback.fa,
-.form-group-lg .form-control + .form-control-feedback.fa {
-  line-height: 46px;
-}
-.input-sm + .form-control-feedback.fa,
-.input-group-sm + .form-control-feedback.fa,
-.form-group-sm .form-control + .form-control-feedback.fa {
-  line-height: 30px;
 }
 /*
  * Component: Progress Bar
@@ -1575,13 +1575,18 @@ a:focus {
   border-radius: 0px;
   background: #ffffff;
   border-top: 0px solid #d2d6de;
-  margin-bottom: 25px;
+  margin-bottom: 0px;
   margin-top: 0;
   padding: 0;
   width: 100%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
-
+@media (max-width: 767px) {
+  .box {
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 0px 0px 0px rgba(0, 0, 0, 0), 0 0px 0px 0 rgba(0, 0, 0, 0);
+    min-height: 500px;
+  }
+}
 .box.box-primary {
   border-top-color: #1a75ac;
 }
@@ -1877,6 +1882,7 @@ a:focus {
 .chart-legend {
   margin: 10px 0;
 }
+
 @media (max-width: 991px) {
   .chart-legend > li {
     float: left;
