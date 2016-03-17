@@ -72,10 +72,12 @@
 		<div class="row">			
 			<div class="col-xs-12">
 				<div class="form-group">
-					<div class="checkbox checkbox-position">					
-						<input class="checkbox-size" type="checkbox" name="fl_entrada" id="field_fl_entrada" ng-model="prazo.entrada" /> 	
-						<label class="checkbox-label" for="field_fl_entrada">Pagamento de Entrada</label>		 
-					</div>
+					<div class="checkbox">
+			          	<label>
+			            	<input type="checkbox" name="fl_entrada" ng-model="prazo.entrada"/>
+			            	<span class="checkbox__label">Pagamento de Entrada</span>
+			          	</label>
+			        </div>
 				</div>
 			</div>
 		</div>
@@ -148,19 +150,12 @@
 		<div class="row">			
 			<div class="col-xs-12">
 				<div class="form-group">
-					<div class="checkbox checkbox-position">					
-						<input 	class="checkbox-size" 
-								type="checkbox" 
-								name="fl_intervalo" 
-								id="field_fl_intervalo" 
-								ng-model="prazo.intervaloConfigurado" 
-								ng-change="criarIntervalos()"/> 	
-						
-						<label 	class="checkbox-label" 
-								for="field_fl_intervalo">								
-								Usar Intervalos Configurados na Lista Abaixo								
-						</label>		 
-					</div>
+					<div class="checkbox">
+			          	<label>
+			            	<input type="checkbox" name="fl_intervalo" ng-model="prazo.intervaloConfigurado" ng-change="criarIntervalos()"/>
+			            	<span class="checkbox__label">Usar Intervalos Configurados na Lista Abaixo</span>
+			          	</label>
+			        </div>
 				</div>
 			</div>
 		</div>
