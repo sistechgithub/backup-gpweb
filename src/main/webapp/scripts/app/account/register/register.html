@@ -1,13 +1,13 @@
 <div>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-3">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title" style="font-size:25px">Criar conta</h3>
+                    <h3 class="box-title">Criar conta</h3>
                 </div>                
                 <div class="box-body">
                     <div class="alert alert-success" ng-show="success">
-                        <strong>Cadastro realizado com sucesso!</strong> Por favor cheuqe seu e-mail para confirmação da criação de sua conta.
+                        <strong>Cadastro realizado com sucesso!</strong> Por favor cheque seu e-mail para confirmação da criação de sua conta.
                     </div>
 
                     <div class="alert alert-danger" ng-show="error">
@@ -30,8 +30,8 @@
                     <form ng-show="!success" name="form" role="form" novalidate ng-submit="register()" show-validation>
 
                         <div class="form-group">
-                            <label for="login">Usuário</label>
-                            <input type="text" class="form-control" id="login" name="login" placeholder="Usuário"
+                            <!--<label for="login">Usuário</label>-->
+                            <input type="text" class="form-control input-lg" id="login" name="login" placeholder="Usuário"
                                    ng-model="registerAccount.login" ng-minlength=1 ng-maxlength=50 ng-pattern="/^[a-z0-9]*$/" required>
                             <div ng-show="form.login.$dirty && form.login.$invalid">
                                 <p class="help-block"
@@ -53,8 +53,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="E-mail"
+                            <!--<label for="email">E-mail</label>-->
+                            <input type="email" class="form-control input-lg" id="email" name="email" placeholder="E-mail"
                                    ng-model="registerAccount.email" ng-minlength=5 ng-maxlength=100 required>
                             <div ng-show="form.email.$dirty && form.email.$invalid">
                                 <p class="help-block"
@@ -63,7 +63,7 @@
                                 </p>
                                 <p class="help-block"
                                        ng-show="form.email.$error.email">
-                                    E-mail válido.
+                                    E-mail inválido.
                                 </p>
                                 <p class="help-block"
                                        ng-show="form.email.$error.minlength">
@@ -76,8 +76,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="password">Senha</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Senha"
+                            <!--<label for="password">Senha</label>-->
+                            <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Senha"
                                    ng-model="registerAccount.password" ng-minlength=5 ng-maxlength=50 required>
                             <div ng-show="form.password.$dirty && form.password.$invalid">
                                 <p class="help-block"
@@ -96,8 +96,8 @@
                             <password-strength-bar password-to-check="registerAccount.password"></password-strength-bar>
                         </div>
                         <div class="form-group">
-                            <label for="confirmPassword">Confirmação de senha</label>
-                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirme a senha"
+                            <!--<label for="confirmPassword">Confirmação de senha</label>-->
+                            <input type="password" class="form-control input-lg" id="confirmPassword" name="confirmPassword" placeholder="Confirmar senha"
                                    ng-model="confirmPassword" ng-minlength=5 ng-maxlength=50 required>
                             <div ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid">
                                 <p class="help-block"
@@ -113,14 +113,15 @@
                                     A confirmação de senha deve ter no máximo 50 caracteres.
                                 </p>
                             </div>
-                        </div>
-
-                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Registrar</button>
+                        </div>                        
+                        <br>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-lg btn-block btn-primary">
+                            Registrar
+                        </button>
+                        <a ui-sref="login" class="btn btn-lg btn-block btn-default">
+                            Voltar
+                        </a>
                     </form>
-                    <p></p>
-                    <div class="alert alert-warning">
-                        Se você quiser fazer o <a class="alert-link" href="#/login">login</a>, você pode tentar usar as contas:<br/>- Administrador (usuário="admin" e senha="admin") <br/>- usuário (usuário="user" e senha="user").
-                    </div>
                 </div>
             </div>    
         </div>
