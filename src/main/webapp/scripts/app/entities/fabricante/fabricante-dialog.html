@@ -190,16 +190,12 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-12">
 				<div class="form-group">
-					<div class="checkbox checkbox-position">
-						<input  type="checkbox"								
-								name="inativado" id="field_inativo"
-								ng-model="fabricante.inativo" 
-						/> 
-						<label	class="control-label"
-								for="field_inativo">
-								Inativo
-						</label>
-					</div>
+					<div class="checkbox">
+			          	<label>
+			            	<input type="checkbox" name="inativado" ng-model="fabricante.inativo"/>
+			            	<span class="checkbox__label">Inativo</span>
+			          	</label>
+			        </div>
 				</div>
 			</div><!-- fim coluna -->
 		</div><!-- fim row -->
