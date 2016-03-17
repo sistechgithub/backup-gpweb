@@ -70,10 +70,16 @@ angular.module('gpApp')
                             	break;
                             default :
                             	
-                            	if (httpResponse.data && httpResponse.data.message) {
+                            	if (httpResponse.data && httpResponse.data.message) { 
+                            		
+                            		//Adding prettier message to user when the value already exists on database
+                            		if(httpResponse.data.message.indexOf('org.hibernate.exception.ConstraintViolationException') != -1){                            			
+                            			httpResponse.data.message = 'Valor já cadastrado!';
+                            		}                           		
+                            		
                                     addErrorAlert(httpResponse.data.message);
-                                } else {
-                                    addErrorAlert(JSON.stringify(httpResponse));
+                                } else {                                	
+                                    addErrorAlert(JSON.stringify(httpResponse));                                    
                                 }
                         	}
                     });
