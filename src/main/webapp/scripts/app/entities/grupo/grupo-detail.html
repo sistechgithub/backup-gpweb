@@ -52,7 +52,10 @@
 	                        <span class="form-control-static">{{grupo.vlComissao | currency:'':2}}%</span>
 	                    </td>
 	                	<td>
-	                        <span class="form-control-static text-uppercase">{{grupo.flDesco ? 'Sim': 'Não'}}</span>
+	                        <span class="glyphicon"
+								ng-class="{'glyphicon-ok text-success': grupo.flDesco,
+								'glyphicon-remove text-danger': !grupo.flDesco}">
+							</span>
 	                    </td>                   
 	                </tr>
 
@@ -61,22 +64,10 @@
 	                	<td>                    	
 	                        <label>Promoção</label>
 	                    </td>
-	                	<td>
-	                        <label>Desconto Promocional (%)</label>
-	                    </td>
-	                </tr>
-	                <tr>
-	                	<td>
-	                        <span class="form-control-static text-uppercase">{{grupo.flPromo ? 'Sim': 'Não'}}</span>
-	                    </td>
-	                	<td>
-	                        <span class="form-control-static">{{grupo.vlDesconto | currency:'':2}}%</span>
-	                    </td>
-	                </tr>                 
-	                
-	                <!-- Linha 5 -->
-	                <!-- Promoção -->                
-	                <tr> 
+	                    
+	                    <!-- Filling in space when doesn't use promotion -->
+	                    <td ng-show="!grupo.flPromo"></td>
+	                	 
 	                    <!-- 1 - Setting promotion option by date -->
 	                    <td colspan="2" ng-show="grupo.flPromo && (grupo.nnType == 1)">
 	                        <label>Válida até:</label>
@@ -89,9 +80,20 @@
 	                    <td colspan="2" ng-show="grupo.flPromo && (grupo.nnType == 3)">
 	                        <label>Válida apenas nas(os):</label>
 	                    </td>
-					</tr>
+					
+	                </tr>
 	                <tr>
-	                    <!-- 1 - Setting promotion option by date -->
+	                	<td>	                        
+	                        <span class="glyphicon"
+								ng-class="{'glyphicon-ok text-success': grupo.flPromo,
+								'glyphicon-remove text-danger': !grupo.flPromo}">
+							</span>	                    
+	                    </td>	   
+	                          
+	                    <!-- Filling in space when doesn't use promotion -->
+	                    <td ng-show="!grupo.flPromo"></td>            
+	                    
+	                	 <!-- 1 - Setting promotion option by date -->
 	                    <td colspan="2" ng-show="grupo.flPromo && (grupo.nnType == 1)">	                    	
 	                        <span class="form-control-static">{{grupo.dtPromo | date:'dd/MM/yyyy'}}</span>
 	                    </td>
@@ -102,8 +104,24 @@
 	                    <!-- 3 - Setting promotion option by week day -->
 	                    <td colspan="2" ng-show="grupo.flPromo && (grupo.nnType == 3)">
 	                        <span class="form-control-static">{{grupo.nmDayweek}}</span>
+	                    </td>	                    
+	                    
+	                </tr>          
+	                
+	                <!-- Linha 5 -->
+	                <!-- Desconto Promocional -->
+	                <tr ng-show="grupo.flPromo">	                	
+	                	<td>
+	                        <label>Desconto Promocional (%)</label>
 	                    </td>
-	                </tr>	                                  
+	                    <td></td>
+	                </tr>
+	                <tr ng-show="grupo.flPromo">	                	
+	                	<td>
+	                        <span class="form-control-static">{{grupo.vlDesconto | currency:'':2}}%</span>
+	                    </td>
+	                    <td></td>
+	                </tr>                                     
                 </tbody>
             </table>
         </div>
