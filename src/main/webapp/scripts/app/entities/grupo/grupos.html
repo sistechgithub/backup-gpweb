@@ -22,15 +22,26 @@
 	                    <th class="col-xs-12 col-sm-12 col-md-6 col-lg-4">Nome</th>
 	                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right">Comissão (%)</th>
 	                    <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-right">Promoção</th>
-	                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right">Desc. Promocional (%)</th>
+	                    <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-right">Desconto</th>
+<!-- 	                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right">Desc. Promocional (%)</th> -->
 	                    <th></th>
 	                </tr>			        
 	                <tr ng-repeat="grupo in grupos track by grupo.id">
 	                    <td class="text-right"><a ui-sref="grupo.detail({id:grupo.id})">{{grupo.id}}</a></td>
 	                    <td class="text-uppercase">{{grupo.nmGrupo}}</td>
 	                    <td class="text-right">{{grupo.vlComissao | currency:'':2}}%</td>	                    
-	                    <td class="text-right text-uppercase">{{grupo.flPromo ? 'Sim': 'Não'}}</td>
-	                    <td class="text-right">{{grupo.vlDesconto | currency:'':2}}%</td>
+	                    <td class="text-center">
+	                    	<i class="glyphicon"
+								ng-class="{'glyphicon-ok text-success': grupo.flPromo,
+								'glyphicon-remove text-danger': !grupo.flPromo}">
+							</i>
+	                    </td>
+	                    <td class="text-center">
+	                    	<i class="glyphicon"
+								ng-class="{'glyphicon-ok text-success': grupo.flDesco,
+								'glyphicon-remove text-danger': !grupo.flDesco}">
+							</i>
+	                    </td>
 	                    <td class="text-center">
 	                        <button type="submit"
 	                                ui-sref="grupo.detail({id:grupo.id})"

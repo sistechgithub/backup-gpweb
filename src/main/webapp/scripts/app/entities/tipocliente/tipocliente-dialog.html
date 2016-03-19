@@ -4,7 +4,9 @@
                 ng-click="clear()">&times;
         </button>
         <i class="mdi mdi-account"></i>
-        <h4 class="modal-title" id="myTipoClienteLabel">Criar ou editar um Tipo de Cliente</h4>
+        <h4 class="modal-title" id="myTipoClienteLabel">
+        	Criar ou editar um Tipo de Cliente
+        </h4>
     </div>
     <div class="modal-body">
     	<div class="row">
@@ -131,28 +133,36 @@
 						<fieldset>
 						    <legend style="width: 57%">Formas de Pagamento</legend>
 						    <div class="col-sm-6">
-								<div class="checkbox checkbox-position">				
-									<input class="checkbox-size" type="checkbox" name="fl_dinheiro" id="field_fl_dinheiro" ng-model="tipocliente.flDinheiro" /> 	
-									<label class="checkbox-label" for="field_fl_dinheiro">Dinheiro</label>		 
-								</div>
+								<div class="checkbox">
+						          	<label>
+						            	<input type="checkbox" ng-model="tipocliente.flDinheiro"/>
+						            	<span class="checkbox__label">Dinheiro</span>
+						          	</label>
+						        </div>
 							</div>
 							<div class="col-sm-6">
-								<div class="checkbox checkbox-position">				
-									<input class="checkbox-size" type="checkbox" name="fl_cartao" id="field_fl_cartao" ng-model="tipocliente.flCartao" /> 	
-									<label class="checkbox-label" for="field_fl_cartao">Cartão</label>		 
-								</div>
+								<div class="checkbox">
+						          	<label>
+						            	<input type="checkbox" ng-model="tipocliente.flCartao"/>
+						            	<span class="checkbox__label">Cartão</span>
+						          	</label>
+						        </div>
 							</div>
 							<div class="col-sm-6">
-								<div class="checkbox checkbox-position">				
-									<input class="checkbox-size" type="checkbox" name="fl_cheque" id="field_fl_cheque" ng-model="tipocliente.flCheque" /> 	
-									<label class="checkbox-label" for="field_fl_cheque">Cheque</label>		 
-								</div>
+								<div class="checkbox">
+						          	<label>
+						            	<input type="checkbox" ng-model="tipocliente.flCheque"/>
+						            	<span class="checkbox__label">Cheque</span>
+						          	</label>
+						        </div>
 							</div>
 							<div class="col-sm-6">
-								<div class="checkbox checkbox-position">				
-									<input class="checkbox-size" type="checkbox" name="fl_crediario" id="field_fl_crediario" ng-model="tipocliente.flCrediario" /> 	
-									<label class="checkbox-label" for="field_fl_crediario">Crediário</label>		 
-								</div>
+								<div class="checkbox">
+						          	<label>
+						            	<input type="checkbox" ng-model="tipocliente.flCrediario"/>
+						            	<span class="checkbox__label">Crediário</span>
+						          	</label>
+						        </div>
 							</div>
 						</fieldset>
 					</div>
@@ -161,40 +171,46 @@
 						<fieldset>
 						    <legend style="width: 15%">Status</legend>
 						    <div class="col-sm-6">
-								<div class="checkbox checkbox-position">				
-									<input class="checkbox-size" type="checkbox" name="fl_bloqueado" id="field_fl_bloqueado" ng-model="tipocliente.bloqueado" /> 	
-									<label class="checkbox-label" for="field_fl_bloqueado">Bloqueado</label>		 
-								</div>
+						    	<div class="checkbox">
+						          	<label>
+						            	<input type="checkbox" ng-model="tipocliente.bloqueado"/>
+						            	<span class="checkbox__label">Bloqueado</span>
+						          	</label>
+						        </div>
 							</div>
 							<div class="col-sm-6">
-								<div class="checkbox checkbox-position">				
-									<input class="checkbox-size" type="checkbox" name="fl_vip" id="field_fl_vip" ng-model="tipocliente.vip" /> 	
-									<label class="checkbox-label" for="field_fl_vip">VIP</label>		 
-								</div>
+								<div class="checkbox">
+						          	<label>
+						            	<input type="checkbox" ng-model="tipocliente.vip"/>
+						            	<span class="checkbox__label">VIP</span>
+						          	</label>
+						        </div>
 							</div>
 							<div class="col-sm-12">
-								<div class="checkbox checkbox-position">				
-									<input class="checkbox-size" type="checkbox" name="fl_fc_juros" id="field_fl_fc_juros" ng-model="tipocliente.forcaJuros" /> 	
-									<label class="checkbox-label" for="field_fl_fc_juros">Forçar Cobrança de Juros</label>		 
-								</div>
+								<div class="checkbox">
+						          	<label>
+						            	<input type="checkbox" ng-model="tipocliente.forcaJuros"/>
+						            	<span class="checkbox__label">Forçar Cobrança de Juros</span>
+						          	</label>
+						        </div>
 							</div>
 						</fieldset>
-					</div>
-					
-				</div>
-            
+					</div>					
+				</div>            
             </div>
             <div class="tab-pane" id="tabPrazos">
             	<br>
             	<div class="row">			
 					<div class="col-xs-12">
 						<div class="form-group">
-							<div class="checkbox checkbox-position">					
-								<input class="checkbox-size" type="checkbox" name="fl_prazo_conf" id="field_fl_prazo_conf" ng-model="tipocliente.bloqueiaPrazo" /> 	
-								<label class="checkbox-label" for="field_fl_prazo_conf">
-									Permitir Venda para este Cliente Somente nos Prazos Configurados Abaixo:
-								</label>		 
-							</div>
+							<div class="checkbox">
+					          	<label>
+					            	<input type="checkbox" ng-model="tipocliente.bloqueiaPrazo"/>
+					            	<span class="checkbox__label">
+										Permitir Venda para este Cliente Somente nos Prazos Configurados Abaixo:
+					            	</span>
+					          	</label>
+					        </div>
 						</div>
 					</div>
 				</div>
