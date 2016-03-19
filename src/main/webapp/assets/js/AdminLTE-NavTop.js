@@ -116,10 +116,10 @@ function _init() {
     activate: function () {
       var _this = this;
       _this.fix();
-      _this.fixSidebar();
+      //_this.fixSidebar();
       $(window, ".wrapper").resize(function () {
         _this.fix();
-        _this.fixSidebar();
+      //_this.fixSidebar();
       });
     },
     fix: function () {
@@ -149,7 +149,9 @@ function _init() {
         }
 
       }
-    },
+    }
+    /*
+    ,
     fixSidebar: function () {
       //Make sure the body tag has the .fixed class
       if (!$("body").hasClass("fixed")) {
@@ -174,6 +176,7 @@ function _init() {
         }
       }
     }
+    */
   };
 
   /* PushMenu()

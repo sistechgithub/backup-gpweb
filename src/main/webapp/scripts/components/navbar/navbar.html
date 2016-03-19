@@ -4,138 +4,139 @@
 
 	<!-- sidebar: style can be found in sidebar.less -->	
 	<section class="sidebar">
+		<div class="sidebar-scroll">
+			<!-- search form (Optional) -->
+			<form action="#" method="get" class="sidebar-form">
+				<div class="input-group">
+					<input type="text" name="q" class="form-control" placeholder="Pesquisar...">
+					<span class="input-group-btn">
+						<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+					</span>
+				</div>
+			</form>
+			<!-- /.search form -->
 
-		<!-- search form (Optional) -->
-		<form action="#" method="get" class="sidebar-form">
-			<div class="input-group">
-				<input type="text" name="q" class="form-control" placeholder="Pesquisar...">
-				<span class="input-group-btn">
-					<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-				</span>
-			</div>
-		</form>
-		<!-- /.search form -->
+			<!-- Sidebar Menu -->
+			<ul class="sidebar-menu" ng-switch="isAuthenticated()">
+				<li ui-sref-active="active" class="active">
+					<a ui-sref="home">
+						<i class="mdi mdi-home"></i> 
+						<span>INÍCIO</span>
+					</a>
+				</li>
 
-		<!-- Sidebar Menu -->
-		<ul class="sidebar-menu" ng-switch="isAuthenticated()">
-			<li ui-sref-active="active" class="active">
-				<a ui-sref="home">
-					<i class="mdi mdi-home"></i> 
-					<span>INÍCIO</span>
-				</a>
-			</li>
+				<li class="treeview" ui-sref-active="active" ng-switch-when="true">
+					<a href="">
+						<i class="mdi mdi-file-document-box"></i> 
+						<span>CADASTROS</span> 
+						<i class="mdi mdi-chevron-left pull-right"></i>
+					</a>
+					<ul class="treeview-menu">
+						<li ui-sref-active="active">
+							<a href="">
+								<i class="mdi mdi-account"></i> 
+								<span>Pessoa</span> 
+								<i class="mdi mdi-chevron-left pull-right"></i>
+							</a>
+							<ul class="treeview-menu">
+								<li ui-sref-active="active">
+									<a ui-sref="tipocliente">Tipo de Cliente</a>
+								</li>
+								<li ui-sref-active="active">
+									<a ui-sref="cliente">Cliente</a>
+								</li>							
+							</ul>
+						</li>
 
-			<li class="treeview" ui-sref-active="active" ng-switch-when="true">
-				<a href="">
-					<i class="mdi mdi-file-document-box"></i> 
-					<span>CADASTROS</span> 
-					<i class="mdi mdi-chevron-left pull-right"></i>
-				</a>
-				<ul class="treeview-menu">
-					<li ui-sref-active="active">
-						<a href="">
-							<i class="mdi mdi-account"></i> 
-							<span>Pessoa</span> 
-							<i class="mdi mdi-chevron-left pull-right"></i>
-						</a>
-						<ul class="treeview-menu">
-							<li ui-sref-active="active">
-								<a ui-sref="tipocliente">Tipo de Cliente</a>
-							</li>
-							<li ui-sref-active="active">
-								<a ui-sref="cliente">Cliente</a>
-							</li>							
-						</ul>
-					</li>
+						<li ui-sref-active="active">
+							<a href="">
+								<i class="mdi mdi-package"></i> 
+								<span>Estoque</span> 
+								<i class="mdi mdi-chevron-left pull-right"></i>
+							</a>
+							<ul class="treeview-menu">
+								<li ui-sref-active="active">
+									<a ui-sref="grupo">Grupo</a>
+								</li>
+								<li ui-sref-active="active">
+									<a ui-sref="subgrupo">Subgrupo</a>
+								</li>
+								<li ui-sref-active="active">
+									<a ui-sref="fabricante">Marca</a>
+								</li>
+								<li ui-sref-active="active">
+									<a ui-sref="produto">Produto</a>
+								</li>
+							</ul>
+						</li>
+						<li ui-sref-active="active">
+							<a href="">
+								<i class="mdi mdi-cash-multiple"></i> 
+								<span>Contas</span> 
+								<i class="mdi mdi-chevron-left pull-right"></i>
+							</a>
+							<ul class="treeview-menu">
+								<li ui-sref-active="active">
+									<a ui-sref="prazo">Prazo</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
 
-					<li ui-sref-active="active">
-						<a href="">
-							<i class="mdi mdi-package"></i> 
-							<span>Estoque</span> 
-							<i class="mdi mdi-chevron-left pull-right"></i>
-						</a>
-						<ul class="treeview-menu">
-							<li ui-sref-active="active">
-								<a ui-sref="grupo">Grupo</a>
-							</li>
-							<li ui-sref-active="active">
-								<a ui-sref="subgrupo">Subgrupo</a>
-							</li>
-							<li ui-sref-active="active">
-								<a ui-sref="fabricante">Marca</a>
-							</li>
-							<li ui-sref-active="active">
-								<a ui-sref="produto">Produto</a>
-							</li>
-						</ul>
-					</li>
-					<li ui-sref-active="active">
-						<a href="">
-							<i class="mdi mdi-cash-multiple"></i> 
-							<span>Contas</span> 
-							<i class="mdi mdi-chevron-left pull-right"></i>
-						</a>
-						<ul class="treeview-menu">
-							<li ui-sref-active="active">
-								<a ui-sref="prazo">Prazo</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-
-			<li ng-class="{active: $state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN">
-				<a href="">
-					<i class="mdi mdi-wan"></i> 
-					<span>ADMINISTRAÇÃO</span>
-					<i class="mdi mdi-chevron-left pull-right"></i>
-				</a>
-				<ul class="treeview-menu">
-					<li ui-sref-active="active">
-						<a ui-sref="user-management">
-							<i class="mdi mdi-account"></i> 
-							<span>Gerenciar Usuários</span> 
-						</a>
-					</li>
-					<li ui-sref-active="active">
-						<a ui-sref="metrics">
-							<i class="mdi mdi-timer"></i>
-							<span class="mdi-icon-text">Métricas</span>
-						</a>
-					</li>
-					<li ui-sref-active="active">
-						<a ui-sref="health">
-							<i class="mdi mdi-heart"></i>
-							<span class="mdi-icon-text">Monitoração</span>
-						</a>
-					</li>
-					<li ui-sref-active="active">
-						<a ui-sref="configuration">
-							<span class="mdi mdi-settings"></span>
-							<span class="mdi-icon-text">Configurações</span>
-						</a>
-					</li>
-					<li ui-sref-active="active">
-						<a ui-sref="audits">
-							<i class="mdi mdi-bell"></i>
-							<span class="mdi-icon-text">Auditoria</span>
-						</a>
-					</li>
-					<li ui-sref-active="active">
-						<a ui-sref="logs">
-							<i class="mdi mdi-server"></i>
-							<span class="mdi-icon-text">Logs</span>
-						</a>
-					</li>
-					<li ng-hide="inProduction" ui-sref-active="active">
-						<a ui-sref="docs">
-							<i class="mdi mdi-book"></i>
-							<span class="mdi-icon-text">API</span>
-						</a>
-					</li>
-				</ul>
-			</li>
-		</ul><!-- /.sidebar-menu -->
+				<li ng-class="{active: $state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN">
+					<a href="">
+						<i class="mdi mdi-wan"></i> 
+						<span>ADMINISTRAÇÃO</span>
+						<i class="mdi mdi-chevron-left pull-right"></i>
+					</a>
+					<ul class="treeview-menu">
+						<li ui-sref-active="active">
+							<a ui-sref="user-management">
+								<i class="mdi mdi-account"></i> 
+								<span>Gerenciar Usuários</span> 
+							</a>
+						</li>
+						<li ui-sref-active="active">
+							<a ui-sref="metrics">
+								<i class="mdi mdi-timer"></i>
+								<span class="mdi-icon-text">Métricas</span>
+							</a>
+						</li>
+						<li ui-sref-active="active">
+							<a ui-sref="health">
+								<i class="mdi mdi-heart"></i>
+								<span class="mdi-icon-text">Monitoração</span>
+							</a>
+						</li>
+						<li ui-sref-active="active">
+							<a ui-sref="configuration">
+								<span class="mdi mdi-settings"></span>
+								<span class="mdi-icon-text">Configurações</span>
+							</a>
+						</li>
+						<li ui-sref-active="active">
+							<a ui-sref="audits">
+								<i class="mdi mdi-bell"></i>
+								<span class="mdi-icon-text">Auditoria</span>
+							</a>
+						</li>
+						<li ui-sref-active="active">
+							<a ui-sref="logs">
+								<i class="mdi mdi-server"></i>
+								<span class="mdi-icon-text">Logs</span>
+							</a>
+						</li>
+						<li ng-hide="inProduction" ui-sref-active="active">
+							<a ui-sref="docs">
+								<i class="mdi mdi-book"></i>
+								<span class="mdi-icon-text">API</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul><!-- /.sidebar-menu -->
+		</div>
 	</section>
 	<!-- /.sidebar -->
 </aside>
