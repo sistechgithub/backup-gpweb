@@ -508,6 +508,22 @@ a:focus {
 .sidebar {
   padding-bottom: 10px;
 }
+.sidebar-scroll {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 53px;
+  bottom: 3px;
+  overflow-y: auto;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+}
+@media (max-width: 767px) {
+  .sidebar-scroll {
+    top: 103px;
+    bottom: 3px;
+  }
+}
 .sidebar-form input:focus {
   border-color: transparent;
 }
@@ -703,6 +719,9 @@ a:focus {
   }
   .sidebar-mini.sidebar-collapse .main-header .navbar {
     margin-left: 50px;
+  }
+  .sidebar-collapse .main-sidebar .sidebar .sidebar-scroll {
+    overflow-y: hidden;
   }
 }
 .sidebar-menu,
