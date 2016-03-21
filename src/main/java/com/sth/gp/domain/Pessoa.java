@@ -78,7 +78,7 @@ public class Pessoa implements Serializable {
     @Column(name = "dt_cadastro")
     private Date dataCadastro;
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name = "id_logradouro",referencedColumnName="id")
     private Logradouro logradouro;
 
