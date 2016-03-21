@@ -14,8 +14,8 @@ angular.module('gpApp')
             		 * cadastro, o endereço será jogado na tela conforme cadastro */ 
             		var ngModelGet = $parse($attrs.ngModel);
 
-                    $scope.$watch($attrs.ngModel, function () {
-                        $scope.logradouro = ngModelCtrl.$viewValue.logradouro;
+                    $scope.$watch(ngModelCtrl, function () {
+                        $scope.logradouro = ngModelCtrl.$modelValue.logradouro;
                         $scope.numero = ngModelCtrl.$modelValue.numero;
                         $scope.complemento = ngModelCtrl.$modelValue.complemento;
                     });

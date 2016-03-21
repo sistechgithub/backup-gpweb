@@ -50,7 +50,7 @@ public class Fabricante implements Serializable {
     @Column(name = "fl_inativo")
     private Boolean inativo;
     
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="id_logradouro", referencedColumnName="id")
     private Logradouro logradouro;
 
