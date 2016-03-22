@@ -3,7 +3,7 @@
  * ----------
  */
  .skin-blue-light .main-header {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 0px 2px 2px rgba(0, 0, 0, 0.098), 0px 0px 5px 1px rgba(0, 0, 0, 0.084);
 }
 .skin-blue-light .main-header .navbar {
   background-color: #283593;
@@ -42,7 +42,7 @@
     color: #616161;
   }
   .skin-blue-light .main-header .navbar .dropdown-menu li a:hover {
-    background: #f9fafc;
+    background: #f4f4f5;
     color: #616161;
   }
 }
@@ -82,19 +82,23 @@
   color: #848484;
   background: #f9fafc;
 }
-.skin-blue-light .sidebar-menu > li > a {
+.skin-blue-light .sidebar-menu > li > a,
+.skin-blue-light .sidebar-menu > li > span > a {
   border-left: 3px solid transparent;
   font-weight: 600;
 }
 .skin-blue-light .sidebar-menu > li:hover > a,
-.skin-blue-light .sidebar-menu > li.active > a {
+.skin-blue-light .sidebar-menu > li.active > a,
+.skin-blue-light .sidebar-menu > li:hover > span > a,
+.skin-blue-light .sidebar-menu > li.active > span > a {
   color: #000000;
   background: #f4f4f5;
 }
 .skin-blue-light .sidebar-menu > li.active {
   border-left-color: #3c8dbc;
 }
-.skin-blue-light .sidebar-menu > li.active > a {
+.skin-blue-light .sidebar-menu > li.active > a,
+.skin-blue-light .sidebar-menu > li.active > span > a {
   font-weight: 600;
 }
 .skin-blue-light .sidebar-menu > li > .treeview-menu {
@@ -106,14 +110,18 @@
 .skin-blue-light .sidebar a:hover {
   text-decoration: none;
 }
-.skin-blue-light .treeview-menu > li > a {
+.skin-blue-light .treeview-menu > li > a,
+.skin-blue-light .treeview-menu > li > span > a {
   color: #777777;
 }
 .skin-blue-light .treeview-menu > li.active > a,
-.skin-blue-light .treeview-menu > li > a:hover {
+.skin-blue-light .treeview-menu > li > a:hover,
+.skin-blue-light .treeview-menu > li.active > span > a,
+.skin-blue-light .treeview-menu > li > span > a:hover {
   color: #000000;
 }
-.skin-blue-light .treeview-menu > li.active > a {
+.skin-blue-light .treeview-menu > li.active > a,
+.skin-blue-light .treeview-menu > li.active > span > a {
   font-weight: 600;
 }
 .skin-blue-light .sidebar-form {
