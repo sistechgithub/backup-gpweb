@@ -12,12 +12,13 @@ angular.module('gpApp').directive('search', ['$resource', 'ParseLinks', function
 				//Default value is the first field of array
 				$scope.fieldForSearch = $scope.fieldsSearch[0].value;
 
-				$scope.search = function() {					
+				$scope.search = function() {
 					
 					//The first field need to be a number because the default is the code
 					if (($scope.fieldForSearch === $scope.fieldsSearch[0].value)
 							&& (isNaN($scope.valueSearch))) {						
-						ngModelCtrl.$setViewValue([]); //Cleaning the search passed by ngmodel on html						
+						ngModelCtrl.$setViewValue([]); //Cleaning the search passed by ngmodel on html
+						$scope.links = "";
 					} else {
 						if ($scope.valueSearch === '') {
 							$scope.loadAll(); 
@@ -39,7 +40,7 @@ angular.module('gpApp').directive('search', ['$resource', 'ParseLinks', function
 								ngModelCtrl.$setViewValue(result); //applying result
 							}, function(response) {
 								if (response.status === 404) {
-								  ngModelCtrl.$setViewValue([]); //Cleaning the search
+								  ngModelCtrl.$setViewValue([]); //Cleaning the search								 								  
 							    }
 						    });
 					    };

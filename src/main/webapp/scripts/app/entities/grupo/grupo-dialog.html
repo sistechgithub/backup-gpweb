@@ -31,37 +31,41 @@
 			<div class="row">			
 				<div class="col-xs-12">
 					<div class="form-group">
-						<div class="checkbox checkbox-position">					
-							<input class="checkbox-size" type="checkbox" name="fl_desco" id="field_fl_desco" ng-model="grupo.flDesco" /> 	
-							<label class="checkbox-label" for="field_fl_desco">Sem Desconto</label>		 
-						</div>
+						<div class="checkbox">
+				          	<label>
+				            	<input type="checkbox" name="fl_desco" ng-model="grupo.flDesco"/>
+				            	<span class="checkbox__label">Sem Desconto</span>
+				          	</label>
+				        </div>
 					</div>
 				</div>
 			</div>			
   				
 			<div class="row">			
 				<div class="col-xs-12">
-					<div class="form-group">
-						<div class="checkbox checkbox-position">					
-							<input class="checkbox-size" type="checkbox" name="fl_promo" id="field_fl_promo" ng-model="grupo.flPromo" /> 	
-							<label class="checkbox-label" for="field_fl_promo">Promoção</label>		 
-						</div>
-					</div>
+					
+						<div class="checkbox">
+				          	<label>
+				            	<input type="checkbox" name="fl_promo" ng-model="grupo.flPromo"/>
+				            	<span class="checkbox__label">Promoção</span>
+				          	</label>
+				        </div>
+					
 				</div>
 			</div>
 				
 
 	  		<!-- Só mostra caso tenha selecionado promoção -->
-				<div class="panel-body" ng-show="grupo.flPromo" ng-init="rgAux1 = false; rgAux2 = false; rgAux3 = false;">
+			<div class="panel-body" ng-show="grupo.flPromo" ng-init="rgAux1 = false; rgAux2 = false; rgAux3 = false;">
 							
 				<div class="row">
-					<div class="form-group">	
-						<div class="col-xs-3 col-sm-2 col-md-1 radio">
-  							<label>
-    							<input type="radio" name="nn_type" id="field_nn_type1" value="1"
-    							    ng-model="grupo.nnType" ng-click="rgAux2 = false; rgAux3 = false;">Até:
-	  						</label>	
-						</div>
+					<div class="form-group">
+						<div class="col-xs-3 col-sm-2 col-md-1 radio no-padding">
+				          	<label>
+				            	<input type="radio" name="nn_type" id="field_nn_type1" value="1" ng-model="grupo.nnType" ng-click="rgAux2 = false; rgAux3 = false;"/>
+				            	<span class="radio__label">Até:</span>
+				          </l	abel>
+				        </div>						
 							
 						<div class="col-xs-8 col-sm-3 col-md-1 input-group">
 							<div class="input-group-addon">
@@ -75,13 +79,13 @@
 				</div>
 				
 				<div class="row">
-					<div class="form-group">					
-						<div class="col-xs-3 col-sm-2 col-md-1 radio">
-  							<label>
-    							<input type="radio" name="nn_type" id="field_nn_type2" value="2"
-    								 ng-model="grupo.nnType" ng-click="rgAux1 = false; rgAux3 = false;">Dia: 
-  							</label>
-						</div>
+					<div class="form-group">
+						<div class="col-xs-3 col-sm-2 col-md-1 radio no-padding">
+				          	<label>
+				            	<input type="radio" name="nn_type" id="field_nn_type2" value="2" ng-model="grupo.nnType" ng-click="rgAux1 = false; rgAux3 = false;"/>
+				            	<span class="radio__label">Dia:</span>
+				          	</label>
+				        </div>
 					
 						<div class="col-xs-3 col-sm-4 col-md-2 input-group">
 							<input class="form-control" type="number" name="nDay" id="nDay" ng-model="grupo.nnDay" 
@@ -91,13 +95,13 @@
 				</div>
 
 				<div class="row">
-					<div class="form-group">					
-						<div class="col-xs-3 col-sm-2 col-md-1 radio">
-  							<label>
-    							<input type="radio" name="nn_type" id="field_nn_type3" value="3"
-    								ng-model="grupo.nnType" ng-click="rgAux1 = false; rgAux2 = false;">Em: 
-  							</label>
-						</div>
+					<div class="form-group">
+						<div class="col-xs-3 col-sm-2 col-md-1 radio no-padding">
+				          	<label>
+				            	<input type="radio" name="nn_type" id="field_nn_type3" value="3" ng-model="grupo.nnType" ng-click="rgAux1 = false; rgAux2 = false;"/>
+				            	<span class="radio__label">Em:</span>
+				          	</label>
+				        </div>
 					
 						<div class="col-xs-6 col-sm-4 col-md-3 input-group">
 							<select class="form-control" id="selDay" ng-model="grupo.nmDayweek"  
@@ -108,7 +112,7 @@
 								<option value="QUARTAS">QUARTAS</option>
 								<option value="QUINTAS">QUINTAS</option>
 								<option value="SEXTAS">SEXTAS</option>
-								<option value="SABADOS">SÁBADOS</option>
+								<option value="SABADOS" id="teste">SÁBADOS</option>
 							</select>
 						</div>											
 					</div>
