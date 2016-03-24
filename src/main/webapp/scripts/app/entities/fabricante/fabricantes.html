@@ -6,17 +6,10 @@
         <div class="box-btn">                     
             <button class="btn btn-success pull-left" ui-sref="fabricante.new">
                 <span class="mdi mdi-plus mdi-icon"></span> 
-                <span>Adicionar</span>
+                <span>Novo</span>
             </button>
         </div>
-        <div class="box-btn pull-right">
-            <form class="form-inline pull-right" name="searchForm">                  
-                <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
-                <button class="btn btn-info hidden-xs" ng-click="search()">
-                    <span class="mdi mdi-magnify mdi-icon"></span>
-                </button>
-            </form>
-        </div>            
+        <search ng-model="fabricantes"></search>         
     </div>
     <div class="box-body">
         <jh-alert></jh-alert>              
