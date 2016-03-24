@@ -29,9 +29,20 @@ angular.module('gpApp').controller(
 					var onSaveError = function(result) {
 						$scope.isSaving = false;
 					};
+					
+					var onBeforeSaveOrUpdate = function(){
+			        	
+			        	//Setting to uppercase
+			        	$scope.fabricante.nome = angular.uppercase($scope.fabricante.nome);
+			        	
+			        	//others validations here...
+			        };   
 
 					$scope.save = function() {
 						$scope.isSaving = true;
+						
+						onBeforeSaveOrUpdate(); //validations rules
+						
 						if ($scope.fabricante.id != null) {
 							Fabricante.update($scope.fabricante, onSaveSuccess,
 									onSaveError);
