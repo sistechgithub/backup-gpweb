@@ -3,7 +3,7 @@
  * ----------
  */
  .skin-blue-light .main-header {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 .skin-blue-light .main-header .navbar {
   background-color: #283593;
@@ -42,7 +42,7 @@
     color: #616161;
   }
   .skin-blue-light .main-header .navbar .dropdown-menu li a:hover {
-    background: #f9fafc;
+    background: #f4f4f5;
     color: #616161;
   }
 }
@@ -68,6 +68,7 @@
 .skin-blue-light .content-wrapper,
 .skin-blue-light .main-footer {
   border-left: 0px solid #d2d6de;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 .skin-blue-light .user-panel > .info,
 .skin-blue-light .user-panel > .info > a {
@@ -82,19 +83,23 @@
   color: #848484;
   background: #f9fafc;
 }
-.skin-blue-light .sidebar-menu > li > a {
+.skin-blue-light .sidebar-menu > li > a,
+.skin-blue-light .sidebar-menu > li > span > a {
   border-left: 3px solid transparent;
   font-weight: 600;
 }
 .skin-blue-light .sidebar-menu > li:hover > a,
-.skin-blue-light .sidebar-menu > li.active > a {
+.skin-blue-light .sidebar-menu > li.active > a,
+.skin-blue-light .sidebar-menu > li:hover > span > a,
+.skin-blue-light .sidebar-menu > li.active > span > a {
   color: #000000;
   background: #f4f4f5;
 }
 .skin-blue-light .sidebar-menu > li.active {
   border-left-color: #3c8dbc;
 }
-.skin-blue-light .sidebar-menu > li.active > a {
+.skin-blue-light .sidebar-menu > li.active > a,
+.skin-blue-light .sidebar-menu > li.active > span > a {
   font-weight: 600;
 }
 .skin-blue-light .sidebar-menu > li > .treeview-menu {
@@ -106,14 +111,18 @@
 .skin-blue-light .sidebar a:hover {
   text-decoration: none;
 }
-.skin-blue-light .treeview-menu > li > a {
+.skin-blue-light .treeview-menu > li > a,
+.skin-blue-light .treeview-menu > li > span > a {
   color: #777777;
 }
 .skin-blue-light .treeview-menu > li.active > a,
-.skin-blue-light .treeview-menu > li > a:hover {
+.skin-blue-light .treeview-menu > li > a:hover,
+.skin-blue-light .treeview-menu > li.active > span > a,
+.skin-blue-light .treeview-menu > li > span > a:hover {
   color: #000000;
 }
-.skin-blue-light .treeview-menu > li.active > a {
+.skin-blue-light .treeview-menu > li.active > a,
+.skin-blue-light .treeview-menu > li.active > span > a {
   font-weight: 600;
 }
 .skin-blue-light .sidebar-form {
@@ -168,4 +177,26 @@
 }
 .skin-blue.layout-top-nav .main-header > .logo:hover {
   background-color: #3b8ab8;
+}
+
+/*Alinhamento botões pagina prazo*/
+.skin-blue-light .btn-vert{
+  margin-top: 30px;
+}
+.skin-blue-light .btn-vert-mg-bt{
+  margin-bottom: 4px !important;
+}
+
+.skin-blue-light .no-border-r{
+  border-radius: 0px !important;
+}
+
+/*pagina Tipo de Cliente*/
+.skin-blue-light .check-pd{
+  padding-bottom: 0px;
+}
+
+/*pagina Prazo*/
+.skin-blue-light .input-pdl{
+  padding-left: 0px;
 }

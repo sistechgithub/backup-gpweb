@@ -1,11 +1,13 @@
 package com.sth.gp.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
-import com.sth.gp.domain.Grupo;
-import com.sth.gp.repository.GrupoRepository;
-import com.sth.gp.repository.search.GrupoSearchRepository;
-import com.sth.gp.web.rest.util.HeaderUtil;
-import com.sth.gp.web.rest.util.PaginationUtil;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -14,18 +16,17 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.inject.Inject;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import com.codahale.metrics.annotation.Timed;
+import com.sth.gp.domain.Grupo;
+import com.sth.gp.repository.GrupoRepository;
+import com.sth.gp.web.rest.util.HeaderUtil;
+import com.sth.gp.web.rest.util.PaginationUtil;
 
 /**
  * REST controller for managing Grupo.
@@ -38,9 +39,6 @@ public class GrupoResource {
 
     @Inject
     private GrupoRepository grupoRepository;
-
-    @Inject
-    private GrupoSearchRepository grupoSearchRepository;
 
     /**
      * POST  /grupos -> Create a new grupo.
@@ -57,8 +55,7 @@ public class GrupoResource {
         
         grupo.setDtOperacao(LocalDate.now()); //Always use the operation date from server
         
-        Grupo result = grupoRepository.save(grupo);
-        grupoSearchRepository.save(result);
+        Grupo result = grupoRepository.save(grupo);        
         return ResponseEntity.created(new URI("/api/grupos/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("grupo", result.getId().toString()))
             .body(result);
@@ -79,8 +76,7 @@ public class GrupoResource {
         
         grupo.setDtOperacao(LocalDate.now()); //Always use the operation date from server
         
-        Grupo result = grupoRepository.save(grupo);
-        grupoSearchRepository.save(grupo);
+        Grupo result = grupoRepository.save(grupo);        
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("grupo", grupo.getId().toString()))
             .body(result);
@@ -94,7 +90,7 @@ public class GrupoResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<List<Grupo>> getAllGrupos(Pageable pageable)
-        throws URISyntaxException {
+        throws URISyntaxException {    	
         Page<Grupo> page = grupoRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/grupos");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
@@ -125,23 +121,37 @@ public class GrupoResource {
     @Timed
     public ResponseEntity<Void> deleteGrupo(@PathVariable Long id) {
         log.debug("REST request to delete Grupo : {}", id);
-        grupoRepository.delete(id);
-        grupoSearchRepository.delete(id);
+        grupoRepository.delete(id);        
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("grupo", id.toString())).build();
-    }
-
+    }  
+    
     /**
      * SEARCH  /_search/grupos/:query -> search for the grupo corresponding
      * to the query.
      */
     @RequestMapping(value = "/_search/grupos/{query}",
-    		
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<Grupo> searchGrupos(@PathVariable String query) {
-        return StreamSupport
-            .stream(grupoSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .collect(Collectors.toList());
+    public ResponseEntity<List<Grupo>> searchGrupos(@PathVariable String query, Pageable pageable)
+        throws URISyntaxException {
+    	
+    	try{    		
+	    	String[] parameters = query.split(",");
+	    	Page<Grupo> page; 
+	    	
+	    	if(parameters[0].equals("codigo")){    		
+	    		page = grupoRepository.findById(Long.parseLong(parameters[1]), pageable);
+	    	}else{
+	    		page = grupoRepository.findByNmGrupoStartingWithOrderByNmGrupoAsc(parameters[1], pageable);
+	    	}    	
+	    	
+	        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/_search/grupos");
+	        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+	        
+    	}catch(Exception e){
+    		log.error(e.getMessage());
+    		return ResponseEntity.badRequest().header("Falha", e.getMessage()).body(null);
+    	}
     }
 }

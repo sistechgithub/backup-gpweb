@@ -6,19 +6,13 @@
         <div class="box-btn">                     
             <button class="btn btn-success pull-left" ui-sref="grupo.new">
                 <span class="mdi mdi-plus"></span> 
-                <span>Adicionar</span>
+                <span>Novo</span>
             </button>
-        </div>
-        <div class="box-btn pull-right">
-            <form class="form-inline pull-right" name="searchForm">                  
-                <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
-                <button class="btn btn-info hidden-xs" ng-click="search()">
-                    <span class="mdi mdi-magnify"></span>
-                </button>
-            </form>
-        </div>            
+        </div>    
+             
+        <search ng-model="grupos"></search>       
     </div>
-    <div class="box-body">
+    <div class="box-body">    
 	<jh-alert></jh-alert>
         <div class="table-responsive">
 		    <table class="table table-hover">
@@ -28,15 +22,26 @@
 	                    <th class="col-xs-12 col-sm-12 col-md-6 col-lg-4">Nome</th>
 	                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right">Comissão (%)</th>
 	                    <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-right">Promoção</th>
-	                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right">Desc. Promocional (%)</th>
+	                    <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-right">Desconto</th>
+<!-- 	                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right">Desc. Promocional (%)</th> -->
 	                    <th></th>
 	                </tr>			        
 	                <tr ng-repeat="grupo in grupos track by grupo.id">
 	                    <td class="text-right"><a ui-sref="grupo.detail({id:grupo.id})">{{grupo.id}}</a></td>
 	                    <td class="text-uppercase">{{grupo.nmGrupo}}</td>
 	                    <td class="text-right">{{grupo.vlComissao | currency:'':2}}%</td>	                    
-	                    <td class="text-right text-uppercase">{{grupo.flPromo ? 'Sim': 'Não'}}</td>
-	                    <td class="text-right">{{grupo.vlDesconto | currency:'':2}}%</td>
+	                    <td class="text-center">
+	                    	<i class="glyphicon"
+								ng-class="{'glyphicon-ok text-success': grupo.flPromo,
+								'glyphicon-remove text-danger': !grupo.flPromo}">
+							</i>
+	                    </td>
+	                    <td class="text-center">
+	                    	<i class="glyphicon"
+								ng-class="{'glyphicon-ok text-success': grupo.flDesco,
+								'glyphicon-remove text-danger': !grupo.flDesco}">
+							</i>
+	                    </td>
 	                    <td class="text-center">
 	                        <button type="submit"
 	                                ui-sref="grupo.detail({id:grupo.id})"
