@@ -238,7 +238,7 @@ a:focus {
 .main-header {
   position: relative;
   max-height: 100px;
-  z-index: 1030;
+  z-index: 1000;
 }
 .main-header > .navbar {
   -webkit-transition: margin-left 0.1s ease-in-out;
@@ -670,7 +670,7 @@ a:focus {
   .sidebar-mini.sidebar-collapse .right-side,
   /*.sidebar-mini.sidebar-collapse .main-footer */ {
     margin-left: 0px!important;
-    z-index: 1100;
+    z-index: 1040;
   }
   .sidebar-mini.sidebar-collapse .main-sidebar {
     -webkit-transform: translate(0, 0);
@@ -678,7 +678,7 @@ a:focus {
     -o-transform: translate(0, 0);
     transform: translate(0, 0);
     width: 50px!important;
-    z-index: 1100;
+    z-index: 1020;
   }
   .sidebar-mini.sidebar-collapse .sidebar-menu > li {
     position: relative;
@@ -1620,7 +1620,7 @@ a:focus {
   margin-top: 0;
   padding: 0;
   width: 100%;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 @media (max-width: 767px) {
   .box {
@@ -2494,12 +2494,23 @@ a:focus {
   display: none;
 }
 .checkbox input[type='checkbox']:checked + span::before,
-.checkbox-inline input[type='checkbox']:checked + span::before, .radio input[type='radio']:checked + span::before,
-.radio-inline input[type='radio']:checked + span::before {
-  font-family: 'Glyphicons Halflings';
-  content: '\e013';
+.checkbox-inline input[type='checkbox']:checked + span::before {
+  font-family: 'Material Design Icons';
+  font-size: 14px;
+  font-weight: bold;
+  content: '\f12c';
   background-color: #0d47a1;
   border-color: #0d47a1;
+  padding: 1px 0 1px 0;
+}
+.radio input[type='radio']:checked + span::before,
+.radio-inline input[type='radio']:checked + span::before {
+  font-family: 'Material Design Icons';
+  font-size: 9px;
+  content: '\f12f';
+  background-color: #0d47a1;
+  border-color: #0d47a1;
+  padding: 1px 0 1px 0;
 }
 .checkbox input[type='checkbox']:disabled + span::before,
 .checkbox-inline input[type='checkbox']:disabled + span::before, .radio input[type='radio']:disabled + span::before,
