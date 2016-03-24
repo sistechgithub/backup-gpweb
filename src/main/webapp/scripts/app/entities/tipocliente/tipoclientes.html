@@ -19,57 +19,53 @@
         </div>          
     </div>
     <div class="box-body">
-    <jh-alert></jh-alert>
-    <div class="table-responsive">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th class="col-md-1">Código</th>
-                    <th class="col-md-9">Nome</th>
-                    <th class="col-md-2 text-center">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="tipocliente in tipoclientes track by tipocliente.id">
-                    <td>
-                        <a ui-sref="tipocliente.detail({id:tipocliente.id})">{{tipocliente.id}}</a>
-                    </td>
-                    <td class="text-uppercase">{{tipocliente.nome}}</td>
-                    <td class="text-center">
-                        <button type="submit"
-                                ui-sref="tipocliente.detail({id:tipocliente.id})"
-                                class="btn btn-outlined btn-success">
-                            <span class="mdi mdi-eye"></span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="tipocliente.edit({id:tipocliente.id})"
-                                class="btn btn-outlined btn-primary">
-                            <span class="mdi mdi-pencil"></span>
-                        </button>
-                        <button type="submit"                        
-                                ui-sref="tipocliente.delete({id:tipocliente.id})"
-                                class="btn btn-outlined btn-danger">
-                            <span class="mdi mdi-delete"></span>
-                        </button>
-                    </td>                    
-                </tr>
-            </tbody>
-        </table>
-
-        
-        <nav class="box-footer clearfix">
-            <ul class="pagination no-margin pull-right">
-                <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
-                <li ng-show="links['prev']" ng-click="loadPage(links['prev'])"><a>&lt;</a></li>
-                <li ng-show="page > 2" ng-click="loadPage(page - 2)"><a>{{page - 2}}</a></li>
-                <li ng-show="page > 1" ng-click="loadPage(page - 1)"><a>{{page - 1}}</a></li>
-                <li class="active"><a>{{page}}</a></li>
-                <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 1}}</a></li>
-                <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 2}}</a></li>
-                <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
-                <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
-            </ul>
-        </nav>
-        
-    </div>
+        <jh-alert></jh-alert>
+        <div class="table-responsive">
+            <table class="table table-hover">                    
+                <tbody>
+                    <tr>
+                        <th class="col-md-1">Código</th>
+                        <th class="col-md-9">Nome</th>
+                        <th class="col-md-2 text-center">Ações</th>
+                    </tr>
+                    <tr ng-repeat="tipocliente in tipoclientes track by tipocliente.id">
+                        <td>
+                            <a ui-sref="tipocliente.detail({id:tipocliente.id})">{{tipocliente.id}}</a>
+                        </td>
+                        <td class="text-uppercase">{{tipocliente.nome}}</td>
+                        <td class="text-center">
+                            <button type="submit"
+                                    ui-sref="tipocliente.detail({id:tipocliente.id})"
+                                    class="btn btn-outlined btn-success">
+                                <span class="mdi mdi-eye"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="tipocliente.edit({id:tipocliente.id})"
+                                    class="btn btn-outlined btn-primary">
+                                <span class="mdi mdi-pencil"></span>
+                            </button>
+                            <button type="submit"                        
+                                    ui-sref="tipocliente.delete({id:tipocliente.id})"
+                                    class="btn btn-outlined btn-danger">
+                                <span class="mdi mdi-delete"></span>
+                            </button>
+                        </td>                    
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>        
+    <div class="box-footer clearfix">
+        <ul class="pagination no-margin pull-right">
+            <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
+            <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
+            <li ng-show="page > 1" ng-click="loadPage(page - 2)"><a>{{page - 1}}</a></li>
+            <li ng-show="page > 0" ng-click="loadPage(page - 1)"><a>{{page}}</a></li>
+            <li class="active"><a>{{page + 1}}</a></li>
+            <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 2}}</a></li>
+            <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 3}}</a></li>
+            <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
+            <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
+        </ul>
+    </div><!-- /.box-footer -->        
 </div>
