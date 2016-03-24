@@ -145,6 +145,7 @@ public class SubgrupoResource {
 	        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
 	        
     	}catch(Exception e){
+    		log.error(e.getMessage());
     		return ResponseEntity.badRequest().header("Falha", e.getMessage()).body(null);
     	}
     }
