@@ -48,6 +48,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/admin/user-management/user-management-dialog.html',
                         controller: 'UserManagementDialogController',
                         size: 'lg',
+                        backdrop: 'static',
                         resolve: {
                             entity: function () {
                                 return {
