@@ -49,6 +49,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/fabricante/fabricante-dialog.html',
                         controller: 'FabricanteDialogController',
                         size: 'lg',
+                        backdrop: 'static',
                         resolve: {
                             entity: function () {
                                 return {

@@ -630,46 +630,6 @@ Correções no Formulário
 }
 
 /* ==========================================================================
-Correções no Modal
-========================================================================== */
-
-.modal-header {
-  background-color: #0d47a1;
-  border-bottom-color: #f4f4f4;
-  color: #fff;
-  padding: 7px 14px 7px 14px;
-}
-
-.modal-title{
-  font-size: 17px;
-  display: inline-block;
-  vertical-align: middle;
-  margin: 3px 0px 0px 0px;
-}
-
-/* Icone fechar */
-.close {
-    float: right;
-    font-size: 32px;
-    font-weight: normal;
-    line-height: 1;
-    color: #fff;
-    /* text-shadow: 0 1px 0 #fff; */
-    filter: alpha(opacity=20);
-    opacity: 1;
-}
-.close:hover, .close:active {
-    float: right;
-    font-size: 32px;
-    font-weight: normal;
-    line-height: 1;
-    color: #fff;
-    /* text-shadow: 0 1px 0 #fff; */
-    filter: alpha(opacity=20);
-    opacity: 0.5;
-}
-
-/* ==========================================================================
 Correções para as tabelas
 ========================================================================== */
 .row-pd{

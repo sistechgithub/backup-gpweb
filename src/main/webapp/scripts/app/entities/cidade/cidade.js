@@ -49,6 +49,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/cidade/cidade-dialog.html',
                         controller: 'CidadeDialogController',
                         size: 'lg',
+                        backdrop: 'static',
                         resolve: {
                             entity: function () {
                                 return {
