@@ -1,20 +1,30 @@
 package com.sth.gp.web.rest;
 
-import com.sth.gp.Application;
-import com.sth.gp.domain.Fabricante;
-import com.sth.gp.repository.FabricanteRepository;
-import com.sth.gp.repository.search.FabricanteSearchRepository;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.StrictAssertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import static org.hamcrest.Matchers.hasItem;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.util.ReflectionTestUtils;
@@ -22,13 +32,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import com.sth.gp.Application;
+import com.sth.gp.domain.Fabricante;
+import com.sth.gp.repository.FabricanteRepository;
 
 
 /**
@@ -64,9 +70,6 @@ public class FabricanteResourceIntTest {
     private FabricanteRepository fabricanteRepository;
 
     @Inject
-    private FabricanteSearchRepository fabricanteSearchRepository;
-
-    @Inject
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Inject
@@ -80,8 +83,7 @@ public class FabricanteResourceIntTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         FabricanteResource fabricanteResource = new FabricanteResource();
-        ReflectionTestUtils.setField(fabricanteResource, "fabricanteRepository", fabricanteRepository);
-        ReflectionTestUtils.setField(fabricanteResource, "fabricanteSearchRepository", fabricanteSearchRepository);
+        ReflectionTestUtils.setField(fabricanteResource, "fabricanteRepository", fabricanteRepository);        
         this.restFabricanteMockMvc = MockMvcBuilders.standaloneSetup(fabricanteResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setMessageConverters(jacksonMessageConverter).build();
