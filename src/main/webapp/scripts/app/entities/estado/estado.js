@@ -49,6 +49,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/estado/estado-dialog.html',
                         controller: 'EstadoDialogController',
                         size: 'lg',
+                        backdrop: 'static',
                         resolve: {
                             entity: function () {
                                 return {

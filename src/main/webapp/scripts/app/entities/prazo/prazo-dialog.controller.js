@@ -48,8 +48,17 @@ angular.module('gpApp').controller('PrazoDialogController',
             $scope.isSaving = false;
         };
         
+        var onBeforeSaveOrUpdate = function(){
+        	
+        	//Setting to uppercase
+        	$scope.prazo.nome = angular.uppercase($scope.prazo.nome);        	
+             
+        };      
+        
         $scope.save = function () {
             $scope.isSaving = true;
+            
+            onBeforeSaveOrUpdate(); //validations rules
             
             if ($scope.prazo.id != null) {
             	Prazo.update($scope.prazo, onSaveSuccess, onSaveError);

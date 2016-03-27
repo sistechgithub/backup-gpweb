@@ -27,7 +27,6 @@ import com.sth.gp.domain.Fabricante;
 import com.sth.gp.domain.Logradouro;
 import com.sth.gp.repository.FabricanteRepository;
 import com.sth.gp.repository.LogradouroRepository;
-import com.sth.gp.repository.search.FabricanteSearchRepository;
 import com.sth.gp.web.rest.util.HeaderUtil;
 import com.sth.gp.web.rest.util.PaginationUtil;
 
@@ -42,9 +41,6 @@ public class FabricanteResource {
 
     @Inject
     private FabricanteRepository fabricanteRepository;
-
-    @Inject
-    private FabricanteSearchRepository fabricanteSearchRepository;
 
     @Inject
     private LogradouroRepository logradouroRepository;
@@ -62,8 +58,7 @@ public class FabricanteResource {
         if (fabricante.getId() != null) {
             return ResponseEntity.badRequest().header("Falha", "Um novo Fabricante não pode já ter um Código").body(null);
         }
-        Fabricante result = fabricanteRepository.save(fabricante);
-        fabricanteSearchRepository.save(result);
+        Fabricante result = fabricanteRepository.save(fabricante);        
         return ResponseEntity.created(new URI("/api/fabricantes/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("fabricante", result.getId().toString()))
             .body(result);
@@ -81,8 +76,7 @@ public class FabricanteResource {
         if (fabricante.getId() == null) {
             return createFabricante(fabricante);
         }
-        Fabricante result = fabricanteRepository.save(fabricante);
-        fabricanteSearchRepository.save(fabricante);
+        Fabricante result = fabricanteRepository.save(fabricante);        
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("fabricante", fabricante.getId().toString()))
             .body(result);
@@ -144,7 +138,6 @@ public class FabricanteResource {
     public ResponseEntity<Void> deleteFabricante(@PathVariable Long id) {
         log.debug("REST request to delete Fabricante : {}", id);
         fabricanteRepository.delete(id);
-        fabricanteSearchRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("fabricante", id.toString())).build();
     }
 
