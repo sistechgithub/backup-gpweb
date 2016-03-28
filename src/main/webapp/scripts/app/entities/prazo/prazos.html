@@ -28,18 +28,24 @@
                         <td class="text-uppercase">{{prazo.qntParcelas}}</td>
                         <td class="text-center">
                             <button type="submit"
-                                    ui-sref="prazo.detail({id:prazo.id})"
-                                    class="btn btn-outlined btn-success">
+                                    class="btn btn-sm btn-success"
+                                    data-tooltip="Detalhes" 
+                                    data-tooltip-position="top"
+                                    ui-sref="prazo.detail({id:prazo.id})">
                                 <span class="mdi mdi-eye"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="prazo.edit({id:prazo.id})"
-                                    class="btn btn-outlined btn-primary">
+                                    class="btn btn-sm btn-primary"
+                                    data-tooltip="Editar" 
+                                    data-tooltip-position="top"
+                                    ui-sref="prazo.edit({id:prazo.id})">
                                 <span class="mdi mdi-pencil"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="prazo.delete({id:prazo.id})"
-                                    class="btn btn-outlined btn-danger">
+                                    class="btn btn-sm btn-danger" 
+                                    data-tooltip="Deletar" 
+                                    data-tooltip-position="top"
+                                    ui-sref="prazo.delete({id:prazo.id})">
                                 <span class="mdi mdi-delete"></span>
                             </button>
                         </td>

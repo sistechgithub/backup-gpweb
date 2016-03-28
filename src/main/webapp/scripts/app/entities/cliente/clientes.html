@@ -5,14 +5,14 @@
     <div class="box-header">
         <div class="box-btn">                     
             <button class="btn btn-success pull-left" ui-sref="cliente.new">
-                <span class="mdi mdi-plus"></span> 
+                <span class="mdi mdi-plus"></span>
                 <span>Adicionar</span>
             </button>
         </div>
         <div class="box-btn pull-right">
             <form class="form-inline pull-right" name="searchForm">                  
                 <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
-                <button class="btn btn-info hidden-xs" ng-click="search()">
+                <button class="btn btn-sm btn-info hidden-xs" ng-click="search()">
                     <span class="mdi mdi-magnify"></span>
                 </button>
             </form>
@@ -43,18 +43,24 @@
                     <td>{{cliente.celular | brPhoneNumber}}</td>
                     <td class="text-center">
                         <button type="submit"
-                                ui-sref="cliente.detail({id:cliente.id})"
-                                class="btn btn-outlined btn-success">
+                                class="btn btn-sm btn-success"
+                                data-tooltip="Detalhes" 
+                                data-tooltip-position="top"
+                                ui-sref="cliente.detail({id:cliente.id})">
                             <span class="mdi mdi-eye"></span>
                         </button>
                         <button type="submit"
-                                ui-sref="cliente.edit({id:cliente.id})"
-                                class="btn btn-outlined btn-primary">
+                                class="btn btn-sm btn-primary"
+                                data-tooltip="Editar" 
+                                data-tooltip-position="top"
+                                ui-sref="cliente.edit({id:cliente.id})">
                             <span class="mdi mdi-pencil"></span>
                         </button>
-                        <button type="submit"                        
-                                ui-sref="cliente.delete({id:cliente.id})"
-                                class="btn btn-outlined btn-danger">
+                        <button type="submit"
+                                class="btn btn-sm btn-danger"
+                                data-tooltip="Deletar" 
+                                data-tooltip-position="top"                        
+                                ui-sref="cliente.delete({id:cliente.id})">
                             <span class="mdi mdi-delete"></span>
                         </button>
                     </td>                    
