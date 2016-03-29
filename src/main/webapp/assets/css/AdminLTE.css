@@ -1813,8 +1813,14 @@ a:focus {
 .box-header {
   color: #616161;
   display: block;
-  padding: 0 10px;
+  padding: 0 20px;
+  margin-bottom: 20px;
   position: relative;
+}
+@media (max-width: 768px) {
+  .box-header {
+    padding: 0 10px;
+  }
 }
 .box-header.with-border {
   border-bottom: 1px solid #ebebeb;
@@ -1838,12 +1844,6 @@ a:focus {
 .box-title h4,
 .box-title h5 {
   margin-top: 5px;
-}
-.box-btn {
-  display: inline-block;
-  font-weight: 600;
-  line-height: 1;
-  margin: 20px 10px 0;
 }
 .box-header > .fa,
 .box-header > .glyphicon,
@@ -1917,8 +1917,13 @@ a:focus {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   border-top: 1px solid #ebebeb;
-  padding: 10px;
+  padding: 20px;
   background-color: #ffffff;
+}
+@media (max-width: 768px) {
+  .box-footer {
+    padding: 20px 10px;
+  }
 }
 .chart-legend {
   margin: 10px 0;
@@ -2677,7 +2682,7 @@ a:focus {
   /*min-width: 64px;*/
   padding: 8px 10px;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.42857143;
 }
 .btn-xs,
 .btn-group-xs > .btn {
@@ -3299,6 +3304,10 @@ a:focus {
   background: #fafafa;
   color: #666;
 }
+.pagination > li > a,
+.pagination > li > span {
+  padding: 8px 14px;
+}
 .pagination.pagination-flat > li > a {
   border-radius: 0 !important;
 }
@@ -3359,6 +3368,15 @@ a:focus {
  * Component: Table
  * ----------------
  */
+ .table {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+.table > thead > tr > th{
+  padding: 18px 20px !important;
+  border-bottom: 1px solid #c7c7c7;
+  vertical-align: bottom;
+}
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,
@@ -3367,12 +3385,8 @@ a:focus {
 .table > tfoot > tr > td {
   border-top: 1px solid #c7c7c7;
   line-height: 1.42857;
-  padding: 8px;
+  padding: 9px 20px;
   vertical-align: middle;
-}
-.table > thead > tr > th {
-  border-bottom: 1px solid #c7c7c7;
-  vertical-align: bottom;
 }
 .table tr td .progress {
   margin-top: 5px;
@@ -3397,6 +3411,23 @@ a:focus {
 .table.no-border td,
 .table.no-border th {
   border: 0;
+}
+
+.table-hover > tbody > tr {
+  transition-duration: .28s;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-property: background-color;
+}
+.table-hover > tbody > tr:hover {
+  background-color: #eee;
+}
+@media (max-width: 767px){
+  .table > thead > tr > th{
+    padding: 0px 20px 18px !important;
+  }
+}
+.table-responsive{
+  border: 0px solid #e0e0e0;
 }
 
 /* .text-center in tables */
