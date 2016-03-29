@@ -43,19 +43,25 @@
 	                    </td>
 	                    <td class="text-center">
 	                        <button type="submit"
-	                                ui-sref="produto.detail({id:produto.id})"
-	                                class="btn btn-outlined btn-success">
-	                            <span class="mdi mdi-eye mdi-18"></span>
+	                        		class="btn btn-sm btn-success"
+                                    data-tooltip="Detalhes" 
+                                    data-tooltip-position="top"
+	                                ui-sref="produto.detail({id:produto.id})">
+	                            <span class="mdi mdi-eye"></span>
 	                        </button>
 	                        <button type="submit"
-	                                ui-sref="produto.edit({id:produto.id})"
-	                                class="btn btn-outlined btn-primary">
-	                            <span class="mdi mdi-pencil mdi-18"></span>
+	                        		class="btn btn-sm btn-primary"
+                                    data-tooltip="Editar" 
+                                    data-tooltip-position="top"
+	                                ui-sref="produto.edit({id:produto.id})">
+	                            <span class="mdi mdi-pencil"></span>
 	                        </button>
 	                        <button type="submit"
-	                                ui-sref="produto.delete({id:produto.id})"
-	                                class="btn btn-outlined btn-danger">
-	                            <span class="mdi mdi-delete mdi-18"></span>
+	                        		class="btn btn-sm btn-danger"
+                                    data-tooltip="Deletar" 
+                                    data-tooltip-position="top"
+	                                ui-sref="produto.delete({id:produto.id})">
+	                            <span class="mdi mdi-delete"></span>
 	                        </button>
 	                    </td>
 	                </tr>
