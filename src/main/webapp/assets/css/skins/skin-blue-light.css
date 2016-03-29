@@ -6,7 +6,7 @@
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 .skin-blue-light .main-header .navbar {
-  background-color: #313CA2;
+  background-color: #283593;
 }
 .skin-blue-light .main-header .navbar .nav > li > a {
   color: #ffffff;
@@ -47,7 +47,7 @@
   }
 }
 .skin-blue-light .main-header .logo {
-  background-color: #2b3591;
+  background-color: #1a237e;
   color: #ffffff;
   border-bottom: 0 solid transparent;
 }
@@ -170,13 +170,23 @@
 .skin-blue-light .main-footer {
   border-top-color: #d2d6de;
 }
-.skin-blue.layout-top-nav .main-header > .logo {
+.skin-blue-light .layout-top-nav .main-header > .logo {
   background-color: #3c8dbc;
   color: #ffffff;
   border-bottom: 0 solid transparent;
 }
-.skin-blue.layout-top-nav .main-header > .logo:hover {
+.skin-blue-light .layout-top-nav .main-header > .logo:hover {
   background-color: #3b8ab8;
+}
+
+.skin-blue-light .pagination > .active > a,
+.skin-blue-light .pagination > .active > span,
+.skin-blue-light .pagination > .active > a:hover,
+.skin-blue-light .pagination > .active > span:hover,
+.skin-blue-light .pagination > .active > a:focus,
+.skin-blue-light .pagination > .active > span:focus {
+  background-color: #3949ab;
+  border-color: #3949ab;
 }
 
 /*Alinhamento botões pagina prazo*/

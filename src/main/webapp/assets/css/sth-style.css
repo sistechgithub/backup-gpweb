@@ -239,6 +239,8 @@ ul#strengthBar {
 Botões outlined
 ========================================================================== */
 
+/*
+
 .btn-outlined {
   padding: 5px 7px 5px;
   border-radius: 2px;
@@ -302,6 +304,7 @@ Botões outlined
   border: 1px solid #d92a18;
   color: #d92a18;
 }
+*/
 
 /* ==========================================================================
 Icones Material Design
@@ -391,7 +394,7 @@ fieldset {
     min-width: 0;
     padding: .35em .625em .75em;
     margin: 0;
-    border: 1px solid #d2d6de;
+    border: 1px solid #c7c7c7;
 }
 
 legend {
@@ -630,16 +633,35 @@ Correções no Formulário
 }
 
 /* ==========================================================================
+Correções na Pesquisa
+========================================================================== */
+
+.search-pad-col{
+  padding-top: 3px;
+}
+.search-pad-col-left{
+  padding: 0px 7px 0px 0px !important;
+}
+.search-pad-col-right{
+  padding: 0 !important;
+}
+@media (max-width: 768px) {
+  .search-pad{
+    padding: 20px 0px 0px 0px;
+  }
+  .search-pad-col-left{
+    padding: 0px 7px 0px 0px;
+  }
+  .search-pad-col-right{
+    padding: 0;
+  }
+}
+
+/* ==========================================================================
 Correções para as tabelas
 ========================================================================== */
 .row-pd{
   padding-top: 10px;
   padding-bottom: 20px;
-}
-
-/* Removendo bordas em resoluções pequenas */
-@media (max-width: 767px){
-.table-responsive{
-  border: 0px solid #e0e0e0;
 }
 
