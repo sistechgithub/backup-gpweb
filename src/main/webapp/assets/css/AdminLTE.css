@@ -426,13 +426,14 @@ a:focus {
   .navbar-custom-menu .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
-    line-height: 20px;
+    line-height: 30px;
   }
 }
 @media (min-width: 768px){
   .navbar-nav > li > a {
     padding-top: 10px;
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
+    line-height: 30px; 
   }
 }
 @media (max-width: 767px) {
@@ -475,6 +476,7 @@ a:focus {
   min-height: 100%;
   width: 230px;
   z-index: 1100;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
   -webkit-transition: -webkit-transform 0.1s ease-in-out, width 0.1s ease-in-out;
   -moz-transition: -moz-transform 0.1s ease-in-out, width 0.1s ease-in-out;
   -o-transition: -o-transform 0.1s ease-in-out, width 0.1s ease-in-out;
@@ -1004,6 +1006,7 @@ a:focus {
 }
 .dropdown-menu > li > a {
   color: #616161;
+  padding: 10px 18px;
 }
 .dropdown-menu > li > a > .glyphicon,
 .dropdown-menu > li > a > .fa,
@@ -1017,6 +1020,11 @@ a:focus {
 }
 .dropdown-menu > .divider {
   background-color: #eee;
+}
+@media (max-width: 767px){
+  .navbar-nav .open .dropdown-menu > li > a {
+    padding: 10px 18px;
+  }
 }
 .navbar-nav > .notifications-menu > .dropdown-menu,
 .navbar-nav > .messages-menu > .dropdown-menu,
@@ -2350,6 +2358,11 @@ a:focus {
   padding: 0;
   border-radius: 50%;
 }
+.btn-outlined {
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+}
 /* -- Buttons colors -------------------------------- */
 .btn-default,
 .dropdown-toggle.btn-default {
@@ -2454,6 +2467,17 @@ a:focus {
 .btn-flat.btn-primary .ink {
   background-color: #808080;
 }
+.btn-outlined.btn-primary {
+  background: none;
+  border: 1px solid #3949ab;
+  color: #3949ab;    
+}
+.btn-outlined.btn-primary:hover,
+.btn-outlined.btn-primary:active {
+  color: #FFF;
+  background: #3949ab;
+  border-color: #3949ab;
+}
 .btn-success,
 .dropdown-toggle.btn-success {
   background-color: #00796b;
@@ -2506,6 +2530,17 @@ a:focus {
 }
 .btn-flat.btn-success .ink {
   background-color: #808080;
+}
+.btn-outlined.btn-success {
+  background: none;
+  border: 1px solid #00796b;
+  color: #00796b;    
+}
+.btn-outlined.btn-success:hover,
+.btn-outlined.btn-success:active {
+  color: #FFF;
+  background: #00796b;
+  border-color: #00796b;
 }
 .btn-info,
 .dropdown-toggle.btn-info {
@@ -2560,6 +2595,17 @@ a:focus {
 .btn-flat.btn-info .ink {
   background-color: #808080;
 }
+.btn-outlined.btn-info {
+  background: none;
+  border: 1px solid #1976d2;
+  color: #1976d2;    
+}
+.btn-outlined.btn-info:hover,
+.btn-outlined.btn-info:active {
+  color: #FFF;
+  background: #1976d2;
+  border-color: #1976d2;
+}
 .btn-warning,
 .dropdown-toggle.btn-warning {
   background-color: #ffa000;
@@ -2611,6 +2657,17 @@ a:focus {
 }
 .btn-flat.btn-warning .ink {
   background-color: #808080;
+}
+.btn-outlined.btn-warning {
+  background: none;
+  border: 1px solid #ffa000;
+  color: #ffa000;    
+}
+.btn-outlined.btn-warning:hover,
+.btn-outlined.btn-warning:active {
+  color: #FFF;
+  background: #ffa000;
+  border-color: #ffa000;
 }
 .btn-danger,
 .dropdown-toggle.btn-danger {
@@ -2664,6 +2721,17 @@ a:focus {
 }
 .btn-flat.btn-danger .ink {
   background-color: #808080;
+}
+.btn-outlined.btn-danger {
+  background: none;
+  border: 1px solid #d32f2f;
+  color: #d32f2f;    
+}
+.btn-outlined.btn-danger:hover,
+.btn-outlined.btn-danger:active {
+  color: #FFF;
+  background: #d32f2f;
+  border-color: #d32f2f;
 }
 /* -- Buttons sizes -------------------------------- */
 .btn {
@@ -2752,6 +2820,45 @@ a:focus {
 .btn-group-vertical > .btn.active:hover {
   z-index: 2;
 }
+/*-- Button app --------------------------------- */
+.btn-app {
+  border-radius: 3px;
+  position: relative;
+  padding: 15px 5px;
+  margin: 0 0 10px 10px;
+  min-width: 80px;
+  height: 60px;
+  text-align: center;
+  color: #666;
+  border: 1px solid #ddd;
+  background-color: #f4f4f4;
+  font-size: 12px;
+}
+.btn-app > .fa,
+.btn-app > .glyphicon,
+.btn-app > .ion,
+.btn-app > .mdi {
+  font-size: 20px;
+  display: block;
+}
+.btn-app:hover {
+  background: #f4f4f4;
+  color: #444;
+  border-color: #aaa;
+}
+.btn-app:active,
+.btn-app:focus {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.btn-app > .badge {
+  position: absolute;
+  top: -3px;
+  right: -10px;
+  font-size: 10px;
+  font-weight: 400;
+}
 /* -- Ripple effect -------------------------------- */
 .ripple-effect {
   position: relative;
@@ -2812,171 +2919,6 @@ a:focus {
     transform: scale(2.5);
   }
 }
-
- /*
-.btn {
-  border-radius: 2px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border: 1px solid transparent;
-}
-.btn.uppercase {
-  text-transform: uppercase;
-}
-.btn.btn-flat {
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  border-width: 1px;
-}
-.btn:active {
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-}
-.btn:focus {
-  outline: none;
-}
-.btn.btn-file {
-  position: relative;
-  overflow: hidden;
-}
-.btn.btn-file > input[type='file'] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-width: 100%;
-  min-height: 100%;
-  font-size: 100px;
-  text-align: right;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  outline: none;
-  background: white;
-  cursor: inherit;
-  display: block;
-}
-.btn-default {
-  background-color: #fff;
-  color: #616161;
-  border-color: #ccc;
-}
-.btn-default:hover,
-.btn-default:active,
-.btn-default.hover {
-  background-color: #e6e6e6;
-}
-.btn-primary {
-  background-color: #1a75ac; /* cor antiga #3c8dbc 
-  border-color: #1a75ac; /* cor antiga #367fa9 
-}
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:focus,
-.btn-primary.hover {
-  background-color: #15608f; /* cor antiga #367fa9 
-}
-.btn-success {
-  background-color: #20a27d; /* #00a65a 
-  border-color: #20a27d; /* #008d4c 
-}
-.btn-success:hover,
-.btn-success:active,
-.btn-success:focus,
-.btn-success.hover {
-  background-color: #1a8468; /* #008d4c 
-}
-.btn-info {
-  background-color: #2cb6c0; /* #00c0ef 
-  border-color: #2cb6c0; /* #00acd6 
-}
-.btn-info:hover,
-.btn-info:active,
-.btn-info:focus,
-.btn-info.hover {
-  background-color: #259aa2; /* #00acd6 
-}
-.btn-danger {
-  background-color: #e73825; /* #dd4b39 
-  border-color: #e73825; /* #d73925 
-}
-.btn-danger:hover,
-.btn-danger:active,
-.btn-danger:focus,
-.btn-danger.hover {
-  background-color: #d92a18; /* #d73925 
-}
-.btn-warning {
-  background-color: #ffae06; /* #f39c12 
-  border-color: #ffae06; /* #e08e0b 
-}
-.btn-warning:hover,
-.btn-warning:active,
-.btn-warning:focus,
-.btn-warning.hover {
-  background-color: #e89d00; /* #e08e0b 
-}
-.btn-outline {
-  border: 1px solid #fff;
-  background: transparent;
-  color: #fff;
-}
-.btn-outline:hover,
-.btn-outline:focus,
-.btn-outline:active {
-  color: rgba(255, 255, 255, 0.7);
-  border-color: rgba(255, 255, 255, 0.7);
-}
-.btn-link {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-.btn[class*='bg-']:hover {
-  -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
-}
-.btn-app {
-  border-radius: 3px;
-  position: relative;
-  padding: 15px 5px;
-  margin: 0 0 10px 10px;
-  min-width: 80px;
-  height: 60px;
-  text-align: center;
-  color: #666;
-  border: 1px solid #ddd;
-  background-color: #f4f4f4;
-  font-size: 12px;
-}
-.btn-app > .fa,
-.btn-app > .glyphicon,
-.btn-app > .ion,
-.btn-app > .mdi {
-  font-size: 20px;
-  display: block;
-}
-.btn-app:hover {
-  background: #f4f4f4;
-  color: #616161;
-  border-color: #aaa;
-}
-.btn-app:active,
-.btn-app:focus {
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-}
-.btn-app > .badge {
-  position: absolute;
-  top: -3px;
-  right: -10px;
-  font-size: 10px;
-  font-weight: 400;
-}
-
-*/
-
 /*
  * Component: Checkbox e Radio
  * Author: Aaron Olson
