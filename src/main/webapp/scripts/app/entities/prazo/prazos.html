@@ -3,43 +3,55 @@
         <h3 class="box-title">Prazos</h3>            
     </div>
     <div class="box-header">
-        <div class="box-btn">                     
-            <button class="btn btn-success pull-left" ui-sref="prazo.new">
-                <span class="mdi mdi-plus mdi-icon"></span> 
-                <span>Adicionar</span>
-            </button>
-        </div>
-        <search ng-model="prazos"></search>            
+        <div class="row">
+            <div class="col-xs-12 col-sm-5">                     
+                <button class="btn btn-success pull-left" ui-sref="prazo.new">
+                    <span class="mdi mdi-plus"></span> 
+                    <span>Adicionar</span>
+                </button>
+            </div>
+            <div class="col-xs-12 col-sm-7 search-pad-col">         
+                <search ng-model="prazos"></search>
+            </div>
+        </div>            
     </div>
-    <div class="box-body">
+    <div class="box-body no-padding">
         <jh-alert></jh-alert>              
         <div class="table-responsive">
             <table class="table table-hover">
-                <tbody>
+                <thead>
                     <tr>
-                        <th class="text-center">Código</th>
-                        <th class="col-sm-4">Nome</th>
-                        <th class="col-sm-4">Parcelas</th>
-                        <th class="text-center">Ações</th>
-                    </tr>
+                        <th class="col-md-1text-center">Código</th>
+                        <th class="col-md-8">Nome</th>
+                        <th class="col-md-1 text-right">Parcelas</th>
+                        <th class="col-md-2 text-center">Ações</th>
+                    </tr>   
+                </thead>
+                <tbody>
                     <tr ng-repeat="prazo in prazos track by prazo.id">
                         <td class="text-center"><a ui-sref="prazo.detail({id:prazo.id})">{{prazo.id}}</a></td>
                         <td class="col-sm-4 text-uppercase">{{prazo.nome}}</td>
-                        <td class="text-uppercase">{{prazo.qntParcelas}}</td>
+                        <td class="text-right text-uppercase">{{prazo.qntParcelas}}</td>
                         <td class="text-center">
                             <button type="submit"
-                                    ui-sref="prazo.detail({id:prazo.id})"
-                                    class="btn btn-outlined btn-success">
+                                    class="btn btn-sm btn-success"
+                                    data-tooltip="Detalhes" 
+                                    data-tooltip-position="top"
+                                    ui-sref="prazo.detail({id:prazo.id})">
                                 <span class="mdi mdi-eye"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="prazo.edit({id:prazo.id})"
-                                    class="btn btn-outlined btn-primary">
+                                    class="btn btn-sm btn-primary"
+                                    data-tooltip="Editar" 
+                                    data-tooltip-position="top"
+                                    ui-sref="prazo.edit({id:prazo.id})">
                                 <span class="mdi mdi-pencil"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="prazo.delete({id:prazo.id})"
-                                    class="btn btn-outlined btn-danger">
+                                    class="btn btn-sm btn-danger" 
+                                    data-tooltip="Deletar" 
+                                    data-tooltip-position="top"
+                                    ui-sref="prazo.delete({id:prazo.id})">
                                 <span class="mdi mdi-delete"></span>
                             </button>
                         </td>

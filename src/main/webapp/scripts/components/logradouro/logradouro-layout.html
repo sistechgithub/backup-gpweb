@@ -1,5 +1,4 @@
-
-<div class="col-xs-12 col-sm-2"> 
+<div class="col-xs-12 col-sm-2">
 	<div class="form-group"> 
 		<label  class="control-label" 
 				for="field_fax"> 
@@ -9,8 +8,8 @@
 				class="form-control"  
 				name="cep" 
 				id="field_cep"  
-				ng-change="findcep(editForm.cep.$valid, logradouro.cep)" 				 
-				ng-model="logradouro.cep" 
+				ng-change="findcep()" 				 
+				ng-model="entidade.logradouro.cep" 
 				ui-br-cep-mask 
 				placeholder="00000-000" 
 				maxlength=9 
@@ -34,7 +33,7 @@
 				class="form-control text-uppercase"  
 				name="logradouro_nome" 
 				id="field_logradouro_nome" 
-				ng-model="logradouro.nome" 
+				ng-model="entidade.logradouro.nome" 
 				ng-disabled="true" 
 		/> 
 	</div> 
@@ -47,9 +46,9 @@
 		</label>  
 		<input	type="text" 
 				class="form-control text-uppercase"  
-				name="numero" 
+				name="entidade.numero" 
 				id="field_numero" 
-				ng-model="numero"  
+				ng-model="entidade.numero"  
 		/> 
 	</div> 
 </div>  
@@ -64,7 +63,7 @@
 				class="form-control text-uppercase"  
 				name="bairro_nome"  
 				id="field_bairro_nome" 
-				ng-model="logradouro.bairro.nome"  
+				ng-model="entidade.logradouro.bairro.nome"  
 				ng-disabled="true"
 		/> 
 	</div> 
@@ -79,7 +78,7 @@
 				class="form-control text-uppercase"  
 				name="cidade_nome"  
 				id="field_cidade_nome" 
-				ng-model="logradouro.bairro.cidade.nome"   
+				ng-model="entidade.logradouro.bairro.cidade.nome"   
 				ng-disabled="true"
 		/> 
 	</div>
@@ -94,7 +93,7 @@
 				class="form-control text-uppercase"  
 				name="estado_nome"  
 				id="field_estado_nome" 
-				ng-model="logradouro.bairro.cidade.estado.nome"   
+				ng-model="entidade.logradouro.bairro.cidade.estado.nome"   
 				ng-disabled="true"
 		/> 
 	</div>
@@ -110,7 +109,7 @@
 				class="form-control text-uppercase"  
 				name="complemento" 
 				id="field_complemento"  
-				ng-model="complemento" 
+				ng-model="entidade.complemento" 
 				ng-maxlength="20" 
 		/> 
 		<div ng-show="editForm.complemento.$invalid"> 

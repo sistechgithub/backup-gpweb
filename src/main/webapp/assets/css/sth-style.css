@@ -20,68 +20,63 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 Developement Ribbon
 ========================================================================== */
 .development {
-    position: absolute;
-    width: 149px;
-    height: 149px;
-    top: 0;
-    left: 0;
-    border: 0;
-    z-index: 1000;
-    background-image: url("../images/development_ribbon.png");
-    background-position: center center;
-    background-repeat: no-repeat;
+  position: absolute;
+  width: 149px;
+  height: 149px;
+  top: 0;
+  left: 0;
+  border: 0;
+  z-index: 1000;
+  background-image: url("../images/development_ribbon.png");
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 /* ==========================================================================
 Version number in navbar
 ========================================================================== */
 .navbar-version {
-    font-size: 10px;
-    color: #ccc
+  font-size: 10px;
+  color: #ccc;
 }
 
 /* ==========================================================================
 Browser Upgrade Prompt
 ========================================================================== */
 .browserupgrade {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
 }
-
 .hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 30px;
-    background-color: #eee;
-    border-radius: 6px;
-    padding: 60px;
+  margin: 50px auto 0 auto;
+  width: 300px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  background-color: #eee;
+  border-radius: 6px;
+  padding: 60px;
 }
-
 .hero-unit h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -1px;
 }
-
 .error {
-    color: white;
-    background-color: red;
+  color: white;
+  background-color: red;
 }
-
 .hipster {
-    display: inline-block;
-    width: 347px;
-    height: 497px;
-    background: url("../images/hipster.png") no-repeat center top;
-    background-size: contain;
+  display: inline-block;
+  width: 347px;
+  height: 497px;
+  background: url("../images/hipster.png") no-repeat center top;
+  background-size: contain;
 }
-
 .pad {
-    padding: 10px;
+  padding: 10px;
 }
 /* wait autoprefixer update to allow simple generation of high pixel density media query */
 @media
@@ -91,80 +86,66 @@ only screen and (     -o-min-device-pixel-ratio: 2/1),
 only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
-    .hipster {
-        background: url("../images/hipster2x.png") no-repeat center top;
-        background-size: contain;
-    }
+  .hipster {
+    background: url("../images/hipster2x.png") no-repeat center top;
+    background-size: contain;
+  }
 }
-
 .hand {
-    cursor: pointer;
+  cursor: pointer;
 }
-
 #threadDump .popover, #healthCheck .popover {
-    top: inherit;
-    display: block;
-    font-size: 10px;
-    max-width: 1024px;
+  top: inherit;
+  display: block;
+  font-size: 10px;
+  max-width: 1024px;
 }
-
 #healthCheck .popover {
-    margin-left: -50px;
+  margin-left: -50px;
 }
-
 .health-details {
-    min-width: 400px;
+  min-width: 400px;
 }
 
 /* ==========================================================================
 Custom alerts for notification
 ========================================================================== */
-
 .alerts .alert{
-    text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
 .alert pre{
-    background: none;
-    border: none;
-    font: inherit;
-    color: inherit;
-    padding: 0;
-    margin: 0;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+  margin: 0;
 }
-
 .alert .popover pre {
-    font-size: 10px;
+  font-size: 10px;
 }
-
 .alerts .toast {
-    position: fixed;
-    width: 100%;
+  position: fixed;
+  width: 100%;
 }
-
 .alerts .toast.left {
-    left: 5px;
+  left: 5px;
 }
-
 .alerts .toast.right {
-    right: 5px;
+  right: 5px;
 }
-
 .alerts .toast.top {
-    top: 55px;
+  top: 55px;
 }
-
 .alerts .toast.bottom {
-    bottom: 55px;
+  bottom: 55px;
 }
-
 @media screen and (min-width: 480px) {
-    .alerts .toast {
-        width: 50%;
-    }
+  .alerts .toast {
+      width: 50%;
+  }
 }
-
 /* end of Custom alerts for notification */
-
 .voffset  { margin-top: 2px; }
 .voffset1 { margin-top: 5px; }
 .voffset2 { margin-top: 10px; }
@@ -175,35 +156,31 @@ Custom alerts for notification
 .voffset7 { margin-top: 80px; }
 .voffset8 { margin-top: 100px; }
 .voffset9 { margin-top: 150px; }
-
 /* start Password strength bar style */
 ul#strengthBar {
-    display:inline;
-    list-style:none;
-    margin:0;
-    margin-left:15px;
-    padding:0;
-    vertical-align:2px;
+  display:inline;
+  list-style:none;
+  margin:0;
+  margin-left:15px;
+  padding:0;
+  vertical-align:2px;
 }
-
 .point:last {
-    margin:0 !important;
+  margin:0 !important;
 }
 .point {
-    background:#DDD;
-    border-radius:2px;
-    display:inline-block;
-    height:5px;
-    margin-right:1px;
-    width:20px;
+  background:#DDD;
+  border-radius:2px;
+  display:inline-block;
+  height:5px;
+  margin-right:1px;
+  width:20px;
 }
 /* end Password strength bar style */
-
 .readonly {
-    background-color: #eee;
-    opacity: 1;
+  background-color: #eee;
+  opacity: 1;
 }
-
 /*
  * Fim das configurações do JHipster
  * --------------------------------------------------------------------------
@@ -214,168 +191,98 @@ ul#strengthBar {
  * --------------------------------------------------------------------------
  */
 
- /*
- * Paleta de Cores
- * -----------------
- */
-
+ /* ==========================================================================
+Paleta de Cores
+========================================================================== */
 .bg-primary{
-  background: #1a75ac !important;
+  background: #3949ab !important;
  }
 .bg-success{
-  background: #20a27d !important;
+  background: #00796b !important;
  }
 .bg-info{
-  background: #e73825 !important;
+  background: #1976d2 !important;
  }
 .bg-warning{
-  background: #e89d00 !important;
+  background: #ffa000 !important;
  }
 .bg-danger{
-  background: #d92a18 !important; 
+  background: #d32f2f !important; 
  }
-
-/* ==========================================================================
-Botões outlined
-========================================================================== */
-
-.btn-outlined {
-  padding: 5px 7px 5px;
-  border-radius: 2px;
-  -webkit-transition: all 0.1s;
-  -moz-transition: all 0.1s;
-  transition: all 0.1s;
-}
-.btn-outlined.btn-primary {
-  color: #FFF;
-  background: #1a75ac;
-  border-color: #1a75ac;    
-}
-.btn-outlined.btn-primary:hover,
-.btn-outlined.btn-primary:active {
-  background: none;
-  border: 1px solid #1a75ac;
-  color: #1a75ac;
-}
-.btn-outlined.btn-success {
-  color: #FFF;
-  background: #20a27d;
-  border-color: #20a27d;    
-}
-.btn-outlined.btn-success:hover,
-.btn-outlined.btn-success:active {
-  background: none;
-  border: 1px solid #20a27d;
-  color: #20a27d;  
-}
-
-.btn-outlined.btn-info {
-  color: #FFF;
-  background: #e73825;
-  border-color: #e73825;
-}
-.btn-outlined.btn-info:hover,
-.btn-outlined.btn-info:active {
-  background: none;
-  border: 1px solid #e73825;
-  color: #e73825;  
-}
-.btn-outlined.btn-warning {
-  color: #FFF;
-  background: #e89d00;
-  border-color: #e89d00;
-}
-.btn-outlined.btn-warning:hover,
-.btn-outlined.btn-warning:active {
-  background: none;
-  border: 1px solid #e89d00;
-  color: #e89d00;
-}
-.btn-outlined.btn-danger {
-  color: #FFF;
-  background: #d92a18;
-  border-color: #d92a18;
-}
-.btn-outlined.btn-danger:hover,
-.btn-outlined.btn-danger:active {
-  background: none;
-  border: 1px solid #d92a18;
-  color: #d92a18;
-}
 
 /* ==========================================================================
 Icones Material Design
 ========================================================================== */
 /* Configuração padrão dos icones */
 .mdi::before {
-    font-size: 20px;
-    line-height: 14px;
+  font-size: 20px;
+  line-height: 14px;
 }
 .btn .mdi::before {
-    position: relative;
-    top: 3px;
+  position: relative;
+  top: 3px;
 }
 .btn-xs .mdi::before {
-    font-size: 18px;
-    top: 3px;
+  font-size: 18px;
+  top: 3px;
 }
 .btn-sm .mdi::before {
-    font-size: 18px;
-    top: 3px;
+  font-size: 18px;
+  top: 3px;
 }
 .dropdown-menu .mdi {
-    width: 18px;
+  width: 18px;
 }
 .dropdown-menu .mdi::before {
-    position: relative;
-    top: 4px;
-    left: 0px;
+  position: relative;
+  top: 4px;
+  left: 0px;
 }
 .sidebar-menu .mdi {
-    width: 18px;
+  width: 18px;
 }
 .sidebar-menu .mdi::before {
-    position: relative;
-    top: 2px;
-    left: -3px;
+  position: relative;
+  top: 2px;
+  left: -3px;
 }
 .nav .mdi::before {
-    position: relative;
-    top: 2px;
+  position: relative;
+  top: 2px;
 }
 .navbar .navbar-toggle .mdi::before {
-    position: relative;
-    top: 2px;
-    color: #FFF;
+  position: relative;
+  top: 2px;
+  color: #FFF;
 }
 .breadcrumb .mdi::before {
-    position: relative;
-    top: 4px;
+  position: relative;
+  top: 4px;
 }
 .breadcrumb a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 .breadcrumb a:hover span {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .alert .mdi::before {
-    position: relative;
-    top: 4px;
-    margin-right: 2px;
+  position: relative;
+  top: 4px;
+  margin-right: 2px;
 }
 .input-group-addon .mdi::before {
-    position: relative;
-    top: 3px;
+  position: relative;
+  top: 3px;
 }
 .navbar-brand .mdi::before {
-    position: relative;
-    top: 2px;
-    margin-right: 2px;
+  position: relative;
+  top: 2px;
+  margin-right: 2px;
 }
 .list-group-item .mdi::before {
-    position: relative;
-    top: 3px;
-    left: -3px;
+  position: relative;
+  top: 3px;
+  left: -3px;
 }
 .modal-header .mdi::before{
   font-size: 24px;
@@ -388,70 +295,29 @@ Icones Material Design
 Fieldset
 ========================================================================== */
 fieldset {
-    min-width: 0;
-    padding: .35em .625em .75em;
-    margin: 0;
-    border: 1px solid #d2d6de;
+  min-width: 0;
+  padding: .35em .625em .75em;
+  margin: 0;
+  border: 1px solid #c7c7c7;
 }
-
 legend {
-    display: block;
-    width: 100%;
-    padding: 0;
-    margin-bottom: 0px;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: inherit;
-    color: #333;
-    border: 0;
-    border-bottom: 0px solid #e5e5e5;
-}
-
-/* ==========================================================================
-Correções no Menu do Topo
-========================================================================== */
-.navbar-nav > li > a {
-  line-height: 30px;
-}
-@media (max-width: 767px) {
-  .navbar-custom-menu .navbar-nav > li > a {
-    line-height: 30px;
-  }
-}
-
-.navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header {
-    padding: 10px 18px;
-  }
-
-@media (max-width: 767px){
-.navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header {
-    padding: 10px 18px;
-  }
-}
-/* ==========================================================================
-Correções no Menu Lateral
-========================================================================== */
-.sidebar-left-shadow {
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-}
-.submenu {
-  margin-left: 24px;
-  border-left: 1px dotted #333;
-}
-@media (min-width: 768px) {
-  .sidebar-mini.sidebar-collapse .sidebar-menu > li > a > i {
-    margin-left: 0px;
-  }
-  .sidebar-mini.sidebar-collapse .sidebar-menu .submenu {
-    margin-left: 0px;
-    border-left: 0px dotted #333;
-  }
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: inherit;
+  color: #333;
+  border: 0;
+  border-bottom: 0px solid #e5e5e5;
 }
 
 /*
- * Configurações da Página
- * ------------------------
+ * Configurações de Cada Página do Sistema
+ * ---------------------------------------------------------------------------
  */
+
  /* ==========================================================================
 Login Dashboard
 =========================================================================== */
@@ -464,35 +330,34 @@ Login Dashboard
 Menu Dashboard
 =========================================================================== */
 .ca-menu{        
-    padding: 10px 20px 20px 20px;      
+  padding: 10px 20px 20px 20px;      
 }
-
 .ca-menu li{   
-    height: 130px;
-    overflow: hidden;
-    position: relative;
-    display: block;
-    background: #fff;
-    -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-    -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-    margin-bottom: 6px;    
-    -webkit-transition: all 200ms ease-in-out;
+  height: 130px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  background: #fff;
+  -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  margin-bottom: 6px;    
+  -webkit-transition: all 200ms ease-in-out;
   -moz-transition: all 200ms ease-in-out;
   -o-transition: all 200ms ease-in-out;
   -ms-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
 }
 .ca-menu li:last-child{
-    margin-bottom: 0px;    
+  margin-bottom: 0px;    
 }
 .ca-menu li a{
-    text-align: left;
-    width: 100%;
-    height: 100%;
-    display: block;
-    color: #333;
-    position: relative;    
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: #333;
+  position: relative;    
 }
 .ca-icon{ 
   color: #fff;  
@@ -511,47 +376,46 @@ Menu Dashboard
   transition: all 200ms linear; 
 }
 .ca-content{
-    position: absolute;
-    left: 100px;    
-    height: 60px;
-    top: 0px;
+  position: absolute;
+  left: 100px;    
+  height: 60px;
+  top: 0px;
 }
 .ca-main{
-    font-size: 30px;
-    color: #fff;
-    -webkit-transition: all 200ms linear;
+  font-size: 30px;
+  color: #fff;
+  -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
   -o-transition: all 200ms linear;
   -ms-transition: all 200ms linear;
   transition: all 200ms linear; 
 }
 .ca-sub{
-    font-size: 14px;
-    color: #fff;
-    margin-top: 0px;
-    font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+  margin-top: 0px;
+  font-weight: 400;
 }
 .ca-menu li:hover{
-    background-color: #212121;
+  background-color: #212121;
 }
 .ca-menu li:hover .ca-icon .mdi::before{    
-    font-size: 130px;
-    opacity: 0.2;
-    left: -20px;
-    -webkit-transform: rotate(20deg);
-    -moz-transform: rotate(20deg);
-    -ms-transform: rotate(20deg);
-    transform: rotate(20deg);
+  font-size: 130px;
+  opacity: 0.2;
+  left: -20px;
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  transform: rotate(20deg);
 }
 .ca-menu li:hover .ca-main{ 
-    font-weight: 600;   
-    opacity: 0.8;
+  font-weight: 600;   
+  opacity: 0.8;
 }
 .ca-menu li:hover .ca-sub{
-    color: #fff;
-    opacity: 0.8;
+  color: #fff;
+  opacity: 0.8;
 }
-
 /* Adicionando espaço entre os blocos */
 .mg-left{
   margin-left: 6px;
@@ -561,7 +425,6 @@ Menu Dashboard
   margin-left: -6px;
   margin-right: 6px;
 }
-
 /* Removendo padding em resoluções pequenas */
 @media (max-width: 767px) {
   .ca-menu{    
@@ -571,7 +434,6 @@ Menu Dashboard
     margin: 0;
   }
 }
-
 /* Cor de fundo no menu */
 .bgm-red{
   background: #b71c1c !important;  
@@ -591,55 +453,51 @@ Menu Dashboard
 .bgm-pink{
   background: #880e4f !important;  
 }
-
 /* Cor do texto no menu */
 .ca-menu li:hover .txt-red{
    color: #b71c1c !important;
 }
-
 .ca-menu li:hover .txt-blue{
    color: #283593 !important;
 }
-
 .ca-menu li:hover .txt-amber{
    color: #ff8f00 !important;
 }
-
 .ca-menu li:hover .txt-teal{
    color: #00695c !important;
 }
-
 .ca-menu li:hover .txt-green{
    color: #2E7D32 !important;
 }
 .ca-menu li:hover .txt-pink{
    color: #880e4f !important;
 }
-
 /* Efeito hover */
 .bgm-red:hover, .bgm-blue:hover, .bgm-amber:hover, .bgm-teal:hover, .bgm-green:hover, .bgm-pink:hover{
   background: #212121 !important;  
 }
 
 /* ==========================================================================
-Correções no Formulário
+Componente Busca 
 ========================================================================== */
-
-.checkbox-position{
-  margin-left: 20px;
+.search-pad-col{
+  padding-top: 3px;
 }
-
-/* ==========================================================================
-Correções para as tabelas
-========================================================================== */
-.row-pd{
-  padding-top: 10px;
-  padding-bottom: 20px;
+.search-pad-col-left{
+  padding: 0px 7px 0px 0px !important;
 }
-
-/* Removendo bordas em resoluções pequenas */
-@media (max-width: 767px){
-.table-responsive{
-  border: 0px solid #e0e0e0;
+.search-pad-col-right{
+  padding: 0 !important;
+}
+@media (max-width: 768px) {
+  .search-pad{
+    padding: 20px 0px 0px 0px;
+  }
+  .search-pad-col-left{
+    padding: 0px 7px 0px 0px;
+  }
+  .search-pad-col-right{
+    padding: 0;
+  }
 }
 
