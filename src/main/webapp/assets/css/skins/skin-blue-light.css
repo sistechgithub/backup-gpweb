@@ -1,8 +1,8 @@
 /*
- * Skin: Blue
- * ----------
- */
- .skin-blue-light .main-header {
+* Skin: Blue
+* ----------
+*/
+.skin-blue-light .main-header {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 .skin-blue-light .main-header .navbar {
@@ -178,7 +178,6 @@
 .skin-blue-light .layout-top-nav .main-header > .logo:hover {
   background-color: #3b8ab8;
 }
-
 .skin-blue-light .pagination > .active > a,
 .skin-blue-light .pagination > .active > span,
 .skin-blue-light .pagination > .active > a:hover,
@@ -187,26 +186,4 @@
 .skin-blue-light .pagination > .active > span:focus {
   background-color: #3949ab;
   border-color: #3949ab;
-}
-
-/*Alinhamento botões pagina prazo*/
-.skin-blue-light .btn-vert{
-  margin-top: 30px;
-}
-.skin-blue-light .btn-vert-mg-bt{
-  margin-bottom: 4px !important;
-}
-
-.skin-blue-light .no-border-r{
-  border-radius: 0px !important;
-}
-
-/*pagina Tipo de Cliente*/
-.skin-blue-light .check-pd{
-  padding-bottom: 0px;
-}
-
-/*pagina Prazo*/
-.skin-blue-light .input-pdl{
-  padding-left: 0px;
 }
