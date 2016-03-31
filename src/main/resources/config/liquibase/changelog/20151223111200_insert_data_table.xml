@@ -14,7 +14,6 @@
 		<loadData encoding="UTF-8" file="config/liquibase/BAIRRO.csv"
 			separator=";" tableName="bairro" />
 
-
 		<loadData encoding="UTF-8" file="config/liquibase/LOGRADOURO.csv"
 			separator=";" tableName="logradouro" />
 
