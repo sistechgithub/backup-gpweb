@@ -101,6 +101,12 @@ body {
   background-color: #f2f2f2;
   z-index: 800;
 }
+@media (max-width: 767px) {
+  .content-wrapper,
+  .right-side {
+    background-color: #fff;
+  } 
+}
 .main-footer {
   background: #fff;
   padding: 15px;
@@ -155,7 +161,7 @@ body.hold-transition .main-header .logo {
   padding: 15px;
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
+  padding-left: 80px;
   padding-right: 15px;
 }
 .content-body {
@@ -476,7 +482,7 @@ a:focus {
   min-height: 100%;
   width: 230px;
   z-index: 1100;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
   -webkit-transition: -webkit-transform 0.1s ease-in-out, width 0.1s ease-in-out;
   -moz-transition: -moz-transform 0.1s ease-in-out, width 0.1s ease-in-out;
   -o-transition: -o-transform 0.1s ease-in-out, width 0.1s ease-in-out;
@@ -1003,6 +1009,7 @@ a:focus {
 .dropdown-menu {
   box-shadow: none;
   border-color: #f9fafc;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 .dropdown-menu > li > a {
   color: #616161;
@@ -1317,6 +1324,7 @@ a:focus {
   position: absolute;
   right: 0;
   left: auto;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 @media (max-width: 991px) {
   .navbar-custom-menu > .navbar-nav {
