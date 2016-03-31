@@ -1,7 +1,8 @@
 <div class="col-xs-12 col-sm-2">
 	<div class="form-group"> 
 		<label  class="control-label" 
-				for="field_fax"> 
+				for="field_fax"
+				ng-bind="menssagem"> 
 				CEP 
 		</label> 
 		<input  type="text"  
@@ -13,14 +14,7 @@
 				ui-br-cep-mask 
 				placeholder="00000-000" 
 				maxlength=9 
-		/> 
-	</div> 
-	<div ng-show="editForm.cep.$invalid"> 
-		<p  class="help-block" 
-			ng-show="editForm.cep.$invalid" 
-			translate-value-min="10"> 
-			CEP inexistente! 
-		</p> 
+		/>			
 	</div> 
 </div>
 <div class="col-xs-12 col-sm-8"> 
@@ -111,13 +105,14 @@
 				id="field_complemento"  
 				ng-model="entidade.complemento" 
 				ng-maxlength="20" 
-		/> 
-		<div ng-show="editForm.complemento.$invalid"> 
-			<p  class="help-block" 
-				ng-show="editForm.complemento.$error.maxlength" 
-				translate-value-max="20"> 
-				Este campo deve conter no máximo 20	caracteres. 
-			</p> 
+				maxlength="20"
+		/>	
+		<div ng-show="editForm.complemento.$invalid">
+			<p  class="help-block"
+				ng-show="editForm.complemento.$error.maxlength"
+				translate-value-max="20">
+				Este campo de conter no máximo 20 caracteres.
+			</p>
 		</div> 
 	</div> 
 </div>    

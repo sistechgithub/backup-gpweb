@@ -47,20 +47,20 @@
 							name="nome"
 							id="field_nome" 
 							ng-model="fabricante.nome"
-							ng-minlength="10" 
+							ng-minlength="1" 
 							ng-maxlength="50" 
 							autofocus
 							required 
 					/>
 					<div ng-show="editForm.nome.$invalid">
-						<!--<p class="help-block"
+ 						<p class="help-block"
 							ng-show="editForm.nome.$error.required">Este campo é
 							obrigatório.
-						</p>-->
+						</p> 
 						<p  class="help-block"
 							ng-show="editForm.nome.$error.minlength"
-							translate-value-min="10">
-							Este campo deve conter no mínimo 10	caracteres.
+							translate-value-min="1">
+							Este campo deve conter no mínimo 1	caracteres.
 						</p>
 						<p  class="help-block"
 							ng-show="editForm.nome.$error.maxlength"
