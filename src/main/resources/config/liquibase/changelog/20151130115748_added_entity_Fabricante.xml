@@ -15,17 +15,14 @@
 
     <!--
         Added the entity Fabricante.
-    -->
-    
-  
-    
+    -->  
     <changeSet id="20151130115748" author="jhipster">
         <createTable tableName="fabricante">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="nm_fabricante" type="varchar(50)">
-                <constraints nullable="false" />
+                <constraints unique="true" nullable="false" />
             </column>
             <column name="cd_cgc" type="varchar(18)"/>
             <column name="cd_cgf" type="varchar(18)"/>
