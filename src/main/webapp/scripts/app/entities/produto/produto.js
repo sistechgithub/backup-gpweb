@@ -49,6 +49,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/produto/produto-dialog.html',
                         controller: 'ProdutoDialogController',
                         size: 'lg',
+                        backdrop: 'static',
                         resolve: {
                             entity: function () {
                                 return {

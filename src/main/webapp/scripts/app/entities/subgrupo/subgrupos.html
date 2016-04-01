@@ -3,44 +3,56 @@
         <h3 class="box-title">Subgrupos</h3>             
     </div>
     <div class="box-header">
-        <div class="box-btn">                     
-            <button class="btn btn-success pull-left" ui-sref="subgrupo.new">
-                <span class="mdi mdi-plus mdi-icon"></span> 
-                <span>Novo</span>
-            </button>
-        </div>
-        <search ng-model="subgrupos"></search>            
+        <div class="row">
+            <div class="col-xs-12 col-sm-5">                     
+                <button class="btn btn-success pull-left" ui-sref="subgrupo.new">
+                    <span class="mdi mdi-plus"></span> 
+                    <span>Adicionar</span>
+                </button>
+            </div>
+            <div class="col-xs-12 col-sm-7 search-pad-col">         
+                <search ng-model="subgrupos"></search>
+            </div>
+        </div>            
     </div>
-    <div class="box-body">
+    <div class="box-body no-padding"> 
         <jh-alert></jh-alert> 
         <div class="table-responsive">
-            <table class="table table-hover">                        
-                <tbody>
+            <table class="table table-hover">
+                <thead>
                     <tr>
-                        <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Cód.</th>            
-	                    <th class="col-lg-6 col-md-4 col-sm-4 col-xs-4">Nome</th>
-                        <th class="text-center">Custo(%)</th>    
-                        <th></th>
+                        <th class="col-md-1">Código</th>            
+                        <th class="col-md-9">Nome</th>
+                        <th class="text-right">Custo(%)</th>    
+                        <th class="col-md-2 text-center">Ações</th>
                     </tr>
+                </thead>                        
+                <tbody>
                     <tr ng-repeat="subgrupo in subgrupos track by subgrupo.id">
                         <td><a ui-sref="subgrupo.detail({id:subgrupo.id})">{{subgrupo.id}}</a></td>
                         <td class="text-uppercase">{{subgrupo.nmSubGrupo}}</td>
-                        <td class="text-center">{{subgrupo.vlCusto | currency:'':2}}</td>    
+                        <td class="text-right">{{subgrupo.vlCusto | currency:'':2}}</td>    
                         <td class="text-center">
                             <button type="submit"
-                                    ui-sref="subgrupo.detail({id:subgrupo.id})"
-                                    class="btn btn-outlined btn-success">
-                                <span class="mdi mdi-eye mdi-18"></span>
+                                    class="btn btn-sm btn-success"
+                                    data-tooltip="Detalhes" 
+                                    data-tooltip-position="top"
+                                    ui-sref="subgrupo.detail({id:subgrupo.id})">
+                                <span class="mdi mdi-eye"></span>
+                            </button>
+                            <button type="submit"                                    
+                                    class="btn btn-sm btn-primary"
+                                    data-tooltip="Editar" 
+                                    data-tooltip-position="top"
+                                    ui-sref="subgrupo.edit({id:subgrupo.id})">
+                                <span class="mdi mdi-pencil"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="subgrupo.edit({id:subgrupo.id})"
-                                    class="btn btn-outlined btn-primary">
-                                <span class="mdi mdi-pencil mdi-18"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="subgrupo.delete({id:subgrupo.id})"
-                                    class="btn btn-outlined btn-danger">
-                                 <span class="mdi mdi-delete mdi-18"></span>
+                                    class="btn btn-sm btn-danger"
+                                    data-tooltip="Deletar" 
+                                    data-tooltip-position="top"
+                                    ui-sref="subgrupo.delete({id:subgrupo.id})">
+                                 <span class="mdi mdi-delete"></span>
                             </button>
                         </td>
                     </tr>

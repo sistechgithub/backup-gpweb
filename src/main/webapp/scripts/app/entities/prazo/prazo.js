@@ -49,6 +49,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/prazo/prazo-dialog.html',
                         controller: 'PrazoDialogController',
                         size: 'lg',
+                        backdrop: 'static',
                         resolve: {
                             entity: function () {
                                 return {

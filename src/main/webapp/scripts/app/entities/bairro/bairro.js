@@ -75,6 +75,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/bairro/bairro-dialog.html',
                         controller: 'BairroDialogController',
                         size: 'lg',
+                        backdrop: 'static',
                         resolve: {
                             entity: ['Bairro', function(Bairro) {
                                 return Bairro.get({id : $stateParams.id});

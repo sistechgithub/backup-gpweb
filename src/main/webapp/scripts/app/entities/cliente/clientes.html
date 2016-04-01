@@ -5,20 +5,24 @@
     <div class="box-header">
         <div class="box-btn">                     
             <button class="btn btn-success pull-left" ui-sref="cliente.new">
-                <span class="mdi mdi-plus"></span> 
+                <span class="mdi mdi-plus"></span>
                 <span>Adicionar</span>
             </button>
         </div>
         <div class="box-btn pull-right">
-            <form class="form-inline pull-right" name="searchForm">                  
-                <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
-                <button class="btn btn-info hidden-xs" ng-click="search()">
-                    <span class="mdi mdi-magnify"></span>
-                </button>
+            <form class="form-inline pull-right" name="searchForm">
+                <div class="input-group">                  
+                    <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar"> 
+                    <span class="input-group-btn">                   
+                        <button class="btn btn-sm btn-info" ng-click="search()">
+                            <span class="mdi mdi-magnify"></span>
+                        </button>
+                    </span>
+                </div>
             </form>
         </div>          
     </div>
-    <div class="box-body">
+    <div class="box-body no-padding">
     <jh-alert></jh-alert>
     <div class="table-responsive">
         <table class="table table-hover">
@@ -26,9 +30,9 @@
                 <tr>
                     <th class="col-md-1">Código</th>
                     <th class="col-md-3">Nome</th>
-                    <th class="col-md-2">CPF</th>
-                    <th class="col-md-2">CNPJ</th>
-                    <th class="col-md-2">Celular</th>
+                    <th class="col-md-2 text-right">CPF</th>
+                    <th class="col-md-2 text-right">CNPJ</th>
+                    <th class="col-md-2 text-right">Celular</th>
                     <th class="col-md-2 text-center">Ações</th>
                 </tr>
             </thead>
@@ -38,44 +42,48 @@
                         <a ui-sref="cliente.detail({id:cliente.id})">{{cliente.id}}</a>
                     </td>
                     <td class="text-uppercase">{{cliente.nome}}</td>
-                    <td>{{cliente.pessoaFisica.cpf | brCpf}}</td>
-                    <td>{{cliente.pessoaJuridica.cnpj | brCnpj}}</td>
-                    <td>{{cliente.celular | brPhoneNumber}}</td>
+                    <td class="text-right">{{cliente.pessoaFisica.cpf | brCpf}}</td>
+                    <td class="text-right">{{cliente.pessoaJuridica.cnpj | brCnpj}}</td>
+                    <td class="text-right">{{cliente.celular | brPhoneNumber}}</td>
                     <td class="text-center">
                         <button type="submit"
-                                ui-sref="cliente.detail({id:cliente.id})"
-                                class="btn btn-outlined btn-success">
+                                class="btn btn-sm btn-success"
+                                data-tooltip="Detalhes" 
+                                data-tooltip-position="top"
+                                ui-sref="cliente.detail({id:cliente.id})">
                             <span class="mdi mdi-eye"></span>
                         </button>
                         <button type="submit"
-                                ui-sref="cliente.edit({id:cliente.id})"
-                                class="btn btn-outlined btn-primary">
+                                class="btn btn-sm btn-primary"
+                                data-tooltip="Editar" 
+                                data-tooltip-position="top"
+                                ui-sref="cliente.edit({id:cliente.id})">
                             <span class="mdi mdi-pencil"></span>
                         </button>
-                        <button type="submit"                        
-                                ui-sref="cliente.delete({id:cliente.id})"
-                                class="btn btn-outlined btn-danger">
+                        <button type="submit"
+                                class="btn btn-sm btn-danger"
+                                data-tooltip="Deletar" 
+                                data-tooltip-position="top"                        
+                                ui-sref="cliente.delete({id:cliente.id})">
                             <span class="mdi mdi-delete"></span>
                         </button>
                     </td>                    
                 </tr>
             </tbody>
         </table>
-
-        
-        <nav class="box-footer clearfix">
-            <ul class="pagination no-margin pull-right">
-                <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
-                <li ng-show="links['prev']" ng-click="loadPage(links['prev'])"><a>&lt;</a></li>
-                <li ng-show="page > 2" ng-click="loadPage(page - 2)"><a>{{page - 2}}</a></li>
-                <li ng-show="page > 1" ng-click="loadPage(page - 1)"><a>{{page - 1}}</a></li>
-                <li class="active"><a>{{page}}</a></li>
-                <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 1}}</a></li>
-                <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 2}}</a></li>
-                <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
-                <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
-            </ul>
-        </nav>
-        
     </div>
+        
+    <nav class="box-footer clearfix">
+        <ul class="pagination no-margin pull-right">
+            <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
+            <li ng-show="links['prev']" ng-click="loadPage(links['prev'])"><a>&lt;</a></li>
+            <li ng-show="page > 2" ng-click="loadPage(page - 2)"><a>{{page - 2}}</a></li>
+            <li ng-show="page > 1" ng-click="loadPage(page - 1)"><a>{{page - 1}}</a></li>
+            <li class="active"><a>{{page}}</a></li>
+            <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 1}}</a></li>
+            <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 2}}</a></li>
+            <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
+            <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
+        </ul>
+    </nav>
 </div>

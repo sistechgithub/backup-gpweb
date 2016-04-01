@@ -2,17 +2,18 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;</button>
-        <h4 class="modal-title">Deletar Produto</h4>
+        <i class="mdi mdi-delete"></i>
+        <h3 class="modal-title">Deletar Produto</h3>
     </div>
     <div class="modal-body">
         <p>Você realmente quer deletar este Produto?</p>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
+            <span class="mdi mdi-close"></span>&nbsp;<span>Cancelar</span>
         </button>
         <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
-            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Deletar</span>
+            <span class="mdi mdi-delete"></span>&nbsp;<span>Deletar</span>
         </button>
     </div>
 </form>
