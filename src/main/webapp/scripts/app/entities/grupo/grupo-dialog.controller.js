@@ -8,11 +8,6 @@ angular.module('gpApp').controller('GrupoDialogController',
         $scope.load = function(id) {
             Grupo.get({id : id}, function(result) {
                 $scope.grupo = result;
-                
-                /*
-                rgAux1 =($scope.grupo.dtPromo != null);
-                console.log('Value for rgAux1 = ' + rgAux1);
-                */
             });
         };
 
