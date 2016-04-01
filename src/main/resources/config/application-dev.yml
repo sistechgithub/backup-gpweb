@@ -20,7 +20,7 @@ spring:
             enabled: false # we use Grunt + BrowserSync for livereload
     datasource:
         driver-class-name: org.postgresql.ds.PGSimpleDataSource
-        url: jdbc:postgresql://localhost:5432/gp
+        url: jdbc:postgresql://localhost:5432/gp?useUnicode=true&characterEncoding=UTF-8
         name: gp
         username: postgres
         password: root

@@ -21,7 +21,7 @@ public class Fabricante implements Serializable {
 
     @NotNull
     @Size(max = 50)
-    @Column(name = "nm_fabricante", length = 50, nullable = false)
+    @Column(name = "nm_fabricante", length = 50, nullable = false, unique = true)
     private String nome;
 
     @Size(min = 14, max = 18)
