@@ -5,26 +5,9 @@
 
     <div class="box-body"> 
         <div class="table-responsive">
-            <table class="table table-striped">
-                <!--
-                <thead>
-                    <tr>
-                        <th>Campo</th>
-                        <th>Valor</th>
-                    </tr>
-                </thead>
-                -->
-                <tbody>
-                <!--
-                <tr>
-                    <td>
-                        <span>Código</span>
-                    </td>
-                    <td>
-                        <span class="form-control-static">{{fabricante.id}}</span>
-                    </td>
-                </tr>
-                -->
+            <table class="table table-striped"> 
+             
+            <!-- Nome -->             
                 <tr>
                     <td colspan="2">
                         <label>Nome</label>
@@ -33,6 +16,18 @@
                 <tr>
                     <td colspan="2">
                         <span class="form-control-static text-uppercase">{{fabricante.nome}}</span>
+                    </td>
+                </tr>
+                
+            <!-- Nome Fantasia -->            
+                 <tr>
+                    <td colspan="2">
+                        <label>Nome Fantasia</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <span class="form-control-static text-uppercase">{{fabricante.nmFantasia}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -120,7 +115,7 @@
                         <label>Fax</label>
                     </td>
                     <td>
-                        <label>Inativo</label>
+                        <label>Comissão (%)</label>
                     </td>
                 </tr>
                 <tr>
@@ -128,9 +123,24 @@
                         <span class="form-control-static">{{fabricante.fax | brPhoneNumber}}</span>
                     </td> 
                     <td>
-                        <span class="form-control-static text-uppercase">{{fabricante.inativo ? 'Sim': 'Não'}}</span>
+                        <span class="form-control-static">{{fabricante.vlComissao | currency:'':2}}%</span>
                     </td>   
                 </tr> 
+                <tr>
+                	<td>
+                        <label>Inativo</label>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                	<td>                        
+                        <span class="glyphicon"
+								ng-class="{'glyphicon-ok text-success': fabricante.inativo,
+								'glyphicon-remove text-danger': !fabricante.inativo}">
+						</span>
+                    </td> 
+                    <td></td>                   
+                </tr>
                 </tbody>
             </table>
         </div>

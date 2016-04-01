@@ -34,8 +34,11 @@ angular.module('gpApp').controller(
 			        	
 			        	//Setting to uppercase
 			        	$scope.fabricante.nome = angular.uppercase($scope.fabricante.nome);
-			        	
-			        	//others validations here...
+			        				        	
+			        	//Setting default currency values
+			        	if(($scope.fabricante.vlComissao == null) || ($scope.fabricante.vlComissao == undefined)){
+			        		$scope.fabricante.vlComissao = 0.00;
+			        	};
 			        };   
 
 					$scope.save = function() {
@@ -55,7 +58,4 @@ angular.module('gpApp').controller(
 					$scope.clear = function() {
 						$modalInstance.dismiss('cancel');
 					};
-					}
-					
-					
-				]);
+}]);
