@@ -1,28 +1,28 @@
-id;NM_ESTADO;SG_ESTADO;DS_PAIS
-1;Cear�;CE;Brasil
-2;Para�ba;PB;Brasil
+﻿id;NM_ESTADO;SG_ESTADO;DS_PAIS
+1;Ceará;CE;Brasil
+2;Paraíba;PB;Brasil
 3;Pernambuco;PE;Brasil
 4;Rio de Janeiro;RJ;Brasil
-5;S�o Paulo;SP;Brasil
+5;São Paulo;SP;Brasil
 6;Distrito Federal;DF;Brasil
-7;Maranh�o;MA;Brasil
-8;Par�;PA;Brasil
+7;Maranhão;MA;Brasil
+8;Pará;PA;Brasil
 9;Acre;AC;Brasil
 10;Alagoas;AL;Brasil
 11;Amazonas;AM;Brasil
 12;Bahia;BA;Brasil
-13;Esp�rito Santo;ES;Brasil
-14;Goi�s;GO;Brasil
-15;Amap�;AP;Brasil
+13;Espíto Santo;ES;Brasil
+14;Goiás;GO;Brasil
+15;Amapá;AP;Brasil
 16;Mato Grosso;MT;Brasil
 17;Mato Grosso do Sul;MS;Brasil
 18;Minas Gerais;MG;Brasil
-19;Piau�;PI;Brasil
+19;Piauí;PI;Brasil
 20;Rio Grande do Norte;RN;Brasil
 21;Rio Grande do Sul;RS;Brasil
-22;Rond�nia;RO;Brasil
+22;Rondônia;RO;Brasil
 23;Roraima;RR;Brasil
 24;Santa Catarina;SC;Brasil
 25;Sergipe;SE;Brasil
 26;Tocantins;TO;Brasil
-27;Paran�;PR;Brasil
+27;Paraná;PR;Brasil
