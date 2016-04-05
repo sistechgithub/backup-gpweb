@@ -255,6 +255,7 @@
 		                    	   name="cpf"
 		                    	   id="field_cpf"
 		                           ng-model="cliente.pessoaFisica.cpf"
+		                           ng-required="cliente.tipoPessoa=='F'"
 		                           ui-br-cpf-mask
 		                           placeholder="000.000.000-00"
 		                        >
@@ -428,8 +429,8 @@
 		                           ui-br-cnpj-mask
 		                           maxlength="18"
 		                           ng-maxlength="18"
+		                           ng-required="cliente.tipoPessoa=='J'"
 		                           placeholder="00.000.000/0000-00"
-
 		                           />
 		                    <div ng-show="editForm.pessoaJuridica.cnpj.$invalid">
 		                        <p class="help-block"
