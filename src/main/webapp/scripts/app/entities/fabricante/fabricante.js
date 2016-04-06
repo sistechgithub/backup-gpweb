@@ -86,6 +86,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/fabricante/fabricante-dialog.html',
                         controller: 'FabricanteDialogController',
                         size: 'lg',
+                        backdrop: 'static',
                         resolve: {
                             entity: ['Fabricante', function(Fabricante) {
                                 return Fabricante.get({id : $stateParams.id});
@@ -109,6 +110,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/fabricante/fabricante-delete-dialog.html',
                         controller: 'FabricanteDeleteController',
                         size: 'md',
+                        backdrop: 'static',
                         resolve: {
                             entity: ['Fabricante', function(Fabricante) {
                                 return Fabricante.get({id : $stateParams.id});

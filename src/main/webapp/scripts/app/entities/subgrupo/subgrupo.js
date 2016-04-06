@@ -80,6 +80,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/subgrupo/subgrupo-dialog.html',
                         controller: 'SubgrupoDialogController',
                         size: 'lg',
+                        backdrop: 'static',
                         resolve: {
                             entity: ['Subgrupo', function(Subgrupo) {
                                 return Subgrupo.get({id : $stateParams.id});
@@ -103,6 +104,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/subgrupo/subgrupo-delete-dialog.html',
                         controller: 'SubgrupoDeleteController',
                         size: 'md',
+                        backdrop: 'static',
                         resolve: {
                             entity: ['Subgrupo', function(Subgrupo) {
                                 return Subgrupo.get({id : $stateParams.id});

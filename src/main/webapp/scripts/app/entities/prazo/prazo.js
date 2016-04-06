@@ -84,6 +84,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/prazo/prazo-dialog.html',
                         controller: 'PrazoDialogController',
                         size: 'lg',
+                        backdrop: 'static',
                         resolve: {
                             entity: ['Prazo', function(Prazo) {
                                 return Prazo.get({id : $stateParams.id});
@@ -107,6 +108,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/prazo/prazo-delete-dialog.html',
                         controller: 'PrazoDeleteController',
                         size: 'md',
+                        backdrop: 'static',
                         resolve: {
                             entity: ['Prazo', function(Prazo) {
                                 return Prazo.get({id : $stateParams.id});
