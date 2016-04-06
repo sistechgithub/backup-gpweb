@@ -90,6 +90,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/tipocliente/tipocliente-dialog.html',
                         controller: 'TipoClienteDialogController',
                         size: 'lg',
+                        backdrop: 'static',
                         resolve: {
                             entity: ['TipoCliente', function(Prazo) {
                                 return Prazo.get({id : $stateParams.id});
@@ -113,6 +114,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/tipocliente/tipocliente-delete-dialog.html',
                         controller: 'TipoClienteDeleteController',
                         size: 'md',
+                        backdrop: 'static',
                         resolve: {
                             entity: ['Prazo', function(Prazo) {
                                 return Prazo.get({id : $stateParams.id});

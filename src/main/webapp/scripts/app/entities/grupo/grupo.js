@@ -87,6 +87,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/grupo/grupo-dialog.html',
                         controller: 'GrupoDialogController',
                         size: 'lg',
+                        backdrop: 'static',
                         resolve: {
                             entity: ['Grupo', function(Grupo) {
                                 return Grupo.get({id : $stateParams.id});
@@ -110,6 +111,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/grupo/grupo-delete-dialog.html',
                         controller: 'GrupoDeleteController',
                         size: 'md',
+                        backdrop: 'static',
                         resolve: {
                             entity: ['Grupo', function(Grupo) {
                                 return Grupo.get({id : $stateParams.id});
