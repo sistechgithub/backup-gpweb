@@ -5,6 +5,8 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -49,6 +51,16 @@ public class Fabricante implements Serializable {
 
     @Column(name = "fl_inativo")
     private Boolean inativo;
+    
+    @Size(max = 35)
+    @Column(name = "nm_fantasia", length = 35)
+    private String nmFantasia;
+    
+    @Column(name = "dt_operacao")
+    private LocalDate dtOperacao;
+    
+    @Column(name = "vl_comissao", precision=18, scale=6)
+    private BigDecimal vlComissao;
     
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="id_logradouro", referencedColumnName="id")
@@ -134,20 +146,35 @@ public class Fabricante implements Serializable {
 		this.logradouro = logradouro;
 	}
 
+	public String getNmFantasia() {
+		return nmFantasia;
+	}
+
+	public void setNmFantasia(String nmFantasia) {
+		this.nmFantasia = nmFantasia;
+	}
+
+	public LocalDate getDtOperacao() {
+		return dtOperacao;
+	}
+
+	public void setDtOperacao(LocalDate dtOperacao) {
+		this.dtOperacao = dtOperacao;
+	}
+
+	public BigDecimal getVlComissao() {
+		return vlComissao;
+	}
+
+	public void setVlComissao(BigDecimal vlComissao) {
+		this.vlComissao = vlComissao;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((cnpj == null) ? 0 : cnpj.hashCode());
-		result = prime * result + ((complemento == null) ? 0 : complemento.hashCode());
-		result = prime * result + ((fax == null) ? 0 : fax.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((ie == null) ? 0 : ie.hashCode());
-		result = prime * result + ((inativo == null) ? 0 : inativo.hashCode());
-		result = prime * result + ((logradouro == null) ? 0 : logradouro.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
-		result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
 		return result;
 	}
 
@@ -160,55 +187,10 @@ public class Fabricante implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Fabricante other = (Fabricante) obj;
-		if (cnpj == null) {
-			if (other.cnpj != null)
-				return false;
-		} else if (!cnpj.equals(other.cnpj))
-			return false;
-		if (complemento == null) {
-			if (other.complemento != null)
-				return false;
-		} else if (!complemento.equals(other.complemento))
-			return false;
-		if (fax == null) {
-			if (other.fax != null)
-				return false;
-		} else if (!fax.equals(other.fax))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
-			return false;
-		if (ie == null) {
-			if (other.ie != null)
-				return false;
-		} else if (!ie.equals(other.ie))
-			return false;
-		if (inativo == null) {
-			if (other.inativo != null)
-				return false;
-		} else if (!inativo.equals(other.inativo))
-			return false;
-		if (logradouro == null) {
-			if (other.logradouro != null)
-				return false;
-		} else if (!logradouro.equals(other.logradouro))
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (numero == null) {
-			if (other.numero != null)
-				return false;
-		} else if (!numero.equals(other.numero))
-			return false;
-		if (telefone == null) {
-			if (other.telefone != null)
-				return false;
-		} else if (!telefone.equals(other.telefone))
 			return false;
 		return true;
 	}
@@ -217,8 +199,7 @@ public class Fabricante implements Serializable {
 	public String toString() {
 		return "Fabricante [id=" + id + ", nome=" + nome + ", cnpj=" + cnpj + ", ie=" + ie + ", numero=" + numero
 				+ ", complemento=" + complemento + ", telefone=" + telefone + ", fax=" + fax + ", inativo=" + inativo
+				+ ", nmFantasia=" + nmFantasia + ", dtOperacao=" + dtOperacao + ", vlComissao=" + vlComissao
 				+ ", logradouro=" + logradouro + "]";
 	}
-    
-    
 }

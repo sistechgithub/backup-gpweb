@@ -84,6 +84,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/cliente/cliente-dialog.html',
                         controller: 'ClienteDialogController',
                         size: 'lg',
+                        backdrop: 'static',
                         resolve: {
                             entity: ['Cliente', function(Cliente) {
                                 return Cliente.get({id : $stateParams.id});
@@ -107,6 +108,7 @@ angular.module('gpApp')
                         templateUrl: 'scripts/app/entities/cliente/cliente-delete-dialog.html',
                         controller: 'ClienteDeleteController',
                         size: 'md',
+                        backdrop: 'static',
                         resolve: {
                             entity: ['Cliente', function(Cliente) {
                                 return Cliente.get({id : $stateParams.id});
