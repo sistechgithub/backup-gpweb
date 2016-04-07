@@ -54,7 +54,9 @@ angular.module('gpApp')
                             entity: function () {
                                 return {
                                 	 nome: null,
+                                	 nmFantasia: null,
                                      cnpj: null,
+                                     vlComissao: null,
                                      ie: null,
                                      numero: null,
                                      complemento: null,

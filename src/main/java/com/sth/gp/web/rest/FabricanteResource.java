@@ -2,6 +2,7 @@ package com.sth.gp.web.rest;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -58,6 +59,9 @@ public class FabricanteResource {
         if (fabricante.getId() != null) {
             return ResponseEntity.badRequest().header("Falha", "Um novo Fabricante não pode já ter um Código").body(null);
         }
+        
+        fabricante.setDtOperacao(LocalDate.now()); //Always use the operation date from server
+        
         Fabricante result = fabricanteRepository.save(fabricante);        
         return ResponseEntity.created(new URI("/api/fabricantes/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("fabricante", result.getId().toString()))
@@ -76,6 +80,9 @@ public class FabricanteResource {
         if (fabricante.getId() == null) {
             return createFabricante(fabricante);
         }
+        
+        fabricante.setDtOperacao(LocalDate.now()); //Always use the operation date from server
+        
         Fabricante result = fabricanteRepository.save(fabricante);        
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("fabricante", fabricante.getId().toString()))

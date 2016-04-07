@@ -72,6 +72,26 @@
 			</div><!-- fim coluna -->
 		</div><!-- fim row -->
 		
+		<!-- Nome Fantasia -->
+		<div class="row">		
+			<div class="col-xs-12 col-sm-12">
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_nome">
+							Nome Fantasia
+					</label>
+					<input 	type="text" 
+							class="form-control text-uppercase" 
+							name="nome_fantasia"
+							id="field_nome_fantasia" 
+							ng-model="fabricante.nmFantasia"
+							ng-minlength="1" 
+							maxlength="35"							 
+					/>					
+				</div>
+			</div><!-- fim coluna -->
+		</div><!-- fim row -->
+		
 		<div class="row">
 			<logradouro entidade="fabricante"></logradouro>
 		</div>
@@ -185,7 +205,24 @@
 						</p>
 					</div>
 				</div>
-			</div><!-- fim coluna -->				
+			</div><!-- fim coluna -->	
+			
+			<div class="col-xs-12 col-md-4">			 
+				<div class="form-group">
+					<label  class="control-label" 
+							for="field_fax">
+							Comissão (%)
+					</label> 
+					<input  type="number" 
+							class="form-control"
+							name="vl_comissao" 
+							id="field_vl_comissao" 
+							ng-model="fabricante.vlComissao" 
+							min="0" max="100" placeholder='0,00'
+					/>
+				</div>
+			</div><!-- fim coluna -->
+							
 		</div><!-- fim row -->			
 		<div class="row">
 			<div class="col-xs-12 col-md-12">
