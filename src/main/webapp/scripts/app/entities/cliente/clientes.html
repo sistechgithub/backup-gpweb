@@ -1,78 +1,83 @@
-<div class="box">
+<div class="box">    
     <div class="box-header with-border">
-        <h3 class="box-title">Clientes</h3>            
-    </div>
+        <h3 class="box-title">Clientes</h3>
+    </div><!-- /.box-header -->
+    
     <div class="box-header">
-        <div class="box-btn">                     
-            <button class="btn btn-success pull-left" ui-sref="cliente.new">
-                <span class="mdi mdi-plus"></span>
-                <span>Adicionar</span>
-            </button>
-        </div>
-        <div class="box-btn pull-right">
-            <form class="form-inline pull-right" name="searchForm">
-                <div class="input-group">                  
-                    <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar"> 
-                    <span class="input-group-btn">                   
-                        <button class="btn btn-sm btn-info" ng-click="search()">
-                            <span class="mdi mdi-magnify"></span>
-                        </button>
-                    </span>
-                </div>
-            </form>
-        </div>          
-    </div>
-    <div class="box-body no-padding">
-    <jh-alert></jh-alert>
-    <div class="table-responsive">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th class="col-md-1">Código</th>
-                    <th class="col-md-3">Nome</th>
-                    <th class="col-md-2 text-right">CPF</th>
-                    <th class="col-md-2 text-right">CNPJ</th>
-                    <th class="col-md-2 text-right">Celular</th>
-                    <th class="col-md-2 text-center">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="cliente in clientes track by cliente.id">
-                    <td>
-                        <a ui-sref="cliente.detail({id:cliente.id})">{{cliente.id}}</a>
-                    </td>
-                    <td class="text-uppercase">{{cliente.nome}}</td>
-                    <td class="text-right">{{cliente.pessoaFisica.cpf | brCpf}}</td>
-                    <td class="text-right">{{cliente.pessoaJuridica.cnpj | brCnpj}}</td>
-                    <td class="text-right">{{cliente.celular | brPhoneNumber}}</td>
-                    <td class="text-center">
-                        <button type="submit"
-                                class="btn btn-sm btn-success"
-                                data-tooltip="Detalhes" 
-                                data-tooltip-position="top"
-                                ui-sref="cliente.detail({id:cliente.id})">
-                            <span class="mdi mdi-eye"></span>
-                        </button>
-                        <button type="submit"
-                                class="btn btn-sm btn-primary"
-                                data-tooltip="Editar" 
-                                data-tooltip-position="top"
-                                ui-sref="cliente.edit({id:cliente.id})">
-                            <span class="mdi mdi-pencil"></span>
-                        </button>
-                        <button type="submit"
-                                class="btn btn-sm btn-danger"
-                                data-tooltip="Deletar" 
-                                data-tooltip-position="top"                        
-                                ui-sref="cliente.delete({id:cliente.id})">
-                            <span class="mdi mdi-delete"></span>
-                        </button>
-                    </td>                    
-                </tr>
-            </tbody>
-        </table>
-    </div>
-        
+        <div class="row">
+            <div class="col-xs-4 col-sm-5">
+                <button class="btn btn-success pull-left" ui-sref="cliente.new">
+                    <span class="mdi mdi-plus"></span>
+                    <span>Adicionar</span>
+                </button>
+            </div>
+            <div class="col-xs-8 col-sm-7 search-pad-col">
+                <form class="form-inline pull-right" name="searchForm">
+                    <div class="input-group">
+                        <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="PESQUISAR">
+                        <span class="input-group-btn">
+                            <button class="btn btn-sm btn-info" ng-click="search()">
+                                <span class="mdi mdi-magnify"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /.box-header -->
+    
+    <div class="box-body">
+        <jh-alert></jh-alert>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-md-1 col-cli-codigo">Código</th>
+                        <th class="col-md-7 col-cli-nome">Nome</th>
+                        <th class="col-md-1 col-cli-cpf">CPF</th>
+                        <th class="col-md-1 col-cli-cnpj">CNPJ</th>
+                        <th class="col-md-1 col-cli-celular">Celular</th>
+                        <th class="col-md-1 col-cli-acoes text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cliente in clientes track by cliente.id">
+                        <td>
+                            <a ui-sref="cliente.detail({id:cliente.id})">{{cliente.id}}</a>
+                        </td>
+                        <td class="text-uppercase">{{cliente.nome}}</td>
+                        <td class="text-right">{{cliente.pessoaFisica.cpf | brCpf}}</td>
+                        <td class="text-right">{{cliente.pessoaJuridica.cnpj | brCnpj}}</td>
+                        <td class="text-right">{{cliente.celular | brPhoneNumber}}</td>
+                        <td class="text-center">
+                            <button type="submit"
+                                    class="btn btn-sm btn-success"
+                                    data-tooltip="Detalhes"
+                                    data-tooltip-position="top"
+                                    ui-sref="cliente.detail({id:cliente.id})">
+                                <span class="mdi mdi-eye"></span>
+                            </button>
+                            <button type="submit"
+                                    class="btn btn-sm btn-primary"
+                                    data-tooltip="Editar"
+                                    data-tooltip-position="top"
+                                    ui-sref="cliente.edit({id:cliente.id})">
+                                <span class="mdi mdi-pencil"></span>
+                            </button>
+                            <button type="submit"
+                                    class="btn btn-sm btn-danger"
+                                    data-tooltip="Deletar"
+                                    data-tooltip-position="top"
+                                    ui-sref="cliente.delete({id:cliente.id})">
+                                <span class="mdi mdi-delete"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div><!-- /.table-responsive -->
+    </div><!-- /.box-body -->
+    
     <nav class="box-footer clearfix">
         <ul class="pagination no-margin pull-right">
             <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
@@ -85,5 +90,5 @@
             <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
             <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
         </ul>
-    </nav>
-</div>
+    </nav><!-- /.box-footer -->
+</div><!-- /.box -->

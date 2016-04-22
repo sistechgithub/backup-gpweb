@@ -1,82 +1,83 @@
 <div class="box">
-	<div class="box-header with-border">
-		<h3 class="box-title">Grupos</h3>	  
-	</div>	
-	<div class="box-header">
+    <div class="box-header with-border">
+        <h3 class="box-title">Grupos</h3>
+    </div><!-- /.box-header -->
+    
+    <div class="box-header">
         <div class="row">
-        	<div class="col-xs-12 col-sm-5">                     
-	            <button class="btn btn-success pull-left" ui-sref="grupo.new">
-	                <span class="mdi mdi-plus"></span> 
-	                <span>Adicionar</span>
-	            </button>
-	        </div>
-            <div class="col-xs-12 col-sm-7 search-pad-col">         
-        		<search ng-model="grupos"></search>
-        	</div>
-        </div>            
-    </div>
-    <div class="box-body no-padding">    
-	<jh-alert></jh-alert>
+            <div class="col-xs-12 col-sm-5">
+                <button class="btn btn-success pull-left" ui-sref="grupo.new">
+                    <span class="mdi mdi-plus"></span>
+                    <span>Adicionar</span>
+                </button>
+            </div>
+            <div class="col-xs-12 col-sm-7 search-pad-col">
+                <search ng-model="grupos"></search>
+            </div>
+        </div>
+    </div><!-- /.box-header -->
+    
+    <div class="box-body">
+        <jh-alert></jh-alert>
         <div class="table-responsive">
-		    <table class="table table-hover">
-			    <thead>
-	                <tr>
-	                	<th class="col-md-1">Código</th>       
-	                    <th class="col-md-5">Nome</th>
-	                    <th class="col-md-2 text-right">Comissão (%)</th>
-	                    <th class="col-md-1 text-center">Promoção</th>
-	                    <th class="col-md-1 text-center">Desconto</th>
-<!-- 	                    <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right">Desc. Promocional (%)</th> -->
-	                    <th class="col-md-2 text-center">Ações</th>
-	                </tr>
-	            </thead>
-			    <tbody>			        			        
-	                <tr ng-repeat="grupo in grupos track by grupo.id">
-	                    <td><a ui-sref="grupo.detail({id:grupo.id})">{{grupo.id}}</a></td>
-	                    <td class="text-uppercase">{{grupo.nmGrupo}}</td>
-	                    <td class="text-right">{{grupo.vlComissao | currency:'':2}}%</td>	                    
-	                    <td class="text-center">
-	                    	<i class="glyphicon"
-								ng-class="{'glyphicon-ok text-success': grupo.flPromo,
-								'glyphicon-remove text-danger': !grupo.flPromo}">
-							</i>
-	                    </td>
-	                    <td class="text-center">
-	                    	<i class="glyphicon"
-								ng-class="{'glyphicon-ok text-success': grupo.flDesco,
-								'glyphicon-remove text-danger': !grupo.flDesco}">
-							</i>
-	                    </td>	                    
-	                    <td class="text-center">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-md-1 col-grupo-codigo">Código</th>
+                        <th class="col-md-7 col-grupo-nome">Nome</th>
+                        <th class="col-md-1 col-grupo-comissao">Comissão (%)</th>
+                        <th class="col-md-1 col-grupo-promocao">Promoção</th>
+                        <th class="col-md-1 col-grupo-semdesconto">Sem Desconto</th>
+                        <th class="col-md-1 col-grupo-acoes text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="grupo in grupos track by grupo.id">
+                        <td><a ui-sref="grupo.detail({id:grupo.id})">{{grupo.id}}</a></td>
+                        <td class="text-uppercase">{{grupo.nmGrupo}}</td>
+                        <td class="text-right">{{grupo.vlComissao | currency:'':2}}%</td>
+                        <td class="text-center">
+                            <i class="mdi"
+                                ng-class="{'mdi-check text-success': grupo.flPromo,
+                                'mdi-close text-danger': !grupo.flPromo}">
+                            </i>
+                        </td>
+                        <td class="text-center">
+                            <i class="mdi"
+                                ng-class="{'mdi-check text-success': grupo.flDesco,
+                                'mdi-close text-danger': !grupo.flDesco}">
+                            </i>
+                        </td>
+                        <td class="text-center">
                             <button type="submit"
                                     class="btn btn-sm btn-success"
-                                    data-tooltip="Detalhes" 
+                                    data-tooltip="Detalhes"
                                     data-tooltip-position="top"
                                     ui-sref="grupo.detail({id:grupo.id})">
                                 <span class="mdi mdi-eye"></span>
                             </button>
-                            <button type="submit"                                    
+                            <button type="submit"
                                     class="btn btn-sm btn-primary"
-                                    data-tooltip="Editar" 
+                                    data-tooltip="Editar"
                                     data-tooltip-position="top"
                                     ui-sref="grupo.edit({id:grupo.id})">
                                 <span class="mdi mdi-pencil"></span>
                             </button>
                             <button type="submit"
                                     class="btn btn-sm btn-danger"
-                                    data-tooltip="Deletar" 
+                                    data-tooltip="Deletar"
                                     data-tooltip-position="top"
                                     ui-sref="grupo.delete({id:grupo.id})">
                                  <span class="mdi mdi-delete"></span>
                             </button>
                         </td>
-	                </tr>	
-	            </tbody>		        
-			</table>			        
-		</div>
-	 </div><!-- /.box-body -->	
-		
-	<div class="box-footer clearfix">
+                    </tr>
+                </tbody>
+            </table>
+        </div><!-- /.table-responsive -->
+    </div><!-- /.box-body -->
+    
+    <nav class="box-footer clearfix">
         <ul class="pagination no-margin pull-right">
             <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
             <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
@@ -88,5 +89,5 @@
             <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
             <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
         </ul>
-    </div><!-- /.box-footer -->
-</div>
+    </nav><!-- /.box-footer -->
+</div><!-- /.box -->
