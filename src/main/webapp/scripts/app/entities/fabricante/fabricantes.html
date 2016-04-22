@@ -1,64 +1,66 @@
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">Marcas</h3>            
-    </div>
+        <h3 class="box-title">Marcas</h3>
+    </div><!-- /.box-header -->
+    
     <div class="box-header">
         <div class="row">
-            <div class="col-xs-12 col-sm-5">                     
+            <div class="col-xs-12 col-sm-5">
                 <button class="btn btn-success pull-left" ui-sref="fabricante.new">
-                    <span class="mdi mdi-plus"></span> 
+                    <span class="mdi mdi-plus"></span>
                     <span>Adicionar</span>
                 </button>
             </div>
-            <div class="col-xs-12 col-sm-7 search-pad-col">         
+            <div class="col-xs-12 col-sm-7 search-pad-col">
                 <search ng-model="fabricantes"></search>
             </div>
-        </div>            
-    </div>
-    <div class="box-body no-padding">
-        <jh-alert></jh-alert>              
+        </div>
+    </div><!-- /.box-header -->
+    
+    <div class="box-body">
+        <jh-alert></jh-alert>
         <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
-                        <th class="col-md-1">Código</th>
-                        <th class="col-md-4">Nome</th>
-                        <th class="col-md-2 text-right">Telefone</th>
-                        <th class="col-md-2 text-right">FAX</th>
-                        <th class="col-md-1 text-center">Inativo</th>
-                        <th class="col-md-2 text-center">Ações</th>
-                    </tr>    
-                </thead>  
+                        <th class="col-md-1 col-marca-codigo">Código</th>
+                        <th class="col-md-5 col-marca-nome">Nome</th>
+                        <th class="col-md-3 col-marca-cidade">Cidade</th>
+                        <th class="col-md-1 col-marca-telefone">Telefone</th>
+                        <th class="col-md-1 col-marca-inativo">Inativo</th>
+                        <th class="col-md-1 col-marca-acoes text-center">Ações</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr ng-repeat="fabricante in fabricantes track by fabricante.id">
                         <td><a ui-sref="fabricante.detail({id:fabricante.id})">{{fabricante.id}}</a></td>
                         <td class="text-uppercase">{{fabricante.nome}}</td>
+                        <td class="text-uppercase">{{fabricante.logradouro.bairro.cidade.nome}}</td>
                         <td class="text-right">{{fabricante.telefone | brPhoneNumber}}</td>
-                        <td class="text-right">{{fabricante.fax | brPhoneNumber}}</td>
                         <td class="text-center">
-                            <i class="glyphicon"
-                                ng-class="{'glyphicon-ok text-success': fabricante.inativo,
-                                'glyphicon-remove text-danger': !fabricante.inativo}">
+                            <i class="mdi"
+                                ng-class="{'mdi-check text-success': fabricante.inativo,
+                                'mdi-close text-danger': !fabricante.inativo}">
                             </i>
                         </td>
                         <td class="text-center">
                             <button type="submit"
                                     class="btn btn-sm btn-success"
-                                    data-tooltip="Detalhes" 
+                                    data-tooltip="Detalhes"
                                     data-tooltip-position="top"
                                     ui-sref="fabricante.detail({id:fabricante.id})">
                                 <span class="mdi mdi-eye"></span>
                             </button>
                             <button type="submit"
                                     class="btn btn-sm btn-primary"
-                                    data-tooltip="Editar" 
+                                    data-tooltip="Editar"
                                     data-tooltip-position="top"
                                     ui-sref="fabricante.edit({id:fabricante.id})">
                                 <span class="mdi mdi-pencil"></span>
                             </button>
                             <button type="submit"
                                     class="btn btn-sm btn-danger"
-                                    data-tooltip="Deletar" 
+                                    data-tooltip="Deletar"
                                     data-tooltip-position="top"
                                     ui-sref="fabricante.delete({id:fabricante.id})">
                                 <span class="mdi mdi-delete"></span>
@@ -67,9 +69,10 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div><!-- /.box-body -->     
-    <div class="box-footer clearfix">
+        </div><!-- /.table-responsive -->
+    </div><!-- /.box-body -->
+    
+    <nav class="box-footer clearfix">
         <ul class="pagination no-margin pull-right">
             <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
             <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
@@ -81,5 +84,5 @@
             <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
             <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
         </ul>
-    </div><!-- /.box-footer --> 
-</div>
+    </nav><!-- /.box-footer -->
+</div><!-- /.box -->

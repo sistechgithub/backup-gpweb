@@ -1,34 +1,42 @@
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">Tipos de Clientes</h3>            
-    </div>
+        <h3 class="box-title">Tipos de Clientes</h3>
+    </div><!-- /.box-header -->
+    
     <div class="box-header">
-        <div class="box-btn">                     
-            <button class="btn btn-success pull-left" ui-sref="tipocliente.new">   
-                <span class="mdi mdi-plus"></span>              
-                <span>Adicionar</span>
-            </button>
-        </div>
-        <div class="box-btn pull-right">
-            <form class="form-inline pull-right" name="searchForm">                  
-                <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="Pesquisar">                    
-                <button class="btn btn-sm btn-info hidden-xs" ng-click="search()">
-                    <span class="mdi mdi-magnify"></span>
+        <div class="row">
+            <div class="col-xs-4 col-sm-5">
+                <button class="btn btn-success pull-left" ui-sref="tipocliente.new">
+                    <span class="mdi mdi-plus"></span>
+                    <span>Adicionar</span>
                 </button>
-            </form>
-        </div>          
-    </div>
-    <div class="box-body no-padding">
+            </div>
+            <div class="col-xs-8 col-sm-7 search-pad-col">
+                <form class="form-inline pull-right" name="searchForm">
+                    <div class="input-group">
+                        <input class="form-control" type="text" ng-model="searchQuery" id="searchQuery" placeholder="PESQUISAR">
+                        <span class="input-group-btn">
+                            <button class="btn btn-sm btn-info" ng-click="search()">
+                                <span class="mdi mdi-magnify"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /.box-header -->
+    
+    <div class="box-body">
         <jh-alert></jh-alert>
         <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
-                        <th class="col-md-1">Código</th>
-                        <th class="col-md-9">Nome</th>
-                        <th class="col-md-2 text-center">Ações</th>
+                        <th class="col-md-1 col-tpcli-codigo">Código</th>
+                        <th class="col-md-10 col-tpcli-nome">Nome</th>
+                        <th class="col-md-1 col-tpcli-acoes text-center">Ações</th>
                     </tr>
-                </thead>                    
+                </thead>
                 <tbody>
                     <tr ng-repeat="tipocliente in tipoclientes track by tipocliente.id">
                         <td>
@@ -38,32 +46,33 @@
                         <td class="text-center">
                             <button type="submit"
                                     class="btn btn-sm btn-success"
-                                    data-tooltip="Detalhes" 
+                                    data-tooltip="Detalhes"
                                     data-tooltip-position="top"
                                     ui-sref="tipocliente.detail({id:tipocliente.id})">
                                 <span class="mdi mdi-eye"></span>
                             </button>
                             <button type="submit"
                                     class="btn btn-sm btn-primary"
-                                    data-tooltip="Editar" 
+                                    data-tooltip="Editar"
                                     data-tooltip-position="top"
                                     ui-sref="tipocliente.edit({id:tipocliente.id})">
                                 <span class="mdi mdi-pencil"></span>
                             </button>
                             <button type="submit"
-                                    class="btn btn-sm btn-danger" 
-                                    data-tooltip="Deletar" 
-                                    data-tooltip-position="top"                       
+                                    class="btn btn-sm btn-danger"
+                                    data-tooltip="Deletar"
+                                    data-tooltip-position="top"
                                     ui-sref="tipocliente.delete({id:tipocliente.id})">
                                 <span class="mdi mdi-delete"></span>
                             </button>
-                        </td>                    
+                        </td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div>        
-    <div class="box-footer clearfix">
+        </div><!-- /.table-responsive -->
+    </div><!-- /.box-body -->
+    
+    <nav class="box-footer clearfix">
         <ul class="pagination no-margin pull-right">
             <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
             <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
@@ -75,5 +84,5 @@
             <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
             <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
         </ul>
-    </div><!-- /.box-footer -->        
-</div>
+    </nav><!-- /.box-footer -->
+</div><!-- /.box -->

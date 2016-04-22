@@ -1,7 +1,8 @@
 <div class="box">
     <div class="box-header with-border">
         <h3 class="box-title">Prazos</h3>            
-    </div>
+    </div><!-- /.box-header -->
+    
     <div class="box-header">
         <div class="row">
             <div class="col-xs-12 col-sm-5">                     
@@ -14,17 +15,18 @@
                 <search ng-model="prazos"></search>
             </div>
         </div>            
-    </div>
-    <div class="box-body no-padding">
+    </div><!-- /.box-header -->
+    
+    <div class="box-body">
         <jh-alert></jh-alert>              
         <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
-                        <th class="col-md-1text-center">Código</th>
-                        <th class="col-md-8">Nome</th>
-                        <th class="col-md-1 text-right">Parcelas</th>
-                        <th class="col-md-2 text-center">Ações</th>
+                        <th class="col-md-1 col-prazo-codigo">Código</th>
+                        <th class="col-md-9 col-prazo-nome">Nome</th>
+                        <th class="col-md-1 col-prazo-parcelas">Parcelas</th>
+                        <th class="col-md-1 col-prazo-acoes text-center">Ações</th>
                     </tr>   
                 </thead>
                 <tbody>
@@ -58,9 +60,10 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div><!-- /.box-body -->     
-    <div class="box-footer clearfix">
+        </div><!-- /.table-responsive -->
+    </div><!-- /.box-body -->
+        
+    <nav class="box-footer clearfix">
         <ul class="pagination no-margin pull-right">
             <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'])"><a>&lt;&lt;</a></li>
             <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0)"><a>&lt;</a></li>
@@ -72,5 +75,5 @@
             <li ng-show="links['next']" ng-click="loadPage(links['next'])"><a>&gt;</a></li>
             <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'])"><a>&gt;&gt;</a></li>
         </ul>
-    </div><!-- /.box-footer --> 
-</div>
+    </nav><!-- /.box-footer --> 
+</div><!-- /.box -->
